@@ -34,6 +34,8 @@
     --image__1--gradient: linear-gradient(from top left to bottom left, rgba(226, 104, 104, 0.8), rgba(132, 226, 104, 0.8));
 
     --shadow-1: 0 3px 3px 0 rgb(0 0 0 / 8%);
+
+    --hover-bg: rgba(255, 255, 255, 0.654);
 }
 
 *,*::before,*::after {
@@ -85,9 +87,9 @@ ul a {
     width: 100%;
     /* background-color: var(--bg-light-clr); */
     background-color: var(--white-clr);
-    border-bottom: 1px solid var(--border-clr);
+    /* border-bottom: 1px solid var(--border-clr); */
     z-index: 1;
-    box-shadow: var(--shadow-1);
+    /* box-shadow: var(--shadow-1); */
 }
 
 .header--logo {
@@ -96,6 +98,7 @@ ul a {
 
 .header__primary {
     padding: var(--padding-block-1) var(--padding-inline-1);
+    margin-inline: var(--padding-inline-1);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -108,7 +111,6 @@ ul a {
     justify-content: space-between;
     align-items: center;
     padding-inline: var(--body-margin-inline);
-    background-color: black;
 }
 
 .search {
@@ -142,27 +144,32 @@ ul a {
     /* gap: 20px; */
 }
 
-.nav_list:is(:first-child) {
-    border-left: 1px solid rgb(216, 217, 207);
-}
 
 .nav_list--item {
-    padding-block: .8rem;
-    padding-inline: 4rem;
-    width: 100%;
-    padding-block: var(--padding-block-3);
-    border-right: 1px solid rgb(216, 217, 207);
+    /* padding-block: .8rem; */
+    /* padding-inline: 4rem; */
+    width: 150px;
+    /* padding-block: var(--padding-block-3); */
     font-size: 1.2rem;
     text-align: center;
+    border-top: 3px solid transparent;
 }
 
 .nav_list--item a {
-    color: rgb(216, 217, 207);
+    /* color: rgb(216, 217, 207); */
+    font-weight: bold;
 }
 
 .nav_list--item:hover {
-    background-color: var(--bg-light-clr);
+    background-color: var(--hover-bg);
     cursor: pointer;
+    border-top: 3px solid var(--btn-blue);
+}
+
+.nav_list--item select {
+    padding: var(--input-padding-block) var(--input-padding-inline);
+    border: none;
+    background-color: var(--white-clr);
 }
 
 .container {

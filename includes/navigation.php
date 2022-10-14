@@ -2,8 +2,9 @@
     <div class="header__primary">
         <h1 class="header--logo">BlogIfy!</h1>
 
-        <div class="admin__link">
-            <a href="./admin/index.php">Admin</a>
+        <div class="search">
+            <input type="search" name="search__articles" id="" class="search__articles" placeholder="search">
+            <button type="submit" name="search__button" class="search__button">Search</button>
         </div>
     </div>
 
@@ -11,22 +12,59 @@
         <nav>
             <ul class="nav_list">
                 <li class="nav_list--item">
-                    <a href="#">Programming</a>
+
+
+                    <select name="" id="">
+                        <option value="">
+                            <a href="#">Programming</a>
+                        </option>
+                        <option value="">
+                            <a href="#">Music</a>
+                        </option>
+                        <option value="">
+                            <a href="#">Music</a>
+                        </option>
+                    </select>
                 </li>
 
                 <li class="nav_list--item">
-                    <a href="#">LifeStyle</a>
+
+
+                    <select name="" id="">
+                        <option value="">
+                            <a href="#">LifeStyle</a>
+                        </option>
+                        <option value="">
+                            <a href="#">Music</a>
+                        </option>
+                        <option value="">
+                            <a href="#">Music</a>
+                        </option>
+                    </select>
+
                 </li>
 
                 <li class="nav_list--item">
-                    <a href="#">Music</a>
+
+                    <select name="" id="">
+                        <option value="">
+                            <a href="#">Music</a>
+                        </option>
+                        <option value="">
+                            <a href="#">Music</a>
+                        </option>
+                        <option value="">
+                            <a href="#">Music</a>
+                        </option>
+                    </select>
+
                 </li>
             </ul>
-
         </nav>
-        <div class="search">
-            <input type="search" name="search__articles" id="" class="search__articles" placeholder="search">
-            <button type="submit" name="search__button" class="search__button">Search</button>
+
+
+        <div class="admin__link">
+            <a href="./admin/index.php">Admin</a>
         </div>
     </div>
 </header>

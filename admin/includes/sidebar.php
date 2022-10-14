@@ -4,7 +4,7 @@
                 <a href="#">Stats</a>
             </li>
             <li class="admin__nav--item">
-                <a href="#">Create article</a>
+                <a href="create_article.php">Create article</a>
             </li>
             <li class="admin__nav--item">
                 <a href="#">Edit article</a>

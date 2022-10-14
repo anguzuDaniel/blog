@@ -219,6 +219,7 @@ if ($result === false) {
                             <img src="images/<?= $article['article_image']; ?>" />
                             <!-- <img src="images/Programming-Language-Popularity.jpg" alt="" srcset=""> -->
                             <div class="lastest__articles--text">
+                                <p class="lastest__articles--date">December 11, 2016</p>
                                 <h1 class="lastest__articles--title"><?= $article['article_title']; ?></h1>
                                 <p class="lastest__articles--paragraph"><?= $article['article_content']; ?></p>
                                 <a href="article.php?id=<?= $article['id']; ?>" name="read_more" class="btn btn--read">read more &rarr;</a>

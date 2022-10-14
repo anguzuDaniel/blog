@@ -21,12 +21,23 @@ if (isset($_POST['create_article'])) {
         exit;
     }
 
-    $sql = "INSERT INTO articles(article_image, article_title, article_content) VALUES ('{$article_image}', '{$article_title}', '{$article_content}') ";
+    // '{$article_image}', '{$article_title}', '{$article_content}') "
 
-    $result = mysqli_query($connection, $sql);
+    $sql = "INSERT INTO articles(article_image, article_title, article_content) VALUES (?, ?, ?) ";
 
-    if ($result === false) {
+    $stmt = mysqli_prepare($connection, $sql);
+
+    if ($stmt === false) {
         echo mysqli_error($connection);
+    } else {
+        mysqli_stmt_bind_param($stmt, 'sss', $article_image, $_POST['article__title'], $_POST['article__content']);
+
+        if (mysqli_stmt_execute($stmt)) {
+            $id = mysqli_insert_id($connection);
+            echo 'Inserted record with ID: $id';
+        } else {
+            echo mysqli_stmt_errno($stmt);
+        }
     }
 
     move_uploaded_file($image_temp, "../images/$article_image");

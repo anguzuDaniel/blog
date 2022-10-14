@@ -14,9 +14,9 @@
                 <li class="nav_list--item">
 
 
-                    <select name="" id="">
+                    <select name="tech" id="tech">
                         <option value="">
-                            <a href="#">Programming</a>
+                            <a href="#">Technology</a>
                         </option>
                         <option value="">
                             <a href="#">Music</a>
@@ -30,7 +30,7 @@
                 <li class="nav_list--item">
 
 
-                    <select name="" id="">
+                    <select name="lifestyle" id="lifestyle">
                         <option value="">
                             <a href="#">LifeStyle</a>
                         </option>

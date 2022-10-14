@@ -1,2 +1,2 @@
 # blog
- A blogapplication built in php 
+A blog application built in php 

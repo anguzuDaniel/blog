@@ -73,6 +73,7 @@ ul a {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
+    margin-block: var(--padding-block-2);
 }
 
 /* p { */
@@ -97,7 +98,7 @@ ul a {
 }
 
 .header__primary {
-    padding: var(--padding-block-1) var(--padding-inline-1);
+    padding-block: var(--padding-block-1);
     margin-inline: var(--padding-inline-1);
     display: flex;
     align-items: center;
@@ -117,8 +118,6 @@ ul a {
     position: relative;
     /* width: 50%; */
 }
-
-
 
 .search__articles {
     padding: var(--input-padding-block) var(--input-padding-inline);
@@ -149,7 +148,7 @@ ul a {
     /* padding-block: .8rem; */
     /* padding-inline: 4rem; */
     width: 150px;
-    /* padding-block: var(--padding-block-3); */
+    padding-block: var(--padding-block-2);
     font-size: 1.2rem;
     text-align: center;
     border-top: 3px solid transparent;
@@ -170,6 +169,11 @@ ul a {
     padding: var(--input-padding-block) var(--input-padding-inline);
     border: none;
     background-color: var(--white-clr);
+    cursor: pointer;
+}
+
+.nav_list--item select option {
+    padding: var(--input-padding-block) var(--input-padding-inline);
 }
 
 .container {
@@ -225,7 +229,7 @@ ul a {
 
 .lastest__articles--text {
     padding-inline: 2rem;
-    padding-bottom: 3rem;
+    padding-block: var(--padding-block-3);
     /* width: 50%; */
 }
 
@@ -237,6 +241,10 @@ ul a {
 
 .lastest__articles--paragraph {
     padding-block: .5rem;
+}
+
+.lastest__articles--date {
+    font-size: 1.2rem;
 }
 
 /* side navigation | home page */

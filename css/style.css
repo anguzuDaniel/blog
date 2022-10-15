@@ -49,7 +49,7 @@ html {
     box-sizing: border-box;
     font-family: 'Barlow', sans-serif;
     font-family: 'Fraunces', serif;
-    font-family: 'Public Sans', sans-serif;
+    /* font-family: 'Public Sans', sans-serif; */
 }
 
 body {
@@ -112,6 +112,7 @@ ul a {
     justify-content: space-between;
     align-items: center;
     padding-inline: var(--body-margin-inline);
+    /* border-bottom: 1px solid var(--border-clr); */
 }
 
 .search {
@@ -170,10 +171,11 @@ ul a {
     border: none;
     background-color: var(--white-clr);
     cursor: pointer;
+    outline: none;
 }
 
-.nav_list--item select option {
-    padding: var(--input-padding-block) var(--input-padding-inline);
+.nav_list--item select > option > a {
+    padding: 2rem 3rem;
 }
 
 .container {
@@ -258,6 +260,33 @@ ul a {
 .lastest__articles--date {
     font-size: 1.2rem;
 }
+
+
+/* artcile page style | starts here */
+.article {
+    margin-inline: var(--body-margin-inline);
+    margin-block: var(--margin-top);
+}
+
+.article--text {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.article--title {
+    color: var(--clr-primary);
+}
+
+.article--image img {
+    width: 100%;
+}
+
+.article article {
+    display: grid;
+    gap: 20px;
+}
+/* artcile page style | ends here */
 
 /* Recommeded artciles style start */
 .recommended__articles {
@@ -400,7 +429,7 @@ aside {
 }
 
 .form__row input, textarea {
-    padding: .8rem 1rem;
+    padding: 1rem 1.6rem;
     border: 1px solid var(--border-clr);
     outline: none;
 }
@@ -453,10 +482,20 @@ aside {
     cursor: pointer;
 }
 
+.btn:hover {
+    box-shadow: var(--shadow-1);
+}
 
 .btn--submit {
     margin-bottom: 1rem;
+    background-color: var(--btn-blue);
+    padding: 1rem 3rem;
 }
+
+/* .btn--submit:hover { */
+/*  */
+/* } */
+
 
 /* read more btn style*/
 .btn--read {
@@ -478,7 +517,6 @@ aside {
 
 .btn--read:hover  {
     border: 2px solid var(--btn-blue);
-    box-shadow: var(--shadow-1);
 }
 /* btn style end */
 

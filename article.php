@@ -26,18 +26,36 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 <?php require "includes/navigation.php"; ?>
 
-<div class="lastest__article">
+
+<div class="article">
 
     <?php if ($article === NULL) : ?>
-        <p class="lastest__articles--paragraph">No articles found..</p>
+        <p class="paragraph article--paragraph">No articles found..</p>
     <?php else : ?>
         <article>
-            <img src="images/<?= $article['article_image']; ?>" />
-            <!-- <img src="images/Programming-Language-Popularity.jpg" alt="" srcset=""> -->
-            <div class="lastest__articles--text">
-                <h1 class="lastest__articles--title"><?= $article['article_title']; ?></h1>
-                <p class="lastest__articles--paragraph"><?= $article['article_content']; ?></p>
+            <div class="article--image">
+                <img src="images/<?= $article['article_image']; ?>" />
             </div>
+
+            <div class="article--text">
+                <h1 class="article--title"><?= $article['article_title']; ?></h1>
+                <p class="article--paragraph"><?= $article['article_content']; ?></p>
+            </div>
+
+            <hr>
+
+            <form class="article--comments" action="" method="post">
+                <h1 class="article--title">Please leave a comment</h1>
+                <div class="form__row">
+                    <label for="username" class="form__row--label">Username</label>
+                    <input type="text" name="username" id="">
+                </div>
+                <div class="form__row">
+                    <label for="comment" class="form__row--label">Comment</label>
+                    <textarea name="comment" id="" cols="30" rows="10" style="resize: none;"></textarea>
+                </div>
+                <input type="submit" value="comment" class="btn | btn--submit">
+            </form>
         </article>
 
     <?php endif ?>

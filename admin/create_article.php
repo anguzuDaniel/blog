@@ -49,7 +49,7 @@ if (isset($_POST['create_article'])) {
 
 ?>
 
-<?php include "./includes/head.php"; ?>
+<?php require "./includes/header.php"; ?>
 
 <header class="header">
     <h1>BlogIfy!</h1>

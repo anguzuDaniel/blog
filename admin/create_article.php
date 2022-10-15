@@ -1,25 +1,29 @@
-<?php include "./includes/head.php"; ?>
+<?php include "includes/database.php"; ?>
 
 <?php
 
 if (isset($_POST['create_article'])) {
+    // creates a conection to the database
+    $connection = getDB();
+
     $article_image = $_FILES['image']['name'];
     $image_temp = $_FILES['image']['tmp_name'];
 
     $article_title = $_POST['article__title'];
     $article_content = $_POST['article__content'];
 
-    $db_host = 'localhost';
-    $db_user = 'root';
-    $db_name = 'blog';
-    $db_password = 'password';
+    $errors = [];
 
-    $connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
-
-    if (mysqli_connect_error()) {
-        echo mysqli_connect_error();
-        exit;
+    if ($article_image == '') {
+        $errors[] = 'Please add an image description';
     }
+    if ($article_title == '') {
+        $errors[] = 'Title cannot be left empty';
+    }
+    if ($article_content == '') {
+        $errors[] = 'Content cannot be left empty';
+    }
+
 
     // '{$article_image}', '{$article_title}', '{$article_content}') "
 
@@ -45,6 +49,8 @@ if (isset($_POST['create_article'])) {
 
 ?>
 
+<?php include "./includes/head.php"; ?>
+
 <header class="header">
     <h1>BlogIfy!</h1>
 
@@ -62,6 +68,12 @@ if (isset($_POST['create_article'])) {
             <h1>Fill in form to create a blog post.</h1>
             <hr>
         </div>
+
+        <?php if (!empty($errors)) : ?>
+            <?php foreach ($errors as $error) : ?>
+                <li><?= $error ?></li>
+            <?php endforeach; ?>
+        <?php endif; ?>
 
         <form action="create_article.php" method="post" enctype="multipart/form-data">
             <div class="form__row">

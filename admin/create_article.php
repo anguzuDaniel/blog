@@ -1,4 +1,4 @@
-<?php include "includes/database.php"; ?>
+<?php require "includes/database.php"; ?>
 
 <?php
 
@@ -12,6 +12,7 @@ if (isset($_POST['create_article'])) {
     $article_title = $_POST['article__title'];
     $article_content = $_POST['article__content'];
 
+    // stores the error messages
     $errors = [];
 
     if ($article_image == '') {
@@ -23,9 +24,6 @@ if (isset($_POST['create_article'])) {
     if ($article_content == '') {
         $errors[] = 'Content cannot be left empty';
     }
-
-
-    // '{$article_image}', '{$article_title}', '{$article_content}') "
 
     $sql = "INSERT INTO articles(article_image, article_title, article_content) VALUES (?, ?, ?) ";
 
@@ -50,31 +48,28 @@ if (isset($_POST['create_article'])) {
 ?>
 
 <?php require "./includes/header.php"; ?>
+<?php require "./includes/navigation.php"; ?>
 
-<header class="header">
-    <h1>BlogIfy!</h1>
-
-    <div class="admin">
-        <a href="../index.php">Home page</a>
-    </div>
-</header>
-
-
+<!-- main section start -->
 <main class="admin__container">
     <?php include "includes/sidebar.php" ?>
 
+    <!-- admin section wrapper start -->
     <section class="admin__content">
         <div class="heading | admin__content--heading">
             <h1>Fill in form to create a blog post.</h1>
             <hr>
         </div>
 
+        <!-- error handler start | checks if inputs are empty and prints message -->
         <?php if (!empty($errors)) : ?>
             <?php foreach ($errors as $error) : ?>
                 <li><?= $error ?></li>
             <?php endforeach; ?>
         <?php endif; ?>
+        <!-- error hamdler end -->
 
+        <!-- form start -->
         <form action="create_article.php" method="post" enctype="multipart/form-data">
             <div class="form__row">
                 <label for="image" class="form__row--label">Image</label>
@@ -93,7 +88,11 @@ if (isset($_POST['create_article'])) {
 
             <input type="submit" value="Publish" name="create_article" class="btn | btn--submit" />
         </form>
+        <!-- form end -->
     </section>
+    <!-- admin section wrapper end -->
 
 </main>
+<!-- main section end -->
+
 <?php include "./includes/footer.php"; ?>

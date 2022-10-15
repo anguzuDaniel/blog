@@ -1,4 +1,4 @@
-<?php require "includes/header.php" ?>
+<?php require "includes/header.php"; ?>
 <?php
 
 require "includes/database.php";
@@ -20,13 +20,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $article = null;
 }
 
-
-
 ?>
 
-<?php require "includes/header.php" ?>
+<?php require "includes/header.php"; ?>
 
-<?php require "includes/navigation.php" ?>
+<?php require "includes/navigation.php"; ?>
 
 <div class="lastest__article">
 
@@ -39,11 +37,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <div class="lastest__articles--text">
                 <h1 class="lastest__articles--title"><?= $article['article_title']; ?></h1>
                 <p class="lastest__articles--paragraph"><?= $article['article_content']; ?></p>
-                <button type="submit" name="read_more" class="btn btn--read">read more &rarr;</button>
             </div>
         </article>
 
     <?php endif ?>
 </div>
 
-<?php require "includes/footer.php" ?>
+<?php require "includes/footer.php"; ?>

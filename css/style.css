@@ -216,38 +216,103 @@ ul a {
 }
 
 .lastest__articles article {
-    border: 1px solid var(--border-clr);
-    box-shadow: var(--shadow-1);
     display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
 }
 
-.lastest__articles img {
+.lastest__articles article a {
+    text-decoration: none;
+}
+
+.lastest__articles--image {
+    /* background-color: black; */
+    background-blend-mode: lighten;
+    /* background-position: center; */
     width: 100%;
-    aspect-ratio: 10 / 9;
-    object-fit: cover;
 }
 
 .lastest__articles--text {
-    padding-inline: 2rem;
-    padding-block: var(--padding-block-3);
-    /* width: 50%; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
+
+
+.lastest__articles img {
+    aspect-ratio: 10 / 8;
+    width: 100%;
+    object-fit: cover;
+    /* height: max-content; */
+    /* inset: 0; */
+}
+
 
 .lastest__articles--title {
-    padding-block: 2rem;
+    /* padding-block: 2rem; */
     font-size: 2rem;
     color: var(--clr-primary);
-}
-
-.lastest__articles--paragraph {
-    padding-block: .5rem;
 }
 
 .lastest__articles--date {
     font-size: 1.2rem;
 }
 
-/* side navigation | home page */
+/* Recommeded artciles style start */
+.recommended__articles {
+    margin-top: var(--margin-top);
+    margin-inline: var(--body-margin-inline);
+}
+
+.recommended__articles--underline {
+    border-bottom: 1px solid var(--btn-blue);
+    margin-bottom: 3rem;
+    margin-top: var(--margin-top);
+}
+
+.recommended__articles--heading {
+    color: var(--white-clr);
+    background-color: var(--btn-blue);
+    width: fit-content;
+    padding: 1rem;
+}
+
+.recommended__articles--wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    gap: 1rem;
+}
+
+.recommended__articles article {
+    border: 1px solid var(--border-clr);
+    box-shadow: var(--shadow-1);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.recommended__articles--images img {
+    aspect-ratio: 10 / 8;
+    width: 100%;
+    object-fit: cover;
+}
+
+.recommended__articles--text {
+    font-size: 1.6rem;
+    padding-inline: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.recommended__articles--btn {
+    margin-left: 1rem;
+}
+/* Recommeded artciles style end */
+
+
+/* side navigation style start | home page */
 aside {
     margin-left: 1rem;
     width: Min(500px, 100%);
@@ -326,8 +391,10 @@ aside {
     padding: 1rem 2rem;
     color: var(--white-clr);
 }
+/* side navigation style end | home page */
 
-/* form design */
+
+/* form design start */
 .form__row  {
     margin-block: 2rem;
 }
@@ -357,18 +424,9 @@ aside {
     background-color: var(--white-clr);
     width: max-content;
 }
+/* form design end */
 
-.btn {
-    padding: .5rem 3rem;
-    border: none;
-    background-color: var(--bg-admin-nav);
-    color: white;
-    cursor: pointer;
-}
 
-.btn--submit {
-    margin-bottom: 1rem;
-}
 
 /* footer */
 .footer {
@@ -386,9 +444,161 @@ aside {
     background-blend-mode: darken;
 }
 
-    /* read more */
-    .btn--read {
-        background-color: var(--btn-blue);
-        padding: .8rem 1.5rem;
-        margin-top: 1rem;
+/* btn style start */
+.btn {
+    padding: .5rem 3rem;
+    border: none;
+    /* background-color: var(--bg-admin-nav); */
+    color: white;
+    cursor: pointer;
+}
+
+
+.btn--submit {
+    margin-bottom: 1rem;
+}
+
+/* read more btn style*/
+.btn--read {
+    padding: .8rem 3rem;
+    background-color: var(--btn-blue);
+    border: 2px solid var(--btn-blue);
+    color: var(--white-clr);
+    /* border-radius: 50px; */
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+.btn--read a {
+    text-decoration: none;
+    color: var(--white-clr);
+
+}
+
+.btn--read:hover  {
+    border: 2px solid var(--btn-blue);
+    box-shadow: var(--shadow-1);
+}
+/* btn style end */
+
+
+    .container__articles {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        gap: 1px;
+        margin-top: 10rem;
+        height: 450px;
+    }
+
+    .article__wrappper {
+        height: 100%;
+    }
+
+    .article__wrappper--large {
+        background-image: url(../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        /* background: linear-gradient(from top left to bottom right, blue, green); */
+        background-color: rgba(0, 0, 0, 0.646);
+        background-blend-mode: darken;
+        display: flex;
+        justify-content: left;
+        align-items: flex-end;
+    }
+
+    .article__wrappper img {
+        /* position: absolute; */
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 10 / 5;
+        /* height: 100%; */
+    }
+
+    .article__text--paragraph {
+        padding-bottom: 1rem;
+    }
+
+    .article__text {
+        padding: 1rem;
+        padding-inline: 2rem;
+    }
+
+    .article__text h1 {
+        color: rgb(209, 81, 45);
+        font-size: 3.5rem;
+        margin-bottom: .5rem;
+    }
+
+    .article__text p {
+        color: rgb(245, 232, 228);
+        /* font-size: 2rem; */
+        opacity: 0.8;
+        margin-bottom: .5rem;
+    }
+
+    .article__date {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    /* .article__paragraph {} */
+
+    .article__wrappper--1 {
+        background-image: url(../images/swangz.webp);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.646);
+        background-blend-mode: darken;
+        display: flex;
+        justify-content: left;
+        align-items: flex-end;
+    }
+
+    .article__wrappper--2 {
+        background-image: url(../images/Secondhand-clothing-on-sale-satisfashionug.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.646);
+        background-blend-mode: darken;
+        display: flex;
+        justify-content: left;
+        align-items: flex-end;
+    }
+
+    .article__wrappper--3 {
+        background-image: url(../images/Programming-Language-Popularity.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.646);
+        background-blend-mode: darken;
+        display: flex;
+        justify-content: left;
+        align-items: flex-end;
+    }
+
+    .article__wrappper--4 {
+        background-image: url(../images/meditation.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.646);
+        background-blend-mode: darken;
+        display: flex;
+        justify-content: left;
+        align-items: flex-end;
+    }
+
+    .container__articles--grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 1px;
+    }
+
+    .article__wrappper--small h1 {
+        font-size: 1.8rem;
     }

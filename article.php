@@ -38,8 +38,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             </div>
 
             <div class="article--text">
-                <h1 class="article--title"><?= $article['article_title']; ?></h1>
-                <p class="article--paragraph"><?= $article['article_content']; ?></p>
+                <h1 class="article--title"><?= htmlspecialchars($article['article_title']); ?></h1>
+                <p class="article--paragraph"><?= htmlspecialchars($article['article_content']); ?></p>
             </div>
 
             <hr>

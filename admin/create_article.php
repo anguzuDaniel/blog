@@ -88,12 +88,12 @@ if (isset($_POST['create_article'])) {
 
             <div class="form__row">
                 <label for="article__title" class="form__row--label">Title</label>
-                <input type="text" name="article__title" value="<?= $article_title; ?>" />
+                <input type="text" name="article__title" value="<?= htmlspecialchars($article_title); ?>" />
             </div>
 
             <div class="form__row">
                 <label for="article__content" class="form__row--label">Content</label>
-                <textarea name="article__content" id="" cols="30" rows="10" style="resize: none"><?= $article_content; ?></textarea>
+                <textarea name="article__content" id="" cols="30" rows="10" style="resize: none"><?= htmlspecialchars($article_content); ?></textarea>
             </div>
 
             <input type="submit" value="Publish" name="create_article" class="btn | btn--submit" />

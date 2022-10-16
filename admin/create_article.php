@@ -2,6 +2,11 @@
 
 <?php
 
+$errors = [];
+$article_image = '';
+$article_title = '';
+$article_content = '';
+
 if (isset($_POST['create_article'])) {
     // creates a conection to the database
 
@@ -15,10 +20,10 @@ if (isset($_POST['create_article'])) {
     $errors = [];
 
     if ($article_image == '') {
-        $errors[] = 'Please add an image description';
+        $errors[] = 'Please add an image';
     }
     if ($article_title == '') {
-        $errors[] = 'Title cannot be left empty';
+        $errors[] = 'Title is required';
     }
     if ($article_content == '') {
         $errors[] = 'Content cannot be left empty';
@@ -36,7 +41,7 @@ if (isset($_POST['create_article'])) {
         if ($stmt === false) {
             echo mysqli_error($connection);
         } else {
-            mysqli_stmt_bind_param($stmt, 'sss', $article_image, $_POST['article__title'], $_POST['article__content']);
+            mysqli_stmt_bind_param($stmt, 'sss', $article_image, $article_title, $article_content);
 
             if (mysqli_stmt_execute($stmt)) {
                 $id = mysqli_insert_id($connection);
@@ -78,17 +83,17 @@ if (isset($_POST['create_article'])) {
         <form action="create_article.php" method="post" enctype="multipart/form-data">
             <div class="form__row">
                 <label for="image" class="form__row--label">Image</label>
-                <input type="file" class="form__row--image" name="image" />
+                <input type="file" class="form__row--image" name="image" value="<?= $article_image; ?>" />
             </div>
 
             <div class="form__row">
                 <label for="article__title" class="form__row--label">Title</label>
-                <input type="text" name="article__title" />
+                <input type="text" name="article__title" value="<?= $article_title; ?>" />
             </div>
 
             <div class="form__row">
                 <label for="article__content" class="form__row--label">Content</label>
-                <textarea name="article__content" id="" cols="30" rows="10" style="resize: none"></textarea>
+                <textarea name="article__content" id="" cols="30" rows="10" style="resize: none"><?= $article_content; ?></textarea>
             </div>
 
             <input type="submit" value="Publish" name="create_article" class="btn | btn--submit" />

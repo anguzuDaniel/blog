@@ -76,116 +76,72 @@ if ($result === false) {
         </section>
     </div>
 
-    <section>
+    <section class="read__article">
 
 
+        <div>
+            <div class="read__article--underline read__article--underline1">
+                <h1 class="read__article--heading">Must Read</h1>
+                <span></span>
+            </div>
 
-        <div class="read__article">
+            <!-- lastest artciles section start -->
+            <div class="lastest__articles">
 
-            <div>
-                <div class="read__article--underline read__article--underline1">
-                    <h1 class="read__article--heading">Must Read</h1>
-                    <span></span>
-                </div>
+                <?php if (empty($articles)) : ?>
+                    <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
+                <?php else : ?>
+                    <?php foreach ($articles as $article) : ?>
+                        <article>
+                            <div class="lastest__articles--image">
+                                <img src="images/<?= $article['article_image']; ?>" />
+                            </div>
+                            <!-- <img src="images/Programming-Language-Popularity.jpg" alt="" srcset=""> -->
+                            <div class="lastest__articles--text">
+                                <h1 class="lastest__articles--title"><?= $article['article_title']; ?></h1>
+                                <p class="lastest__articles--paragraph"><?= substr($article['article_content'], 0, 150); ?>...</p>
+                                <p class="lastest__articles--date">December 11, 2016</p>
+                                <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read">read more &rarr;</a>
+                            </div>
 
-                <!-- lastest artciles section start -->
-                <div class="lastest__articles">
+                        </article>
+                    <?php endforeach; ?>
+                <?php endif ?>
+            </div>
+            <!-- lastest artciles section end -->
+        </div>
+        <!-- side section | shows the ctegory list -->
+
+        <div>
+
+            <aside>
+                <div class="side__list side__list--1">
+                    <div class="side__list--navigation">
+                        <button class="side__list--active">featured</button>
+                        <button>recent</button>
+                        <button>top views</button>
+                    </div>
 
                     <?php if (empty($articles)) : ?>
                         <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
                     <?php else : ?>
                         <?php foreach ($articles as $article) : ?>
-                            <article>
-                                <div class="lastest__articles--image">
-                                    <img src="images/<?= $article['article_image']; ?>" />
+                            <div class="side__list--content">
+                                <div class="side__list--img">
+                                    <img src="images/<?= $article['article_image']; ?>" alt="" srcset="">
                                 </div>
-                                <!-- <img src="images/Programming-Language-Popularity.jpg" alt="" srcset=""> -->
-                                <div class="lastest__articles--text">
-                                    <h1 class="lastest__articles--title"><?= $article['article_title']; ?></h1>
-                                    <p class="lastest__articles--paragraph"><?= substr($article['article_content'], 0, 150); ?>...</p>
-                                    <p class="lastest__articles--date">December 11, 2016</p>
-                                    <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read">read more &rarr;</a>
+                                <div class="side__list--text">
+                                    <h1 class="side__list--heading"><?= substr($article['article_title'], 0, 40); ?></h1>
+                                    <p class="side__list--paragraph"><?= substr($article['article_content'], 0, 50); ?>...</p>
                                 </div>
-
-                            </article>
+                            </div>
                         <?php endforeach; ?>
-                    <?php endif ?>
+                    <?php endif; ?>
                 </div>
-                <!-- lastest artciles section end -->
-            </div>
-            <!-- side section | shows the ctegory list -->
-
-            <div>
-
-                <aside>
-                    <div class="side__list side__list--1">
-                        <h3 class="heading | side__heading">
-                            Categories
-                        </h3>
-
-
-                        <div class="side__list--content">
-                            <div class="side__list--img">
-                                <img src="images/What-Do-Software-Engineers-Do-WOZ-1-min.webp" alt="" srcset="">
-                            </div>
-                            <div class="side__list--text">
-                                <h1 class="side__list--heading">heading</h1>
-                                <p class="side__list--paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt rerum aliquam minus neque.</p>
-                            </div>
-                        </div>
-
-                        <div class="side__list--content">
-                            <div class="side__list--img">
-                                <img src="images/Programming-Language-Popularity.jpg" alt="" srcset="">
-                            </div>
-                            <div class="side__list--text">
-                                <h1 class="side__list--heading">heading</h1>
-                                <p class="side__list--paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt rerum aliquam minus neque.</p>
-                            </div>
-                        </div>
-
-                        <div class="side__list--content">
-                            <div class="side__list--img">
-                                <img src="images/repository-open-graph-template.png" alt="" srcset="">
-                            </div>
-                            <div class="side__list--text">
-                                <h1 class="side__list--heading">heading</h1>
-                                <p class="side__list--paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt rerum aliquam minus neque.</p>
-                            </div>
-                        </div>
-                        <!-- <nav>
-                            <ul class="side__nav">
-                                <li class="side__nav--item">
-                                    <a href="#">Music</a>
-                                </li>
-                                <li class="side__nav--item">
-                                    <a href="#">Programming</a>
-                                </li>
-                                <li>
-                                    <a href="#">Life</a>
-                                </li>
-                                <li class="side__nav--item">
-                                    <a href="#">Programming</a>
-                                </li>
-                                <li class="side__nav--item">
-                                    <a href="#">LifeStyle</a>
-                                </li>
-                                <li class="side__nav--item">
-                                    <a href="#">LifeStyle</a>
-                                </li>
-                                <li class="side__nav--item">
-                                    <a href="#">Music</a>
-                                </li>
-                                <li>
-                                    <a href="#">Life</a>
-                                </li>
-                            </ul>
-                        </nav> -->
-                    </div>
-                </aside>
-            </div>
-            <!-- side section | end-->
+            </aside>
         </div>
+        <!-- side section | end-->
+
     </section>
 
     <section class="recommended__articles">

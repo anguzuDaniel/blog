@@ -15,7 +15,6 @@ if ($result === false) {
     // var_dump($articles);
 }
 
-
 ?>
 
 <!-- navigation bar -->
@@ -101,11 +100,11 @@ if ($result === false) {
                                 <h1 class="lastest__articles--title"><?= $article['article_title']; ?></h1>
                                 <p class="lastest__articles--paragraph"><?= substr($article['article_content'], 0, 150); ?>...</p>
                                 <p class="lastest__articles--date">December 11, 2016</p>
-
+                                <button class="btn btn--read">
+                                    <a href="article.php?id=<?= $article['id']; ?>">read more &rarr;</a>
+                                </button>
                             </div>
-                            <button class="btn btn--read">
-                                <a href="article.php?id=<?= $article['id']; ?>">read more &rarr;</a>
-                            </button>
+
                         </article>
                     <?php endforeach; ?>
                 <?php endif ?>

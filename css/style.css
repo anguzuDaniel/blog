@@ -220,8 +220,10 @@ ul a {
 .lastest__articles article {
     display: flex;
     flex-direction: column;
-    gap: 30px;
     width: 100%;
+    border: 1px solid var(--border-clr);
+    box-shadow: var(--shadow-1);
+    background-color: rgb(196, 196, 196);
 }
 
 .lastest__articles article a {
@@ -236,23 +238,24 @@ ul a {
 }
 
 .lastest__articles--text {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display: grid;
+    justify-content: baseline;
+    padding: 2rem;
+    gap: 20px;
 }
 
+.lastest__articles--text button {
+    display: grid;
+}
 
 .lastest__articles img {
     aspect-ratio: 10 / 8;
     width: 100%;
     object-fit: cover;
-    /* height: max-content; */
-    /* inset: 0; */
 }
 
 
 .lastest__articles--title {
-    /* padding-block: 2rem; */
     font-size: 2rem;
     color: var(--clr-primary);
 }

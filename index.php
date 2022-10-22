@@ -29,9 +29,9 @@ if ($result === false) {
         <section class="container__articles">
             <div class="article__wrappper article__wrappper--large">
                 <div class="article__text">
-                    <p class="article__date article__date--small">OCT 09, 2022</p>
                     <h1 class="heading | article__text--title | article__text--title">What do software Engineers do?</h1>
                     <p class="article__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam magnam minima adipisci nihil recusandae aut exercitationem,...</p>
+                    <p class="article__date article__date--small">OCT 09, 2022</p>
                 </div>
 
             </div>
@@ -77,38 +77,42 @@ if ($result === false) {
     </div>
 
     <section>
-        <div class="read__article--underline">
-            <h1 class="read__article--heading">Must Read</h1>
-            <span></span>
-        </div>
+
+
 
         <div class="read__article">
 
-            <!-- lastest artciles section start -->
-            <div class="lastest__articles">
+            <div>
+                <div class="read__article--underline read__article--underline1">
+                    <h1 class="read__article--heading">Must Read</h1>
+                    <span></span>
+                </div>
 
-                <?php if (empty($articles)) : ?>
-                    <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
-                <?php else : ?>
-                    <?php foreach ($articles as $article) : ?>
-                        <article>
-                            <div class="lastest__articles--image">
-                                <img src="images/<?= $article['article_image']; ?>" />
-                            </div>
-                            <!-- <img src="images/Programming-Language-Popularity.jpg" alt="" srcset=""> -->
-                            <div class="lastest__articles--text">
-                                <h1 class="lastest__articles--title"><?= $article['article_title']; ?></h1>
-                                <p class="lastest__articles--paragraph"><?= substr($article['article_content'], 0, 150); ?>...</p>
-                                <p class="lastest__articles--date">December 11, 2016</p>
-                                <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read">read more &rarr;</a>
-                            </div>
+                <!-- lastest artciles section start -->
+                <div class="lastest__articles">
 
-                        </article>
-                    <?php endforeach; ?>
-                <?php endif ?>
+                    <?php if (empty($articles)) : ?>
+                        <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
+                    <?php else : ?>
+                        <?php foreach ($articles as $article) : ?>
+                            <article>
+                                <div class="lastest__articles--image">
+                                    <img src="images/<?= $article['article_image']; ?>" />
+                                </div>
+                                <!-- <img src="images/Programming-Language-Popularity.jpg" alt="" srcset=""> -->
+                                <div class="lastest__articles--text">
+                                    <h1 class="lastest__articles--title"><?= $article['article_title']; ?></h1>
+                                    <p class="lastest__articles--paragraph"><?= substr($article['article_content'], 0, 150); ?>...</p>
+                                    <p class="lastest__articles--date">December 11, 2016</p>
+                                    <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read">read more &rarr;</a>
+                                </div>
+
+                            </article>
+                        <?php endforeach; ?>
+                    <?php endif ?>
+                </div>
+                <!-- lastest artciles section end -->
             </div>
-            <!-- lastest artciles section end -->
-
             <!-- side section | shows the ctegory list -->
 
             <div>
@@ -119,43 +123,37 @@ if ($result === false) {
                             Categories
                         </h3>
 
-                        <nav>
-                            <ul class="side__nav">
-                                <li class="side__nav--item">
-                                    <a href="#">Music</a>
-                                </li>
-                                <li class="side__nav--item">
-                                    <a href="#">Programming</a>
-                                </li>
-                                <li>
-                                    <a href="#">Life</a>
-                                </li>
-                                <li class="side__nav--item">
-                                    <a href="#">Programming</a>
-                                </li>
-                                <li class="side__nav--item">
-                                    <a href="#">LifeStyle</a>
-                                </li>
-                                <li class="side__nav--item">
-                                    <a href="#">LifeStyle</a>
-                                </li>
-                                <li class="side__nav--item">
-                                    <a href="#">Music</a>
-                                </li>
-                                <li>
-                                    <a href="#">Life</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </aside>
-                <aside>
-                    <div class="side__list side__list--1">
-                        <h3 class="heading | side__heading">
-                            Categories
-                        </h3>
 
-                        <nav>
+                        <div class="side__list--content">
+                            <div class="side__list--img">
+                                <img src="images/What-Do-Software-Engineers-Do-WOZ-1-min.webp" alt="" srcset="">
+                            </div>
+                            <div class="side__list--text">
+                                <h1 class="side__list--heading">heading</h1>
+                                <p class="side__list--paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt rerum aliquam minus neque.</p>
+                            </div>
+                        </div>
+
+                        <div class="side__list--content">
+                            <div class="side__list--img">
+                                <img src="images/Programming-Language-Popularity.jpg" alt="" srcset="">
+                            </div>
+                            <div class="side__list--text">
+                                <h1 class="side__list--heading">heading</h1>
+                                <p class="side__list--paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt rerum aliquam minus neque.</p>
+                            </div>
+                        </div>
+
+                        <div class="side__list--content">
+                            <div class="side__list--img">
+                                <img src="images/repository-open-graph-template.png" alt="" srcset="">
+                            </div>
+                            <div class="side__list--text">
+                                <h1 class="side__list--heading">heading</h1>
+                                <p class="side__list--paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt rerum aliquam minus neque.</p>
+                            </div>
+                        </div>
+                        <!-- <nav>
                             <ul class="side__nav">
                                 <li class="side__nav--item">
                                     <a href="#">Music</a>
@@ -182,7 +180,7 @@ if ($result === false) {
                                     <a href="#">Life</a>
                                 </li>
                             </ul>
-                        </nav>
+                        </nav> -->
                     </div>
                 </aside>
             </div>
@@ -210,7 +208,7 @@ if ($result === false) {
                         </div>
 
                         <div class="recommended__articles--text">
-                            <h1><?= $article['article_title']; ?></h1>
+                            <h1><?= substr($article['article_title'], 0, 50); ?>..</h1>
                             <!-- <p><?= substr($article['article_content'], 0, 100); ?>...</p> -->
                             <!-- <p>Jan 02 2022</p> -->
                         </div>

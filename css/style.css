@@ -197,17 +197,19 @@ ul a {
     color: var(--white-clr);
     background-color: var(--btn-blue);
     width: fit-content;
-    padding: 1rem;
+    padding: 1rem 2rem;
+    border-top-right-radius: 15px;
 }
 
 .read__article--underline {
-    /* display: block; */
-    /* width: 100%; */
-    /* height: 5px; */
     border-bottom: 1px solid var(--btn-blue);
     margin-bottom: 3rem;
     margin-inline: var(--body-margin-inline);
     margin-top: var(--margin-top);
+}
+
+.read__article--underline1 {
+    margin-inline: 0;
 }
 
 /* latest articles */
@@ -318,17 +320,24 @@ ul a {
 }
 
 .recommended__articles article {
-    border: 1px solid var(--border-clr);
     box-shadow: var(--shadow-1);
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    /* align-items: center; */
     gap: 2rem;
+    position: relative;
+    background-image: rgba(132, 226, 104, 0.8);
 }
 
-.recommended__articles--images img {
-    aspect-ratio: 10 / 8;
+.recommended__articles--images > img {
+    aspect-ratio: 10 / 10;
     width: 100%;
+    height: 100%;
     object-fit: cover;
+    /* background-blend-mode: darken, luminosity; */
+    -webkit-filter: opacity(10%);
+    filter: opacity(10%);
 }
 
 .recommended__articles--text {
@@ -337,6 +346,9 @@ ul a {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    position: absolute;
+    color: var(--btn-blue);
+    padding-bottom: 1rem;
 }
 
 .recommended__articles--btn {
@@ -355,6 +367,32 @@ aside {
 .side__list--1 {
     background-color: rgb(255, 253, 251);
     border: 1px solid var(--border-clr);
+}
+
+.side__list--content {
+    display: flex;
+    border-bottom: 1px solid var(--border-clr);
+    gap: 10px;
+    margin-block: 1rem;
+}
+
+.side__list--img {
+    width: 100%;
+}
+
+.side__list--img img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 10/6;
+    inset: 0;
+}
+
+.side__list--text {
+    padding: 1rem;
+}
+
+.side__list--paragraph {
+    font-size: 1.4rem;
 }
 
 .side__heading {
@@ -536,16 +574,16 @@ aside {
 
 .article__wrappper {
     height: 100%;
+    -webkit-filter: opacity(90%);
+    filter: opacity(90%);
 }
 
 .article__wrappper--large {
-    background-image: url(../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp);
+    background-image: linear-gradient(to bottom,rgb(13, 251, 255)  10% 20%, rgb(255, 28, 28) ), url('../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    /* background: linear-gradient(from top left to bottom right, blue, green); */
-    background-color: rgba(0, 0, 0, 0.646);
-    background-blend-mode: darken;
+    background-blend-mode: darken, luminosity;
     display: flex;
     justify-content: left;
     align-items: flex-end;
@@ -569,9 +607,13 @@ aside {
 }
 
 .article__text h1 {
-    color: rgb(209, 81, 45);
+    color: white;
+    /* background-color:  white; */
+    /* padding: 1rem 2rem; */
+    /* clip-path: polygon(5% 0,100% 0, 95% 100%,0 100%); */
     font-size: 3.5rem;
     margin-bottom: .5rem;
+    font-weight: bolder;
 }
 
 .article__text p {
@@ -589,48 +631,44 @@ aside {
 /* .article__paragraph {} */
 
 .article__wrappper--1 {
-    background-image: url(../images/swangz.webp);
+    background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0.464)  10% 20%, rgb(255, 225, 0)), url(../images/swangz.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: rgba(0, 0, 0, 0.646);
-    background-blend-mode: darken;
+    background-blend-mode: darken, luminosity;
     display: flex;
     justify-content: left;
     align-items: flex-end;
 }
 
 .article__wrappper--2 {
-    background-image: url(../images/Secondhand-clothing-on-sale-satisfashionug.jpg);
+    background-image:linear-gradient(to bottom, rgba(28, 217, 255, 0.315) 10% 20%, rgb(13, 239, 255)), url(../images/Secondhand-clothing-on-sale-satisfashionug.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: rgba(0, 0, 0, 0.646);
-    background-blend-mode: darken;
+        background-blend-mode: darken, luminosity;
     display: flex;
     justify-content: left;
     align-items: flex-end;
 }
 
 .article__wrappper--3 {
-    background-image: url(../images/Programming-Language-Popularity.jpg);
+    background-image:linear-gradient(to bottom, rgba(255, 153, 28, 0.372) 10% 20%, rgb(150, 255, 13)), url(../images/Programming-Language-Popularity.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: rgba(0, 0, 0, 0.646);
-    background-blend-mode: darken;
+    background-blend-mode: darken, luminosity;
     display: flex;
     justify-content: left;
     align-items: flex-end;
 }
 
 .article__wrappper--4 {
-    background-image: url(../images/meditation.jpg);
+    background-image: linear-gradient(to bottom, rgba(255, 28, 28, 0.365) 10% 20%, rgb(13, 251, 255)), url('../images/meditation.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: rgba(0, 0, 0, 0.646);
-    background-blend-mode: darken;
+    background-blend-mode: darken, luminosity;
     display: flex;
     justify-content: left;
     align-items: flex-end;

@@ -223,7 +223,9 @@ ul a {
     width: 100%;
     border: 1px solid var(--border-clr);
     box-shadow: var(--shadow-1);
-    background-color: rgb(196, 196, 196);
+    background-color: rgba(245, 245, 245, 0.311);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .lastest__articles article a {
@@ -231,21 +233,20 @@ ul a {
 }
 
 .lastest__articles--image {
-    /* background-color: black; */
     background-blend-mode: lighten;
-    /* background-position: center; */
     width: 100%;
 }
 
 .lastest__articles--text {
     display: grid;
     justify-content: baseline;
-    padding: 2rem;
+    padding: 2rem 2.25rem;
     gap: 20px;
 }
 
-.lastest__articles--text button {
+.lastest__articles--text > a {
     display: grid;
+    justify-self: left;
 }
 
 .lastest__articles img {
@@ -483,6 +484,7 @@ aside {
     /* background-color: var(--bg-admin-nav); */
     color: white;
     cursor: pointer;
+    border-radius: 20px;
 }
 
 .btn:hover {
@@ -502,144 +504,144 @@ aside {
 
 /* read more btn style*/
 .btn--read {
-    padding: .8rem 3rem;
-    background-color: var(--btn-blue);
-    border: 2px solid var(--btn-blue);
-    color: var(--white-clr);
-    /* border-radius: 50px; */
+    padding: 1.15rem 3.15rem;
+    border: 1.5px solid var(--btn-blue);
+    color: var(--btn-blue);
     display: flex;
     flex-direction: column;
     align-self: flex-start;
+    box-sizing: var(--shadow-1);
+    transition: all .2s ease-in-out;
+    border-radius: 0;
+    border-radius: 5px;
 }
 
-.btn--read a {
-    text-decoration: none;
-    color: var(--white-clr);
-
-}
 
 .btn--read:hover  {
-    border: 2px solid var(--btn-blue);
+    transform: scaleX(.95) translateY(5px);
 }
+
+.btn--read:active {
+    transform: scale(.8);
+}
+
 /* btn style end */
+.container__articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1px;
+    margin-top: 10rem;
+    height: 450px;
+}
 
+.article__wrappper {
+    height: 100%;
+}
 
-    .container__articles {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-        gap: 1px;
-        margin-top: 10rem;
-        height: 450px;
-    }
+.article__wrappper--large {
+    background-image: url(../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* background: linear-gradient(from top left to bottom right, blue, green); */
+    background-color: rgba(0, 0, 0, 0.646);
+    background-blend-mode: darken;
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+}
 
-    .article__wrappper {
-        height: 100%;
-    }
+.article__wrappper img {
+    /* position: absolute; */
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 10 / 5;
+    /* height: 100%; */
+}
 
-    .article__wrappper--large {
-        background-image: url(../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        /* background: linear-gradient(from top left to bottom right, blue, green); */
-        background-color: rgba(0, 0, 0, 0.646);
-        background-blend-mode: darken;
-        display: flex;
-        justify-content: left;
-        align-items: flex-end;
-    }
+.article__text--paragraph {
+    padding-bottom: 1rem;
+}
 
-    .article__wrappper img {
-        /* position: absolute; */
-        width: 100%;
-        object-fit: cover;
-        aspect-ratio: 10 / 5;
-        /* height: 100%; */
-    }
+.article__text {
+    padding: 1rem;
+    padding-inline: 2rem;
+}
 
-    .article__text--paragraph {
-        padding-bottom: 1rem;
-    }
+.article__text h1 {
+    color: rgb(209, 81, 45);
+    font-size: 3.5rem;
+    margin-bottom: .5rem;
+}
 
-    .article__text {
-        padding: 1rem;
-        padding-inline: 2rem;
-    }
+.article__text p {
+    color: rgb(245, 232, 228);
+    /* font-size: 2rem; */
+    opacity: 0.8;
+    margin-bottom: .5rem;
+}
 
-    .article__text h1 {
-        color: rgb(209, 81, 45);
-        font-size: 3.5rem;
-        margin-bottom: .5rem;
-    }
+.article__date {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
 
-    .article__text p {
-        color: rgb(245, 232, 228);
-        /* font-size: 2rem; */
-        opacity: 0.8;
-        margin-bottom: .5rem;
-    }
+/* .article__paragraph {} */
 
-    .article__date {
-        font-size: 1.25rem;
-        font-weight: bold;
-    }
+.article__wrappper--1 {
+    background-image: url(../images/swangz.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.646);
+    background-blend-mode: darken;
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+}
 
-    /* .article__paragraph {} */
+.article__wrappper--2 {
+    background-image: url(../images/Secondhand-clothing-on-sale-satisfashionug.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.646);
+    background-blend-mode: darken;
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+}
 
-    .article__wrappper--1 {
-        background-image: url(../images/swangz.webp);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-color: rgba(0, 0, 0, 0.646);
-        background-blend-mode: darken;
-        display: flex;
-        justify-content: left;
-        align-items: flex-end;
-    }
+.article__wrappper--3 {
+    background-image: url(../images/Programming-Language-Popularity.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.646);
+    background-blend-mode: darken;
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+}
 
-    .article__wrappper--2 {
-        background-image: url(../images/Secondhand-clothing-on-sale-satisfashionug.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-color: rgba(0, 0, 0, 0.646);
-        background-blend-mode: darken;
-        display: flex;
-        justify-content: left;
-        align-items: flex-end;
-    }
+.article__wrappper--4 {
+    background-image: url(../images/meditation.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.646);
+    background-blend-mode: darken;
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+}
 
-    .article__wrappper--3 {
-        background-image: url(../images/Programming-Language-Popularity.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-color: rgba(0, 0, 0, 0.646);
-        background-blend-mode: darken;
-        display: flex;
-        justify-content: left;
-        align-items: flex-end;
-    }
+.container__articles--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1px;
+}
 
-    .article__wrappper--4 {
-        background-image: url(../images/meditation.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-color: rgba(0, 0, 0, 0.646);
-        background-blend-mode: darken;
-        display: flex;
-        justify-content: left;
-        align-items: flex-end;
-    }
-
-    .container__articles--grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-        gap: 1px;
-    }
-
-    .article__wrappper--small h1 {
-        font-size: 1.8rem;
-    }
+.article__wrappper--small h1 {
+    font-size: 1.8rem;
+}

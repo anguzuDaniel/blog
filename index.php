@@ -100,9 +100,7 @@ if ($result === false) {
                                 <h1 class="lastest__articles--title"><?= $article['article_title']; ?></h1>
                                 <p class="lastest__articles--paragraph"><?= substr($article['article_content'], 0, 150); ?>...</p>
                                 <p class="lastest__articles--date">December 11, 2016</p>
-                                <button class="btn btn--read">
-                                    <a href="article.php?id=<?= $article['id']; ?>">read more &rarr;</a>
-                                </button>
+                                <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read">read more &rarr;</a>
                             </div>
 
                         </article>
@@ -214,12 +212,12 @@ if ($result === false) {
                         <div class="recommended__articles--text">
                             <h1><?= $article['article_title']; ?></h1>
                             <!-- <p><?= substr($article['article_content'], 0, 100); ?>...</p> -->
-                            <p>Jan 02 2022</p>
+                            <!-- <p>Jan 02 2022</p> -->
                         </div>
 
-                        <button class="btn btn--read recommended__articles--btn">
+                        <!-- <button class="btn btn--read recommended__articles--btn">
                             <a href="article.php?id=<?= $article['id']; ?>">read more &rarr;</a>
-                        </button>
+                        </button> -->
 
                     </article>
                 <?php endforeach; ?>

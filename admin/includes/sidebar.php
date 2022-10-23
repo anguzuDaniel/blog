@@ -1,5 +1,12 @@
+    
     <nav>
         <ul class="admin__nav">
+            <li class="admin__nav--item">
+                <a href="#">Home</a>
+            </li>
+            <li class="admin__nav--item">
+                <a href="#">Stats</a>
+            </li>
             <li class="admin__nav--item">
                 <a href="#">Stats</a>
             </li>

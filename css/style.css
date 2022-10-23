@@ -1,6 +1,6 @@
 :root {
     --border-clr: rgba(0, 0, 0, 0.123);
-    --bg-admin-nav: rgba(12, 14, 31, 0.924);
+    --bg-admin-nav: rgba(12, 14, 31, 0.483);
     --bg-light-clr: #FAF7F0;
     --white-clr: white;
     --outline-clr: rgb(55, 194, 203);
@@ -93,6 +93,20 @@ ul a {
     /* box-shadow: var(--shadow-1); */
 }
 
+.admin__header {
+    width: 100%;
+    margin-inline: 0;
+}
+
+.admin__primary {
+    padding-block: var(--padding-block-1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-clr);
+    padding-inline: 4rem;
+}
+
 .header--logo {
     color: var(--clr-primary);
 }
@@ -127,15 +141,17 @@ ul a {
     border: none;
     outline: none;
     border: 1px solid var(--border-clr);
+    border-right: none;
 }
 
 .search__button {
-    background-color: var(--btn-blue);
+    background-color: transparent;
     color: var(--white-clr);
     padding: var(--input-padding-block) var(--input-padding-inline);
     cursor: pointer;
     border: none;
-    border: 1px solid var(--btn-blue);
+    border: 1px solid var(--border-clr);
+    border-left: none;
     box-sizing: content-box;
 }
 
@@ -457,12 +473,16 @@ aside {
 
 
 /* Admin page stying */
+.admin__wrapper {
+    display: flex;
+}
 
 .admin__container {
     position: relative;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: max-content 1fr;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
 }
 
 .admin__container nav {
@@ -476,25 +496,37 @@ aside {
     width: 200px;
     height: 100vh;
     background-color: var(--bg-light-clr);
+    background-color: var(--bg-admin-nav);
     padding-top: 6rem;
     border-right: 1px solid var(--border-clr);
 }
 
+.admin__nav--item:first-child {
+    border-top: 1px solid var(--bg-light-clr);
+}
+
 .admin__nav--item {
-    padding: .5rem 1.5rem;
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid var(--bg-light-clr);
 }
 
 .admin__nav--item a {
     color: var(--bg-admin-nav);
+    color: var(--white-clr);
 }
 
 .admin__content {
-    margin-top: 6rem;
+    margin-top: 3rem;
     margin-inline: 2.25rem;
+        margin-inline: 4rem;
+        border: 1px solid var(--border-clr);
+        padding: 2rem 4rem;
 }
 
 .admin__content h1 {
-    margin-block: 1rem;
+    margin-block: 3rem;
+    color: var(--btn-blue);
+    font-size: 3rem;
 }
 
 .admin__link a {
@@ -507,7 +539,7 @@ aside {
 
 /* form design start */
 .form__row  {
-    margin-block: 2rem;
+    margin-block: 3rem;
 }
 
 .form__row input, textarea {

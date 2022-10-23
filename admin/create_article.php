@@ -58,50 +58,54 @@ if (isset($_POST['create_article'])) {
 ?>
 
 <?php require "./includes/header.php"; ?>
-<?php require "./includes/navigation.php"; ?>
 
 <!-- main section start -->
-<main class="admin__container">
+<main class="admin__wrapper">
     <?php include "includes/sidebar.php" ?>
 
-    <!-- admin section wrapper start -->
-    <section class="admin__content">
-        <div class="heading | admin__content--heading">
-            <h1>Fill in form to create a blog post.</h1>
-            <hr>
-        </div>
+    <div class="admin__container">
 
-        <!-- error handler start | checks if inputs are empty and prints message -->
-        <?php if (!empty($errors)) : ?>
-            <?php foreach ($errors as $error) : ?>
-                <li><?= $error ?></li>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        <!-- error hamdler end -->
 
-        <!-- form start -->
-        <form action="create_article.php" method="post" enctype="multipart/form-data">
-            <div class="form__row">
-                <label for="image" class="form__row--label">Image</label>
-                <input type="file" class="form__row--image" name="image" value="<?= $article_image; ?>" />
+        <?php require "./includes/navigation.php"; ?>
+
+        <!-- admin section wrapper start -->
+        <section class="admin__content">
+            <div class="heading | admin__content--heading">
+                <h1>Fill in form to create a blog post.</h1>
+                <hr>
             </div>
 
-            <div class="form__row">
-                <label for="article__title" class="form__row--label">Title</label>
-                <input type="text" name="article__title" value="<?= htmlspecialchars($article_title); ?>" />
-            </div>
+            <!-- error handler start | checks if inputs are empty and prints message -->
+            <?php if (!empty($errors)) : ?>
+                <?php foreach ($errors as $error) : ?>
+                    <li><?= $error ?></li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <!-- error hamdler end -->
 
-            <div class="form__row">
-                <label for="article__content" class="form__row--label">Content</label>
-                <textarea name="article__content" id="" cols="30" rows="10" style="resize: none"><?= htmlspecialchars($article_content); ?></textarea>
-            </div>
+            <!-- form start -->
+            <form action="create_article.php" method="post" enctype="multipart/form-data">
+                <div class="form__row">
+                    <label for="image" class="form__row--label">Image</label>
+                    <input type="file" class="form__row--image" name="image" value="<?= $article_image; ?>" />
+                </div>
 
-            <input type="submit" value="Publish" name="create_article" class="btn | btn--submit" />
-        </form>
-        <!-- form end -->
-    </section>
-    <!-- admin section wrapper end -->
+                <div class="form__row">
+                    <label for="article__title" class="form__row--label">Title</label>
+                    <input type="text" name="article__title" value="<?= htmlspecialchars($article_title); ?>" />
+                </div>
 
+                <div class="form__row">
+                    <label for="article__content" class="form__row--label">Content</label>
+                    <textarea name="article__content" id="" cols="30" rows="10" style="resize: none"><?= htmlspecialchars($article_content); ?></textarea>
+                </div>
+
+                <input type="submit" value="Publish" name="create_article" class="btn | btn--submit" />
+            </form>
+            <!-- form end -->
+        </section>
+        <!-- admin section wrapper end -->
+    </div>
 </main>
 <!-- main section end -->
 

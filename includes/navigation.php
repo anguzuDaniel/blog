@@ -4,7 +4,7 @@
 
         <div class="search">
             <input type="search" name="search__articles" id="" class="search__articles" placeholder="search">
-            <button type="submit" name="search__button" class="search__button">Search</button>
+            <button type="submit" name="search__button" class="search__button">&#128269;</button>
         </div>
     </div>
 

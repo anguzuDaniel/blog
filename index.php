@@ -101,19 +101,20 @@ if ($result === false) {
                                 <h1 class="lastest__articles--title"><?= $article['article_title']; ?></h1>
                                 <p class="lastest__articles--paragraph"><?= substr($article['article_content'], 0, 150); ?>...</p>
                                 <p class="lastest__articles--date">December 11, 2016</p>
-                                <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read">read more &rarr;</a>
+                                <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read"> <span>read more</span> </a>
                             </div>
 
                         </article>
                     <?php endforeach; ?>
+
                 <?php endif ?>
             </div>
             <!-- lastest artciles section end -->
         </div>
         <!-- side section | shows the ctegory list -->
-
+        
         <div>
-
+            
             <aside>
                 <div class="side__list side__list--1">
                     <div class="side__list--navigation">
@@ -121,7 +122,7 @@ if ($result === false) {
                         <button>recent</button>
                         <button>top views</button>
                     </div>
-
+                    
                     <?php if (empty($articles)) : ?>
                         <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
                     <?php else : ?>
@@ -135,13 +136,14 @@ if ($result === false) {
                                     <p class="side__list--paragraph"><?= substr($article['article_content'], 0, 50); ?>...</p>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </div>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
             </aside>
         </div>
         <!-- side section | end-->
-
+        
+        <a href="includes/" class="more__articles">More &rarr;</a>
     </section>
 
     <section class="recommended__articles">

@@ -592,11 +592,45 @@ aside {
     transition: all .2s ease-in-out;
     border-radius: 0;
     border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn--read::after {
+    content: "read more \2192";
+    /* content: ""; */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    background-color: var(--btn-blue);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    opacity: 0;
+    transform: translateX(-100px) rotate(5deg) scaleX(1.2);
+    transition: all .5s ease-in-out;
 }
 
 
 .btn--read:hover  {
     transform: scaleX(.95) translateY(5px);
+    color: var(--white-clr);
+    box-shadow: var(--shadow-1);
+}
+
+.btn--read:hover span {
+    transform: translateX(50px);
+    transition: all .5s ease-in-out;
+    opacity: 0;
+}
+
+.btn--read:hover::after {
+    opacity: 1;
+    transform: translateX(0px);
 }
 
 .btn--read:active {
@@ -619,11 +653,12 @@ aside {
 }
 
 .article__wrappper--large {
-    background-image: linear-gradient(to bottom,rgb(13, 251, 255)  10% 20%, rgb(255, 28, 28) ), url('../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp');
+    background-image: linear-gradient(to bottom, rgb(13, 251, 255)  10% 20%, rgb(0, 21, 255) ), url('../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-blend-mode: darken, luminosity;
+    background-blend-mode: hue, luminosity;
     display: flex;
     justify-content: left;
     align-items: flex-end;
@@ -648,9 +683,6 @@ aside {
 
 .article__text h1 {
     color: white;
-    /* background-color:  white; */
-    /* padding: 1rem 2rem; */
-    /* clip-path: polygon(5% 0,100% 0, 95% 100%,0 100%); */
     font-size: 3.5rem;
     margin-bottom: .5rem;
     font-weight: bolder;
@@ -722,4 +754,9 @@ aside {
 
 .article__wrappper--small h1 {
     font-size: 1.8rem;
+}
+
+.more__articles {
+    text-align: center;
+    color: var(--btn-blue);
 }

@@ -112,17 +112,17 @@ if ($result === false) {
             <!-- lastest artciles section end -->
         </div>
         <!-- side section | shows the ctegory list -->
-        
+
         <div>
-            
+
             <aside>
                 <div class="side__list side__list--1">
                     <div class="side__list--navigation">
-                        <button class="side__list--active">featured</button>
-                        <button>recent</button>
-                        <button>top views</button>
+                        <button class="side__list--active">This week</button>
+                        <button>this month</button>
+                        <button>All time</button>
                     </div>
-                    
+
                     <?php if (empty($articles)) : ?>
                         <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
                     <?php else : ?>
@@ -136,13 +136,13 @@ if ($result === false) {
                                     <p class="side__list--paragraph"><?= substr($article['article_content'], 0, 50); ?>...</p>
                                 </div>
                             </div>
-                            <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
             </aside>
         </div>
         <!-- side section | end-->
-        
+
         <a href="includes/" class="more__articles">More &rarr;</a>
     </section>
 

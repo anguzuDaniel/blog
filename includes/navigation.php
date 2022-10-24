@@ -63,8 +63,8 @@
         </nav>
 
 
-        <div class="admin__link">
+        <button class="admin__link btn">
             <a href="./admin/index.php">Admin</a>
-        </div>
+        </button>
     </div>
 </header>

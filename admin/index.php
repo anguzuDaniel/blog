@@ -17,8 +17,6 @@
     <?php include "includes/sidebar.php" ?>
 
     <div class="admin__container">
-
-
         <?php require "./includes/navigation.php"; ?>
 
         <div class="admin__container">

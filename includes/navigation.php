@@ -12,8 +12,6 @@
         <nav>
             <ul class="nav_list">
                 <li class="nav_list--item">
-
-
                     <select name="tech" id="tech">
                         <option value="">
                             <a href="#">Technology</a>
@@ -28,8 +26,6 @@
                 </li>
 
                 <li class="nav_list--item">
-
-
                     <select name="lifestyle" id="lifestyle">
                         <option value="">
                             <a href="#">LifeStyle</a>
@@ -41,11 +37,9 @@
                             <a href="#">Music</a>
                         </option>
                     </select>
-
                 </li>
 
                 <li class="nav_list--item">
-
                     <select name="" id="">
                         <option value="">
                             <a href="#">Music</a>
@@ -57,7 +51,6 @@
                             <a href="#">Music</a>
                         </option>
                     </select>
-
                 </li>
             </ul>
         </nav>

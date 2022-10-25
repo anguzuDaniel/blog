@@ -12,6 +12,7 @@
 
     /* margin top */
     --margin-top: 4rem;
+    --margin-container-top: 6rem;
 
     --body-margin-inline: 10rem; 
 
@@ -48,7 +49,6 @@ html {
     font-size: 62.5%;
     box-sizing: border-box;
     font-family: 'Barlow', sans-serif;
-    font-family: 'Fraunces', serif;
     /* font-family: 'Public Sans', sans-serif; */
 }
 
@@ -76,21 +76,22 @@ ul a {
     margin-block: var(--padding-block-2);
 }
 
-/* p { */
-    /* opacity: .5; */
-    /* line-height: 1.35; */
-    /* font-size: 1.25rem; */
-/* } */
+h1 {
+    font-family: 'Fraunces', serif;
+}
+
+p {
+    font-size: 1.6rem;
+    opacity: .8;
+}
 
 .header {
     position: fixed;
     top: 0;
     width: 100%;
-    /* background-color: var(--bg-light-clr); */
     background-color: var(--white-clr);
-    /* border-bottom: 1px solid var(--border-clr); */
     z-index: 1;
-    /* box-shadow: var(--shadow-1); */
+    box-shadow: var(--shadow-1);
 }
 
 .admin__header {
@@ -113,7 +114,7 @@ ul a {
 
 .header__primary {
     padding-block: var(--padding-block-1);
-    margin-inline: var(--padding-inline-1);
+    padding-inline: var(--padding-inline-1);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -126,7 +127,7 @@ ul a {
     justify-content: space-between;
     align-items: center;
     padding-inline: var(--body-margin-inline);
-    /* border-bottom: 1px solid var(--border-clr); */
+    border-bottom: 1px solid var(--border-clr);
 }
 
 .search {
@@ -198,7 +199,7 @@ ul a {
     display: grid;
     grid-auto-flow: column;
     margin-inline: var(--body-margin-inline);
-    margin-top: var(--margin-top);
+    margin-top: var(--margin-container-top);
 }
 
 /* must read artcile */
@@ -233,14 +234,14 @@ ul a {
 .lastest__articles {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-    gap: 2rem;
+    gap: 25px;
 }
+
 
 .lastest__articles article {
     display: flex;
     flex-direction: column;
     width: 100%;
-    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -253,9 +254,15 @@ ul a {
     width: 100%;
 }
 
+.lastest__articles--image img:hover {
+    transform: scale(1.1);
+    transition: all .5s ease;
+}
+
 .lastest__articles--text {
     display: grid;
     justify-content: baseline;
+    padding-block: 1.5rem;
     gap: 20px;
 }
 
@@ -319,6 +326,13 @@ ul a {
     margin-top: var(--margin-top);
 }
 
+.recommended__articles--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .recommended__articles--heading {
     color: var(--white-clr);
     background-color: var(--btn-blue);
@@ -336,21 +350,32 @@ ul a {
     box-shadow: var(--shadow-1);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    /* align-items: center; */
+    justify-content: center;
     gap: 2rem;
     position: relative;
     background-image: rgba(132, 226, 104, 0.8);
+    border: 1px solid var(--border-clr);
+    overflow: hidden;
 }
+
+.slider__next, .slider__previous {
+    
+}
+
 
 .recommended__articles--images > img {
     aspect-ratio: 10 / 10;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* background-blend-mode: darken, luminosity; */
-    -webkit-filter: opacity(10%);
-    filter: opacity(10%);
+    -webkit-filter: opacity(90%);
+    filter: opacity(90%);
+    cursor: pointer;
+}
+
+.recommended__articles--images > img:hover {
+    transform: scale(1.1);
+    transition: all .5s ease;
 }
 
 .recommended__articles--text {
@@ -671,6 +696,21 @@ aside {
     transform: scale(.8);
 }
 
+.btn__pagination {
+    padding: .5rem 1rem;
+    /* border: 1px solid var(--border-clr); */
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .2s ease-in-out;  
+    font-size: 4rem;  
+    color: rgba(0, 0, 0, 0.181);
+}
+
+.btn__pagination:hover {
+    color: var(--btn-blue);
+}
+
 /* btn style end */
 .container__articles {
     display: grid;
@@ -793,4 +833,8 @@ aside {
 .more__articles {
     text-align: center;
     color: var(--btn-blue);
+}
+
+.footer__navigation {
+
 }

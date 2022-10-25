@@ -1,4 +1,3 @@
-<?php require "includes/header.php" ?>
 <?php
 
 require "includes/database.php";
@@ -11,11 +10,11 @@ if ($result === false) {
     echo mysqli_error($connection);
 } else {
     $articles = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-    // var_dump($articles);
 }
 
 ?>
+
+<?php require "includes/header.php" ?>
 
 <!-- navigation bar -->
 <?php require "includes/navigation.php" ?>
@@ -154,32 +153,43 @@ if ($result === false) {
         </div>
 
         <!-- Recommeded article wrapper start -->
-        <div class="recommended__articles--wrapper">
+        <div class="recommended__articles--container">
+            <div>
+                <button class="btn__pagination slider__next">&lsaquo;</button>
+            </div>
 
-            <?php if (empty($articles)) : ?>
-                <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
-            <?php else : ?>
-                <?php foreach ($articles as $article) : ?>
-                    <article>
-                        <div class="recommended__articles--images">
-                            <img src="images/<?= $article['article_image']; ?>" alt="" srcset="">
-                        </div>
+            <div class="recommended__articles--wrapper slider">
 
-                        <div class="recommended__articles--text">
-                            <h1><?= substr($article['article_title'], 0, 50); ?>..</h1>
-                            <!-- <p><?= substr($article['article_content'], 0, 100); ?>...</p> -->
-                            <!-- <p>Jan 02 2022</p> -->
-                        </div>
 
-                        <!-- <button class="btn btn--read recommended__articles--btn">
-                            <a href="article.php?id=<?= $article['id']; ?>">read more &rarr;</a>
-                        </button> -->
+                <?php if (empty($articles)) : ?>
+                    <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
+                <?php else : ?>
+                    <?php foreach ($articles as $article) : ?>
+                        <article>
+                            <div class="recommended__articles--images">
+                                <img src="images/<?= $article['article_image']; ?>" alt="" srcset="">
+                            </div>
 
-                    </article>
-                <?php endforeach; ?>
-            <?php endif; ?>
+                            <div class="recommended__articles--text">
+                                <!-- <h1><?= substr($article['article_title'], 0, 50); ?>..</h1> -->
+                                <!-- <p><?= substr($article['article_content'], 0, 100); ?>...</p> -->
+                                <!-- <p>Jan 02 2022</p> -->
+                            </div>
+
+                            <!-- <button class="btn btn--read recommended__articles--btn">
+                                <a href="article.php?id=<?= $article['id']; ?>">read more &rarr;</a>
+                            </button> -->
+
+                        </article>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
+            </div>
+            <div>
+                <button class="btn__pagination slider__previous">&rsaquo;</button>
+            </div>
+            <!-- Recommeded article wrapper end -->
         </div>
-        <!-- Recommeded article wrapper end -->
 
     </section>
 </main>

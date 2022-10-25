@@ -835,6 +835,11 @@ aside {
     color: var(--btn-blue);
 }
 
-.footer__navigation {
-
+.footer {
+    background-color: var(--footer-clr);
+    padding: 2rem;
+    color: var(--white-clr);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

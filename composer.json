@@ -1,0 +1,19 @@
+{
+    "name": "blogify/a-blog-application",
+    "description": "A php blog application",
+    "type": "project",
+    "require": {
+        "scssphp/scssphp": "^1.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Blogify\\ABlogApplication\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "anguzuDaniel",
+            "email": "102733205+anguzuDaniel@users.noreply.github.com"
+        }
+    ]
+}

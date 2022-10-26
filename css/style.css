@@ -37,6 +37,8 @@
     --shadow-1: 0 3px 3px 0 rgb(0 0 0 / 8%);
 
     --hover-bg: rgba(255, 255, 255, 0.654);
+
+    --footer-clr: rgb(12, 14, 31);
 }
 
 *,*::before,*::after {
@@ -842,4 +844,5 @@ aside {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: blue;
 }

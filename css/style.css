@@ -598,18 +598,6 @@ aside {
 /* form design end */
 
 
-
-/* footer */
-.footer {
-    margin-inline: var(--body-margin-inline);
-    font-size: .8rem;
-    text-align: right;
-}
-
-.footerp {
-    padding-block: 1rem;
-}
-
 .article__wrappper--large {
     background: var(--image__1--gradient);
     background-blend-mode: darken;
@@ -837,12 +825,36 @@ aside {
     color: var(--btn-blue);
 }
 
+
+/* footer */
 .footer {
     background-color: var(--footer-clr);
-    padding: 2rem;
-    color: var(--white-clr);
+    padding-inline: var(--body-margin-inline);
+    padding-block: 5rem;
+    margin-top: calc(var(--margin-top) * 2);
+}
+
+.footer__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: blue;
+}
+
+.footerp {
+    padding-block: 1rem;
+}
+
+.footer__navigation {
+    color: var(--white-clr);
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: var(--margin-top);
+}
+
+.footer__navigation--item a {
+    color: var(--white-clr);
+    font-size: 1.6rem;
 }

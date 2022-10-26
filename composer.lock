@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75236ab93fcf7ae9ea88110977371f36",
+    "content-hash": "ebec7e6aa1209dc5c7f1412b81f0a8c5",
     "packages": [
         {
             "name": "scssphp/scssphp",
@@ -85,6 +85,53 @@
                 "source": "https://github.com/scssphp/scssphp/tree/v1.11.0"
             },
             "time": "2022-09-02T21:24:55+00:00"
+        },
+        {
+            "name": "vladkens/autoprefixer",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vladkens/autoprefixer-php.git",
+                "reference": "a89553d6b8df8374c78b3d2e80221d771bf14814"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vladkens/autoprefixer-php/zipball/a89553d6b8df8374c78b3d2e80221d771bf14814",
+                "reference": "a89553d6b8df8374c78b3d2e80221d771bf14814",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vlad Pronsky",
+                    "email": "vladkens@yandex.ru"
+                }
+            ],
+            "description": "Run Autoprefixer using node.js in you php.",
+            "keywords": [
+                "Node.js",
+                "autoprefixer",
+                "css",
+                "prefixes"
+            ],
+            "support": {
+                "email": "vladkens@yandex.ru",
+                "issues": "https://github.com/vladkens/autoprefixer-php/issues",
+                "source": "https://github.com/vladkens/autoprefixer-php"
+            },
+            "time": "2015-01-30T11:55:19+00:00"
         }
     ],
     "packages-dev": [],

@@ -3,7 +3,8 @@
     "description": "A php blog application",
     "type": "project",
     "require": {
-        "scssphp/scssphp": "^1.11"
+        "scssphp/scssphp": "^1.11",
+        "vladkens/autoprefixer": "^0.1.0"
     },
     "autoload": {
         "psr-4": {

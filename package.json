@@ -1,0 +1,19 @@
+{
+  "name": "blogify",
+  "version": "1.0.0",
+  "description": "This is a blog application written in php",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anguzuDaniel/blog.git"
+  },
+  "author": "Anguzu Daniel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anguzuDaniel/blog/issues"
+  },
+  "homepage": "https://github.com/anguzuDaniel/blog#readme"
+}

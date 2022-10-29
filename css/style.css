@@ -1,12 +1,14 @@
 :root {
     --border-clr: rgba(0, 0, 0, 0.123);
     --bg-admin-nav: rgba(12, 14, 31, 0.582);
-    --bg-light-clr: #FAF7F0;
+    /* --bg-admin-nav: rgba(128, 128, 128, 0.07); */
+    --bg-light-clr: rgba(128, 128, 128, 0.07);
     --white-clr: white;
     --outline-clr: rgb(55, 194, 203);
 
     /* --clr-primary: rgb(209, 81, 45); */
     --clr-primary: #246EE9;
+    --clr-primary--hover: #2470e925;
 
     --link-clr: rgb(12, 14, 31);
     --orange-clr: rgb(209, 81, 45);
@@ -530,6 +532,7 @@ aside {
 
 .admin__nav--item:first-child {
     border-top: 1px solid var(--bg-light-clr);
+    box-sizing: var(--shadow-1);
 }
 
 .admin__nav--item {
@@ -539,19 +542,21 @@ aside {
     cursor: pointer;
 }
 
-.admin__nav > .active {
-   border-left: 5px solid var(--clr-primary); 
-}
+/* .admin__nav > .active { */
+/* } */
 
-.admin__nav > .active:hover {
-    background-color: var(--clr-primary);
-    filter: brightness(100%);
-}
 
 .admin__nav--item a {
     color: var(--bg-admin-nav);
-    /* color: var(--white-clr); */
     margin-left: 2rem;
+}
+
+.admin__nav--item:hover {
+    border-left: 5px solid var(--clr-primary); 
+    background-color: var(--clr-primary--hover);
+    filter: brightness(100%);
+    color: var(--white-clr);
+    transition: all .2s ease-in-out;
 }
 
 .admin__content {
@@ -599,7 +604,11 @@ aside {
     text-align: center;
     border: 1px solid var(--border-clr);
     background-color: var(--white-clr);
-    box-sizing: var(--shadow-1);
+}
+
+.admin__card:hover {
+    box-shadow: var(--shadow-1);
+    border-color: var(--clr-primary--hover);
 }
 
 .admin__card--icon {
@@ -656,12 +665,18 @@ aside {
     padding-block: 2rem;
     border-bottom: 1px solid var(--border-clr);
     padding-inline: 2rem;
+    transition: all .3s ease-in-out;
 }
 
 .admin__all--writters table > tbody > tr > td {
     padding-block: 2rem;
     border-bottom: 1px solid var(--border-clr);
     padding-inline: 2rem;
+}
+
+.admin__all--writters table > tbody > tr > td:hover {
+    box-shadow: var(--shadow-1);
+    border: var(--clr-primary--hover);
 }
 
 .table__footer {
@@ -681,6 +696,10 @@ aside {
     padding: .5rem 1rem;
     border: none;
     border: 1px solid var(--border-clr);
+}
+
+.table__footer--pages p {
+    color: var(--clr-primary);
 }
 
 .table__footer--result {
@@ -710,10 +729,12 @@ aside {
     text-transform: capitalize;
     border: none;
     border: 1px solid var(--border-clr);
+    outline: none;
 }
 
-.admin__sort select:active {
-    outline: var(--clr-primary);
+.admin__sort select:hover {
+    outline: 1px solid var(--clr-primary--hover);
+    box-shadow: var(--shadow-1);
 }
 
 .admin__sort select option span {
@@ -773,6 +794,10 @@ aside {
 .delete__icon {
     color: rgb(255, 0, 0);
     opacity: .8;
+}
+
+.result__num {
+    color: var(--clr-primary);
 }
 /* side navigation style end | home page */
 

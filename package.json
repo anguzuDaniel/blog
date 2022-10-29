@@ -4,7 +4,13 @@
   "description": "This is a blog application written in php",
   "main": "index.php",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver live-server",
+    "compile:sass": "sass css/sass/main.scss css/style.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.comp.css -o css/style.prefix.css",
+    "compress:css": "sass css/style.prefix.css css/style.css --style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "repository": {
     "type": "git",
@@ -14,6 +20,17 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/anguzuDaniel/blog/issues"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "concat": "^1.0.3",
+    "npm-run-all": "^4.1.1",
+    "postcss-cli": "^10.0.0"
+  },
+  "dependencies": {
+    "liveserver": "^0.1.20",
+    "parcel": "^2.6.2",
+    "sass": "^1.53.0"
   },
   "homepage": "https://github.com/anguzuDaniel/blog#readme"
 }

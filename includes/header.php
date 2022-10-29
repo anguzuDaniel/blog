@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,600;1,600&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Public+Sans:wght@300;400;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    
 </head>
 
 <body>

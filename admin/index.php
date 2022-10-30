@@ -1,22 +1,10 @@
-<!-- <header class="header">
-    <h1>BlogIfy!</h1>
-    
-    <div class="admin__link">
-        <a href="../index.php">Home page</a> -->
+<?php require_once "./includes/header.php"; ?>
 
-<!-- <div>
-            <img src="../images/DSC03366.JPG" alt>
-        </div> -->
-<!-- </div>
-    </header> -->
-
-<?php require "./includes/header.php"; ?>
-
-<?php include "includes/sidebar.php" ?>
+<?php include_once "includes/sidebar.php" ?>
 <main class="admin__wrapper">
 
     <div class="admin__container">
-        <?php require "./includes/navigation.php"; ?>
+        <?php require_once "./includes/navigation.php"; ?>
 
 
         <section class="admin__content">
@@ -109,7 +97,8 @@
                             <div class="admin__sort--filter">
 
                                 <p>Active filters/tags:</p>
-                                <p class="admin__sort--tag"><span> none <a href="#"><i class="fa-solid fa-circle-xmark"></i></span></a></p>
+                                <p class="admin__sort--tag"><span> none <a href="#">
+                                            <i class="fa-solid fa-circle-xmark"></i></span></a></p>
                                 <!-- <a href="#" class="admin__sort--clear">clear all</a> -->
                             </div>
                         </div>
@@ -124,7 +113,7 @@
                                 <td>id</td>
                                 <td>Name</td>
                                 <td>Number post</td>
-                                <td>Action</td>
+                                <td colspan="2">Action</td>
                             </tr>
                         </thead>
 
@@ -137,8 +126,13 @@
                                 <td>Chima Titilayo</td>
                                 <td>40</td>
                                 <td>
+                                    <a href="#" class="edit__icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                </td>
+                                <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-regular fa-trash-can"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -150,8 +144,13 @@
                                 <td>Kehinde Mandlenkosi</td>
                                 <td>50</td>
                                 <td>
+                                    <a href="#" class="edit__icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                </td>
+                                <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-regular fa-trash-can"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -163,8 +162,13 @@
                                 <td>Kossi Adenike</td>
                                 <td>30</td>
                                 <td>
+                                    <a href="#" class="edit__icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                </td>
+                                <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-regular fa-trash-can"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -176,8 +180,13 @@
                                 <td>Kelly Opan</td>
                                 <td>500</td>
                                 <td>
+                                    <a href="#" class="edit__icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                </td>
+                                <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-regular fa-trash-can"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -189,8 +198,13 @@
                                 <td>Aishatu Amara</td>
                                 <td>200</td>
                                 <td>
+                                    <a href="#" class="edit__icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                </td>
+                                <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-regular fa-trash-can"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -202,8 +216,13 @@
                                 <td>Chidiebere Neema</td>
                                 <td>200</td>
                                 <td>
+                                    <a href="#" class="edit__icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                </td>
+                                <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-regular fa-trash-can"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -215,8 +234,13 @@
                                 <td>Itai Ayanda</td>
                                 <td>200</td>
                                 <td>
+                                    <a href="#" class="edit__icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                </td>
+                                <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-regular fa-trash-can"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -228,8 +252,13 @@
                                 <td>Wambui Siyabonga</td>
                                 <td>200</td>
                                 <td>
+                                    <a href="#" class="edit__icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                </td>
+                                <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-regular fa-trash-can"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -240,11 +269,18 @@
                                 <td>9</td>
                                 <td>Opit obop</td>
                                 <td>150</td>
+
                                 <td>
-                                    <a href="#" class="delete__icon">
-                                        <i class="fa-solid fa-trash"></i>
+                                    <a href="#" class="edit__icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
                                     </a>
                                 </td>
+                                <td>
+                                    <a href="#" class="delete__icon">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </a>
+                                </td>
+
                             </tr>
                             <tr>
                                 <td>
@@ -254,8 +290,13 @@
                                 <td>Wanyonyi Chifuniro</td>
                                 <td>100</td>
                                 <td>
+                                    <a href="#" class="edit__icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                </td>
+                                <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-regular fa-trash-can"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -292,4 +333,4 @@
     </div>
     </div>
 </main>
-<?php require "./includes/footer.php"; ?>
+<?php require_once "./includes/footer.php"; ?>

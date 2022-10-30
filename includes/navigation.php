@@ -12,8 +12,8 @@
 
     <div class="header__secondary">
         <nav>
-            <ul class="nav_list">
-                <li class="nav_list--item">
+            <ul class="nav__list">
+                <li class="nav__list--item">
                     <select name="tech" id="tech">
                         <option value="">
                             <a href="#">Technology</a>
@@ -27,7 +27,7 @@
                     </select>
                 </li>
 
-                <li class="nav_list--item">
+                <li class="nav__list--item">
                     <select name="lifestyle" id="lifestyle">
                         <option value="">
                             <a href="#">LifeStyle</a>
@@ -41,7 +41,7 @@
                     </select>
                 </li>
 
-                <li class="nav_list--item">
+                <li class="nav__list--item">
                     <select name="" id="">
                         <option value="">
                             <a href="#">Music</a>

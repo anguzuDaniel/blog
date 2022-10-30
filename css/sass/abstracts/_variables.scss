@@ -1,0 +1,49 @@
+:root {
+	--border-clr: rgba(0, 0, 0, 0.123);
+	--bg-admin-nav: rgba(12, 14, 31, 0.582);
+	/* --bg-admin-nav: rgba(128, 128, 128, 0.07); */
+	// --bg-light-clr: rgba(128, 128, 128, 0.07);
+
+	// --bg-light-clr: #6588912e;
+
+	--white-clr: white;
+	--outline-clr: rgb(55, 194, 203);
+
+	/* --clr-primary: rgb(209, 81, 45); */
+	--clr-primary: #3066bec5;
+	// --clr-primary: #ff9b21;
+
+	--clr-primary--hover: #2470e925;
+
+	--link-clr: rgb(12, 14, 31);
+	--orange-clr: rgb(209, 81, 45);
+
+	/* margin top */
+	--margin-top: 4rem;
+	--margin-container-top: 6rem;
+
+	--body-margin-inline: 10rem;
+
+	--padding-inline-1: 10rem;
+	--padding-block-1: 2rem;
+
+	--padding-block-2: 1rem;
+
+	--padding-block-3: 1.5rem;
+
+	/* input padding */
+	--input-padding-block: 1rem;
+	--input-padding-inline: 1.5rem;
+
+	/* btn color */
+	--btn-blue: #246ee9;
+	color: rgba(0, 0, 0, 0.646);
+
+	--image__1--gradient: linear-gradient(135deg, #ffd26f 10%, #3677ff 100%);
+
+	--shadow-1: 0 3px 3px 0 rgb(0 0 0 / 8%);
+
+	--hover-bg: rgba(255, 255, 255, 0.654);
+
+	--footer-clr: rgb(12, 14, 31);
+}

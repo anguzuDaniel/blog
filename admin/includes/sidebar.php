@@ -1,27 +1,27 @@
     <nav>
         <ul class="admin__nav">
             <li class="admin__nav--item active">
-                <i class="fa-solid fa-house-user"></i>
+                <em class="fa-solid fa-house-user"></em>
                 <a href="../index.php">Home</a>
             </li>
 
             <li class="admin__nav--item">
-                <i class="fa-solid fa-chart-line"></i>
+                <em class="fa-solid fa-chart-line"></em>
                 <a href="index.php">Dashboard</a>
             </li>
 
             <li class="admin__nav--item">
-                <i class="fa-solid fa-newspaper"></i>
+                <em class="fa-solid fa-newspaper"></em>
                 <a href="create_article.php">Create article</a>
             </li>
 
             <li class="admin__nav--item">
-                <i class="fa-solid fa-pen-to-square"></i>
+                <em class="fa-solid fa-pen-to-square"></em>
                 <a href="#">Edit article</a>
             </li>
 
             <li class="admin__nav--item">
-                <i class="fa-solid fa-eye"></i>
+                <em class="fa-solid fa-eye"></em>
                 <a href="#">View articles</a>
             </li>
         </ul>

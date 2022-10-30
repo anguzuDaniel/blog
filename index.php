@@ -1,6 +1,6 @@
 <?php
 
-require "includes/database.php";
+require_once("includes/database.php");
 
 $sql = "SELECT * FROM articles LIMIT 4 ";
 
@@ -14,10 +14,10 @@ if ($result === false) {
 
 ?>
 
-<?php require "includes/header.php" ?>
+<?php require_once("includes/header.php") ?>
 
 <!-- navigation bar -->
-<?php require "includes/navigation.php" ?>
+<?php require_once("includes/navigation.php") ?>
 
 
 <!-- main content begining -->
@@ -28,8 +28,13 @@ if ($result === false) {
         <section class="container__articles">
             <div class="article__wrappper article__wrappper--large">
                 <div class="article__text">
-                    <h1 class="heading | article__text--title | article__text--title">What do software Engineers do?</h1>
-                    <p class="article__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam magnam minima adipisci nihil recusandae aut exercitationem,...</p>
+                    <h1 class="heading | article__text--title | article__text--title">
+                        What do software Engineers do?
+                    </h1>
+                    <p class="article__paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quibusdam magnam minima adipisci nihil recusandae aut exercitationem,...
+                    </p>
                     <p class="article__date article__date--small">OCT 09, 2022</p>
                 </div>
 
@@ -37,8 +42,6 @@ if ($result === false) {
 
             <div class="container__articles--grid">
                 <div class=" article__wrappper | article__wrappper--small | article__wrappper--1">
-
-                    <!-- <img src="images/repository-open-graph-template.png" /> -->
                     <div class="article__text">
                         <h1 class="heading | article__text--title">Swangz</h1>
                         <p class="article__date">Sept 11, 2021</p>
@@ -76,15 +79,13 @@ if ($result === false) {
     </div>
 
     <section class="read__article">
-
-
         <div>
             <div class="read__article--underline read__article--underline1">
                 <h1 class="read__article--heading">Must Read</h1>
                 <span></span>
             </div>
 
-            <!-- lastest artciles section start -->
+            <!-- lastest artciles section | start -->
             <div class="lastest__articles">
 
                 <?php if (empty($articles)) : ?>
@@ -93,14 +94,26 @@ if ($result === false) {
                     <?php foreach ($articles as $article) : ?>
                         <article>
                             <div class="lastest__articles--image">
-                                <img src="images/<?= $article['article_image']; ?>" />
+                                <img src="images/<?= $article['article_image']; ?>" alt="image" />
                             </div>
-                            <!-- <img src="images/Programming-Language-Popularity.jpg" alt="" srcset=""> -->
                             <div class="lastest__articles--text">
                                 <h1 class="lastest__articles--title"><?= $article['article_title']; ?></h1>
                                 <p class="lastest__articles--paragraph"><?= substr($article['article_content'], 0, 150); ?>...</p>
                                 <p class="lastest__articles--date">December 11, 2016</p>
-                                <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read"> <span>read more</span> </a>
+
+                                <div class="lastest__articles--cta">
+                                    <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read"> <span>read more</span> </a>
+                                    <!-- <em class="fa-regular fa-comments"></em> -->
+                                    <!-- <em class="fa-solid fa-comments"></em> -->
+                                    <!-- <em class="fa-regular fa-heart"></em> -->
+                                    <!-- <em class="fa-solid fa-heart"></em> -->
+                                    <!-- <em class="fa-regular fa-thumbs-up"></em> -->
+                                    <!-- <em class="fa-solid fa-thumbs-up"></em> -->
+                                    <em class="fa-regular fa-bookmark"></em>
+                                    <!-- <em class="fa-solid fa-bookmark"></em> -->
+                                </div>
+
+
                             </div>
 
                         </article>
@@ -113,7 +126,6 @@ if ($result === false) {
         <!-- side section | shows the ctegory list -->
 
         <div>
-
             <aside>
                 <div class="side__list side__list--1">
                     <div class="side__list--navigation">
@@ -171,14 +183,8 @@ if ($result === false) {
                             </div>
 
                             <div class="recommended__articles--text">
-                                <!-- <h1><?= substr($article['article_title'], 0, 50); ?>..</h1> -->
-                                <!-- <p><?= substr($article['article_content'], 0, 100); ?>...</p> -->
-                                <!-- <p>Jan 02 2022</p> -->
                             </div>
 
-                            <!-- <button class="btn btn--read recommended__articles--btn">
-                                <a href="article.php?id=<?= $article['id']; ?>">read more &rarr;</a>
-                            </button> -->
 
                         </article>
                     <?php endforeach; ?>
@@ -195,4 +201,4 @@ if ($result === false) {
 </main>
 <!-- main content end-->
 
-<?php require "includes/footer.php" ?>
+<?php require_once("includes/footer.php") ?>

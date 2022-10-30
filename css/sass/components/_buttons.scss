@@ -1,0 +1,79 @@
+/* btn style start */
+.btn {
+	border: none;
+	color: white;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+
+	&--submit {
+		margin-bottom: 1rem;
+		background-color: var(--btn-blue);
+		padding: 1rem 3rem;
+	}
+
+	/* read more btn style*/
+	&--read {
+		color: var(--clr-primary);
+		display: flex;
+		flex-direction: column;
+		align-self: flex-start;
+		transition: all 0.2s ease-in-out;
+		border-radius: 0;
+		border-radius: 5px;
+		position: relative;
+		overflow: hidden;
+		text-decoration: underline;
+		font-size: 1.6rem;
+		opacity: 0.8;
+
+		&::after {
+			content: "read more \2192";
+			position: absolute;
+			display: flex;
+			color: var(--clr-primary);
+			gap: 2px;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			opacity: 0;
+			opacity: 0;
+			transform: translateX(-100px);
+			transition: all 0.5s ease-in-out;
+
+			&span {
+				transition: all 0.5s ease-in-out;
+				opacity: 0;
+			}
+		}
+	}
+
+	/* carrosel button */
+	&__pagination {
+		padding: 0.5rem 1rem;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+		font-size: 4rem;
+		color: rgba(0, 0, 0, 0.181);
+
+		&:hover {
+			color: var(--btn-blue);
+		}
+	}
+
+	// button hover effects
+	&:hover {
+		transform: scaleX(0.95);
+
+		&:active {
+			transform: scale(0.8);
+		}
+
+		&::after {
+			opacity: 1;
+			transform: translateX(0px);
+		}
+	}
+}

@@ -1,1 +1,16 @@
-@import "./base/base";
+@forward "./abstracts/variables";
+@forward "./base/base";
+
+@forward "./components/header";
+@forward "./components/search";
+@forward "./components/buttons";
+@forward "./components/nav";
+@forward "./components/table";
+@forward "./components/form";
+
+@forward "./layout/container";
+@forward "./layout/article";
+@forward "./layout/aside";
+@forward "./layout/footer";
+
+@forward "./pages/admin";

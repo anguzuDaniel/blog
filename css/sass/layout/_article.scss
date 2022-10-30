@@ -1,0 +1,331 @@
+/* artcile page style | starts here */
+.article {
+	margin-inline: var(--body-margin-inline);
+	margin-block: var(--margin-top);
+
+	&--text {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		padding: 1rem;
+		padding-inline: 2rem;
+
+		h1 {
+			color: white;
+			font-size: 3.5rem;
+			margin-bottom: 0.5rem;
+			font-weight: bolder;
+		}
+
+		p {
+			color: rgb(245, 232, 228);
+			opacity: 0.8;
+			margin-bottom: 0.5rem;
+		}
+
+		&--paragraph {
+			padding-bottom: 1rem;
+		}
+	}
+
+	&__date {
+		font-size: 1.25rem;
+		font-weight: bold;
+	}
+
+	&--title {
+		color: var(--clr-primary);
+	}
+
+	&--image {
+		img {
+			width: 100%;
+		}
+	}
+
+	article {
+		display: grid;
+		gap: 20px;
+	}
+
+	&__wrappper {
+		height: 100%;
+		-webkit-filter: opacity(90%);
+		filter: opacity(90%);
+
+		img {
+			width: 100%;
+			object-fit: cover;
+			aspect-ratio: 10 / 5;
+		}
+
+		&--large {
+			background: var(--image__1--gradient);
+			background-blend-mode: darken;
+		}
+
+		&--small {
+			h1 {
+				font-size: 1.8rem;
+			}
+		}
+
+		&--large {
+			background-image: linear-gradient(
+					to bottom,
+					rgb(13, 251, 255) 10% 20%,
+					rgb(0, 21, 255)
+				),
+				url("../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			background-blend-mode: darken, luminosity;
+			background-blend-mode: hue, luminosity;
+			display: flex;
+			justify-content: left;
+			align-items: flex-end;
+		}
+
+		&--1 {
+			background-image: linear-gradient(
+					to bottom,
+					rgba(255, 255, 255, 0.464) 10% 20%,
+					rgb(255, 225, 0)
+				),
+				url(../images/swangz.webp);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			background-blend-mode: darken, luminosity;
+			display: flex;
+			justify-content: left;
+			align-items: flex-end;
+		}
+
+		&--2 {
+			background-image: linear-gradient(
+					to bottom,
+					rgba(28, 217, 255, 0.315) 10% 20%,
+					rgb(13, 239, 255)
+				),
+				url(../images/Secondhand-clothing-on-sale-satisfashionug.jpg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			background-blend-mode: darken, luminosity;
+			display: flex;
+			justify-content: left;
+			align-items: flex-end;
+		}
+
+		&--3 {
+			background-image: linear-gradient(
+					to bottom,
+					rgba(255, 153, 28, 0.372) 10% 20%,
+					rgb(150, 255, 13)
+				),
+				url(../images/Programming-Language-Popularity.jpg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			background-blend-mode: darken, luminosity;
+			display: flex;
+			justify-content: left;
+			align-items: flex-end;
+		}
+
+		&--4 {
+			background-image: linear-gradient(
+					to bottom,
+					rgba(255, 28, 28, 0.365) 10% 20%,
+					rgb(13, 251, 255)
+				),
+				url("../images/meditation.jpg");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			background-blend-mode: darken, luminosity;
+			display: flex;
+			justify-content: left;
+			align-items: flex-end;
+		}
+	}
+}
+/* artcile page style | ends here */
+
+/* must read artcile | start */
+.read {
+	&__article {
+		margin-inline: var(--body-margin-inline);
+		display: grid;
+		grid-template-columns: 1fr min-content;
+		gap: 3rem;
+		&--heading {
+			color: var(--clr-primary);
+			width: fit-content;
+			padding-block: 2rem;
+			border-top-right-radius: 15px;
+		}
+
+		&--underline {
+			border-bottom: 1px solid var(--clr-primary);
+			margin-bottom: 3rem;
+			margin-inline: var(--body-margin-inline);
+			margin-top: var(--margin-top);
+		}
+
+		&--underline1 {
+			margin-inline: 0;
+		}
+	}
+}
+/* must read artcile | ends here*/
+
+/* latest articles | starts here */
+.lastest {
+	&__articles {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+		gap: 25px;
+
+		&--title {
+			font-size: 2rem;
+			// color: var(--clr-primary);
+		}
+
+		&--date {
+			font-size: 1.2rem;
+		}
+
+		article {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			overflow: hidden;
+			border: 1px solid var(--border-clr);
+
+			a {
+				text-decoration: none;
+			}
+		}
+
+		&--cta {
+			color: var(--clr-primary);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 2rem;
+		}
+
+		&--image {
+			background-blend-mode: lighten;
+			width: 100%;
+
+			img {
+				&:hover {
+					transform: scale(1.1);
+					transition: all 0.5s ease;
+				}
+			}
+		}
+
+		&--text {
+			display: grid;
+			justify-content: baseline;
+			padding: 1.5rem;
+			gap: 20px;
+
+			a {
+				display: grid;
+				justify-self: left;
+			}
+		}
+
+		img {
+			aspect-ratio: 10 / 7;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+}
+/* latest articles | ends here */
+
+/* Recommeded artciles style | start ends  */
+.recommended {
+	&__articles {
+		margin-top: var(--margin-top);
+		margin-inline: var(--body-margin-inline);
+
+		article {
+			box-shadow: var(--shadow-1);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 2rem;
+			position: relative;
+			background-image: rgba(132, 226, 104, 0.8);
+			border: 1px solid var(--border-clr);
+			overflow: hidden;
+		}
+
+		&--underline {
+			border-bottom: 1px solid var(--clr-primary);
+			margin-bottom: 3rem;
+			margin-top: var(--margin-top);
+		}
+
+		&--container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+		}
+
+		&--heading {
+			color: var(--white-clr);
+			background-color: var(--clr-primary);
+			width: fit-content;
+			padding: 1rem;
+		}
+
+		&--wrapper {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+			gap: 1rem;
+		}
+
+		&--images {
+			img {
+				aspect-ratio: 10 / 10;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				-webkit-filter: opacity(90%);
+				filter: opacity(90%);
+				cursor: pointer;
+
+				&:hover {
+					transform: scale(1.1);
+					transition: all 0.5s ease;
+				}
+			}
+		}
+
+		&--text {
+			font-size: 1.6rem;
+			padding-inline: 1.5rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			position: absolute;
+			color: var(--clr-primary);
+			padding-bottom: 1rem;
+		}
+
+		&--btn {
+			margin-left: 1rem;
+		}
+	}
+}
+/* Recommeded artciles | style here */

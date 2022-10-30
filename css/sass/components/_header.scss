@@ -1,0 +1,30 @@
+.header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: var(--white-clr);
+	z-index: 1;
+	box-shadow: var(--shadow-1);
+
+	&__primary {
+		padding-block: var(--padding-block-1);
+		padding-inline: var(--padding-inline-1);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid var(--border-clr);
+	}
+
+	&__secondary {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-inline: var(--body-margin-inline);
+		border-bottom: 1px solid var(--border-clr);
+	}
+
+	&--logo {
+		color: var(--clr-primary);
+	}
+}

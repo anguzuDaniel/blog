@@ -1,7 +1,8 @@
-<?php require "includes/header.php"; ?>
+<?php require_once "includes/header.php"; ?>
+<?php require_once "includes/database.php"; ?>
 <?php
 
-require "includes/database.php";
+
 
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
@@ -13,8 +14,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         echo mysqli_error($connection);
     } else {
         $article = mysqli_fetch_assoc($result);
-
-        // var_dump($articles);
     }
 } else {
     $article = null;
@@ -22,19 +21,19 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 ?>
 
-<?php require "includes/header.php"; ?>
+<?php require_once "includes/header.php"; ?>
 
-<?php require "includes/navigation.php"; ?>
+<?php require_once "includes/navigation.php"; ?>
 
 
 <div class="article">
 
-    <?php if ($article === NULL) : ?>
+    <?php if ($article === null) : ?>
         <p class="paragraph article--paragraph">No articles found..</p>
     <?php else : ?>
         <article>
             <div class="article--image">
-                <img src="images/<?= $article['article_image']; ?>" />
+                <img src="images/<?= $article['article_image']; ?>" alt="article image" />
             </div>
 
             <div class="article--text">
@@ -44,12 +43,16 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
             <hr>
 
+            <div class="article__comments">
+                <p class="article__comments--no">No comments yet..</p>
+            </div>
+
             <form class="article--comments" action="" method="post">
                 <h1 class="article--title">Please leave a comment</h1>
-                <div class="form__row">
+                <!-- <div class="form__row">
                     <label for="username" class="form__row--label">Username</label>
                     <input type="text" name="username" id="">
-                </div>
+                </div> -->
                 <div class="form__row">
                     <label for="comment" class="form__row--label">Comment</label>
                     <textarea name="comment" id="" cols="30" rows="10" style="resize: none;"></textarea>
@@ -61,4 +64,4 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <?php endif ?>
 </div>
 
-<?php require "includes/footer.php"; ?>
+<?php require_once "includes/footer.php"; ?>

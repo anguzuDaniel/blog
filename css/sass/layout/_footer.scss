@@ -4,32 +4,63 @@
 	padding-inline: var(--body-margin-inline);
 	padding-block: 5rem;
 	margin-top: calc(var(--margin-top) * 2);
+	border-top: 1px solid var(--border-clr);
 
 	&__wrapper {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		border-bottom: 1px solid var(--border-clr);
+		padding-block: 6rem;
 	}
 
 	&__navigation {
 		color: var(--white-clr);
 		display: flex;
-		flex-direction: column;
+		// flex-direction: column;
 		justify-content: left;
 		align-items: baseline;
 		gap: 20px;
-		margin-bottom: var(--margin-top);
+
 
 		&--item {
 			a {
-				color: var(--white-clr);
+				color: var(--clr-primary);
 				font-size: 1.6rem;
 			}
 		}
 	}
 
 	p {
-		padding-block: 1rem;
+		padding-block: 2rem;
+		text-align: right;
+	}
+
+	&__form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		width: 50%;
+		margin: 0 auto;
+		padding-top: 5rem;
+
+		&--input {
+			width: 100%;
+			padding: 1rem;
+			border: 1px solid var(--border-clr);
+			border-radius: 5px;
+			outline: none;
+		}
+
+		&--button {
+			background-color: var(--clr-primary);
+			color: var(--white-clr);
+			border: none;
+			margin-bottom: 0;
+			outline: none;
+			cursor: pointer;
+		}
 	}
 }
 /* footer style | ends here */

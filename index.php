@@ -2,7 +2,7 @@
 
 require_once("includes/database.php");
 
-$sql = "SELECT * FROM articles LIMIT 4 ";
+$sql = "SELECT * FROM articles LIMIT 4";
 
 $result = mysqli_query($connection, $sql);
 
@@ -28,14 +28,14 @@ if ($result === false) {
         <section class="container__articles">
             <div class="article__wrappper article__wrappper--large">
                 <div class="article__text">
-                    <h1 class="heading | article__text--title | article__text--title">
+                    <p class="article__date article__date--small">OCT 09, 2022</p>
+                    <h1 class="heading | article__text--title">
                         What do software Engineers do?
                     </h1>
-                    <p class="article__paragraph">
+                    <!-- <p class="article__paragraph">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Quibusdam magnam minima adipisci nihil recusandae aut exercitationem,...
-                    </p>
-                    <p class="article__date article__date--small">OCT 09, 2022</p>
+                    </p> -->
                 </div>
 
             </div>
@@ -43,15 +43,15 @@ if ($result === false) {
             <div class="container__articles--grid">
                 <div class=" article__wrappper | article__wrappper--small | article__wrappper--1">
                     <div class="article__text">
-                        <h1 class="heading | article__text--title">Swangz</h1>
                         <p class="article__date">Sept 11, 2021</p>
+                        <h1 class="heading | article__text--title">Music & production</h1>
                     </div>
                 </div>
 
                 <div class="article__wrappper | article__wrappper--small | article__wrappper--2">
                     <div class="article__text">
-                        <h1 class="heading | article__text--title">UG Thrifting..</h1>
                         <p class="article__date">Dec 29, 2021</p>
+                        <h1 class="heading | article__text--title">Thrifting the right way</h1>
                     </div>
                 </div>
 
@@ -59,8 +59,8 @@ if ($result === false) {
 
                 <div class="article__wrappper | article__wrappper--small | article__wrappper--3">
                     <div class="article__text">
-                        <h1 class="heading | article__text--title">UG Thrifting..</h1>
                         <p class="article__date">Dec 29, 2021</p>
+                        <h1 class="heading | article__text--title">Programming</h1>
                     </div>
                 </div>
 
@@ -68,8 +68,8 @@ if ($result === false) {
 
                 <div class="article__wrappper | article__wrappper--small | article__wrappper--4">
                     <div class="article__text">
-                        <h1 class="heading | article__text--title">UG Thrifting..</h1>
                         <p class="article__date">Dec 29, 2021</p>
+                        <h1 class="heading | article__text--title">Yoga and Meditation</h1>
                     </div>
                 </div>
 
@@ -123,81 +123,21 @@ if ($result === false) {
             </div>
             <!-- lastest artciles section end -->
         </div>
-        <!-- side section | shows the ctegory list -->
 
-        <div>
-            <aside>
-                <div class="side__list side__list--1">
-                    <div class="side__list--navigation">
-                        <button class="side__list--active">This week</button>
-                        <button>this month</button>
-                        <button>All time</button>
-                    </div>
 
-                    <?php if (empty($articles)) : ?>
-                        <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
-                    <?php else : ?>
-                        <?php foreach ($articles as $article) : ?>
-                            <div class="side__list--content">
-                                <div class="side__list--img">
-                                    <img src="images/<?= $article['article_image']; ?>" alt="" srcset="">
-                                </div>
-                                <div class="side__list--text">
-                                    <h1 class="side__list--heading"><?= substr($article['article_title'], 0, 40); ?></h1>
-                                    <p class="side__list--paragraph"><?= substr($article['article_content'], 0, 50); ?>...</p>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </div>
-            </aside>
-        </div>
-        <!-- side section | end-->
+        <!-- including the side article markup -->
+        <?php require_once "includes/side.php" ?>
 
-        <a href="includes/" class="more__articles">More &rarr;</a>
+        <!-- <a href="includes/" class="more__articles">More &rarr;</a> -->
     </section>
 
-    <section class="recommended__articles">
 
-        <div class="recommended__articles--underline">
-            <h1 class="recommended__articles--heading">Recommended</h1>
-            <span></span>
-        </div>
-
-        <!-- Recommeded article wrapper start -->
-        <div class="recommended__articles--container">
-            <div>
-                <button class="btn__pagination slider__next">&lsaquo;</button>
-            </div>
-
-            <div class="recommended__articles--wrapper slider">
+    <!-- icluding the article markup -->
+    <?php require_once "includes/featured.php"; ?>
 
 
-                <?php if (empty($articles)) : ?>
-                    <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
-                <?php else : ?>
-                    <?php foreach ($articles as $article) : ?>
-                        <article>
-                            <div class="recommended__articles--images">
-                                <img src="images/<?= $article['article_image']; ?>" alt="" srcset="">
-                            </div>
-
-                            <div class="recommended__articles--text">
-                            </div>
-
-
-                        </article>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-
-            </div>
-            <div>
-                <button class="btn__pagination slider__previous">&rsaquo;</button>
-            </div>
-            <!-- Recommeded article wrapper end -->
-        </div>
-
-    </section>
+    <!-- inculding the Recommended markup -->
+    <?php require_once "includes/recommended.php"; ?>
 </main>
 <!-- main content end-->
 

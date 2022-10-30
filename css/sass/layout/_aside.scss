@@ -23,10 +23,8 @@ aside {
 				border: none;
 				cursor: pointer;
 				padding: 1.8rem 1rem;
-				/* text-transform: uppercase; */
 				font-weight: 400;
 				letter-spacing: 0.6px;
-				border-bottom: 1px solid var(--border-clr);
 				background-color: white;
 
 				&:hover {
@@ -43,10 +41,13 @@ aside {
 		&--content {
 			display: grid;
 			grid-auto-flow: column;
-			border-bottom: 1px solid var(--border-clr);
 			gap: 10px;
 			margin-block: 1rem;
 			padding: 1rem;
+
+			&:not(:last-child) {
+				border-bottom: 1px solid var(--border-clr);
+			}
 		}
 
 		&--img {
@@ -81,9 +82,11 @@ aside {
 			margin-block: 1rem;
 		}
 
-		&__list a {
-			font-size: 0.9rem;
-			text-decoration: underline;
+		&__list {
+			a {
+				font-size: 0.9rem;
+				text-decoration: underline;
+			}
 		}
 
 		&__nav {

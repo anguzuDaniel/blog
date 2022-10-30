@@ -1,4 +1,4 @@
-<?php require "includes/database.php"; ?>
+<?php require_once "includes/database.php"; ?>
 
 <?php
 
@@ -8,7 +8,6 @@ $article_title = '';
 $article_content = '';
 
 if (isset($_POST['create_article'])) {
-    // creates a conection to the database
 
     $article_image = $_FILES['image']['name'];
     $image_temp = $_FILES['image']['tmp_name'];
@@ -45,7 +44,6 @@ if (isset($_POST['create_article'])) {
 
             if (mysqli_stmt_execute($stmt)) {
                 $id = mysqli_insert_id($connection);
-                echo 'Inserted record with ID: $id';
             } else {
                 echo mysqli_stmt_errno($stmt);
             }

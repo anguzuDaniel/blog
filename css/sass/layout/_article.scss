@@ -3,7 +3,7 @@
 	margin-inline: var(--body-margin-inline);
 	margin-block: var(--margin-top);
 
-	&--text {
+	&__text {
 		display: flex;
 		flex-direction: column;
 		gap: 15px;
@@ -11,16 +11,21 @@
 		padding-inline: 2rem;
 
 		h1 {
-			color: white;
 			font-size: 3.5rem;
 			margin-bottom: 0.5rem;
 			font-weight: bolder;
+			background-color: rgba(255, 255, 255, 0.639);
+			padding: 1rem;
+			box-shadow: var(--shadow-1);
+			opacity: 1;
+			color: black;
 		}
 
 		p {
-			color: rgb(245, 232, 228);
+			color: rgb(255, 255, 255);
 			opacity: 0.8;
 			margin-bottom: 0.5rem;
+			font-size: 1.6rem;
 		}
 
 		&--paragraph {
@@ -31,6 +36,7 @@
 	&__date {
 		font-size: 1.25rem;
 		font-weight: bold;
+		color: black;
 	}
 
 	&--title {
@@ -57,75 +63,76 @@
 			width: 100%;
 			object-fit: cover;
 			aspect-ratio: 10 / 5;
+			filter: brightness(50%);
 		}
 
 		&--large {
 			background: var(--image__1--gradient);
 			background-blend-mode: darken;
+
+			h1 {
+				background-color: #32ccbc;
+				color: white;
+				font-size: 2.5rem;
+			}
 		}
 
 		&--small {
 			h1 {
 				font-size: 1.8rem;
+				background-color: rgba(0, 0, 0, 0.641);
 			}
 		}
 
 		&--large {
-			background-image: linear-gradient(
-					to bottom,
-					rgb(13, 251, 255) 10% 20%,
-					rgb(0, 21, 255)
-				),
-				url("../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp");
+			background-image: /* linear-gradient(135deg, #e8d07a 10%, #5312d6 100%), */ url("../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp");
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: cover;
 			background-blend-mode: darken, luminosity;
-			background-blend-mode: hue, luminosity;
 			display: flex;
 			justify-content: left;
 			align-items: flex-end;
 		}
 
 		&--1 {
-			background-image: linear-gradient(
-					to bottom,
-					rgba(255, 255, 255, 0.464) 10% 20%,
-					rgb(255, 225, 0)
-				),
-				url(../images/swangz.webp);
+			background-image: /* linear-gradient(135deg, #ffcf71 10%, #2376dd 100%), */ url(../images/swangz.webp);
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: cover;
-			background-blend-mode: darken, luminosity;
+			background-blend-mode: hue;
 			display: flex;
 			justify-content: left;
 			align-items: flex-end;
+
+			h1 {
+				background-color: #e96d71;
+				color: white;
+			}
 		}
 
 		&--2 {
-			background-image: linear-gradient(
-					to bottom,
-					rgba(28, 217, 255, 0.315) 10% 20%,
-					rgb(13, 239, 255)
-				),
-				url(../images/Secondhand-clothing-on-sale-satisfashionug.jpg);
+			background-image: /* linear-gradient(135deg, #81ffef 10%, #f067b4 100%), */ url(../images/Secondhand-clothing-on-sale-satisfashionug.jpg);
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: cover;
-			background-blend-mode: darken, luminosity;
+			background-blend-mode: hue, darken;
 			display: flex;
 			justify-content: left;
 			align-items: flex-end;
+
+			h1 {
+				background-color: #28c76f;
+				color: white;
+			}
 		}
 
 		&--3 {
-			background-image: linear-gradient(
+			background-image: /* linear-gradient(
 					to bottom,
 					rgba(255, 153, 28, 0.372) 10% 20%,
 					rgb(150, 255, 13)
-				),
-				url(../images/Programming-Language-Popularity.jpg);
+				), */ url(../images/Programming-Language-Popularity.jpg);
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: cover;
@@ -133,15 +140,19 @@
 			display: flex;
 			justify-content: left;
 			align-items: flex-end;
+
+			h1 {
+				background-color: #9f44d3;
+				color: white;
+			}
 		}
 
 		&--4 {
-			background-image: linear-gradient(
+			background-image: /* linear-gradient(
 					to bottom,
 					rgba(255, 28, 28, 0.365) 10% 20%,
 					rgb(13, 251, 255)
-				),
-				url("../images/meditation.jpg");
+				), */ url("../images/meditation.jpg");
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: cover;
@@ -149,6 +160,18 @@
 			display: flex;
 			justify-content: left;
 			align-items: flex-end;
+
+			h1 {
+				background-color: #0e5cad;
+				color: white;
+			}
+		}
+	}
+
+	&__comments {
+		&--no {
+			text-align: center;
+			font-size: 1rem;
 		}
 	}
 }
@@ -161,15 +184,17 @@
 		display: grid;
 		grid-template-columns: 1fr min-content;
 		gap: 3rem;
+
 		&--heading {
 			color: var(--clr-primary);
 			width: fit-content;
 			padding-block: 2rem;
 			border-top-right-radius: 15px;
+			border-bottom: 2px solid var(--clr-primary);
 		}
 
 		&--underline {
-			border-bottom: 1px solid var(--clr-primary);
+			border-bottom: 1px solid var(--border-clr);
 			margin-bottom: 3rem;
 			margin-inline: var(--body-margin-inline);
 			margin-top: var(--margin-top);
@@ -203,7 +228,7 @@
 			flex-direction: column;
 			width: 100%;
 			overflow: hidden;
-			border: 1px solid var(--border-clr);
+			// border: 1px solid var(--border-clr);
 
 			a {
 				text-decoration: none;
@@ -233,7 +258,7 @@
 		&--text {
 			display: grid;
 			justify-content: baseline;
-			padding: 1.5rem;
+			padding-block: 1.5rem;
 			gap: 20px;
 
 			a {
@@ -270,7 +295,7 @@
 		}
 
 		&--underline {
-			border-bottom: 1px solid var(--clr-primary);
+			background-color: var(--bg-light-clr);
 			margin-bottom: 3rem;
 			margin-top: var(--margin-top);
 		}
@@ -283,10 +308,10 @@
 		}
 
 		&--heading {
-			color: var(--white-clr);
-			background-color: var(--clr-primary);
+			color: var(--clr-primary);
 			width: fit-content;
 			padding: 1rem;
+			border-bottom: 2px solid var(--clr-primary);
 		}
 
 		&--wrapper {
@@ -329,3 +354,131 @@
 	}
 }
 /* Recommeded artciles | style here */
+
+/* featured article styles | starts here */
+.featured {
+	&__articles {
+		margin-top: var(--margin-top);
+		margin-inline: var(--body-margin-inline);
+
+		&--title {
+			font-size: 1.8rem;
+		}
+
+		&--date {
+			font-size: 1rem;
+			opacity: 0.8;
+		}
+
+		&--wrapper {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
+			gap: 25px;
+
+			&--image {
+				background-blend-mode: lighten;
+
+				img {
+					width: 100%;
+					&:hover {
+						transform: scale(1.1);
+						transition: all 0.5s ease;
+					}
+				}
+			}
+
+			article {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				overflow: hidden;
+				font-size: 1.6rem;
+				// border: 1px solid var(--border-clr);
+
+				a {
+					text-decoration: none;
+				}
+
+				&:nth-child(1) {
+					grid-column: 1 / 2;
+					grid-row: -2 / span 2;
+				}
+
+				&:nth-child(2) {
+					display: grid;
+					grid-auto-flow: column;
+					gap: 10px;
+					grid-column: 2 / 3;
+					grid-row: span -2 / 2;
+					height: 200px;
+
+					img {
+						aspect-ratio: 10 / 9;
+						width: 100%;
+						// writing-mode: horizontal-tb;
+						object-fit: cover;
+						height: 100%;
+					}
+				}
+
+				&:nth-child(3) {
+					display: grid;
+					grid-auto-flow: column;
+					gap: 10px;
+					grid-column: 2 / 3;
+					grid-row: 1 / 2;
+					height: 100%;
+
+					img {
+						aspect-ratio: 10 / 9;
+						height: 100%;
+						width: 100%;
+						// writing-mode: horizontal-tb;
+						object-fit: cover;
+					}
+				}
+
+				&:nth-child(4) {
+					grid-column: 5 / -1;
+					grid-row: -2 / 2;
+				}
+			}
+		}
+
+		img {
+			// aspect-ratio: 10 / 7;
+			width: 100%;
+			object-fit: cover;
+			background-blend-mode: lighten;
+			width: 100%;
+
+			img {
+				&:hover {
+					transform: scale(1.1);
+					transition: all 0.5s ease;
+				}
+			}
+		}
+
+		&--cta {
+			color: var(--clr-primary);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 2rem;
+		}
+
+		&--text {
+			display: grid;
+			justify-content: baseline;
+			gap: 15px;
+			padding-block: 1.5rem;
+
+			a {
+				display: grid;
+				justify-self: left;
+			}
+		}
+	}
+}
+/* featured article styles | ends here */

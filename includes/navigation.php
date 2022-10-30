@@ -8,6 +8,10 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </div>
+
+        <button class="admin__link btn">
+            <a href="./admin/index.php">Admin</a>
+        </button>
     </div>
 
     <div class="header__secondary">
@@ -56,10 +60,5 @@
                 </li>
             </ul>
         </nav>
-
-
-        <button class="admin__link btn">
-            <a href="./admin/index.php">Admin</a>
-        </button>
     </div>
 </header>

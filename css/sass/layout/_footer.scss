@@ -1,10 +1,14 @@
 /* footer style | starts here */
 .footer {
-	background-color: var(--bg-light-clr);
+	background-color: #2C404E;
 	padding-inline: var(--body-margin-inline);
 	padding-block: 5rem;
 	margin-top: calc(var(--margin-top) * 2);
 	border-top: 1px solid var(--border-clr);
+
+	h1 {
+		color: white;
+	}
 
 	&__wrapper {
 		display: flex;
@@ -21,7 +25,6 @@
 		justify-content: left;
 		align-items: baseline;
 		gap: 20px;
-
 
 		&--item {
 			a {
@@ -47,7 +50,7 @@
 
 		&--input {
 			width: 100%;
-			padding: 1rem;
+			padding: 1rem 2rem;
 			border: 1px solid var(--border-clr);
 			border-radius: 5px;
 			outline: none;

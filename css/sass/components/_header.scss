@@ -27,4 +27,42 @@
 	&--logo {
 		color: var(--clr-primary);
 	}
+
+	&__cta {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 20px;
+
+		&--btn {
+			padding: 1rem 1.5rem;
+
+			a {
+				color: var(--clr-primary);
+				text-decoration: none;
+			}
+		}
+
+		button {
+			background-color: var(--clr-primary);
+			color: var(--white-clr);
+			padding: 1rem 1.2rem;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+
+			a {
+				color: white;
+			}
+
+			&:hover {
+				background-color: var(--clr-primary--hover);
+			}
+
+			&:active {
+				transform: scale(.5);
+			}
+		}
+	}
 }

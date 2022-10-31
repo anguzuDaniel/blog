@@ -27,12 +27,19 @@ if ($result === false) {
             <?php else : ?>
                 <?php foreach ($articles as $article) : ?>
                     <div class="side__list--content">
-                        <div class="side__list--img">
+                        <!-- <div class="side__list--img">
                             <img src="images/<?= $article['article_image']; ?>" alt="" srcset="">
-                        </div>
+                        </div> -->
                         <div class="side__list--text">
-                            <h1 class="side__list--heading"><?= substr($article['article_title'], 0, 40); ?></h1>
-                            <p class="side__list--paragraph"><?= substr($article['article_content'], 0, 50); ?>...</p>
+                            <h1 class="side__list--heading"><?= substr($article['article_title'], 0, 100); ?></h1>
+                            <p class="side__list--paragraph"><?= substr($article['article_content'], 0, 100); ?>...</p>
+
+                            <div>
+                                <p>2022 01 12</p>
+
+                            </div>
+
+                            <a href="" class="btn btn--read btn--side">Read more</a>
                         </div>
                     </div>
                 <?php endforeach; ?>

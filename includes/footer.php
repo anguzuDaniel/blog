@@ -8,7 +8,7 @@
 
     <div class="footer__wrapper">
         <div class="footer__logo">
-            <h1 class="logo">Blogify</h1>
+            <h1 class="logo">Blogify!</h1>
         </div>
 
         <nav class="footer__navigation">

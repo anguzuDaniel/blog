@@ -5,13 +5,24 @@
         <div class="search">
             <input type="search" name="search__articles" id="" class="search__articles" placeholder="search">
             <button type="submit" name="search__button" class="search__button">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <em class="fa-solid fa-magnifying-glass"></em>
             </button>
         </div>
 
-        <button class="admin__link btn">
+        <!-- <button class="admin__link btn">
             <a href="./admin/index.php">Admin</a>
-        </button>
+        </button> -->
+
+        <div class="header__cta">
+            <div class="header__cta--btn">
+
+                <a href="#">Login</a>
+            </div>
+
+            <button class="header__cta--btn">
+                <a href="./admin/index.php">Create account</a>
+            </button>
+        </div>
     </div>
 
     <div class="header__secondary">

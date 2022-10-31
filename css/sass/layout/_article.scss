@@ -71,7 +71,8 @@
 			background-blend-mode: darken;
 
 			h1 {
-				background-color: #32ccbc;
+				// background-color: #32ccbc;
+				background-color: #2e3440;
 				color: white;
 				font-size: 2.5rem;
 			}
@@ -106,7 +107,8 @@
 			align-items: flex-end;
 
 			h1 {
-				background-color: #e96d71;
+				// background-color: #e96d71;
+				background-color: #0b7285;
 				color: white;
 			}
 		}
@@ -122,7 +124,7 @@
 			align-items: flex-end;
 
 			h1 {
-				background-color: #28c76f;
+				background-color: #2b8a3e;
 				color: white;
 			}
 		}
@@ -413,7 +415,7 @@
 					height: 200px;
 
 					img {
-						aspect-ratio: 10 / 9;
+						aspect-ratio: 10 / 5;
 						width: 100%;
 						// writing-mode: horizontal-tb;
 						object-fit: cover;
@@ -430,7 +432,7 @@
 					height: 100%;
 
 					img {
-						aspect-ratio: 10 / 9;
+						aspect-ratio: 10 / 5;
 						height: 100%;
 						width: 100%;
 						// writing-mode: horizontal-tb;

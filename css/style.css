@@ -390,8 +390,7 @@ table tbody tr:nth-child(odd) {
   margin-inline: var(--body-margin-inline);
   margin-block: var(--margin-top);
   margin-top: 16rem;
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
   gap: 20px;
 }
 .article aside {
@@ -646,11 +645,12 @@ table tbody tr:nth-child(odd) {
   border-bottom: 2px solid var(--clr-primary);
 }
 .recommended__articles--wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 1rem;
 }
 .recommended__articles--images img {
-  aspect-ratio: 10/10;
+  aspect-ratio: 10/9;
   width: 100%;
   height: 100%;
   object-fit: cover;

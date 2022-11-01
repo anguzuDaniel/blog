@@ -2,7 +2,12 @@
 .article {
 	margin-inline: var(--body-margin-inline);
 	margin-block: var(--margin-top);
+	margin-top: 17rem;
 	display: flex;
+
+	aside {
+		margin-top: 0;
+	}
 
 	&__text {
 		display: flex;

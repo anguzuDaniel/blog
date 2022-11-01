@@ -389,7 +389,11 @@ table tbody tr:nth-child(odd) {
 .article {
   margin-inline: var(--body-margin-inline);
   margin-block: var(--margin-top);
+  margin-top: 17rem;
   display: flex;
+}
+.article aside {
+  margin-top: 0;
 }
 .article__text {
   display: flex;
@@ -787,6 +791,7 @@ aside {
   background-color: var(--bg-admin-nav);
   background-color: white;
   display: flex;
+  padding: 1.6rem;
 }
 .side__list--navigation button {
   width: 100%;

@@ -62,6 +62,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         </article>
 
     <?php endif ?>
+
+    <?php require_once "includes/side.php" ?>
 </div>
 
 <?php require_once "includes/footer.php"; ?>

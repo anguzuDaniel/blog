@@ -2,8 +2,14 @@
 .admin {
 	&__profile {
 		border-radius: 50%;
+
+		&--wrapper {
+			width: 100%;
+			border: 1.5px solid var(--clr-compilment-text);
+		}
+
 		img {
-			width: 100px;
+			width: 200px;
 		}
 	}
 

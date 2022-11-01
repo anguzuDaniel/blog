@@ -389,6 +389,7 @@ table tbody tr:nth-child(odd) {
 .article {
   margin-inline: var(--body-margin-inline);
   margin-block: var(--margin-top);
+  display: flex;
 }
 .article__text {
   display: flex;
@@ -639,8 +640,7 @@ table tbody tr:nth-child(odd) {
   border-bottom: 2px solid var(--clr-primary);
 }
 .recommended__articles--wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  display: flex;
   gap: 1rem;
 }
 .recommended__articles--images img {
@@ -723,6 +723,7 @@ table tbody tr:nth-child(odd) {
 .featured__articles--wrapper article:nth-child(2) img {
   aspect-ratio: 10/8;
   object-fit: cover;
+  height: 100%;
 }
 .featured__articles--wrapper article:nth-child(3) {
   display: grid;
@@ -734,6 +735,7 @@ table tbody tr:nth-child(odd) {
 }
 .featured__articles--wrapper article:nth-child(3) img {
   aspect-ratio: 10/8;
+  height: 100%;
   object-fit: cover;
 }
 .featured__articles--wrapper article:nth-child(4) {
@@ -915,8 +917,12 @@ aside {
 .admin__profile {
   border-radius: 50%;
 }
+.admin__profile--wrapper {
+  width: 100%;
+  border: 1.5px solid var(--clr-compilment-text);
+}
 .admin__profile img {
-  width: 100px;
+  width: 200px;
 }
 .admin__link a {
   text-decoration: none;

@@ -7,7 +7,7 @@ $article_image = '';
 $article_title = '';
 $article_content = '';
 
-if (isset($_POST['create_article'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $article_image = $_FILES['image']['name'];
     $image_temp = $_FILES['image']['tmp_name'];
@@ -55,16 +55,16 @@ if (isset($_POST['create_article'])) {
 
 ?>
 
-<?php require "./includes/header.php"; ?>
+<?php require_once "./includes/header.php"; ?>
 
 <!-- main section start -->
 <main class="admin__wrapper">
-    <?php include "includes/sidebar.php" ?>
+    <?php include_once "includes/sidebar.php" ?>
 
     <div class="admin__container">
 
 
-        <?php require "./includes/navigation.php"; ?>
+        <?php require_once "./includes/navigation.php"; ?>
 
         <!-- admin section wrapper start -->
         <section class="admin__content">

@@ -1,11 +1,12 @@
+<!-- admin information section | Starts here -->
+<div class="admin__profile admin__nav--item">
+    <img src="../images/image_processing20210625-24572-1q8oh0u.png" alt="" srcset="">
+</div>
+<!-- admin information section | Ends here -->
+
 <nav>
     <ul class="admin__nav">
-        <li class="admin__profile admin__nav--item">
-            <div>
-                <p>Admin</p>
-                <img src="../images/image_processing20210625-24572-1q8oh0u.png" alt="" srcset="">
-            </div>
-        </li>
+
         <li class="admin__nav--item active">
             <em class="fa-solid fa-house-user"></em>
             <a href="../index.php">Home</a>

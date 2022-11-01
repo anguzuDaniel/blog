@@ -9,11 +9,38 @@ $connection = getDB();
 if (isset($_GET['id'])) {
     $article = getArticle($connection, $_GET['id']);
 
-    $article_image = $article['article_image'];
-    $article_title = $article['article_title'];
-    $article_content = $article['article_content'];
+    if ($article) {
+        $article_image = $article['article_image'];
+        $article_title = $article['article_title'];
+        $article_content = $article['article_content'];
+    }
 } else {
     echo "Artcile doesnt exit";
+
+    $sql = "INSERT INTO articles(article_image, article_title, article_content) VALUES (?, ?, ?) ";
+
+    $stmt = mysqli_prepare($connection, $sql);
+
+    if ($stmt === false) {
+        echo mysqli_error($connection);
+    } else {
+        mysqli_stmt_bind_param($stmt, 'sss', $article_image, $article_title, $article_content);
+
+
+        if (mysqli_stmt_execute($stmt)) {
+
+            if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+                $protocol = 'https';
+            } else {
+                $protocol = 'http';
+            }
+            header("Location: $protocol://" . $_SERVER['HTTP'] . "../article.php?id=$id");
+            move_uploaded_file($image_temp, "../images/$article_image");
+            exit;
+        } else {
+            echo mysqli_stmt_errno($stmt);
+        }
+    }
 }
 
 ?>

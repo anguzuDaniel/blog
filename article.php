@@ -54,10 +54,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                     <label for="username" class="form__row--label">Username</label>
                     <input type="text" name="username" id="">
                 </div> -->
-                    <div class="form__row">
+                    <!-- <div class="form__row">
                         <label for="comment" class="form__row--label">Comment</label>
                         <textarea name="comment" id="" cols="30" rows="10" style="resize: none;"></textarea>
-                    </div>
+                    </div> -->
                     <input type="submit" value="comment" class="btn | btn--submit">
                 </form>
             </article>

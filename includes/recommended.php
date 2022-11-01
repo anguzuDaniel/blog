@@ -2,7 +2,7 @@
 
 require_once("includes/database.php");
 
-$sql = "SELECT * FROM articles ORDER BY RAND() LIMIT 6";
+$sql = "SELECT * FROM articles ORDER BY RAND() LIMIT 5";
 
 $result = mysqli_query($connection, $sql);
 

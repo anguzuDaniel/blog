@@ -456,9 +456,9 @@
 				// width: 0%;
 				height: 100%;
 				border: 1px solid var(--border-clr);
-				background-color: #00ffbb;
+				background-color: var(--border-clr);
 				filter: blur(0.5px);
-				// aspect-ratio: 10 / 7;
+				aspect-ratio: 10 / 6;
 
 				&:hover {
 					cursor: pointer;

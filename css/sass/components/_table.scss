@@ -62,6 +62,9 @@ table {
 					border: var(--clr-primary--hover);
 				}
 
+				img {
+					width: 100px;
+				}
 			}
 			&:nth-child(odd) {
 				background-color: #aac3bd0e;

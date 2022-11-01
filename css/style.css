@@ -6,7 +6,9 @@
   --white-clr: white;
   --outline-clr: rgb(55, 194, 203);
   /* --clr-primary: rgb(209, 81, 45); */
-  --clr-primary: #68C0DB;
+  --clr-primary: #449dec;
+  --clr-secondary: #2c404e;
+  --clr-compilment-text: #AED4DC;
   --clr-primary--hover: #68c0dba2;
   --link-clr: rgb(12, 14, 31);
   --orange-clr: rgb(209, 81, 45);
@@ -193,7 +195,7 @@ p {
   padding: 1rem 3rem;
 }
 .btn--read {
-  color: #343a40;
+  color: var(--clr-primary);
   display: flex;
   flex-direction: column;
   align-self: flex-start;
@@ -245,6 +247,9 @@ p {
 .btn:hover::after {
   opacity: 1;
   transform: translateX(0px);
+}
+.btn--side {
+  color: var(--clr-primary);
 }
 
 .nav__list {
@@ -325,6 +330,9 @@ table tbody tr td {
 table tbody tr td:hover {
   box-shadow: var(--shadow-1);
   border: var(--clr-primary--hover);
+}
+table tbody tr td img {
+  width: 100px;
 }
 table tbody tr:nth-child(odd) {
   background-color: rgba(170, 195, 189, 0.0549019608);
@@ -710,13 +718,11 @@ table tbody tr:nth-child(odd) {
   gap: 10px;
   grid-column: 2/3;
   grid-row: span -2/2;
-  height: 200px;
+  height: 100%;
 }
 .featured__articles--wrapper article:nth-child(2) img {
-  aspect-ratio: 10/5;
-  width: 100%;
+  aspect-ratio: 10/8;
   object-fit: cover;
-  height: 100%;
 }
 .featured__articles--wrapper article:nth-child(3) {
   display: grid;
@@ -727,9 +733,7 @@ table tbody tr:nth-child(odd) {
   height: 100%;
 }
 .featured__articles--wrapper article:nth-child(3) img {
-  aspect-ratio: 10/5;
-  height: 100%;
-  width: 100%;
+  aspect-ratio: 10/8;
   object-fit: cover;
 }
 .featured__articles--wrapper article:nth-child(4) {
@@ -779,6 +783,7 @@ aside {
 }
 .side__list--navigation {
   background-color: var(--bg-admin-nav);
+  background-color: white;
   display: flex;
 }
 .side__list--navigation button {
@@ -847,7 +852,7 @@ aside {
 /* side navigation style end | home page */
 /* footer style | starts here */
 .footer {
-  background-color: #2C404E;
+  background-color: var(--clr-secondary);
   padding-inline: var(--body-margin-inline);
   padding-block: 5rem;
   margin-top: calc(var(--margin-top) * 2);
@@ -855,6 +860,7 @@ aside {
 }
 .footer h1 {
   color: white;
+  color: var(--clr-compilment-text);
 }
 .footer__wrapper {
   display: flex;
@@ -872,6 +878,7 @@ aside {
 }
 .footer__navigation--item a {
   color: var(--clr-primary);
+  color: var(--clr-compilment-text);
   font-size: 1.6rem;
 }
 .footer p {
@@ -905,6 +912,12 @@ aside {
 
 /* footer style | ends here */
 /* Admin page styling | starts here */
+.admin__profile {
+  border-radius: 50%;
+}
+.admin__profile img {
+  width: 100px;
+}
 .admin__link a {
   text-decoration: none;
   text-transform: uppercase;
@@ -953,18 +966,21 @@ aside {
   width: 250px;
   height: 100vh;
   background-color: var(--bg-light-clr);
+  background-color: var(--clr-secondary);
   padding-top: 6rem;
   /* padding-left: 2rem; */
   border-right: 1px solid var(--border-clr);
 }
 .admin__nav--item {
-  padding: 2rem 1.5rem;
+  padding: 2rem 4rem;
   border-bottom: 1px solid var(--bg-light-clr);
   color: var(--clr-primary);
+  color: var(--clr-compilment-text);
   cursor: pointer;
 }
 .admin__nav--item a {
   color: var(--bg-admin-nav);
+  color: var(--clr-compilment-text);
   margin-left: 2rem;
 }
 .admin__nav--item:first-child {
@@ -1018,7 +1034,7 @@ aside {
   border: 1px solid var(--border-clr);
   background-color: var(--white-clr);
 }
-.admin__card--heading {
+.admin__card--vistors {
   font-size: 1.6rem;
   font-weight: lighter;
   opacity: 0.8;
@@ -1114,6 +1130,7 @@ aside {
   border: none;
   border: 1px solid var(--border-clr);
   outline: none;
+  background-color: white;
 }
 .admin__sort select option span {
   padding: 1rem;
@@ -1121,6 +1138,9 @@ aside {
 .admin__sort select:hover {
   outline: 1px solid var(--clr-primary--hover);
   box-shadow: var(--shadow-1);
+}
+.admin--logo {
+  color: var(--clr-primary);
 }
 
 /* Admin page styling | starts here */

@@ -1,6 +1,6 @@
 /* footer style | starts here */
 .footer {
-	background-color: #2C404E;
+	background-color: var(--clr-secondary);
 	padding-inline: var(--body-margin-inline);
 	padding-block: 5rem;
 	margin-top: calc(var(--margin-top) * 2);
@@ -8,6 +8,7 @@
 
 	h1 {
 		color: white;
+		color: var(--clr-compilment-text);
 	}
 
 	&__wrapper {
@@ -29,6 +30,7 @@
 		&--item {
 			a {
 				color: var(--clr-primary);
+				color: var(--clr-compilment-text);
 				font-size: 1.6rem;
 			}
 		}

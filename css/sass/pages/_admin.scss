@@ -1,5 +1,12 @@
 /* Admin page styling | starts here */
 .admin {
+	&__profile {
+		border-radius: 50%;
+		img {
+			width: 100px;
+		}
+	}
+
 	&__link {
 		a {
 			text-decoration: none;
@@ -57,20 +64,22 @@
 		width: 250px;
 		height: 100vh;
 		background-color: var(--bg-light-clr);
+		background-color: var(--clr-secondary);
 		padding-top: 6rem;
 		/* padding-left: 2rem; */
 		border-right: 1px solid var(--border-clr);
-	}
 
-	&__nav {
 		&--item {
-			padding: 2rem 1.5rem;
+			padding: 2rem 4rem;
 			border-bottom: 1px solid var(--bg-light-clr);
 			color: var(--clr-primary);
+			color: var(--clr-compilment-text);
+
 			cursor: pointer;
 
 			a {
 				color: var(--bg-admin-nav);
+				color: var(--clr-compilment-text);
 				margin-left: 2rem;
 			}
 
@@ -137,7 +146,27 @@
 		border: 1px solid var(--border-clr);
 		background-color: var(--white-clr);
 
-		&--heading {
+		// &--articles {
+		// 	background-color: #2e3440;
+		// 	color: var(--white-clr);
+		// }
+
+		// &--categories {
+		// 	background-color: #0b7285;
+		// 	color: var(--white-clr);
+		// }
+
+		// &--writers {
+		// 	background-color: #2b8a3e;
+		// 	color: var(--white-clr);
+		// }
+
+		// &--vistors {
+		// 	background-color: #2b8a3e;
+		// 	color: var(--white-clr);
+		// }
+
+		&--vistors {
 			font-size: 1.6rem;
 			font-weight: lighter;
 			opacity: 0.8;
@@ -184,8 +213,6 @@
 
 		&--writters {
 			border: 1px solid var(--border-clr);
-
-
 		}
 	}
 
@@ -255,6 +282,7 @@
 			border: none;
 			border: 1px solid var(--border-clr);
 			outline: none;
+			background-color: white;
 
 			option {
 				span {
@@ -267,6 +295,10 @@
 				box-shadow: var(--shadow-1);
 			}
 		}
+	}
+
+	&--logo {
+		color: var(--clr-primary);
 	}
 }
 /* Admin page styling | starts here */

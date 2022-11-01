@@ -14,7 +14,7 @@
 
 	/* read more btn style*/
 	&--read {
-		color: #343a40;
+		color: var(--clr-primary);
 		display: flex;
 		flex-direction: column;
 		align-self: flex-start;

@@ -12,33 +12,33 @@
 
                 <div class="admin__cards">
 
-                    <div class="admin__card admin__card--count">
+                    <div class="admin__card admin__card--articles">
                         <div class="admin__card--icon">
-                            <i class="fa-regular fa-folder-open"></i>
+                            <em class="fa-regular fa-folder-open"></em>
                         </div>
                         <p class="admin__card--num">356</p>
                         <h3 class="admin__card--heading">Arctiles</h1>
                     </div>
 
-                    <div class="admin__card admin__card--count">
+                    <div class="admin__card admin__card--categories">
                         <div class="admin__card--icon">
-                            <i class="fa-solid fa-diagram-project"></i>
+                            <em class="fa-solid fa-diagram-project"></em>
                         </div>
                         <p class="admin__card--num">10</p>
                         <h3 class="admin__card--heading">Categories</h1>
                     </div>
 
-                    <div class="admin__card admin__card--count">
+                    <div class="admin__card admin__card--writers">
                         <div class="admin__card--icon">
-                            <i class="fa-solid fa-file-pen"></i>
+                            <em class="fa-solid fa-file-pen"></em>
                         </div>
                         <p class="admin__card--num">6</p>
                         <h3 class="admin__card--heading">Writers</h1>
                     </div>
 
-                    <div class="admin__card admin__card--count">
+                    <div class="admin__card admin__card--vistors">
                         <div class="admin__card--icon">
-                            <i class="fa-solid fa-users-line"></i>
+                            <em class="fa-solid fa-users-line"></em>
                         </div>
                         <p class="admin__card--num">39</p>
                         <h3 class="admin__card--heading">Vistors</h1>

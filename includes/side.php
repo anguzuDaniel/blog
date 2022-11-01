@@ -17,9 +17,10 @@ if ($result === false) {
     <aside>
         <div class="side__list side__list--1">
             <div class="side__list--navigation">
-                <button class="side__list--active">This week</button>
+                <!-- <button class="side__list--active">This week</button>
                 <button>this month</button>
-                <button>All time</button>
+                <button>All time</button> -->
+                <h1>Trending Articles</h1>
             </div>
 
             <?php if (empty($articles)) : ?>

@@ -30,6 +30,9 @@
   --shadow-1: 0 3px 3px 0 rgb(0 0 0 / 8%);
   --hover-bg: rgba(255, 255, 255, 0.654);
   --footer-clr: rgb(12, 14, 31);
+  --margin-section-block-small: 4rem;
+  --margin-section-block-large: 4rem;
+  --padding-section-block: 8rem;
 }
 
 *,
@@ -158,19 +161,20 @@ p {
 
 .search {
   position: relative;
+  box-shadow: var(--shadow-1);
 }
 .search__articles {
   padding: var(--input-padding-block) var(--input-padding-inline);
   width: 40rem;
-  transform: translateX(5px);
   border: none;
   outline: none;
   border: 1px solid var(--border-clr);
   border-right: none;
+  margin-right: -1px;
 }
 .search__button {
   background-color: transparent;
-  color: var(--white-clr);
+  color: var(--clr-primary);
   padding: var(--input-padding-block) var(--input-padding-inline);
   cursor: pointer;
   border: none;
@@ -425,7 +429,7 @@ table tbody tr:nth-child(odd) {
 .article__date {
   font-size: 1.25rem;
   font-weight: bold;
-  color: black;
+  color: white;
 }
 .article--title {
   color: var(--clr-primary);
@@ -460,9 +464,10 @@ table tbody tr:nth-child(odd) {
 .article__wrappper--small h1 {
   font-size: 1.8rem;
   background-color: rgba(0, 0, 0, 0.641);
+  box-shadow: var(--shadow-1);
 }
 .article__wrappper--large {
-  background-image: url("../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp");
+  background-image: linear-gradient(135deg, #00ffbb 10%, #02e6ff 60%), url("../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -472,7 +477,7 @@ table tbody tr:nth-child(odd) {
   align-items: flex-end;
 }
 .article__wrappper--1 {
-  background-image: url(../images/swangz.webp);
+  background-image: linear-gradient(135deg, rgba(6, 172, 243, 0.9607843137) 10%, #45ff0c 100%), url(../images/swangz.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -485,8 +490,11 @@ table tbody tr:nth-child(odd) {
   background-color: #0b7285;
   color: white;
 }
+.article__wrappper--1 p {
+  color: white;
+}
 .article__wrappper--2 {
-  background-image: url(../images/Secondhand-clothing-on-sale-satisfashionug.jpg);
+  background-image: linear-gradient(135deg, #81ffef 10%, #f067b4 100%), url(../images/Secondhand-clothing-on-sale-satisfashionug.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -500,7 +508,7 @@ table tbody tr:nth-child(odd) {
   color: white;
 }
 .article__wrappper--3 {
-  background-image: url(../images/Programming-Language-Popularity.jpg);
+  background-image: linear-gradient(to bottom, rgba(255, 153, 28, 0.372) 10% 20%, rgb(150, 255, 13)), url(../images/Programming-Language-Popularity.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -536,6 +544,7 @@ table tbody tr:nth-child(odd) {
 /* must read artcile | start */
 .read__article {
   margin-inline: var(--body-margin-inline);
+  margin-block: var(--margin-section-block-small);
   display: grid;
   grid-template-columns: 1fr min-content;
   gap: 3rem;
@@ -587,8 +596,14 @@ table tbody tr:nth-child(odd) {
   font-size: 2rem;
 }
 .lastest__articles--image {
+  background-color: black;
   background-blend-mode: lighten;
+  filter: brightness(90%);
+  overflow: hidden;
+}
+.lastest__articles--image img {
   width: 100%;
+  height: 100%;
 }
 .lastest__articles--image img:hover {
   transform: scale(1.1);
@@ -679,8 +694,8 @@ table tbody tr:nth-child(odd) {
 /* Recommeded artciles | style here */
 /* featured article styles | starts here */
 .featured__articles {
-  margin-top: var(--margin-top);
   margin-inline: var(--body-margin-inline);
+  margin-block: var(--margin-section-block-large);
 }
 .featured__articles--title {
   font-size: 1.8rem;
@@ -692,6 +707,7 @@ table tbody tr:nth-child(odd) {
 .featured__articles--wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
+  margin-block: var(--margin-section-block-large);
   gap: 25px;
 }
 .featured__articles--wrapper--image {
@@ -719,34 +735,37 @@ table tbody tr:nth-child(odd) {
   grid-row: -2/span 2;
 }
 .featured__articles--wrapper article:nth-child(2) {
-  display: grid;
-  grid-auto-flow: column;
-  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
   grid-column: 2/3;
   grid-row: span -2/2;
-  height: 100%;
-}
-.featured__articles--wrapper article:nth-child(2) img {
-  aspect-ratio: 10/8;
-  object-fit: cover;
-  height: 100%;
 }
 .featured__articles--wrapper article:nth-child(3) {
-  display: grid;
-  grid-auto-flow: column;
-  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
   grid-column: 2/3;
   grid-row: 1/2;
-  height: 100%;
-}
-.featured__articles--wrapper article:nth-child(3) img {
-  aspect-ratio: 10/8;
-  height: 100%;
-  object-fit: cover;
 }
 .featured__articles--wrapper article:nth-child(4) {
   grid-column: 5/-1;
   grid-row: -2/2;
+}
+.featured__articles--image {
+  overflow: hidden;
+  width: 100%;
+}
+.featured__articles--image img {
+  height: 100%;
+  border: 1px solid var(--border-clr);
+  background-color: #00ffbb;
+  filter: blur(0.5px);
+}
+.featured__articles--image img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 0.5s ease;
 }
 .featured__articles img {
   width: 100%;
@@ -766,10 +785,10 @@ table tbody tr:nth-child(odd) {
   font-size: 2rem;
 }
 .featured__articles--text {
-  display: grid;
-  justify-content: baseline;
+  display: flex;
+  flex-direction: column;
   gap: 15px;
-  padding-block: 1.5rem;
+  padding-block: 1.4rem;
 }
 .featured__articles--text a {
   display: grid;
@@ -783,6 +802,7 @@ aside {
   width: 400px;
   margin-top: calc(var(--margin-top) * 2);
   font-size: 2rem;
+  box-shadow: var(--shadow-1);
 }
 
 .side__list--1 {

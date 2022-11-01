@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- admin section wrapper start -->
         <section class="admin__content">
             <div class="heading | admin__content--heading">
-                <h1>Fill in form to create a blog post.</h1>
+                <h1>Create an Article</h1>
                 <hr>
             </div>
 

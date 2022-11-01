@@ -43,7 +43,7 @@
 	&__date {
 		font-size: 1.25rem;
 		font-weight: bold;
-		color: black;
+		color: white;
 	}
 
 	&--title {
@@ -89,11 +89,13 @@
 			h1 {
 				font-size: 1.8rem;
 				background-color: rgba(0, 0, 0, 0.641);
+				box-shadow: var(--shadow-1);
 			}
 		}
 
 		&--large {
-			background-image: /* linear-gradient(135deg, #e8d07a 10%, #5312d6 100%), */ url("../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp");
+			background-image: linear-gradient(135deg, #00ffbb 10%, #02e6ff 60%),
+				url("../images/What-Do-Software-Engineers-Do-WOZ-1-min.webp");
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: cover;
@@ -104,7 +106,8 @@
 		}
 
 		&--1 {
-			background-image: /* linear-gradient(135deg, #ffcf71 10%, #2376dd 100%), */ url(../images/swangz.webp);
+			background-image: linear-gradient(135deg, #06acf3f5 10%, #45ff0c 100%),
+				url(../images/swangz.webp);
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: cover;
@@ -118,10 +121,15 @@
 				background-color: #0b7285;
 				color: white;
 			}
+
+			p {
+				color: white;
+			}
 		}
 
 		&--2 {
-			background-image: /* linear-gradient(135deg, #81ffef 10%, #f067b4 100%), */ url(../images/Secondhand-clothing-on-sale-satisfashionug.jpg);
+			background-image: linear-gradient(135deg, #81ffef 10%, #f067b4 100%),
+				url(../images/Secondhand-clothing-on-sale-satisfashionug.jpg);
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: cover;
@@ -137,11 +145,12 @@
 		}
 
 		&--3 {
-			background-image: /* linear-gradient(
+			background-image: linear-gradient(
 					to bottom,
 					rgba(255, 153, 28, 0.372) 10% 20%,
 					rgb(150, 255, 13)
-				), */ url(../images/Programming-Language-Popularity.jpg);
+				),
+				url(../images/Programming-Language-Popularity.jpg);
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: cover;
@@ -190,6 +199,7 @@
 .read {
 	&__article {
 		margin-inline: var(--body-margin-inline);
+		margin-block: var(--margin-section-block-small);
 		display: grid;
 		grid-template-columns: 1fr min-content;
 		gap: 3rem;
@@ -225,7 +235,6 @@
 
 		&--title {
 			font-size: 2rem;
-			// color: var(--clr-primary);
 		}
 
 		&--date {
@@ -237,7 +246,6 @@
 			flex-direction: column;
 			width: 100%;
 			overflow: hidden;
-			// border: 1px solid var(--border-clr);
 
 			a {
 				text-decoration: none;
@@ -253,10 +261,14 @@
 		}
 
 		&--image {
+			background-color: black;
 			background-blend-mode: lighten;
-			width: 100%;
+			filter: brightness(90%);
+			overflow: hidden;
 
 			img {
+				width: 100%;
+				height: 100%;
 				&:hover {
 					transform: scale(1.1);
 					transition: all 0.5s ease;
@@ -367,8 +379,8 @@
 /* featured article styles | starts here */
 .featured {
 	&__articles {
-		margin-top: var(--margin-top);
 		margin-inline: var(--body-margin-inline);
+		margin-block: var(--margin-section-block-large);
 
 		&--title {
 			font-size: 1.8rem;
@@ -382,6 +394,7 @@
 		&--wrapper {
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
+			margin-block: var(--margin-section-block-large);
 			gap: 25px;
 
 			&--image {
@@ -402,7 +415,6 @@
 				width: 100%;
 				overflow: hidden;
 				font-size: 1.6rem;
-				// border: 1px solid var(--border-clr);
 
 				a {
 					text-decoration: none;
@@ -414,33 +426,19 @@
 				}
 
 				&:nth-child(2) {
-					display: grid;
-					grid-auto-flow: column;
-					gap: 10px;
+					display: flex;
+					flex-direction: row;
+					gap: 15px;
 					grid-column: 2 / 3;
 					grid-row: span -2 / 2;
-					height: 100%;
-
-					img {
-						aspect-ratio: 10 / 8;
-						object-fit: cover;
-						height: 100%;
-					}
 				}
 
 				&:nth-child(3) {
-					display: grid;
-					grid-auto-flow: column;
-					gap: 10px;
+					display: flex;
+					flex-direction: row;
+					gap: 15px;
 					grid-column: 2 / 3;
 					grid-row: 1 / 2;
-					height: 100%;
-
-					img {
-						aspect-ratio: 10 / 8;
-						height: 100%;
-						object-fit: cover;
-					}
 				}
 
 				&:nth-child(4) {
@@ -450,8 +448,27 @@
 			}
 		}
 
+		&--image {
+			overflow: hidden;
+			width: 100%;
+
+			img {
+				// width: 0%;
+				height: 100%;
+				border: 1px solid var(--border-clr);
+				background-color: #00ffbb;
+				filter: blur(0.5px);
+				// aspect-ratio: 10 / 7;
+
+				&:hover {
+					cursor: pointer;
+					transform: scale(1.1);
+					transition: all 0.5s ease;
+				}
+			}
+		}
+
 		img {
-			// aspect-ratio: 10 / 7;
 			width: 100%;
 			object-fit: cover;
 			background-blend-mode: lighten;
@@ -474,10 +491,10 @@
 		}
 
 		&--text {
-			display: grid;
-			justify-content: baseline;
+			display: flex;
+			flex-direction: column;
 			gap: 15px;
-			padding-block: 1.5rem;
+			padding-block: 1.4rem;
 
 			a {
 				display: grid;

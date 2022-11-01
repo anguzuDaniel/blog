@@ -1,19 +1,20 @@
 .search {
 	position: relative;
+	box-shadow: var(--shadow-1);
 
 	&__articles {
 		padding: var(--input-padding-block) var(--input-padding-inline);
 		width: 40rem;
-		transform: translateX(5px);
 		border: none;
 		outline: none;
 		border: 1px solid var(--border-clr);
 		border-right: none;
+		margin-right: -1px;
 	}
-
+	
 	&__button {
 		background-color: transparent;
-		color: var(--white-clr);
+		color: var(--clr-primary);
 		padding: var(--input-padding-block) var(--input-padding-inline);
 		cursor: pointer;
 		border: none;

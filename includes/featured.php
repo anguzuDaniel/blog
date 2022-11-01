@@ -32,7 +32,7 @@ if ($result === false) {
                     <div class="featured__articles--text">
 
                         <h1 class="featured__articles--title"><?= $article['article_title']; ?></h1>
-                        <p class="featured__articles--paragraph"><?= substr($article['article_content'], 0, 100); ?>...</p>
+                        <p class="featured__articles--paragraph"><?= substr($article['article_content'], 0, 150); ?>...</p>
                         <p class="featured__articles--date">December 11, 2016</p>
 
                         <div class="featured__articles--cta">

@@ -5,7 +5,7 @@
         <div class="admin__content--heading">
             <h1>admin</h1>
             <div class="admin__content--user">
-                <i class="fa-regular fa-circle-user"></i>
+                <em class="fa-regular fa-circle-user"></em>
             </div>
         </div>
     </div>

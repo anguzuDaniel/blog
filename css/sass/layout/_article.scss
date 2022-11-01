@@ -2,8 +2,10 @@
 .article {
 	margin-inline: var(--body-margin-inline);
 	margin-block: var(--margin-top);
-	margin-top: 17rem;
-	display: flex;
+	margin-top: 16rem;
+	display: grid;
+	grid-auto-flow: column;
+	gap: 20px;
 
 	aside {
 		margin-top: 0;

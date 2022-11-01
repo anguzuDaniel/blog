@@ -53,7 +53,7 @@
                         <div class="admin__search">
                             <input type="search" name="admin__search--imput" id="" class="admin__search--input" placeholder="search by tags">
                             <button class="admin__search--btn">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <em class="fa-solid fa-magnifying-glass"></em>
                             </button>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
 
                                 <p>Active filters/tags:</p>
                                 <p class="admin__sort--tag"><span> none <a href="#">
-                                            <i class="fa-solid fa-circle-xmark"></i></span></a></p>
+                                            <em class="fa-solid fa-circle-xmark"></em></span></a></p>
                                 <!-- <a href="#" class="admin__sort--clear">clear all</a> -->
                             </div>
                         </div>
@@ -127,12 +127,12 @@
                                 <td>40</td>
                                 <td>
                                     <a href="#" class="edit__icon">
-                                        <i class="fa-regular fa-pen-to-square"></i>
+                                        <em class="fa-regular fa-pen-to-square"></em>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-regular fa-trash-can"></i>
+                                        <em class="fa-regular fa-trash-can"></em>
                                     </a>
                                 </td>
                             </tr>
@@ -145,12 +145,12 @@
                                 <td>50</td>
                                 <td>
                                     <a href="#" class="edit__icon">
-                                        <i class="fa-regular fa-pen-to-square"></i>
+                                        <em class="fa-regular fa-pen-to-square"></em>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-regular fa-trash-can"></i>
+                                        <em class="fa-regular fa-trash-can"></em>
                                     </a>
                                 </td>
                             </tr>
@@ -163,12 +163,12 @@
                                 <td>30</td>
                                 <td>
                                     <a href="#" class="edit__icon">
-                                        <i class="fa-regular fa-pen-to-square"></i>
+                                        <em class="fa-regular fa-pen-to-square"></em>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-regular fa-trash-can"></i>
+                                        <em class="fa-regular fa-trash-can"></em>
                                     </a>
                                 </td>
                             </tr>
@@ -181,12 +181,12 @@
                                 <td>500</td>
                                 <td>
                                     <a href="#" class="edit__icon">
-                                        <i class="fa-regular fa-pen-to-square"></i>
+                                        <em class="fa-regular fa-pen-to-square"></em>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="#" class="delete__icon">
-                                        <i class="fa-regular fa-trash-can"></i>
+                                        <em class="fa-regular fa-trash-can"></em>
                                     </a>
                                 </td>
                             </tr>

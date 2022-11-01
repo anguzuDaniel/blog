@@ -1,9 +1,3 @@
-<!-- admin information section | Starts here -->
-<div class="admin__profile admin__nav--item">
-    <img src="../images/image_processing20210625-24572-1q8oh0u.png" alt="" srcset="">
-</div>
-<!-- admin information section | Ends here -->
-
 <nav>
     <ul class="admin__nav">
 
@@ -23,8 +17,8 @@
         </li>
 
         <li class="admin__nav--item">
-            <em class="fa-solid fa-pen-to-square"></em>
-            <a href="edit_article.php">Edit article</a>
+            <em class="fa-solid fa-newspaper"></em>
+            <a href="all_articles.php">My articles</a>
         </li>
     </ul>
 </nav>

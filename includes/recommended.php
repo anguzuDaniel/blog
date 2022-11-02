@@ -39,9 +39,8 @@ if ($result === false) {
                         </div>
 
                         <div class="recommended__articles--text">
+                            <a href="article.php?=<?= $article['id']; ?>">Read Article</a>
                         </div>
-
-
                     </article>
                 <?php endforeach; ?>
             <?php endif; ?>

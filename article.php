@@ -37,18 +37,42 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                     <img src="images/<?= $article['article_image']; ?>" alt="article image" />
 
                 </div>
-                <div class="artcile__cta">
-                    <em class="fa-regular fa-comments"></em>
-                    <!-- <em class="fa-solid fa-comments"></em> -->
-                    <em class="fa-regular fa-heart"></em>
+                <div class="article__cta">
+                    <div>
+                        <a href="#comment"><em class="fa-regular fa-comments"></em></a>
+                        <span>Comment</span>
+                    </div>
+
+
                     <!-- <em class="fa-solid fa-heart"></em> -->
-                    <em class="fa-regular fa-thumbs-up"></em>
+                    <div>
+                        <a href="#"><em class="fa-regular fa-thumbs-up"></em></a>
+                        <span>Like</span>
+                    </div>
+
+
+                    <!-- <em class="fa-solid fa-comments"></em>
+                    <div>
+                        <a href="#"><em class="fa-regular fa-heart"></em></a>
+                        <span>like</span>
+                    </div> -->
+
+                    <div>
+                        <a href="#"><em class="fa-regular fa-share-from-square"></em></a>
+                        <span>Share</span>
+                    </div>
+
+                    <div>
+                        <a href="#"><em class="fa-solid fa-paperclip"></em></a>
+                        <span>Pin</span>
+
+                    </div>
                     <!-- <em class="fa-solid fa-thumbs-up"></em> -->
                 </div>
 
                 <div class="article--text">
                     <h1 class="article--title"><?= htmlspecialchars($article['article_title']); ?></h1>
-                    <p class="article--paragraph"><?= htmlspecialchars($article['article_content']); ?></p>
+                    <p class="article--paragraph" id="comment"><?= htmlspecialchars($article['article_content']); ?></p>
                 </div>
 
                 <hr>

@@ -36,10 +36,29 @@
 		gap: 20px;
 
 		&--btn {
-			padding: 1rem 1.5rem;
+			padding: 1rem 2rem;
+			border: 1px solid var(--clr-primary);
+			padding: 1rem 2rem;
+			border-radius: 5px;
+			cursor: pointer;
 
 			a {
 				color: var(--clr-primary);
+				text-decoration: none;
+			}
+		}
+
+		&--signup {
+			background-color: var(--clr-primary);
+			color: var(--white-clr);
+			border: none;
+			padding: 1rem 2rem;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all 0.2s ease-in-out;
+
+			a {
+				color: var(--white-clr);
 				text-decoration: none;
 			}
 		}

@@ -16,12 +16,12 @@
         <div class="header__cta">
             <div class="header__cta--btn">
 
-                <a href="#">Login</a>
+                <a href="#">Sign In</a>
             </div>
 
-            <button class="header__cta--btn">
-                <a href="./admin/index.php">Create account</a>
-            </button>
+            <div class="header__cta--btn header__cta--signup">
+                <a href="./admin/index.php">Sign Up Free</a>
+            </div>
         </div>
     </div>
 

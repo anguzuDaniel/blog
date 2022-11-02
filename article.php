@@ -35,6 +35,15 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <article>
                 <div class="article--image">
                     <img src="images/<?= $article['article_image']; ?>" alt="article image" />
+
+                </div>
+                <div class="artcile__cta">
+                    <em class="fa-regular fa-comments"></em>
+                    <!-- <em class="fa-solid fa-comments"></em> -->
+                    <em class="fa-regular fa-heart"></em>
+                    <!-- <em class="fa-solid fa-heart"></em> -->
+                    <em class="fa-regular fa-thumbs-up"></em>
+                    <!-- <em class="fa-solid fa-thumbs-up"></em> -->
                 </div>
 
                 <div class="article--text">

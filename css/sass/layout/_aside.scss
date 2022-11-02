@@ -10,12 +10,12 @@ aside {
 .side {
 	&__list {
 		&--1 {
-			background-color: rgb(255, 253, 251);
+			background-color: white;
 			border: 1px solid var(--border-clr);
 		}
 
 		&--navigation {
-			background-color: var(--bg-admin-nav);
+			// background-color: var(--bg-admin-nav);
 			background-color: white;
 			display: flex;
 			padding: 1.6rem;
@@ -35,6 +35,11 @@ aside {
 					color: var(--white-clr);
 				}
 			}
+
+			h1 {
+				color: var(--clr-secondary);
+				font-weight: 900;
+			}
 		}
 
 		&--active {
@@ -46,7 +51,8 @@ aside {
 			grid-auto-flow: column;
 			gap: 10px;
 			margin-block: 1rem;
-			padding: 1rem;
+			padding: 0.8rem;
+			background-color: white;
 
 			&:not(:last-child) {
 				border-bottom: 1px solid var(--border-clr);
@@ -71,6 +77,7 @@ aside {
 			display: grid;
 			gap: 10px;
 			justify-content: center;
+			background-color: white;
 		}
 
 		&--heading {

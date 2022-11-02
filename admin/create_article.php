@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     $protocol = 'http';
                 }
-                header("Location: $protocol://" . $_SERVER['HTTP'] . "../article/?id=$id");
+                header("Location: $protocol://" . $_SERVER['HTTP'] . "../article.php/?id=$id");
                 move_uploaded_file($image_temp, "../images/$article_image");
                 exit;
             } else {

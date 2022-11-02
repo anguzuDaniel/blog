@@ -26,6 +26,7 @@
 
 	&--logo {
 		color: var(--clr-primary);
+		font-weight: bolder;
 	}
 
 	&__cta {
@@ -61,7 +62,7 @@
 			}
 
 			&:active {
-				transform: scale(.5);
+				transform: scale(0.5);
 			}
 		}
 	}

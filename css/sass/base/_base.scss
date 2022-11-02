@@ -9,13 +9,13 @@
 html {
 	font-size: 62.5%;
 	box-sizing: border-box;
-	font-family: "Barlow", sans-serif;
-	/* font-family: 'Public Sans', sans-serif; */
+	font-family: "Roboto", sans-serif;
 }
 
 body {
 	font-size: 18px;
 	font-size: 1.8rem;
+	background-color: #c2d2bd;
 }
 
 ul {
@@ -30,6 +30,7 @@ ul a {
 
 h1 {
 	font-family: "Fraunces", serif;
+	font-weight: 900;
 }
 
 p {

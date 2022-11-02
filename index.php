@@ -102,7 +102,7 @@ if ($result === false) {
                                 <p class="lastest__articles--date">December 11, 2016</p>
 
                                 <div class="lastest__articles--cta">
-                                    <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read"> <span>read more</span> </a>
+                                    <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read">Read more</a>
                                     <!-- <em class="fa-regular fa-comments"></em> -->
                                     <!-- <em class="fa-solid fa-comments"></em> -->
                                     <!-- <em class="fa-regular fa-heart"></em> -->

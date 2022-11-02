@@ -3,7 +3,7 @@
         <h1 class="header--logo">BlogIfy!</h1>
 
         <div class="search">
-            <input type="search" name="search__articles" id="" class="search__articles" placeholder="search">
+            <input type="search" name="search__articles" id="" class="search search__articles" placeholder="search">
             <button type="submit" name="search__button" class="search__button">
                 <em class="fa-solid fa-magnifying-glass"></em>
             </button>

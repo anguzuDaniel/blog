@@ -14,7 +14,7 @@
 
 	/* read more btn style*/
 	&--read {
-		color: var(--clr-primary);
+		color: var(--clr-secondary);
 		display: flex;
 		flex-direction: column;
 		align-self: flex-start;
@@ -25,28 +25,28 @@
 		overflow: hidden;
 		text-decoration: underline;
 		font-size: 1.6rem;
-		// opacity: 0.8;
+		font-weight: 900;
 
-		&::after {
-			content: "read more \2192";
-			position: absolute;
-			display: flex;
-			color: var(--clr-primary);
-			gap: 2px;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			opacity: 0;
-			opacity: 0;
-			transform: translateX(-100px);
-			transition: all 0.5s ease-in-out;
+		// &::after {
+		// 	content: "read more \2192";
+		// 	position: absolute;
+		// 	display: flex;
+		// 	color: var(--clr-primary);
+		// 	gap: 2px;
+		// 	top: 0;
+		// 	bottom: 0;
+		// 	right: 0;
+		// 	left: 0;
+		// 	opacity: 0;
+		// 	opacity: 0;
+		// 	transform: translateX(-100px);
+		// 	transition: all 0.5s ease-in-out;
 
-			&span {
-				transition: all 0.5s ease-in-out;
-				opacity: 0;
-			}
-		}
+		// 	span {
+		// 		transition: all 0.5s ease-in-out;
+		// 		opacity: 0;
+		// 	}
+		// }
 	}
 
 	/* carrosel button */
@@ -57,7 +57,7 @@
 		cursor: pointer;
 		transition: all 0.2s ease-in-out;
 		font-size: 4rem;
-		color: rgba(0, 0, 0, 0.181);
+		color: var(--clr-secondary);
 
 		&:hover {
 			color: var(--btn-blue);

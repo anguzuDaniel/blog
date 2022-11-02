@@ -40,7 +40,7 @@ if ($result === false) {
 
                             </div>
 
-                            <a href="article.php<?= $article['id'] ?>" class="btn btn--read btn--side">Read more</a>
+                            <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read">Read more</a>
                         </div>
                     </div>
                 <?php endforeach; ?>

@@ -70,4 +70,4 @@ if (isset($_GET['id'])) {
 </main>
 <!-- main section end -->
 
-<?php include "./includes/footer.php"; ?>
+<?php require_once "./includes/footer.php"; ?>

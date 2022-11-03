@@ -128,7 +128,7 @@ p {
   padding-inline: var(--body-margin-inline);
   border-bottom: 1px solid var(--border-clr);
 }
-.header__secondary nav ul {
+.header__secondary nav {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1297,15 +1297,108 @@ aside {
 }
 
 /* Admin page styling | starts here */
+.timeline {
+  margin-top: 8rem;
+}
+.timeline__btn {
+  display: flex;
+  align-self: flex-end;
+}
+.timeline__form {
+  border: 1px solid var(--border-clr);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  display: flex;
+  gap: 15px;
+}
+.timeline__form textarea {
+  height: 40px;
+  width: 100%;
+  resize: none;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.timeline__form--input {
+  flex: 1;
+}
 .timeline__wrapper {
-  background-color: var(--bg-admin-nav);
+  border: 1px solid var(--border-clr);
 }
 .timeline__wrapper article {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+}
+.timeline__wrapper article input {
+  width: 100%;
+}
+.timeline__creator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+  gap: 20px;
+  padding-block: 1.5rem;
+  padding-inline: 1.5rem;
+}
+.timeline__creator--image {
+  width: 40px;
+  border-radius: 100%;
+  align-self: baseline;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--border-clr);
+}
+.timeline__creator--image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 10/9;
+  object-fit: cover;
+}
+.timeline__comments--commentor {
+  display: flex;
+  justify-content: flex-start;
+  align-self: center;
+  gap: 20px;
+  padding-block: 1.5rem;
+  padding-inline: 1.5rem;
+}
+.timeline__comments--image {
+  width: 40px;
+  border-radius: 100%;
+  align-self: baseline;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--border-clr);
+}
+.timeline__comments--image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 10/9;
+  object-fit: cover;
+}
+.timeline__comments--form {
+  border-top: 1px solid var(--border-clr);
+  padding-inline: 2rem;
+  margin-top: 2rem;
+  padding-block: 1rem;
+  background-color: var(--bg-light-clr);
+}
+.timeline__comments--form textarea {
+  height: 40px;
+  width: 100%;
+  resize: none;
+  padding: 1rem;
+}
+.timeline__comments--content {
+  margin-inline: 2rem;
+}
+.timeline__commentors--image img {
+  width: 100%;
+}
+.timeline__image {
+  width: 100%;
 }
 .timeline__image img {
   width: 100%;

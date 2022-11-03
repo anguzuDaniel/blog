@@ -109,9 +109,16 @@ if ($result === false) {
                                     <!-- <em class="fa-solid fa-heart"></em> -->
                                     <!-- <em class="fa-regular fa-thumbs-up"></em> -->
                                     <!-- <em class="fa-solid fa-thumbs-up"></em> -->
-                                    <em class="fa-regular fa-bookmark"></em>
+                                    <!-- <em class="fa-regular fa-bookmark"></em> -->
                                     <!-- <em class="fa-solid fa-bookmark"></em> -->
+
+                                    <div class="article__cta">
+
+                                        <!-- <em class="fa-solid fa-thumbs-up"></em> -->
+                                    </div>
                                 </div>
+
+
 
 
                             </div>

@@ -14,7 +14,7 @@
   /* margin top */
   --margin-top: 4rem;
   --margin-container-top: 6rem;
-  --body-margin-inline: 10rem;
+  --body-margin-inline: 8rem;
   --padding-inline-1: 10rem;
   --padding-block-1: 2rem;
   --padding-block-2: 1rem;
@@ -32,6 +32,8 @@
   --margin-section-block-small: 4rem;
   --margin-section-block-large: 4rem;
   --padding-section-block: 8rem;
+  --clr-body: rgba(194, 210, 189, 0.979);
+  --clr-body: white;
 }
 
 *,
@@ -51,7 +53,7 @@ html {
 body {
   font-size: 18px;
   font-size: 1.8rem;
-  background-color: rgba(194, 210, 189, 0.4823529412);
+  background-color: var(--clr-body);
   line-height: 1.3;
 }
 
@@ -106,7 +108,7 @@ p {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: var(--white-clr);
+  background-color: var(--clr-body);
   z-index: 1;
   box-shadow: var(--shadow-1);
 }
@@ -125,6 +127,11 @@ p {
   align-items: center;
   padding-inline: var(--body-margin-inline);
   border-bottom: 1px solid var(--border-clr);
+}
+.header__secondary nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .header--logo {
   color: var(--clr-primary);
@@ -352,6 +359,9 @@ table tbody tr:nth-child(odd) {
 /* form design | starts here */
 .form__row {
   margin-block: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .form__row input,
 .form__row textarea {
@@ -361,11 +371,15 @@ table tbody tr:nth-child(odd) {
 }
 .form__row input:focus,
 .form__row textarea:focus {
-  outline: 1px solid var(--outline-clr);
+  outline: 2px solid var(--outline-clr);
+  box-shadow: var(--shadow-1);
 }
 .form__row input,
 .form__row textarea {
   width: 100%;
+}
+.form__row textarea {
+  border-radius: 5px;
 }
 .form__row--label {
   margin-bottom: 2rem;
@@ -374,6 +388,21 @@ table tbody tr:nth-child(odd) {
   transform: translateY(-10px);
   background-color: var(--white-clr);
   width: max-content;
+}
+.form__row--image {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--border-clr);
+  width: 5rem;
+  height: 5rem;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.form__row--image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 10/9;
+  object-fit: cover;
 }
 
 /* form design end here */
@@ -700,6 +729,7 @@ table tbody tr:nth-child(odd) {
   border: 1px solid var(--border-clr);
   overflow: hidden;
   transition: all ease-in-out;
+  background-color: #fff;
 }
 .recommended__articles article:hover .recommended__articles--images {
   filter: blur(5px);
@@ -1267,5 +1297,18 @@ aside {
 }
 
 /* Admin page styling | starts here */
+.timeline__wrapper {
+  background-color: var(--bg-admin-nav);
+}
+.timeline__wrapper article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.timeline__image img {
+  width: 100%;
+}
 
 /*# sourceMappingURL=style.css.map */

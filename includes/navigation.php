@@ -27,7 +27,7 @@
 
     <div class="header__secondary">
         <nav>
-            <ul class="nav__list">
+            <!--   <ul class="nav__list">
                 <li class="nav__list--item">
                     <select name="tech" id="tech">
                         <option value="">
@@ -69,6 +69,14 @@
                         </option>
                     </select>
                 </li>
+            </ul> -->
+
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Timeline</a></li>
             </ul>
         </nav>
     </div>

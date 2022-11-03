@@ -2,7 +2,8 @@
 	position: fixed;
 	top: 0;
 	width: 100%;
-	background-color: var(--white-clr);
+	// background-color: var(--white-clr);
+	background-color: var(--clr-body);
 	z-index: 1;
 	box-shadow: var(--shadow-1);
 
@@ -22,6 +23,14 @@
 		align-items: center;
 		padding-inline: var(--body-margin-inline);
 		border-bottom: 1px solid var(--border-clr);
+
+		nav {
+			ul {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
 	}
 
 	&--logo {

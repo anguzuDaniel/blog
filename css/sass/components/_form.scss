@@ -2,6 +2,9 @@
 .form {
 	&__row {
 		margin-block: 3rem;
+		display: flex;
+		align-items: center;
+		gap: 10px;
 
 		input,
 		textarea {
@@ -10,13 +13,18 @@
 			outline: none;
 
 			&:focus {
-				outline: 1px solid var(--outline-clr);
+				outline: 2px solid var(--outline-clr);
+				box-shadow: var(--shadow-1);
 			}
 		}
 
 		input,
 		textarea {
 			width: 100%;
+		}
+
+		textarea {
+			border-radius: 5px;
 		}
 
 		&--label {
@@ -26,6 +34,23 @@
 			transform: translateY(-10px);
 			background-color: var(--white-clr);
 			width: max-content;
+		}
+
+		&--image {
+			border-radius: 50%;
+			overflow: hidden;
+			border: 2px solid var(--border-clr);
+			width: 5rem;
+			height: 5rem;
+			cursor: pointer;
+			align-self: flex-start;
+
+			img {
+				width: 100%;
+				height: 100%;
+				aspect-ratio: 10 / 9;
+				object-fit: cover;
+			}
 		}
 	}
 }

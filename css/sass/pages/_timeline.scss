@@ -6,25 +6,72 @@
 		align-self: flex-end;
 	}
 
+	&__cta {
+		font-weight: 700;
+		border-block: 1px solid var(--border-clr);
+		padding-block: 2rem;
+		padding-left: 2rem;
+		display: flex;
+		gap: 20px;
+
+		em {
+			width: 20px;
+			height: 20px;
+			color: var(--clr-primary);
+
+			&:hover {
+				cursor: pointer;
+				color: var(--clr-primary-hover);
+				transform: scale(1.1);
+			}
+		}
+
+		span {
+			font-size: 1.2rem;
+		}
+	}
+
 	&__form {
 		border: 1px solid var(--border-clr);
 		margin-bottom: 1rem;
-		padding: 1rem;
+		padding: 2rem 1rem;
 		display: flex;
 		gap: 15px;
+		background-color: var(--bg-light-clr);
+		box-shadow: var(--shadow-1);
 
 		textarea {
-			height: 40px;
+			height: 80px;
 			width: 100%;
 			resize: none;
 			padding: 1rem;
 			margin-bottom: 1rem;
+			border: none;
+			border: 1px solid var(--border-clr);
+
+			&:hover {
+				outline: 1px solid var(--clr-primary--hover);
+				box-shadow: var(--shadow-1);
+			}
 		}
 
 		&--input {
 			flex: 1;
 		}
 	}
+
+	&__text {
+		padding: 2rem;
+		border-bottom: 1px solid var(--border-clr);
+
+		&--title {
+			margin-bottom: 1rem;
+		}
+	}
+
+	// &__cta {
+	// 	border-bottom: 1px solid var(--border-clr);
+	// }
 
 	&__wrapper {
 		border: 1px solid var(--border-clr);
@@ -47,7 +94,7 @@
 		align-items: center;
 		align-self: flex-start;
 		gap: 20px;
-		padding-block: 1.5rem;
+		padding-block: 2rem;
 		padding-inline: 1.5rem;
 
 		&--image {
@@ -94,17 +141,28 @@
 		}
 
 		&--form {
-			border-top: 1px solid var(--border-clr);
-			padding-inline: 2rem;
 			margin-top: 2rem;
 			padding-block: 1rem;
+			padding: 2rem 1rem;
+			display: flex;
+			gap: 15px;
 			background-color: var(--bg-light-clr);
+			border-top: 1px solid var(--border-clr);
+			box-shadow: var(--shadow-1);
 
 			textarea {
 				height: 40px;
 				width: 100%;
 				resize: none;
 				padding: 1rem;
+				margin-bottom: 1rem;
+				border: none;
+				border: 1px solid var(--border-clr);
+
+				&:hover {
+					outline: 1px solid var(--clr-primary--hover);
+					box-shadow: var(--shadow-1);
+				}
 			}
 		}
 

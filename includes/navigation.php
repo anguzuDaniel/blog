@@ -2,12 +2,12 @@
     <div class="header__primary">
         <h1 class="header--logo">BlogIfy!</h1>
 
-        <div class="search">
+        <!-- <div class="search">
             <input type="search" name="search__articles" id="" class="search search__articles" placeholder="search">
             <button type="submit" name="search__button" class="search__button">
                 <em class="fa-solid fa-magnifying-glass"></em>
             </button>
-        </div>
+        </div> -->
 
         <!-- <button class="admin__link btn">
             <a href="./admin/index.php">Admin</a>
@@ -72,7 +72,7 @@
             </ul> -->
 
             <ul class="nav__list">
-                <li class="nav__list--item"><a href="#">Home</a></li>
+                <li class="nav__list--item"><a href="index.php">Home</a></li>
                 <li class="nav__list--item"><a href="#">Pages</a></li>
                 <li class="nav__list--item"><a href="#">Blog</a></li>
                 <li class="nav__list--item"><a href="#">Shop</a></li>

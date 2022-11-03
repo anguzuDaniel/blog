@@ -1,37 +1,39 @@
 .nav {
 	&__list {
 		display: flex;
+		justify-content: center;
+		align-items: center;
 		color: var(--bg-admin-nav);
 
 		&--item {
-			width: 150px;
-			padding-block: var(--padding-block-2);
 			font-size: 1.2rem;
 			text-align: center;
 			border-top: 3px solid transparent;
+			padding: 2rem;
 
 			a {
 				font-weight: bold;
+				padding: 1rem;
 			}
 
-			select {
-				padding: var(--input-padding-block) var(--input-padding-inline);
-				border: none;
-				background-color: var(--white-clr);
-				cursor: pointer;
-				outline: none;
+			// select {
+			// 	padding: var(--input-padding-block) var(--input-padding-inline);
+			// 	border: none;
+			// 	background-color: var(--white-clr);
+			// 	cursor: pointer;
+			// 	outline: none;
 
-				option {
-					a {
-						padding: 2rem 3rem;
-					}
-				}
-			}
+			// 	option {
+			// 		a {
+			// 			padding: 2rem 3rem;
+			// 		}
+			// 	}
+			// }
 
 			&:hover {
 				background-color: var(--hover-bg);
 				cursor: pointer;
-				border-top: 3px solid var(--clr-primary);
+				// border-top: 3px solid var(--clr-primary);
 			}
 		}
 	}

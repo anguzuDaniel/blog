@@ -360,7 +360,7 @@ table tbody tr:nth-child(odd) {
 }
 .form__row input,
 .form__row textarea {
-  padding: 1rem 1.6rem;
+  padding: 2rem 2rem;
   border: 1px solid var(--border-clr);
   outline: none;
 }
@@ -380,21 +380,25 @@ table tbody tr:nth-child(odd) {
   margin-bottom: 2rem;
   margin-left: 0.5rem;
   position: absolute;
-  transform: translateY(-10px);
-  background-color: var(--white-clr);
+  background-color: transparent;
   width: max-content;
 }
 .form__row--image {
+  border-radius: 50%;
   overflow: hidden;
   border: 2px solid var(--border-clr);
   cursor: pointer;
   align-self: flex-start;
+  width: 50px;
+  background-position: center;
 }
 .form__row--image img {
   width: 100%;
-  height: 100%;
   aspect-ratio: 10/9;
   object-fit: cover;
+}
+.form__row--img {
+  background-color: var(--white-clr);
 }
 
 /* form design end here */
@@ -517,7 +521,7 @@ table tbody tr:nth-child(odd) {
   border: 1px solid var(--border-clr);
   padding: 2rem;
   box-shadow: var(--shadow-1);
-  background-color: var;
+  background-color: var(--white-clr);
 }
 .article__wrappper {
   height: 100%;

@@ -1,22 +1,43 @@
 <?php
 
-function getArticle($connection, $id)
+function getArticle($conn, $id)
 {
-    $sql = "SELECT * 
-            FROM articles 
-            WHERE id = ?";
+    $sql = "SELECT * FROM articles WHERE id = ?";
 
-    $result = mysqli_prepare($connection, $sql);
+    $stmt = mysqli_prepare($conn, $sql);
 
-    if ($result === false) {
-        echo mysqli_error($connection);
+    if ($stmt === false) {
+        echo mysqli_error($conn);
     } else {
-        $article = mysqli_stmt_bind_param($result, "i", $id);
+        mysqli_stmt_bind_param($stmt, 'i', $id);
 
-        if (mysqli_stmt_execute($result)) {
-            $article = mysqli_stmt_get_result($result);
+        if (mysqli_stmt_execute($stmt)) {
+            $result = mysqli_stmt_get_result($stmt);
 
-            return mysqli_fetch_all($article);
+            return mysqli_fetch_array($result, MYSQLI_ASSOC);
         }
     }
+}
+
+
+function validateArticle($image, $title, $content)
+{
+    // stores the error messages
+    $errors = [];
+
+    if ($image == '') {
+        $errors[] = 'Please add an image';
+    }
+    if ($title == '') {
+        $errors[] = 'Title is required';
+    }
+    if ($content == '') {
+        $errors[] = 'Content cannot be left empty';
+    }
+
+    return $errors;
+}
+
+function deletArticle() {
+    // DELETE FROM `articles` WHERE `articles`.`id` = 37
 }

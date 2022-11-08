@@ -1,8 +1,10 @@
+<?php require_once "./includes/header.php"; ?>
+
 <?php require_once "includes/database.php"; ?>
 
-<?php
+<?php require_once "../includes/functions.php"; ?>
 
-require "../article.php";
+<?php
 
 $connection = getDB();
 
@@ -10,50 +12,60 @@ if (isset($_GET['id'])) {
     $article = getArticle($connection, $_GET['id']);
 
     if ($article) {
+        $id = $article['id'];
         $article_image = $article['article_image'];
         $article_title = $article['article_title'];
         $article_content = $article['article_content'];
+    } else {
+        die("Article not found.");
     }
 } else {
-    echo "Artcile doesnt exit";
+    echo "Article doesn't exit";
 
     $sql = "INSERT INTO articles(article_image, article_title, article_content) VALUES (?, ?, ?) ";
 
-    $stmt = mysqli_prepare($connection, $sql);
-
-    if ($stmt === false) {
-        echo mysqli_error($connection);
-    } else {
-        mysqli_stmt_bind_param($stmt, 'sss', $article_image, $article_title, $article_content);
+    $errors = validateArticle($article_image, $article_title, $article_content);
 
 
-        if (mysqli_stmt_execute($stmt)) {
+    if (empty($errors)) {
 
-            if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
-                $protocol = 'https';
-            } else {
-                $protocol = 'http';
-            }
-            header("Location: $protocol://" . $_SERVER['HTTP'] . "article.php?id=$id");
-            move_uploaded_file($image_temp, "../images/$article_image");
-            exit;
+        $sql = "UPDATE articles SET 
+                article_image = ?, 
+                article_title = ?, 
+                article_content = ? 
+                WHERE id = ? ";
+
+        $stmt = mysqli_prepare($connection, $sql);
+
+        if ($stmt === false) {
+            echo mysqli_error($connection);
         } else {
-            echo mysqli_stmt_errno($stmt);
+            mysqli_stmt_bind_param($stmt, 'sssi', $article_image, $article_title, $article_content, $id);
+
+            if (mysqli_stmt_execute($stmt)) {
+
+                if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+                    $protocol = 'https';
+                } else {
+                    $protocol = 'http';
+                }
+                move_uploaded_file($image_temp, "../images/$article_image");
+                header("Location: $protocol://" . $_SERVER['HTTP_HOST'] . "../article.php?id=$id");
+                exit;
+            } else {
+                echo mysqli_stmt_errno($stmt);
+            }
         }
     }
 }
 
 ?>
 
-<?php require_once "./includes/header.php"; ?>
-
 <!-- main section start -->
 <main class="admin__wrapper">
-    <?php include_once "includes/sidebar.php" ?>
+    <?php include_once "./includes/sidebar.php"; ?>
 
     <div class="admin__container">
-
-
         <?php require_once "./includes/navigation.php"; ?>
 
         <!-- admin section wrapper start -->

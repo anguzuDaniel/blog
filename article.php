@@ -2,8 +2,6 @@
 <?php require_once "includes/database.php"; ?>
 <?php
 
-
-
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     $sql = "SELECT * FROM articles WHERE id = " . $_GET['id'];
@@ -89,7 +87,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 </div> -->
                     <div class="form__row">
                         <div class="form__row--image">
-                            <img src="images/DSC03366.jpg" alt="" srcset="">
+                            <img src="images/user.jpeg" alt="" srcset="">
                         </div>
                         <!-- <label for="comment" class="form__row--label">Comment</label> -->
                         <textarea name="comment" id="" cols="10" rows="2" style="resize: none;"></textarea>

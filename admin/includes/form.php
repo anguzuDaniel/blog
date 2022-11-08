@@ -10,7 +10,7 @@
 <form action="create_article.php" method="post" enctype="multipart/form-data">
     <div class="form__row">
         <label for="image" class="form__row--label">Image</label>
-        <input type="file" class="form__row--image" name="image" value="<?= $article_image; ?>" />
+        <input type="file" class="form__row--img" name="image" value="<?= $article_image; ?>" />
     </div>
 
     <div class="form__row">

@@ -1,8 +1,8 @@
 <?php require_once "includes/database.php"; ?>
 
+<?php require_once "../includes/functions.php"; ?>
 <?php
 
-$errors = [];
 $article_image = '';
 $article_title = '';
 $article_content = '';
@@ -15,18 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $article_title = $_POST['article__title'];
     $article_content = $_POST['article__content'];
 
-    // stores the error messages
-    $errors = [];
-
-    if ($article_image == '') {
-        $errors[] = 'Please add an image';
-    }
-    if ($article_title == '') {
-        $errors[] = 'Title is required';
-    }
-    if ($article_content == '') {
-        $errors[] = 'Content cannot be left empty';
-    }
+    $errors = validateArticle($article_image, $article_title, $article_content);
 
     // if errors arrays is empty
     // we continue to submit the data
@@ -50,8 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     $protocol = 'http';
                 }
-                header("Location: $protocol://" . $_SERVER['HTTP'] . "../article.php/?id=$id");
                 move_uploaded_file($image_temp, "../images/$article_image");
+                header("Location: $protocol://" . $_SERVER['HTTP_HOST'] . "/../article.php?id=$id");
                 exit;
             } else {
                 echo mysqli_stmt_errno($stmt);

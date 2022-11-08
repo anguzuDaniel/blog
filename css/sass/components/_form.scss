@@ -8,7 +8,7 @@
 
 		input,
 		textarea {
-			padding: 1rem 1.6rem;
+			padding: 2rem 2rem;
 			border: 1px solid var(--border-clr);
 			outline: none;
 
@@ -31,24 +31,31 @@
 			margin-bottom: 2rem;
 			margin-left: 0.5rem;
 			position: absolute;
-			transform: translateY(-10px);
-			background-color: var(--white-clr);
+			// transform: translateY(-30px);
+			// background-color: var(--white-clr);
+			background-color: transparent;
 			width: max-content;
 		}
 
 		&--image {
-			// border-radius: 50%;
+			border-radius: 50%;
 			overflow: hidden;
 			border: 2px solid var(--border-clr);
 			cursor: pointer;
 			align-self: flex-start;
+			width: 50px;
+			background-position: center;
 
 			img {
 				width: 100%;
-				height: 100%;
+				// height: 100%;
 				aspect-ratio: 10 / 9;
 				object-fit: cover;
 			}
+		}
+
+		&--img {
+			background-color: var(--white-clr);
 		}
 	}
 }

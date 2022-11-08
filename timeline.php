@@ -1,11 +1,11 @@
 <?php include_once "includes/header.php"; ?>
 
-
 <?php include_once "includes/navigation.php"; ?>
 
 <main class="container">
 
     <section class="timeline">
+        <!-- timeline form | starts here -->
         <form action="article.php" method="post" class="timeline__form">
             <!-- <div class="timeline__creator--image">
                 <img src="images/swangz.webp" alt="" srcset="">
@@ -16,7 +16,9 @@
                 <button class="btn btn--submit timeline__btn">Publish</button>
             </div>
         </form>
+        <!-- timeline form | ends here -->
 
+        <!-- timeline articles | start here -->
         <div class="timeline__wrapper">
             <article>
                 <div class="timeline__creator">
@@ -102,10 +104,12 @@
                 </div>
             </article>
         </div>
+        <!-- timeline articles | end here -->
     </section>
 
+    <!-- side navigtion start-->
     <?php include_once "includes/side.php" ?>
+    <!-- side navigtion end -->
 </main>
-
 
 <?php include_once "includes/footer.php" ?>

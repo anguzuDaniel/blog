@@ -34,10 +34,10 @@
 	&__form {
 		border: 1px solid var(--border-clr);
 		margin-bottom: 1rem;
-		padding: 2rem 1rem;
+		// padding: 2rem 1rem;
 		display: flex;
 		gap: 15px;
-		background-color: var(--bg-light-clr);
+		background-color: var(--white-clr);
 		box-shadow: var(--shadow-1);
 
 		textarea {
@@ -50,7 +50,7 @@
 			border: 1px solid var(--border-clr);
 
 			&:hover {
-				outline: 1px solid var(--clr-primary--hover);
+				// outline: 1px solid var(--clr-primary--hover);
 				box-shadow: var(--shadow-1);
 			}
 		}
@@ -69,12 +69,9 @@
 		}
 	}
 
-	// &__cta {
-	// 	border-bottom: 1px solid var(--border-clr);
-	// }
-
 	&__wrapper {
 		border: 1px solid var(--border-clr);
+		background-color: var(--white-clr);
 
 		article {
 			display: flex;

@@ -86,9 +86,7 @@
 			cursor: pointer;
 
 			a {
-				color: var(--bg-admin-nav);
 				color: var(--clr-compilment-text);
-				margin-left: 2rem;
 			}
 
 			&:first-child {
@@ -97,7 +95,7 @@
 			}
 
 			&:hover {
-				border-left: 5px solid var(--clr-primary);
+				border-left: 5px solid var(--clr-compilment-text);
 				background-color: var(--clr-primary--hover);
 				filter: brightness(100%);
 				color: var(--white-clr);

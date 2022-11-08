@@ -21,11 +21,11 @@
             <article>
                 <div class="timeline__creator">
                     <div class="timeline__creator--image">
-                        <img src="images/swangz.webp" alt="" srcset="">
+                        <img src="images/user.jpeg" alt="" srcset="">
                     </div>
 
                     <div class="timeline__creator--name">
-                        <h1>Anguzu Daniel</h1>
+                        <h1>Jack Peterson</h1>
                         <p>3 hours ago</p>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
 
                             <div class="timeline__comments--commentor">
                                 <div class="timeline__comments--image">
-                                    <img src="images/swangz.webp" alt="" srcset="">
+                                    <img src="images/user.jpeg" alt="" srcset="">
                                 </div>
 
                                 <div class="timeline__creator--name">
@@ -90,7 +90,7 @@
 
                         <form action="article.php" method="post" class="timeline__comments--form" id="comment">
                             <div class="timeline__creator--image">
-                                <img src="images/swangz.webp" alt="" srcset="">
+                                <img src="images/user.jpeg" alt="" srcset="">
                             </div>
 
                             <div class="timeline__form--input">

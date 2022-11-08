@@ -248,11 +248,7 @@
 			text-align: center;
 			font-size: 1rem;
 		}
-
-
 	}
-
-
 }
 /* artcile page style | ends here */
 
@@ -308,6 +304,8 @@
 			flex-direction: column;
 			width: 100%;
 			overflow: hidden;
+			background-color: var(--white-clr);
+			box-shadow: var(--shadow-1);
 
 			a {
 				text-decoration: none;
@@ -341,8 +339,9 @@
 		&--text {
 			display: grid;
 			justify-content: baseline;
-			padding-block: 1.5rem;
+			// padding-block: 1.5rem;
 			gap: 20px;
+			padding: 2rem;
 
 			a {
 				display: grid;
@@ -490,7 +489,7 @@
 
 		&--wrapper {
 			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(37rem, 1fr));
+			grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
 			margin-block: var(--margin-section-block-large);
 			gap: 25px;
 
@@ -526,7 +525,7 @@
 					display: flex;
 					flex-direction: row;
 					gap: 15px;
-					grid-column: 2 / 3;
+					// grid-column: 2 / 3;
 					grid-row: span -2 / 2;
 				}
 
@@ -534,14 +533,14 @@
 					display: flex;
 					flex-direction: row;
 					gap: 15px;
-					grid-column: 2 / 3;
+					// grid-column: 2 / 3;
 					grid-row: 1 / 2;
 				}
 
-				&:nth-child(4) {
-					grid-column: 5 / -1;
-					grid-row: -2 / 2;
-				}
+				// &:nth-child(4) {
+				// 	grid-column: 5 / -1;
+				// 	grid-row: -2 / 2;
+				// }
 			}
 		}
 

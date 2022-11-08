@@ -3,6 +3,7 @@
 		padding-block: 2rem;
 		padding-inline: 2rem;
 		display: flex;
+		background-color: var(--white-clr);
 
 		&--pages {
 			margin-left: auto;
@@ -32,9 +33,10 @@
 table {
 	width: 100%;
 	border-collapse: collapse;
+	background-color: var(--white-clr);
 
 	thead {
-		background-color: rgb(244, 244, 244);
+		background-color: var(--white-clr);
 
 		tr {
 			td {

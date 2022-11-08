@@ -34,6 +34,7 @@
   --padding-section-block: 8rem;
   --clr-body: rgba(194, 210, 189, 0.979);
   --clr-body: white;
+  --clr-body-bg: rgb(236, 236, 236);
 }
 
 *,
@@ -53,7 +54,7 @@ html {
 body {
   font-size: 18px;
   font-size: 1.8rem;
-  background-color: var(--clr-body);
+  background-color: var(--clr-body-bg);
   line-height: 1.3;
 }
 
@@ -283,6 +284,7 @@ p {
   padding: 2rem;
 }
 .nav__list--item a {
+  text-transform: uppercase;
   font-weight: bold;
   padding: 1rem;
 }
@@ -295,6 +297,7 @@ p {
   padding-block: 2rem;
   padding-inline: 2rem;
   display: flex;
+  background-color: var(--white-clr);
 }
 .table__footer--pages {
   margin-left: auto;
@@ -319,9 +322,10 @@ p {
 table {
   width: 100%;
   border-collapse: collapse;
+  background-color: var(--white-clr);
 }
 table thead {
-  background-color: rgb(244, 244, 244);
+  background-color: var(--white-clr);
 }
 table thead tr td {
   padding-block: 2rem;
@@ -381,11 +385,8 @@ table tbody tr:nth-child(odd) {
   width: max-content;
 }
 .form__row--image {
-  border-radius: 50%;
   overflow: hidden;
   border: 2px solid var(--border-clr);
-  width: 5rem;
-  height: 5rem;
   cursor: pointer;
   align-self: flex-start;
 }
@@ -1083,6 +1084,7 @@ aside {
   justify-content: space-between;
   border-bottom: 1px solid var(--border-clr);
   padding-inline: 4rem;
+  background-color: var(--white-clr);
 }
 .admin__secondary {
   width: 100%;
@@ -1099,7 +1101,7 @@ aside {
 .admin__container {
   position: absolute;
   right: 0;
-  left: 250px;
+  left: 100px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -1111,9 +1113,8 @@ aside {
   position: fixed;
   top: 0;
   bottom: -1;
-  width: 250px;
+  width: 100px;
   height: 100vh;
-  background-color: var(--bg-light-clr);
   background-color: var(--clr-secondary);
   padding-top: 6rem;
   border-right: 1px solid var(--border-clr);
@@ -1121,7 +1122,6 @@ aside {
 .admin__nav--item {
   padding: 2rem 4rem;
   border-bottom: 1px solid var(--bg-light-clr);
-  color: var(--clr-primary);
   color: var(--clr-compilment-text);
   cursor: pointer;
 }
@@ -1172,7 +1172,7 @@ aside {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: 10px;
+  gap: 20px;
   margin-bottom: 3rem;
 }
 .admin__card {
@@ -1180,6 +1180,7 @@ aside {
   text-align: center;
   border: 1px solid var(--border-clr);
   background-color: var(--white-clr);
+  border-radius: 25px;
 }
 .admin__card--icon {
   font-size: 2.5rem;
@@ -1213,13 +1214,19 @@ aside {
 }
 .admin__all--writters {
   border: 1px solid var(--border-clr);
+  background-color: var(--white-clr);
+  box-shadow: var(--shadow-1);
+  border-radius: 20px;
 }
 .admin__actions {
   width: 100%;
-  background-color: #fff;
   padding-block: 3rem;
   padding-inline: 2rem;
   background-color: rgba(128, 128, 128, 0.07);
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-block: 1px solid var(--border-clr);
 }
 .admin__search {

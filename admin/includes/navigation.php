@@ -3,9 +3,9 @@
         <h1 class="admin--logo">BlogIfy!</h1>
 
         <div class="admin__content--heading">
-            <h1>admin</h1>
+            <h1>name</h1>
             <div class="admin__content--user">
-                <em class="fa-regular fa-circle-user"></em>
+                <img src="../images/image-avatar.png" alt="" srcset="">
             </div>
         </div>
     </div>

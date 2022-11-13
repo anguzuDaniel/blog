@@ -377,10 +377,7 @@ table tbody tr:nth-child(odd) {
   border-radius: 5px;
 }
 .form__row--label {
-  margin-bottom: 2rem;
-  margin-left: 2rem;
-  position: absolute;
-  transform: translateY(-12px);
+  margin-bottom: 0.2rem;
   background-color: var(--white-clr);
   background-color: transparent;
   width: max-content;
@@ -1159,8 +1156,13 @@ aside {
   opacity: 0.8;
   font-weight: lighter;
 }
-.admin__content--user {
-  font-size: 3rem;
+.admin__content--user img {
+  width: 50px;
+  border-radius: 50%;
+}
+.admin__content--user img:hover {
+  cursor: pointer;
+  border: 1px solid var(--clr-body);
 }
 .admin__link a {
   background-color: var(--clr-primary);

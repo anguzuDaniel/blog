@@ -127,7 +127,16 @@
 		}
 
 		&--user {
-			font-size: 3rem;
+
+			img {
+				width: 50px;
+				border-radius: 50%;
+
+				&:hover {
+					cursor: pointer;
+					border: 1px solid var(--clr-body);
+				}
+			}
 		}
 	}
 

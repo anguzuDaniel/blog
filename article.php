@@ -1,18 +1,10 @@
 <?php require_once "includes/header.php"; ?>
 <?php require_once "includes/database.php"; ?>
+<?php require_once "includes/functions.php"; ?>
 <?php
 
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-
-    $sql = "SELECT * FROM articles WHERE id = " . $_GET['id'];
-
-    $result = mysqli_query($connection, $sql);
-
-    if ($result === false) {
-        echo mysqli_error($connection);
-    } else {
-        $article = mysqli_fetch_assoc($result);
-    }
+if (isset($_GET['id'])) {
+    $article = getArticle($connection, $_GET['id']);
 } else {
     $article = null;
 }

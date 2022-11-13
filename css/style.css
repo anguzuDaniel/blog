@@ -399,6 +399,9 @@ table tbody tr:nth-child(odd) {
 .form__row--img {
   background-color: var(--white-clr);
 }
+.form__row--imgCurrent {
+  width: 50%;
+}
 
 /* form design end here */
 .container {

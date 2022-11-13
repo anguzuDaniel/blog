@@ -1,7 +1,13 @@
-<?php require_once "includes/database.php"; ?>
-
-<?php require_once "../includes/functions.php"; ?>
 <?php
+require_once "includes/database.php";
+require_once "../includes/functions.php";
+require_once "../includes/authentication.php";
+
+session_start();
+
+if (!isLoggedIn()) {
+    die('unathorized user');
+}
 
 $article_image = '';
 $article_title = '';
@@ -31,17 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             mysqli_stmt_bind_param($stmt, 'sss', $article_image, $article_title, $article_content);
 
+            move_uploaded_file($image_temp, "../images/$article_image");
             if (mysqli_stmt_execute($stmt)) {
                 $id = mysqli_insert_id($connection);
 
-                if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
-                    $protocol = 'https';
-                } else {
-                    $protocol = 'http';
-                }
-                move_uploaded_file($image_temp, "../images/$article_image");
-                header("Location: $protocol://" . $_SERVER['HTTP_HOST'] . "/blog/article.php?id=$id");
-                exit;
+                redirect("/blog/article.php?id=$id");
             } else {
                 echo mysqli_stmt_errno($stmt);
             }

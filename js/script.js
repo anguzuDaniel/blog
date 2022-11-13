@@ -1,7 +1,10 @@
 "use strict";
 
-const deleteArticle = document.querySelector(".fa-trash-can");
+const deleteArticle = document.getElementById("delete");
+const deleteModal = document.querySelector(".modal");
 
-deleteArticle.addEventListener("click", () => {
-	console.log("Delete button clicked!!");
+deleteArticle.addEventListener("click", (e) => {
+	e.preventDefault();
+	deleteModal.classList.remove("modal--show");
+	console.log("clicked!!");
 });

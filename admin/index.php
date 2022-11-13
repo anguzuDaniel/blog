@@ -1,6 +1,17 @@
 <?php require_once "./includes/header.php"; ?>
 
+<?php
+require_once "../includes/authentication.php";
+
+session_start();
+
+if (!isLoggedIn()) {
+    die('unathorized user');
+}
+?>
+
 <?php include_once "includes/sidebar.php" ?>
+
 <main class="admin__wrapper">
 
     <div class="admin__container">
@@ -208,7 +219,7 @@
                                     </a>
                                 </td>
                             </tr>
-          
+
                     </table>
 
                     <div class="table__footer">

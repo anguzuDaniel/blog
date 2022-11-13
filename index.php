@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once("includes/database.php");
 
 $sql = "SELECT * FROM articles LIMIT 4";
@@ -16,15 +18,16 @@ if ($result === false) {
 
 <?php require_once("includes/header.php") ?>
 
+
 <!-- navigation bar -->
 <?php require_once("includes/navigation.php") ?>
 
 
 <!-- main content begining -->
 <main>
-
+    
     <div class="container">
-
+        
         <section class="container__articles">
             <div class="article__wrappper article__wrappper--large">
                 <div class="article__text">

@@ -68,9 +68,17 @@ table {
 					width: 100px;
 				}
 			}
+
 			&:nth-child(odd) {
 				background-color: #aac3bd0e;
 			}
 		}
 	}
+}
+
+.delete__icon {
+	// border: none;
+	// background: transparent;
+	padding: 1rem;
+	cursor: pointer;
 }

@@ -1,3 +1,4 @@
+<?php require_once "includes/authentication.php" ?>
 <header class="header">
     <div class="header__primary">
         <h1 class="header--logo">BlogIfy!</h1>
@@ -13,16 +14,21 @@
             <a href="./admin/index.php">Admin</a>
         </button> -->
 
-        <div class="header__cta">
-            <div class="header__cta--btn">
 
-                <a href="#">Sign In</a>
-            </div>
+        <?php if (isLoggedIn()) : ?>
+            <div class="header__cta">
+                <div class="header__cta--btn">
+                    <a href="./admin/create_article.php">New article</a>
+                </div>
 
-            <div class="header__cta--btn header__cta--signup">
-                <a href="./admin/index.php">Sign Up Free</a>
+                <div class="header__cta--btn header__cta--signup">
+                    <p><a href="logout.php" class="btn--logout">Log out</a></p>
+                </div>
             </div>
-        </div>
+        <?php else : ?>
+            <p><a href="login.php" class="btn--login">Log In</a></p>
+        <?php endif; ?>
+
     </div>
 
     <div class="header__secondary">

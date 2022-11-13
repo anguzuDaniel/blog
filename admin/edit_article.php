@@ -6,6 +6,14 @@
 
 <?php
 
+require_once "../includes/authentication.php";
+
+session_start();
+
+if (!isLoggedIn()) {
+    die('unathorized user');
+}
+
 $connection = getDB();
 
 if (isset($_GET['id'])) {
@@ -45,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo mysqli_error($connection);
         } else {
             mysqli_stmt_bind_param($stmt, 'sssi', $article_image, $article_title, $article_content, $id);
+            move_uploaded_file($image_temp, "../images/$article_image");
 
             if (mysqli_stmt_execute($stmt)) {
 
@@ -53,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 } else {
                     $protocol = 'http';
                 }
-                move_uploaded_file($image_temp, "../images/$article_image");
                 header("Location: $protocol://" . $_SERVER['HTTP_HOST'] . "/blog/article.php?id=$id");
                 exit;
             } else {

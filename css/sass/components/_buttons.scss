@@ -81,4 +81,23 @@
 	&--side {
 		color: var(--clr-primary);
 	}
+
+	&--login,
+	&--logout {
+		background-color: var(--clr-primary);
+		color: var(--white-clr);
+		border: none;
+		padding: 1rem 2rem;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+		text-transform: uppercase;
+		text-decoration: none;
+		font-weight: bold;
+	}
+
+	&--logout {
+		background-color: transparent;
+		color: var(--clr-primary);
+	}
 }

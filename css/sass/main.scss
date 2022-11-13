@@ -7,6 +7,7 @@
 @forward "./components/nav";
 @forward "./components/table";
 @forward "./components/form";
+@forward "./components/modal";
 
 @forward "./layout/container";
 @forward "./layout/article";
@@ -15,3 +16,4 @@
 
 @forward "./pages/admin";
 @forward "./pages/timeline";
+@forward "./pages/login_page";

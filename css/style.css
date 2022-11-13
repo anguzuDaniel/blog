@@ -355,7 +355,7 @@ table tbody tr:nth-child(odd) {
 .form__row {
   margin-block: 3rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 10px;
 }
 .form__row input,
@@ -378,8 +378,10 @@ table tbody tr:nth-child(odd) {
 }
 .form__row--label {
   margin-bottom: 2rem;
-  margin-left: 0.5rem;
+  margin-left: 2rem;
   position: absolute;
+  transform: translateY(-12px);
+  background-color: var(--white-clr);
   background-color: transparent;
   width: max-content;
 }
@@ -1116,7 +1118,6 @@ aside {
   width: 100px;
   height: 100vh;
   background-color: var(--clr-secondary);
-  padding-top: 6rem;
   border-right: 1px solid var(--border-clr);
 }
 .admin__nav--item {
@@ -1290,6 +1291,28 @@ aside {
 }
 .admin--logo {
   color: var(--clr-primary);
+}
+.admin__humbuger {
+  border-bottom: 1px solid var(--clr-compilment-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2.25rem;
+  margin-bottom: 1rem;
+  padding-top: 4rem;
+}
+.admin__humbuger--bar1, .admin__humbuger--bar2, .admin__humbuger--bar3 {
+  display: block;
+  width: 35px;
+  height: 4px;
+  background-color: var(--clr-compilment-text);
+  margin-bottom: 4px;
+  border-radius: 5px;
+}
+.admin__humbuger--btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /* Admin page styling | starts here */

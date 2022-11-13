@@ -22,15 +22,13 @@ if (isset($_GET['id'])) {
 } else {
     echo "Article doesn't exit";
 
-    $sql = "INSERT INTO articles(article_image, article_title, article_content) VALUES (?, ?, ?) ";
-
     $errors = validateArticle($article_image, $article_title, $article_content);
 
 
     if (empty($errors)) {
 
-        $sql = "UPDATE articles SET 
-                article_image = ?, 
+        $sql = "UPDATE articles 
+                SET article_image = ?, 
                 article_title = ?, 
                 article_content = ? 
                 WHERE id = ? ";
@@ -50,7 +48,7 @@ if (isset($_GET['id'])) {
                     $protocol = 'http';
                 }
                 move_uploaded_file($image_temp, "../images/$article_image");
-                header("Location: $protocol://" . $_SERVER['HTTP_HOST'] . "../article.php?id=$id");
+                header("Location: $protocol://" . $_SERVER['HTTP_HOST'] . "/blog/article.php?id=$id ");
                 exit;
             } else {
                 echo mysqli_stmt_errno($stmt);
@@ -75,7 +73,7 @@ if (isset($_GET['id'])) {
                 <hr>
             </div>
 
-            <?php require_once "./includes/form.php"; ?>
+            <?php require_once "includes/form.php"; ?>
         </section>
         <!-- admin section wrapper end -->
     </div>

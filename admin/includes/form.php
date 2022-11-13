@@ -1,8 +1,10 @@
 <!-- error handler start | checks if inputs are empty and prints message -->
 <?php if (!empty($errors)) : ?>
-    <?php foreach ($errors as $error) : ?>
-        <li><?= $error ?></li>
-    <?php endforeach; ?>
+    <ul>
+        <?php foreach ($errors as $error) : ?>
+            <li><?= $error ?></li>
+        <?php endforeach; ?>
+    </ul>
 <?php endif; ?>
 <!-- error hamdler end -->
 

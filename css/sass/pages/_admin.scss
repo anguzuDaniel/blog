@@ -74,7 +74,7 @@
 		height: 100vh;
 		// background-color: var(--bg-light-clr);
 		background-color: var(--clr-secondary);
-		padding-top: 6rem;
+
 		border-right: 1px solid var(--border-clr);
 
 		&--item {
@@ -290,6 +290,34 @@
 
 	&--logo {
 		color: var(--clr-primary);
+	}
+
+	&__humbuger {
+		border-bottom: 1px solid var(--clr-compilment-text);
+		display: flex;
+		// flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding-bottom: 2.25rem;
+		margin-bottom: 1rem;
+		padding-top: 4rem;
+
+		&--bar1,
+		&--bar2,
+		&--bar3 {
+			display: block;
+			width: 35px;
+			height: 4px;
+			background-color: var(--clr-compilment-text);
+			margin-bottom: 4px;
+			border-radius: 5px;
+		}
+
+		&--btn {
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+		}
 	}
 }
 /* Admin page styling | starts here */

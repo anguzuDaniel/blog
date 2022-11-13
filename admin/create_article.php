@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $protocol = 'http';
                 }
                 move_uploaded_file($image_temp, "../images/$article_image");
-                header("Location: $protocol://" . $_SERVER['HTTP_HOST'] . "/../article.php?id=$id");
+                header("Location: $protocol://" . $_SERVER['HTTP_HOST'] . "/blog/article.php?id=$id");
                 exit;
             } else {
                 echo mysqli_stmt_errno($stmt);

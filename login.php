@@ -15,16 +15,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         redirect('/blog/index.php');
     } else {
-        die('Login Incorrect');
+        $error = 'Incorrect username/password, Please enter correct details';
     }
 }
 ?>
 
 <?php include_once "includes/header.php" ?>
 
+
 <main class="login__page">
     <div class="login__page--container">
         <h1>Login</h1>
+
+        <!-- prints out error meassgae for wrong cridentials -->
+        <?php if (!empty($error)) : ?>
+            <span class="error-message"><?= $error; ?></span>
+        <?php endif; ?>
+
         <form action="" method="post" class="login__form">
             <div class="login__row">
                 <label for="name">Name</label>

@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
         <?php if ($article) : ?>
             <article>
                 <div class="article--image">
-                    <img src="images/<?= $article['article_image']; ?>" alt="article image" />
+                    <img src="images/<?= $article->article_image; ?>" alt="article image" />
                 </div>
                 <div class="article__cta">
                     <div>
@@ -63,8 +63,8 @@ if (isset($_GET['id'])) {
                 </div>
 
                 <div class="article--text">
-                    <h1 class="article--title"><?= htmlspecialchars($article['article_title']); ?></h1>
-                    <p class="article--paragraph" id="comment"><?= htmlspecialchars($article['article_content']); ?></p>
+                    <h1 class="article--title"><?= htmlspecialchars($article->article_title); ?></h1>
+                    <p class="article--paragraph" id="comment"><?= htmlspecialchars($article->article_content); ?></p>
                 </div>
 
                 <hr>

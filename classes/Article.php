@@ -3,6 +3,34 @@
 class Article
 {
 
+    /**
+     * id
+     *
+     * @var mixed
+     */
+    public $id;
+
+    /**
+     * image
+     *
+     * @var mixed
+     */
+    public $article_image;
+
+    /**
+     * title
+     *
+     * @var mixed
+     */
+    public $article_title;
+
+    /**
+     * content
+     *
+     * @var mixed
+     */
+    public $article_content;
+
     public static function getAll($conn)
     {
         $sql = "SELECT * FROM articles LIMIT 4";
@@ -12,13 +40,7 @@ class Article
         return $results->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
-     * getArticle
-     *
-     * @param  mixed $conn
-     * @param  mixed $id
-     * @return void
-     */
+
     public static function getById($conn, $id, $columns = '*')
     {
         $sql = "SELECT $columns FROM articles WHERE id = :id";
@@ -26,6 +48,8 @@ class Article
         $stmt = $conn->prepare($sql);
 
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Article');
 
 
         if ($stmt->execute()) {

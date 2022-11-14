@@ -1,25 +1,35 @@
 <?php
 
+/**
+ * getArticle
+ *
+ * @param  mixed $conn
+ * @param  mixed $id
+ * @return void
+ */
 function getArticle($conn, $id)
 {
-    $sql = "SELECT * FROM articles WHERE id = ?";
+    $sql = "SELECT * FROM articles WHERE id = :id";
 
-    $stmt = mysqli_prepare($conn, $sql);
+    $stmt = $conn->prepare($sql);
 
-    if ($stmt === false) {
-        echo mysqli_error($conn);
-    } else {
-        mysqli_stmt_bind_param($stmt, 'i', $id);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 
-        if (mysqli_stmt_execute($stmt)) {
-            $result = mysqli_stmt_get_result($stmt);
 
-            return mysqli_fetch_array($result, MYSQLI_ASSOC);
-        }
+    if ($stmt->execute()) {
+        return $stmt->fetch();
     }
 }
 
 
+/**
+ * validateArticle
+ *
+ * @param  mixed $image 
+ * @param  mixed $title
+ * @param  mixed $content
+ * @return void
+ */
 function validateArticle($image, $title, $content)
 {
     // stores the error messages
@@ -38,7 +48,13 @@ function validateArticle($image, $title, $content)
     return $errors;
 }
 
-function deletArticle() {
+/**
+ * deletArticle
+ *
+ * @return void
+ */
+function deletArticle()
+{
     // DELETE FROM `articles` WHERE `articles`.`id` = 37
 }
 

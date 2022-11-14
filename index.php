@@ -2,17 +2,13 @@
 
 session_start();
 
-require_once("includes/database.php");
+require_once "classes/Database.php";
+require_once 'classes/Article.php';
 
-$sql = "SELECT * FROM articles LIMIT 4";
+$db = new Database();
+$connection = $db->getConn();
 
-$result = mysqli_query($connection, $sql);
-
-if ($result === false) {
-    echo mysqli_error($connection);
-} else {
-    $articles = mysqli_fetch_all($result, MYSQLI_ASSOC);
-}
+$articles = Article::getAll($connection);
 
 ?>
 
@@ -25,9 +21,9 @@ if ($result === false) {
 
 <!-- main content begining -->
 <main>
-    
+
     <div class="container">
-        
+
         <section class="container__articles">
             <div class="article__wrappper article__wrappper--large">
                 <div class="article__text">

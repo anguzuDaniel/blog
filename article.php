@@ -1,10 +1,15 @@
 <?php require_once "includes/header.php"; ?>
-<?php require_once "includes/database.php"; ?>
 <?php require_once "includes/functions.php"; ?>
 <?php
 
+require_once 'classes/Database.php';
+require_once 'classes/Article.php';
+
+$db = new Database();
+$connection = $db->getConn();
+
 if (isset($_GET['id'])) {
-    $article = getArticle($connection, $_GET['id']);
+    $article = Article::getById($connection, $_GET['id']);
 } else {
     $article = null;
 }
@@ -19,13 +24,10 @@ if (isset($_GET['id'])) {
 <div class="article">
 
     <div>
-        <?php if ($article === null) : ?>
-            <p class="paragraph article--paragraph">No articles found..</p>
-        <?php else : ?>
+        <?php if ($article) : ?>
             <article>
                 <div class="article--image">
                     <img src="images/<?= $article['article_image']; ?>" alt="article image" />
-
                 </div>
                 <div class="article__cta">
                     <div>
@@ -87,7 +89,8 @@ if (isset($_GET['id'])) {
                     <!-- <input type="submit" value="comment" class="btn | btn--submit"> -->
                 </form>
             </article>
-
+        <?php else : ?>
+            <p class="paragraph article--paragraph">No articles found..</p>
         <?php endif ?>
     </div>
 

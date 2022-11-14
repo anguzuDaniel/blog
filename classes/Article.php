@@ -56,4 +56,20 @@ class Article
             return $stmt->fetch();
         }
     }
+
+    public function update($conn)
+    {
+        $sql = "UPDATE `articles` 
+        SET `article_image` = :img, 
+            `article_title` = :title, 
+            `article_content` = :content 
+        WHERE `id` = :id ";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':img', $this->article_image, PDO::PARAM_STR);
+        $stmt->bindValue(':title', $this->article_title, PDO::PARAM_STR);
+        $stmt->bindValue(':content', $this->article_content, PDO::PARAM_STR);
+
+    }
 }

@@ -7,6 +7,8 @@
 <?php
 
 require_once "../includes/authentication.php";
+require_once "../classes/Database.php";
+require_once "../classes/Article.php";
 
 session_start();
 
@@ -14,16 +16,13 @@ if (!isLoggedIn()) {
     die('unathorized user');
 }
 
-$connection = getDB();
+$db = new Database();
+$connection = $db->getConn();
 
 if (isset($_GET['id'])) {
-    $article = getArticle($connection, $_GET['id']);
+    $article = Article::getById($connection, $_GET['id']);
 
     if ($article) {
-        $id = $article['id'];
-        $article_image = $article['article_image'];
-        $article_title = $article['article_title'];
-        $article_content = $article['article_content'];
     } else {
         die("Article not found.");
     }
@@ -33,43 +32,23 @@ if (isset($_GET['id'])) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $article_image = $_FILES['image']['name'];
+    $article->article_image = $_FILES['image']['name'];
     $image_temp = $_FILES['image']['tmp_name'];
 
-    $article_title = $_POST['article__title'];
-    $article_content = $_POST['article__content'];
+    $article->article_title = $_POST['article__title'];
+    $article->article_content = $_POST['article__content'];
 
-    $errors = validateArticle($article_image, $article_title, $article_content);
+    $errors = validateArticle($article->article_image, $article->article_title, $article->article_content);
 
 
     if (empty($errors)) {
 
-        $sql = "UPDATE `articles` SET `article_image` = ?, `article_title` = ?, `article_content` = ? WHERE `id` = ? ";
-
-
-        $stmt = mysqli_prepare($connection, $sql);
-
-        if ($stmt === false) {
-            echo mysqli_error($connection);
-        } else {
-            mysqli_stmt_bind_param($stmt, 'sssi', $article_image, $article_title, $article_content, $id);
-            move_uploaded_file($image_temp, "../images/$article_image");
-
-            if (mysqli_stmt_execute($stmt)) {
-
-                if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
-                    $protocol = 'https';
-                } else {
-                    $protocol = 'http';
-                }
-                header("Location: $protocol://" . $_SERVER['HTTP_HOST'] . "/blog/article.php?id=$id");
-                exit;
-            } else {
-                echo mysqli_stmt_error($stmt);
-            }
+        if ($article->update($connection)) {
+            redirect("/blog/article.php?id=$article->id");
         }
     }
 }
+
 
 
 ?>

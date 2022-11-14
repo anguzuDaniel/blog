@@ -81,7 +81,7 @@ if (isset($_GET['id'])) {
                 </div> -->
                     <div class="form__row">
                         <div class="form__row--image">
-                            <img src="images/user.jpeg" alt="" srcset="">
+                            <img src="images/image-avatar.png" alt="" srcset="">
                         </div>
                         <!-- <label for="comment" class="form__row--label">Comment</label> -->
                         <textarea name="comment" id="" cols="10" rows="2" style="resize: none;"></textarea>

@@ -15,25 +15,35 @@ class Article
      *
      * @var mixed
      */
-    public $article_image;
+    public $articleImage;
 
     /**
      * title
      *
      * @var mixed
      */
-    public $article_title;
+    public $articleTitle;
 
     /**
      * content
      *
      * @var mixed
      */
-    public $article_content;
+    public $articleContent;
 
-    public static function getAll($conn)
+    public static function getAll($conn, $num)
     {
-        $sql = "SELECT * FROM articles LIMIT 4";
+        $sql = "SELECT * FROM articles LIMIT $num";
+
+        $results = $conn->query($sql);
+
+        return $results->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // get specified number of articles 
+    public static function getArticles($conn, $sql, $num, $columns = '*')
+    {
+        $sql = "SELECT $columns FROM articles $sql $num";
 
         $results = $conn->query($sql);
 
@@ -57,19 +67,54 @@ class Article
         }
     }
 
+
+
     public function update($conn)
     {
         $sql = "UPDATE `articles` 
-        SET `article_image` = :img, 
-            `article_title` = :title, 
-            `article_content` = :content 
-        WHERE `id` = :id ";
+        SET `articleImage` = :img, 
+            `articleTitle` = :title, 
+            `articleContent` = :content 
+            WHERE `id` = :id ";
 
         $stmt = $conn->prepare($sql);
 
-        $stmt->bindValue(':img', $this->article_image, PDO::PARAM_STR);
-        $stmt->bindValue(':title', $this->article_title, PDO::PARAM_STR);
-        $stmt->bindValue(':content', $this->article_content, PDO::PARAM_STR);
+        $stmt->bindValue(
+            ':img',
+            $this->articleImage,
+            PDO::PARAM_STR
+        );
+        $stmt->bindValue(
+            ':title',
+            $this->articleTitle,
+            PDO::PARAM_STR
+        );
+        $stmt->bindValue(':content', $this->articleContent, PDO::PARAM_STR);
+    }
 
+    /**
+     * validateArticle
+     *
+     * @param  mixed $image 
+     * @param  mixed $title
+     * @param  mixed $content
+     * @return void
+     */
+    public function validateArticle($image, $title, $content)
+    {
+        // stores the error messages
+        $errors = [];
+
+        if ($image == '') {
+            $errors[] = 'Please add an image';
+        }
+        if ($title == '') {
+            $errors[] = 'Title is required';
+        }
+        if ($content == '') {
+            $errors[] = 'Content cannot be left empty';
+        }
+
+        return $errors;
     }
 }

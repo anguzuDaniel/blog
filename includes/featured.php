@@ -1,15 +1,14 @@
 <?php
 
-require_once("includes/database.php");
+require_once "./init.php";
 
-$sql = "SELECT * FROM articles ORDER BY id DESC LIMIT 3";
+$db = new Database();
+$connection = $db->getConn();
 
-$result = mysqli_query($connection, $sql);
-
-if ($result === false) {
-    echo mysqli_error($connection);
+if ($connection) {
+    $articles = Article::getArticles($connection, 'ORDER BY id DESC LIMIT', 3);
 } else {
-    $articles = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    echo $connection->errorInfo();
 }
 ?>
 

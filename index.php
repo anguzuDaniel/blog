@@ -1,26 +1,17 @@
+<?php require_once "includes/header.php"; ?>
 <?php
-
-require_once "includes/init.php";
-
-session_start();
+require_once "./init.php";
 
 $db = new Database();
 $connection = $db->getConn();
-
-$articles = Article::getAll($connection);
-
+$articles = Article::getAll($connection, 4);
 ?>
-
-<?php require_once("includes/header.php") ?>
-
 
 <!-- navigation bar -->
 <?php require_once("includes/navigation.php") ?>
 
-
 <!-- main content begining -->
 <main>
-
     <div class="container">
 
         <section class="container__articles">
@@ -30,12 +21,7 @@ $articles = Article::getAll($connection);
                     <h1 class="heading | article__text--title">
                         What do software Engineers do?
                     </h1>
-                    <!-- <p class="article__paragraph">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quibusdam magnam minima adipisci nihil recusandae aut exercitationem,...
-                    </p> -->
                 </div>
-
             </div>
 
             <div class="container__articles--grid">
@@ -53,8 +39,6 @@ $articles = Article::getAll($connection);
                     </div>
                 </div>
 
-
-
                 <div class="article__wrappper | article__wrappper--small | article__wrappper--3">
                     <div class="article__text">
                         <p class="article__date">Dec 29, 2021</p>
@@ -62,17 +46,13 @@ $articles = Article::getAll($connection);
                     </div>
                 </div>
 
-
-
                 <div class="article__wrappper | article__wrappper--small | article__wrappper--4">
                     <div class="article__text">
                         <p class="article__date">Dec 29, 2021</p>
                         <h1 class="heading | article__text--title">Yoga and Meditation</h1>
                     </div>
                 </div>
-
             </div>
-
         </section>
     </div>
 
@@ -115,15 +95,9 @@ $articles = Article::getAll($connection);
                                         <!-- <em class="fa-solid fa-thumbs-up"></em> -->
                                     </div>
                                 </div>
-
-
-
-
                             </div>
-
                         </article>
                     <?php endforeach; ?>
-
                 <?php endif ?>
             </div>
             <!-- lastest artciles section end -->
@@ -136,10 +110,8 @@ $articles = Article::getAll($connection);
         <!-- <a href="includes/" class="more__articles">More &rarr;</a> -->
     </section>
 
-
     <!-- icluding the article markup -->
     <?php require_once "includes/featured.php"; ?>
-
 
     <!-- inculding the Recommended markup -->
     <?php require_once "includes/recommended.php"; ?>

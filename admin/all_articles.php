@@ -1,10 +1,8 @@
+<?php require_once "./includes/header.php"; ?>
 <?php
 
 require_once "includes/database.php";
-require_once "../classes/auth.php";
-require_once "../classes/Article.php";
 
-session_start();
 
 if (!Auth::isLoggedIn()) {
     die("Unauthorized user");
@@ -24,8 +22,6 @@ if ($result === false) {
 
 
 ?>
-<?php require_once "./includes/header.php"; ?>
-
 <?php include_once "includes/sidebar.php" ?>
 <main class="admin__wrapper">
 

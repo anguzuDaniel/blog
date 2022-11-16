@@ -1,10 +1,7 @@
 <?php
 
-require_once 'includes/functions.php';
-
-require_once "includes/init.php";
-
-session_start();
+require_once "includes/header.php";
+include_once "./init.php";
 
 $db = new Database();
 
@@ -18,14 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $_SESSION['is_logged_in'] = true;
 
-        redirect('/blog/index.php');
+        Url::redirect('/blog/index.php');
     } else {
         $error = 'Incorrect username/password, Please enter correct details';
     }
 }
 ?>
-
-<?php include_once "includes/header.php" ?>
 
 
 <main class="login__page">

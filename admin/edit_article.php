@@ -1,11 +1,7 @@
+<?php require_once "./includes/header.php"; ?>
 <?php
 require_once "includes/database.php";
 require_once "../includes/functions.php";
-require_once "../classes/auth.php";
-require_once "../classes/Database.php";
-require_once "../classes/Article.php";
-
-session_start();
 
 if (!Auth::isLoggedIn()) {
     die('unathorized user');
@@ -17,9 +13,7 @@ $connection = $db->getConn();
 if (isset($_GET['id'])) {
     $article = Article::getById($connection, $_GET['id']);
 
-    if ($article) {
-        $a = 0;
-    } else {
+    if (!$article) {
         die("Article not found.");
     }
 } else {
@@ -27,23 +21,22 @@ if (isset($_GET['id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $article->article_image = $_FILES['image']['name'];
+    $article->articleImage = $_FILES['image']['name'];
     $image_temp = $_FILES['image']['tmp_name'];
 
-    $article->article_title = $_POST['article__title'];
-    $article->article_content = $_POST['article__content'];
+    $article->articleTitle = $_POST['article__title'];
+    $article->articleContent = $_POST['article__content'];
 
-    $errors = validateArticle($article->article_image, $article->article_title, $article->article_content);
+    $errors = $article->validateArticle($article->articleImage, $article->articleTitle, $article->articleContent);
 
+    move_uploaded_file($image_temp, "../images/$article->articleImage");
 
     if (empty($errors) && $article->update($connection)) {
-        redirect("/blog/article.php?id=$article->id");
+        Url::redirect("/blog/article.php?id=$article->id");
     }
 }
 ?>
 
-<?php require_once "./includes/header.php"; ?>
 
 <!-- main section start -->
 <main class="admin__wrapper">
@@ -63,18 +56,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="form__row">
                     <label for="image" class="form__row--label">Image</label>
-                    <!-- <img src="../images/<?= $article_image;  ?>" alt="" srcset="" class="form__row--imgCurrent"> -->
-                    <input type="file" class="form__row--img" name="image" value="<?= $article_image; ?>" />
+                    <!-- <img src="../images/<?= $articleImage;  ?>" alt="" srcset="" class="form__row--imgCurrent"> -->
+                    <input type="file" class="form__row--img" name="image" value="<?= $article->articleImage; ?>" />
                 </div>
 
                 <div class="form__row">
                     <label for="article__title" class="form__row--label">Title</label>
-                    <input type="text" name="article__title" value="<?= htmlspecialchars($article_title); ?>" />
+                    <input type="text" name="article__title" value="<?= htmlspecialchars($article->articleTitle); ?>" />
                 </div>
 
                 <div class="form__row">
                     <label for="article__content" class="form__row--label">Content</label>
-                    <textarea name="article__content" id="" cols="30" rows="10" style="resize: none"><?= htmlspecialchars($article_content); ?></textarea>
+                    <textarea name="article__content" id="" cols="30" rows="10" style="resize: none"><?= htmlspecialchars($article->articleContent); ?></textarea>
                 </div>
 
                 <button class="btn btn--submit">Save</button>

@@ -1,9 +1,7 @@
 <?php
-require_once "includes/database.php";
 require_once "../includes/functions.php";
-require_once "../classes/auth.php";
 
-session_start();
+require_once "includes/header.php";
 
 if (!Auth::isLoggedIn()) {
     die('unathorized user');
@@ -26,33 +24,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // if errors arrays is empty
     // we continue to submit the data
     if (empty($errors)) {
-        $connection = getDB();
 
-        $sql = "INSERT INTO articles(article_image, article_title, article_content) VALUES (?, ?, ?) ";
+        $article = new User();
+        $db = new Database();
 
-        $stmt = mysqli_prepare($connection, $sql);
+        $connection = $db->getConn();
 
-        if ($stmt === false) {
-            echo mysqli_error($connection);
+        $sql = "INSERT 
+                INTO articles(article_image, article_title, article_content) 
+                VALUES (':image', ':title', ':content') ";
+
+        $stmt = $connection->prepare($sql);
+
+        if ($stmt->execute()) {
+            echo $connection->errorInfo();
         } else {
-            mysqli_stmt_bind_param($stmt, 'sss', $article_image, $article_title, $article_content);
+            $stmt->bindValue(':image', $article->article_title, PDO::PARAM_STR);
+            $stmt->bindValue(':title', $article->article_title, PDO::PARAM_STR);
+            $stmt->bindValue(':content', $article->article_title, PDO::PARAM_STR);
 
             move_uploaded_file($image_temp, "../images/$article_image");
-            if (mysqli_stmt_execute($stmt)) {
-                $id = mysqli_insert_id($connection);
 
-                redirect("/blog/article.php?id=$id");
+            if ($stmt->execute()) {
+                // $id = mysqli_insert_id($connection);
+
+                Url::redirect("/blog/article.php?id=$id");
             } else {
-                echo mysqli_stmt_errno($stmt);
+                echo $connection->errorInfo($stmt);
             }
         }
     }
 }
 
 ?>
-
-<?php require_once "./includes/header.php"; ?>
-
 <!-- main section start -->
 <main class="admin__wrapper">
     <?php include_once "includes/sidebar.php" ?>

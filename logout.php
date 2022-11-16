@@ -1,9 +1,6 @@
 <?php
 
-require_once "includes/functions.php";
-require_once "classes/Url.php";
-
-session_start();
+include_once "./init.php";
 
 $_SESSION = array();
 

@@ -1,15 +1,12 @@
 <?php
-require_once "./includes/header.php";
-
 require_once "includes/database.php";
 
 require_once "../includes/functions.php";
 
 require_once "includes/function.php";
 
-require_once "../classes/auth.php";
 
-session_start();
+require_once "includes/header.php";
 
 if (!Auth::isLoggedIn()) {
     die('unathorized user');
@@ -48,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (mysqli_stmt_execute($stmt)) {
 
-            redirect("/blog/admin/all_articles.php");
+            Url::redirect("/blog/admin/all_articles.php");
         } else {
             echo mysqli_stmt_error($stmt);
         }
@@ -56,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<?php require_once "includes/header.php"; ?>
 
 <div class="modal">
 

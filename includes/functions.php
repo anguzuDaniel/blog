@@ -15,7 +15,6 @@ function getArticle($conn, $id)
 
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 
-
     if ($stmt->execute()) {
         return $stmt->fetch();
     }

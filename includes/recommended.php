@@ -1,15 +1,14 @@
 <?php
 
-require_once("includes/database.php");
+require_once "./init.php";
 
-$sql = "SELECT * FROM articles ORDER BY RAND() LIMIT 5";
+$db = new Database();
+$connection = $db->getConn();
 
-$result = mysqli_query($connection, $sql);
-
-if ($result === false) {
-    echo mysqli_error($connection);
+if ($connection) {
+    $articles = Article::getArticles($connection, 'ORDER BY RAND() LIMIT', 5);
 } else {
-    $articles = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    echo $connection->errorInfo();
 }
 ?>
 
@@ -39,7 +38,7 @@ if ($result === false) {
                         </div>
 
                         <div class="recommended__articles--text">
-                            <a href="article.php?=<?= $article['id']; ?>">Read Article</a>
+                            <a href="article.php?=<?= $article['article_title']; ?>">Read Article</a>
                         </div>
                     </article>
                 <?php endforeach; ?>

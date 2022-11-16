@@ -1,14 +1,17 @@
 <?php
-require_once("includes/database.php");
+require_once "./init.php";
+
+$db = new Database();
+$connection = $db->getConn();
 
 $sql = "SELECT * FROM articles ORDER BY RAND() LIMIT 5";
 
-$result = mysqli_query($connection, $sql);
+$stmt = $connection->prepare($sql);
 
-if ($result === false) {
-    echo mysqli_error($connection);
+if ($stmt->fetchAll()) {
+    echo $connection->errorInfo();
 } else {
-    $articles = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $articles = Article::getAll($connection, 5);
 }
 ?>
 

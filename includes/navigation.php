@@ -1,4 +1,4 @@
-<?php require_once "includes/authentication.php" ?>
+<?php require_once "classes/auth.php"; ?>
 <header class="header">
     <div class="header__primary">
         <h1 class="header--logo">BlogIfy!</h1>
@@ -15,7 +15,7 @@
         </button> -->
 
 
-        <?php if (isLoggedIn()) : ?>
+        <?php if (Auth::isLoggedIn()) : ?>
             <div class="header__cta">
                 <div class="header__cta--btn">
                     <a href="./admin/create_article.php">New article</a>

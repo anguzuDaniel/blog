@@ -2,11 +2,18 @@
 
 require_once 'includes/functions.php';
 
+require_once 'classes/Database.php';
+
+require_once "classes/user.php";
+
 session_start();
 
+$db = new Database();
+
+$connection = $db->getConn();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if ($_POST['username'] == 'anguzu daniel' && $_POST['password'] == 'password') {
+    if (User::authenticate($connection, $_POST['username'], $_POST['password'])) {
 
         // helps to prevent session fixation attack | stops hackers from stealing session data
         session_regenerate_id(true);

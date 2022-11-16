@@ -609,10 +609,6 @@ table tbody tr:nth-child(odd) {
 .article article {
   display: grid;
   gap: 20px;
-  border: 1px solid var(--border-clr);
-  padding: 2rem;
-  box-shadow: var(--shadow-1);
-  background-color: var(--white-clr);
 }
 .article__wrappper {
   height: 100%;

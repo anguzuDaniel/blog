@@ -7,11 +7,11 @@ require_once "../includes/functions.php";
 
 require_once "includes/function.php";
 
-require_once "../includes/authentication.php";
+require_once "../classes/auth.php";
 
 session_start();
 
-if (!isLoggedIn()) {
+if (!Auth::isLoggedIn()) {
     die('unathorized user');
 }
 

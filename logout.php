@@ -1,6 +1,7 @@
 <?php
 
 require_once "includes/functions.php";
+require_once "classes/Url.php";
 
 session_start();
 
@@ -22,4 +23,4 @@ if (ini_get('session.use_cookies')) {
 
 session_destroy();
 
-redirect('/blog/index.php');
+Url::redirect('/blog/index.php');

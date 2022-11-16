@@ -1,6 +1,14 @@
 <?php
 
 require_once "includes/database.php";
+require_once "../classes/auth.php";
+require_once "../classes/Article.php";
+
+session_start();
+
+if (!Auth::isLoggedIn()) {
+    die("Unauthorized user");
+}
 
 $connection = getDB();
 

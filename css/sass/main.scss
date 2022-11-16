@@ -1,20 +1,20 @@
-@forward "./abstracts/variables";
-@forward "./base/base";
+@use "./abstracts/variables" as *;
+@use "./base/base" as *;
 
-@forward "./components/header";
-@forward "./components/search";
-@forward "./components/buttons";
-@forward "./components/nav";
-@forward "./components/table";
-@forward "./components/form";
-@forward "./components/modal";
-@forward "./components/error";
+@use "./components/header" as *;
+@use "./components/search" as *;
+@use "./components/buttons" as *;
+@use "./components/nav" as *;
+@use "./components/table" as *;
+@use "./components/form" as *;
+@use "./components/modal" as *;
+@use "./components/error" as *;
 
-@forward "./layout/container";
-@forward "./layout/article";
-@forward "./layout/aside";
-@forward "./layout/footer";
+@use "./layout/container" as *;
+@use "./layout/article" as *;
+@use "./layout/aside" as *;
+@use "./layout/footer" as *;
 
-@forward "./pages/admin";
-@forward "./pages/timeline";
-@forward "./pages/login_page";
+@use "./pages/admin" as *;
+@use "./pages/timeline" as *;
+@use "./pages/login_page" as *;

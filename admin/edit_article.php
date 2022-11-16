@@ -1,18 +1,13 @@
-<?php require_once "./includes/header.php"; ?>
-
-<?php require_once "includes/database.php"; ?>
-
-<?php require_once "../includes/functions.php"; ?>
-
 <?php
-
-require_once "../includes/authentication.php";
+require_once "includes/database.php";
+require_once "../includes/functions.php";
+require_once "../classes/auth.php";
 require_once "../classes/Database.php";
 require_once "../classes/Article.php";
 
 session_start();
 
-if (!isLoggedIn()) {
+if (!Auth::isLoggedIn()) {
     die('unathorized user');
 }
 
@@ -23,6 +18,7 @@ if (isset($_GET['id'])) {
     $article = Article::getById($connection, $_GET['id']);
 
     if ($article) {
+        $a = 0;
     } else {
         die("Article not found.");
     }
@@ -41,17 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errors = validateArticle($article->article_image, $article->article_title, $article->article_content);
 
 
-    if (empty($errors)) {
-
-        if ($article->update($connection)) {
-            redirect("/blog/article.php?id=$article->id");
-        }
+    if (empty($errors) && $article->update($connection)) {
+        redirect("/blog/article.php?id=$article->id");
     }
 }
-
-
-
 ?>
+
+<?php require_once "./includes/header.php"; ?>
 
 <!-- main section start -->
 <main class="admin__wrapper">

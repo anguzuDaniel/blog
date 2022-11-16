@@ -2,8 +2,7 @@
 <?php require_once "includes/functions.php"; ?>
 <?php
 
-require_once 'classes/Database.php';
-require_once 'classes/Article.php';
+require_once "includes/init.php";
 
 $db = new Database();
 $connection = $db->getConn();

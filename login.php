@@ -2,9 +2,7 @@
 
 require_once 'includes/functions.php';
 
-require_once 'classes/Database.php';
-
-require_once "classes/user.php";
+require_once "includes/init.php";
 
 session_start();
 

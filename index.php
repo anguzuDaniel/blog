@@ -1,9 +1,8 @@
 <?php
 
-session_start();
+require_once "includes/init.php";
 
-require_once "classes/Database.php";
-require_once 'classes/Article.php';
+session_start();
 
 $db = new Database();
 $connection = $db->getConn();

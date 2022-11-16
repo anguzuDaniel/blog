@@ -2,8 +2,7 @@
 
 require_once "./init.php";
 
-$db = new Database();
-$connection = $db->getConn();
+$connection = require "includes/db.php";
 
 if ($connection) {
     $articles = Article::getArticles($connection, 'ORDER BY RAND() LIMIT', 5);

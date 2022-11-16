@@ -1,11 +1,9 @@
-<?php require_once "includes/header.php"; ?>
-<?php require_once "includes/functions.php"; ?>
 <?php
-
+require_once "includes/header.php";
+require_once "includes/functions.php";
 require_once "includes/init.php";
 
-$db = new Database();
-$connection = $db->getConn();
+$connection = require_once "includes/db.php";
 
 if (isset($_GET['id'])) {
     $article = Article::getById($connection, $_GET['id']);
@@ -15,7 +13,6 @@ if (isset($_GET['id'])) {
 
 ?>
 
-<?php require_once "includes/header.php"; ?>
 
 <?php require_once "includes/navigation.php"; ?>
 

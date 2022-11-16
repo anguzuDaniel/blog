@@ -3,9 +3,7 @@
 require_once "includes/header.php";
 include_once "./init.php";
 
-$db = new Database();
-
-$connection = $db->getConn();
+$connection = require_once "includes/db.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (User::authenticate($connection, $_POST['username'], $_POST['password'])) {

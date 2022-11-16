@@ -1,9 +1,8 @@
-<?php require_once "includes/header.php"; ?>
 <?php
+require_once "includes/header.php";
 require_once "./init.php";
 
-$db = new Database();
-$connection = $db->getConn();
+$connection = require_once "includes/db.php";
 $articles = Article::getAll($connection, 4);
 ?>
 

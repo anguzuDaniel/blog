@@ -41,9 +41,9 @@ class Article
     }
 
     // get specified number of articles 
-    public static function getArticles($conn, $sql, $num, $columns = '*')
+    public static function getArticles($conn, $order, $num, $columns = '*')
     {
-        $sql = "SELECT $columns FROM articles $sql $num";
+        $sql = "SELECT $columns FROM articles $order $num";
 
         $results = $conn->query($sql);
 
@@ -61,7 +61,6 @@ class Article
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Article');
 
-
         if ($stmt->execute()) {
             return $stmt->fetch();
         }
@@ -70,24 +69,34 @@ class Article
     public function update($conn)
     {
         $sql = "UPDATE `articles` 
-        SET `articleImage` = :img, 
-            `articleTitle` = :title, 
-            `articleContent` = :content 
+        SET `article_image` = :img, 
+            `article_title` = :title, 
+            `article_content` = :content 
             WHERE `id` = :id ";
 
         $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(
+            ':id',
+            $this->id,
+            PDO::PARAM_INT
+        );
 
         $stmt->bindValue(
             ':img',
             $this->articleImage,
             PDO::PARAM_STR
         );
+
         $stmt->bindValue(
             ':title',
             $this->articleTitle,
             PDO::PARAM_STR
         );
+
         $stmt->bindValue(':content', $this->articleContent, PDO::PARAM_STR);
+
+        return $stmt->execute();
     }
 
     public function createArticle($conn, $image, $title, $content)

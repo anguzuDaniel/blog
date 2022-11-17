@@ -1,8 +1,5 @@
 <?php require_once "./includes/header.php"; ?>
 <?php
-require_once "includes/database.php";
-require_once "../includes/functions.php";
-
 Auth::isLoggedIn();
 
 $connection = require_once "../includes/db.php";
@@ -50,25 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
 
-            <form action="" method="post" enctype="multipart/form-data">
-                <div class="form__row">
-                    <label for="image" class="form__row--label">Image</label>
-                    <!-- <img src="../images/<?= $articleImage;  ?>" alt="" srcset="" class="form__row--imgCurrent"> -->
-                    <input type="file" class="form__row--img" name="image" value="<?= $article->articleImage; ?>" />
-                </div>
-
-                <div class="form__row">
-                    <label for="article__title" class="form__row--label">Title</label>
-                    <input type="text" name="article__title" value="<?= htmlspecialchars($article->articleTitle); ?>" />
-                </div>
-
-                <div class="form__row">
-                    <label for="article__content" class="form__row--label">Content</label>
-                    <textarea name="article__content" id="" cols="30" rows="10" style="resize: none"><?= htmlspecialchars($article->articleContent); ?></textarea>
-                </div>
-
-                <button class="btn btn--submit">Save</button>
-            </form>
+            <?php require_once "includes/form.php"; ?>
         </section>
         <!-- admin section wrapper end -->
     </div>

@@ -72,7 +72,7 @@ ul a {
 h1 {
   font-family: "Fraunces", serif;
   font-weight: 900;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.1px;
 }
 
 p {
@@ -796,8 +796,9 @@ table tbody tr:nth-child(odd) {
   width: 100%;
   object-fit: cover;
 }
-.lastest__articles--paragraph {
+.lastest__articles--p {
   text-align: center;
+  padding-block: 2rem;
 }
 
 /* latest articles | ends here */

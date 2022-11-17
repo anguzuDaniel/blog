@@ -25,7 +25,21 @@ class User
         }
     }
 
-    public function getUserName() {
-        return $this->username;
+    public function getUserInfo($conn, $columns = '*')
+    {
+
+        $sql = "SELECT $columns FROM user WHERE id = :id ";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', 2, PDO::PARAM_INT);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+
+        $stmt->execute();
+
+        if ($user = $stmt->fetch()) {
+            return $user;
+        }
     }
 }

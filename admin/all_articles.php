@@ -3,7 +3,6 @@
 
 require_once "includes/database.php";
 
-
 Auth::isLoggedIn();
 
 $connection = require_once "../includes/db.php";
@@ -70,7 +69,7 @@ if ($connection) {
                         <tbody>
 
                             <?php if (empty($articles)) : ?>
-                                <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
+                                <p class="lastest__articles--p">No articles found, please add articles so as to be displayed!!</p>
                             <?php else : ?>
                                 <?php foreach ($articles as $article) : ?>
                                     <tr>

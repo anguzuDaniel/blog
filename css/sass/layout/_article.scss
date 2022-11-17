@@ -351,8 +351,9 @@
 			object-fit: cover;
 		}
 
-		&--paragraph {
+		&--p {
 			text-align: center;
+			padding-block: 2rem;
 		}
 	}
 }

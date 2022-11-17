@@ -1,15 +1,15 @@
 <?php
-require_once "../includes/functions.php";
-
 require_once "includes/header.php";
 
-if (!Auth::isLoggedIn()) {
-    die('unathorized user');
-}
+Auth::isLoggedIn();
+
+$connection = require_once "../includes/db.php";
 
 $article_image = '';
 $article_title = '';
 $article_content = '';
+
+$article = new Article();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -19,42 +19,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $article_title = $_POST['article__title'];
     $article_content = $_POST['article__content'];
 
-    $errors = validateArticle($article_image, $article_title, $article_content);
+    $errors = $article->validateArticle($article_image, $article_title, $article_content);
 
     // if errors arrays is empty
     // we continue to submit the data
     if (empty($errors)) {
+        $stmt = $article->createArticle($connection, $article_image, $article_title, $article_content);
 
-        $article = new User();
-        $db = new Database();
+        move_uploaded_file($image_temp, "../images/$article_image");
 
-        $connection = $db->getConn();
+        if ($stmt) {
+            $id = $article->id;
 
-        $sql = "INSERT 
-                INTO articles(article_image, article_title, article_content) 
-                VALUES (':image', ':title', ':content') ";
-
-        $stmt = $connection->prepare($sql);
-
-        if ($stmt->execute()) {
-            echo $connection->errorInfo();
+            Url::redirect("/blog/article.php?id=$id");
         } else {
-            $stmt->bindValue(':image', $article->article_title, PDO::PARAM_STR);
-            $stmt->bindValue(':title', $article->article_title, PDO::PARAM_STR);
-            $stmt->bindValue(':content', $article->article_title, PDO::PARAM_STR);
-
-            move_uploaded_file($image_temp, "../images/$article_image");
-
-            if ($stmt->execute()) {
-                // $id = mysqli_insert_id($connection);
-
-                Url::redirect("/blog/article.php?id=$id");
-            } else {
-                echo $connection->errorInfo($stmt);
-            }
+            $connection->errorInfo();
         }
+    } else {
+        echo "Unable to create article now, Please try again later";
     }
 }
+
 
 ?>
 <!-- main section start -->

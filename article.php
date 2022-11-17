@@ -1,7 +1,7 @@
 <?php
 require_once "includes/header.php";
 require_once "includes/functions.php";
-require_once "includes/init.php";
+require_once "./init.php";
 
 $connection = require_once "includes/db.php";
 
@@ -80,7 +80,7 @@ if (isset($_GET['id'])) {
                             <img src="images/image-avatar.png" alt="" srcset="">
                         </div>
                         <!-- <label for="comment" class="form__row--label">Comment</label> -->
-                        <textarea name="comment" id="" cols="10" rows="2" style="resize: none;"></textarea>
+                        <textarea name="comment" id="" cols="10" rows="2" style="resize: none;" placeholder="Leave a comment"></textarea>
                     </div>
                     <!-- <input type="submit" value="comment" class="btn | btn--submit"> -->
                 </form>

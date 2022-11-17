@@ -3,12 +3,9 @@
 require_once "includes/database.php";
 require_once "../includes/functions.php";
 
-if (!Auth::isLoggedIn()) {
-    die('unathorized user');
-}
+Auth::isLoggedIn();
 
-$db = new Database();
-$connection = $db->getConn();
+$connection = require_once "../includes/db.php";
 
 if (isset($_GET['id'])) {
     $article = Article::getById($connection, $_GET['id']);

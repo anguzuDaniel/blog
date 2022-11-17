@@ -67,8 +67,6 @@ class Article
         }
     }
 
-
-
     public function update($conn)
     {
         $sql = "UPDATE `articles` 
@@ -90,6 +88,38 @@ class Article
             PDO::PARAM_STR
         );
         $stmt->bindValue(':content', $this->articleContent, PDO::PARAM_STR);
+    }
+
+    public function createArticle($conn, $image, $title, $content)
+    {
+        $sql = "INSERT INTO articles(article_image, article_title, article_content) VALUES (:img, :title, :content) ";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':img', $image, PDO::PARAM_STR);
+        $stmt->bindValue(':title', $title, PDO::PARAM_STR);
+        $stmt->bindValue(':content', $content, PDO::PARAM_STR);
+
+        $stmt->execute(array(':img' => $image, ':title' => $title, ':content' => $content));
+
+        $this->id = $conn->lastInsertId();
+    }
+
+    public static function deleteArticle($conn, $id)
+    {
+        $sql = "DELETE 
+            FROM `articles` 
+            WHERE `id` = :id ";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(
+            ':id',
+            $id,
+            PDO::PARAM_INT
+        );
+
+        $stmt->execute();
     }
 
     /**

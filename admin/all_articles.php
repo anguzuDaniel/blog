@@ -4,20 +4,14 @@
 require_once "includes/database.php";
 
 
-if (!Auth::isLoggedIn()) {
-    die("Unauthorized user");
-}
+Auth::isLoggedIn();
 
-$connection = getDB();
+$connection = require_once "../includes/db.php";
 
-$sql = "SELECT * FROM articles LIMIT 10";
-
-$result = mysqli_query($connection, $sql);
-
-if ($result === false) {
-    echo mysqli_error($connection);
+if ($connection) {
+    $articles = Article::getArticles($connection, 'LIMIT', 10);
 } else {
-    $articles = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    echo $connection->errorInfo();
 }
 
 
@@ -99,9 +93,9 @@ if ($result === false) {
                                             </a>
                                         </td>
                                         <td>
-                                            <button class="delete__icon" id="delete">
+                                            <a href="delete_article.php?id=<?= $article['id']; ?>" class="delete delete__icon">
                                                 <em class="fa-regular fa-trash-can"></em>
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
 

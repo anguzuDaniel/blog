@@ -1,24 +1,19 @@
 <?php
 require_once "includes/database.php";
 
-require_once "../includes/functions.php";
-
 require_once "includes/function.php";
 
 
 require_once "includes/header.php";
 
-if (!Auth::isLoggedIn()) {
-    die('unathorized user');
-}
-
-$connection = getDB();
+Auth::isLoggedIn();
+$connection = require_once "../includes/db.php";
 
 if (isset($_GET['id'])) {
-    $article = getArticle($connection, $_GET['id']);
+    $article = new Article();
 
     if ($article) {
-        $id = $article['id'];
+        $id = $article->getById($connection, $_GET['id']);
     } else {
         die("Article not found.");
     }
@@ -29,26 +24,12 @@ if (isset($_GET['id'])) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $sql = "DELETE 
-            FROM `articles` 
-            WHERE `id` = ? ";
-
-
-    $stmt = mysqli_prepare($connection, $sql);
-
-
-    if ($stmt === false) {
-        echo mysqli_error($connection);
+    if (!$id) {
+        echo $connection->errorInfo();
     } else {
-        mysqli_stmt_bind_param($stmt, 'i', $id);
-        move_uploaded_file($image_temp, "../images/$article_image");
+        Article::deleteArticle($connection, $_GET['id']);
 
-        if (mysqli_stmt_execute($stmt)) {
-
-            Url::redirect("/blog/admin/all_articles.php");
-        } else {
-            echo mysqli_stmt_error($stmt);
-        }
+        Url::redirect("/blog/admin/all_articles.php");
     }
 }
 ?>

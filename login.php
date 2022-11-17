@@ -1,7 +1,6 @@
 <?php
 
 require_once "includes/header.php";
-include_once "./init.php";
 
 $connection = require_once "includes/db.php";
 

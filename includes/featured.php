@@ -1,9 +1,5 @@
 <?php
-
-require_once "./init.php";
-
-$db = new Database();
-$connection = $db->getConn();
+// $connection = require_once "includes/db.php";
 
 if ($connection) {
     $articles = Article::getArticles($connection, 'ORDER BY id DESC LIMIT', 3);

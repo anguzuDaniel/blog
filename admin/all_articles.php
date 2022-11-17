@@ -1,7 +1,5 @@
-<?php require_once "./includes/header.php"; ?>
 <?php
-
-require_once "includes/database.php";
+require_once "includes/header.php";
 
 Auth::isLoggedIn();
 

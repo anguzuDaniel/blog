@@ -1,11 +1,7 @@
 <?php
 
-require_once "./init.php";
-
-$connection = require "includes/db.php";
-
 if ($connection) {
-    $articles = Article::getArticles($connection, 'ORDER BY RAND() LIMIT', 5);
+    $articles = Article::getArticles($connection, 'ORDER BY RAND() LIMIT', 4);
 } else {
     echo $connection->errorInfo();
 }

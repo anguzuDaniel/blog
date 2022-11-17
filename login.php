@@ -8,10 +8,7 @@ $connection = require_once "includes/db.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (User::authenticate($connection, $_POST['username'], $_POST['password'])) {
 
-        // helps to prevent session fixation attack | stops hackers from stealing session data
-        session_regenerate_id(true);
-
-        $_SESSION['is_logged_in'] = true;
+        Auth::login();
 
         Url::redirect('/blog/index.php');
     } else {

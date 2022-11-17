@@ -18,7 +18,7 @@
         <?php if (Auth::isLoggedIn()) : ?>
             <div class="header__cta">
                 <div class="header__cta--btn">
-                    <a href="./admin/create_article.php">New article</a>
+                    <a href="./admin/">New article</a>
                 </div>
 
                 <div class="header__cta--btn header__cta--signup">

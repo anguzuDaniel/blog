@@ -1,10 +1,9 @@
-<?php require_once "./includes/header.php"; ?>
-
 <?php
+require_once "includes/header.php";
 
-if (!Auth::isLoggedIn()) {
-    die('unathorized user');
-}
+Auth::isLoggedIn();
+
+$connection = require_once "../includes/db.php";
 ?>
 
 <?php include_once "includes/sidebar.php" ?>

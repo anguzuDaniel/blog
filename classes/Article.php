@@ -31,6 +31,11 @@ class Article
      */
     public $articleContent;
 
+    public static function getTotalArticles($conn)
+    {
+        return $conn->query("SELECT COUNT(*) FROM articles")->fetchColumn();
+    }
+
     public static function getAll($conn, $num)
     {
         $sql = "SELECT * FROM articles LIMIT $num";
@@ -64,6 +69,23 @@ class Article
         if ($stmt->execute()) {
             return $stmt->fetch();
         }
+    }
+
+    public static function getPage($conn, $limit, $offset)
+    {
+        $sql = "SELECT *
+                FROM articles 
+                ORDER BY article_title
+                LIMIT :limit 
+                OFFSET :offset ";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function update($conn)

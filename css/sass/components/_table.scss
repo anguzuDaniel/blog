@@ -2,7 +2,7 @@
 	&__footer {
 		padding-block: 2rem;
 		padding-inline: 2rem;
-		display: flex;
+		// display: flex;
 		background-color: var(--white-clr);
 
 		&--pages {
@@ -25,7 +25,16 @@
 		&--result {
 			display: flex;
 			align-items: center;
-			gap: 10px;
+			justify-content: space-between;
+			// gap: 10px;
+
+			a {
+				text-decoration: none;
+			}
+
+			&:last-child {
+				border-top: 1px solid var(--border-clr);
+			}
 		}
 	}
 }

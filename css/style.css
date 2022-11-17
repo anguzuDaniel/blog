@@ -312,7 +312,6 @@ p {
 .table__footer {
   padding-block: 2rem;
   padding-inline: 2rem;
-  display: flex;
   background-color: var(--white-clr);
 }
 .table__footer--pages {
@@ -332,7 +331,13 @@ p {
 .table__footer--result {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+}
+.table__footer--result a {
+  text-decoration: none;
+}
+.table__footer--result:last-child {
+  border-top: 1px solid var(--border-clr);
 }
 
 table {

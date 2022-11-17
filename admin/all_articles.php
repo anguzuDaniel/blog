@@ -3,16 +3,16 @@ require_once "includes/header.php";
 
 Auth::isLoggedIn();
 
+
+
 $connection = require_once "../includes/db.php";
 
-if ($connection) {
-    $articles = Article::getArticles($connection, 'LIMIT', 10);
-} else {
-    echo $connection->errorInfo();
-}
+$paginator = new Paginator(isset($_GET['page']) ? $_GET['page'] : 1, 4, Article::getTotalArticles($connection));
 
+$articles = Article::getPage($connection, $paginator->limit, $paginator->offset);
 
 ?>
+
 <?php include_once "includes/sidebar.php" ?>
 <main class="admin__wrapper">
 
@@ -101,25 +101,47 @@ if ($connection) {
                         </tbody>
                     </table>
 
-                    <div class="table__footer">
-                        <div class="table__footer--result">
-                            <span class="result__num">10</span>
-                            <p>Results</p>
-                        </div>
+                    <div>
 
-                        <div class="table__footer--pages">
+                        <div class="table__footer table__footer--result">
+
                             <div>
-                                <label for="per__page">Row per page: </label>
-                                <select name="" id="">
-                                    <option value="">10</option>
-                                    <option value="">15</option>
-                                    <option value="">20</option>
-                                    <option value="">25</option>
-                                </select>
+                                <?php if ($paginator->previous) : ?>
+                                    <a href="all_articles.php?page=<?= $paginator->previous; ?>">previous</a>
+                                <?php else : ?>
+                                    <p>previous</p>
+                                <?php endif; ?>
                             </div>
 
                             <div>
-                                <p>1 - 10 of 10</p>
+                                <?php if ($paginator->next) : ?>
+                                    <a href="all_articles.php?page=<?= $paginator->next; ?>">next</a>
+                                <?php else : ?>
+                                    <p>next</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <div class=" table__footer table__footer--result">
+                            <div>
+
+                                <p><span class="result__num">10</span>Results</p>
+                            </div>
+
+                            <div class="table__footer--pages">
+                                <div>
+                                    <label for="per__page">Row per page: </label>
+                                    <select name="pagination" id="">
+                                        <option value="">10</option>
+                                        <option value="">15</option>
+                                        <option value="">20</option>
+                                        <option value="">25</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <p>1 - 10 of 10</p>
+                                </div>
                             </div>
                         </div>
                     </div>

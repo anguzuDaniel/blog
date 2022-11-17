@@ -16,7 +16,7 @@
     <script defer src="../css/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/js/all.min.js"></script>
     <link rel="stylesheet" href="../css/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <script defer src="../js/script.js"></script>
+    <script src="../js/script.js" defer></script>
 </head>
 
 <body>

@@ -1,8 +1,4 @@
 <?php
-require_once "includes/database.php";
-
-require_once "includes/function.php";
-
 
 require_once "includes/header.php";
 

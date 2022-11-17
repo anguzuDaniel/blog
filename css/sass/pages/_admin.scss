@@ -13,6 +13,37 @@
 		}
 	}
 
+	&__user {
+		position: relative;
+		&--cta {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 5px;
+
+			select {
+				border: none;
+				background-color: white;
+				cursor: pointer;
+				color: var(--clr-primary);
+				font-size: 1.6rem;
+			}
+		}
+
+		&--btn {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 2px;
+			border: none;
+			background-color: var(--white-clr);
+
+			em {
+				cursor: pointer;
+			}
+		}
+	}
+
 	&__link {
 		a {
 			text-decoration: none;
@@ -113,7 +144,7 @@
 
 		h1 {
 			margin-block: 3rem;
-			color: var(--clr-primary);
+			color: var(--clr-secondary);
 			font-size: 3rem;
 		}
 
@@ -127,7 +158,6 @@
 		}
 
 		&--user {
-
 			img {
 				width: 50px;
 				border-radius: 50%;
@@ -198,7 +228,7 @@
 
 			h1 {
 				font-size: 2rem;
-				color: var(--clr-primary);
+				color: var(--clr-secondary);
 			}
 		}
 

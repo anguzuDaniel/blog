@@ -54,7 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- admin section wrapper start -->
         <section class="admin__content">
             <div class="heading | admin__content--heading">
-                <h1>Create an Article</h1>
+                <h1>Do want to create an article <h1> <?php echo $currentUser->username; ?>?</h1>
+                </h1>
                 <hr>
             </div>
 

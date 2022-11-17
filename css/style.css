@@ -399,6 +399,7 @@ table tbody tr:nth-child(odd) {
 }
 .form__row--label {
   margin-bottom: 0.2rem;
+  font-size: 2rem;
   background-color: var(--white-clr);
   background-color: transparent;
   width: max-content;
@@ -491,6 +492,24 @@ table tbody tr:nth-child(odd) {
 
 .error-message {
   color: var(--clr-error);
+}
+
+.dropdown {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 200px;
+  background-color: var(--white-clr);
+  text-align: center;
+  box-shadow: var(--shadow-1);
+  display: none;
+}
+.dropdown__item {
+  padding: 1rem;
+  font-size: 1.4rem;
+}
+.dropdown__item:not(:last-child) {
+  border-bottom: 1px solid var(--border-clr);
 }
 
 .container {
@@ -1158,6 +1177,33 @@ aside {
 .admin__profile img {
   width: 200px;
 }
+.admin__user {
+  position: relative;
+}
+.admin__user--cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.admin__user--cta select {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  color: var(--clr-primary);
+  font-size: 1.6rem;
+}
+.admin__user--btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  border: none;
+  background-color: var(--white-clr);
+}
+.admin__user--btn em {
+  cursor: pointer;
+}
 .admin__link a {
   text-decoration: none;
   text-transform: uppercase;
@@ -1237,7 +1283,7 @@ aside {
 }
 .admin__content h1 {
   margin-block: 3rem;
-  color: var(--clr-primary);
+  color: var(--clr-secondary);
   font-size: 3rem;
 }
 .admin__content--heading {
@@ -1303,7 +1349,7 @@ aside {
 }
 .admin__all--heading h1 {
   font-size: 2rem;
-  color: var(--clr-primary);
+  color: var(--clr-secondary);
 }
 .admin__all--writters {
   border: 1px solid var(--border-clr);

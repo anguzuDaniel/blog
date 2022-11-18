@@ -1,6 +1,4 @@
 <?php
-// $connection = require_once "includes/db.php";
-
 if ($connection) {
     $articles = Article::getArticles($connection, 'ORDER BY id DESC LIMIT', 3);
 } else {

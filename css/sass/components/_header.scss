@@ -2,7 +2,6 @@
 	position: fixed;
 	top: 0;
 	width: 100%;
-	// background-color: var(--white-clr);
 	background-color: var(--clr-body);
 	z-index: 1;
 	box-shadow: var(--shadow-1);
@@ -43,8 +42,6 @@
 		gap: 20px;
 
 		&--btn {
-			padding: 1rem 2rem;
-			padding: 1rem 2rem;
 			border-radius: 5px;
 			cursor: pointer;
 
@@ -56,9 +53,8 @@
 
 		&--signup {
 			background-color: var(--clr-primary);
-			color: var(--white-clr);
+			color: var(--cyan-0);
 			border: none;
-			padding: 1rem 2rem;
 			border-radius: 5px;
 			cursor: pointer;
 			transition: all 0.2s ease-in-out;
@@ -72,7 +68,6 @@
 		button {
 			background-color: var(--clr-primary);
 			color: var(--white-clr);
-			padding: 1rem 1.2rem;
 			border: none;
 			border-radius: 5px;
 			cursor: pointer;

@@ -44,7 +44,8 @@ $articles = Article::getPage($connection, $paginator->limit, $paginator->offset)
 
                                 <p>Active filters/tags:</p>
                                 <p class="admin__sort--tag"><span> none <a href="#">
-                                            <em class="fa-solid fa-circle-xmark"></em></span></a></p>
+                                            <em class="fa-solid fa-circle-xmark"></em></span></a>
+                                </p>
                                 <!-- <a href="#" class="admin__sort--clear">clear all</a> -->
                             </div>
                         </div>
@@ -103,24 +104,7 @@ $articles = Article::getPage($connection, $paginator->limit, $paginator->offset)
 
                     <div>
 
-                        <div class="table__footer table__footer--result">
-
-                            <div>
-                                <?php if ($paginator->previous) : ?>
-                                    <a href="all_articles.php?page=<?= $paginator->previous; ?>">previous</a>
-                                <?php else : ?>
-                                    <p>previous</p>
-                                <?php endif; ?>
-                            </div>
-
-                            <div>
-                                <?php if ($paginator->next) : ?>
-                                    <a href="all_articles.php?page=<?= $paginator->next; ?>">next</a>
-                                <?php else : ?>
-                                    <p>next</p>
-                                <?php endif; ?>
-                            </div>
-                        </div>
+                        <?php require_once "../includes/pagination.php"; ?>
 
                         <div class=" table__footer table__footer--result">
                             <div>

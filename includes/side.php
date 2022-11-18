@@ -16,13 +16,11 @@ if ($stmt->fetchAll()) {
 
 <!-- side section | shows the ctegory list -->
 <div>
-    <aside>
+    <aside class="side">
         <div class="side__list side__list--1">
-            <div class="side__list--navigation">
-                <!-- <button class="side__list--active">This week</button>
-                <button>this month</button>
-                <button>All time</button> -->
-                <h1>Trending Articles</h1>
+            <div class="side__list--underline side__list--underline1">
+                <h1 class="side__list--head">Trending</h1>
+                <span></span>
             </div>
 
             <?php if (empty($articles)) : ?>
@@ -30,6 +28,17 @@ if ($stmt->fetchAll()) {
             <?php else : ?>
                 <?php foreach ($articles as $article) : ?>
                     <div class="side__list--content">
+                        <span>
+                            <p class="side__list--num">
+                                <?=
+                                $i = 0;
+
+                                echo "0" . $i;
+
+
+                                ?>
+                            </p>
+                        </span>
                         <!-- <div class="side__list--img">
                             <img src="images/<?= $article['article_image']; ?>" alt="" srcset="">
                         </div> -->

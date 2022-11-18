@@ -1,11 +1,15 @@
+@import url("/open-props/normalize.min.css");
+@import url("/open-props/animations.min.css");
+@import url("/open-props/buttons.min.css");
+@import url("/open-props/fonts.min.css");
+@import url("/open-props/gray.min.css");
+@import url("/open-props/shadows.min.css");
 :root {
   --border-clr: rgba(0, 0, 0, 0.123);
   --bg-admin-nav: rgba(12, 14, 31, 0.582);
-  /* --bg-admin-nav: rgba(128, 128, 128, 0.07); */
   --white-clr: white;
   --outline-clr: rgb(55, 194, 203);
-  /* --clr-primary: rgb(209, 81, 45); */
-  --clr-primary: #0028ff;
+  --clr-primary: var(--blue-8);
   --clr-secondary: #2c404e;
   --clr-compilment-text: #aed4dc;
   --clr-primary--hover: #68c0dba2;
@@ -26,7 +30,7 @@
   --btn-blue: #246ee9;
   color: rgba(0, 0, 0, 0.646);
   --image__1--gradient: linear-gradient(135deg, #ffd26f 10%, #3677ff 100%);
-  --shadow-1: 0 3px 3px 0 rgb(0 0 0 / 8%);
+  --shadow-1: var(--shadow-1);
   --hover-bg: rgba(255, 255, 255, 0.654);
   --footer-clr: rgb(12, 14, 31);
   --margin-section-block-small: 4rem;
@@ -35,7 +39,8 @@
   --clr-body: rgba(194, 210, 189, 0.979);
   --clr-body: white;
   --clr-body-bg: rgb(236, 236, 236);
-  --clr-error: red;
+  --clr-body-bg: var(--green-0);
+  --clr-error: var(--red-9);
 }
 
 *,
@@ -54,7 +59,7 @@ html {
 
 body {
   font-size: 18px;
-  font-size: 1.8rem;
+  font-size: var(--font-size-fluid-1);
   background-color: var(--clr-body-bg);
   line-height: 1.3;
 }
@@ -65,14 +70,13 @@ ul {
 
 ul a {
   text-decoration: none;
-  color: var(--link-clr);
+  color: var(--text-1);
   letter-spacing: 1px;
 }
 
 h1 {
   font-family: "Fraunces", serif;
-  font-weight: 900;
-  letter-spacing: 0.1px;
+  color: var(--gray-7);
 }
 
 p {
@@ -146,8 +150,6 @@ p {
   gap: 20px;
 }
 .header__cta--btn {
-  padding: 1rem 2rem;
-  padding: 1rem 2rem;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -157,9 +159,8 @@ p {
 }
 .header__cta--signup {
   background-color: var(--clr-primary);
-  color: var(--white-clr);
+  color: var(--cyan-0);
   border: none;
-  padding: 1rem 2rem;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -171,7 +172,6 @@ p {
 .header__cta button {
   background-color: var(--clr-primary);
   color: var(--white-clr);
-  padding: 1rem 1.2rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -219,7 +219,7 @@ p {
 /* btn style start */
 .btn {
   border: none;
-  color: white;
+  color: var(--white-clr);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   border-radius: 5px;
@@ -228,14 +228,11 @@ p {
 }
 .btn--submit {
   margin-bottom: 1rem;
-  background-color: var(--btn-blue);
-  padding: 1rem 3rem;
+  background-color: var(--clr-primary);
+  padding: var(--size-1) var(--size-2);
 }
 .btn--read {
-  color: var(--clr-secondary);
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
+  color: var(--clr-primary);
   transition: all 0.2s ease-in-out;
   border-radius: 0;
   border-radius: 5px;
@@ -244,6 +241,9 @@ p {
   text-decoration: underline;
   font-size: 1.6rem;
   font-weight: 900;
+}
+.btn--read:first-child, .btn--read:last-child {
+  color: var(--clr-primary);
 }
 .btn__pagination {
   padding: 0.5rem 1rem;
@@ -256,16 +256,6 @@ p {
 }
 .btn__pagination:hover {
   color: var(--btn-blue);
-}
-.btn:hover {
-  transform: scaleX(0.95);
-}
-.btn:hover:active {
-  transform: scale(0.8);
-}
-.btn:hover::after {
-  opacity: 1;
-  transform: translateX(0px);
 }
 .btn--side {
   color: var(--clr-primary);
@@ -303,6 +293,7 @@ p {
   text-transform: uppercase;
   font-weight: bold;
   padding: 1rem;
+  color: var(--gray-9);
 }
 .nav__list--item:hover {
   background-color: var(--hover-bg);
@@ -456,7 +447,7 @@ table tbody tr:nth-child(odd) {
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  background-color: var(--clr-body-bg);
+  background-color: var(--white-clr);
   padding: 3rem;
   padding-bottom: 6rem;
   box-shadow: var(--shadow-1);
@@ -488,6 +479,7 @@ table tbody tr:nth-child(odd) {
   float: right;
   margin-left: auto;
   justify-self: flex-end;
+  background-color: var(--clr-primary);
 }
 .modal__form--close button {
   border: none;
@@ -508,6 +500,7 @@ table tbody tr:nth-child(odd) {
   text-align: center;
   box-shadow: var(--shadow-1);
   display: none;
+  z-index: 9999999999;
 }
 .dropdown__item {
   padding: 1rem;
@@ -1031,14 +1024,27 @@ aside {
   box-shadow: var(--shadow-1);
 }
 
-.side__list--1 {
-  background-color: white;
-  border: 1px solid var(--border-clr);
+.side {
+  margin-top: var(--margin-top);
+}
+.side__list--head {
+  color: var(--clr-secondary);
+  width: fit-content;
+  padding-block: 2rem;
+  border-top-right-radius: 15px;
+  border-bottom: 2px solid var(--clr-secondary);
+  font-weight: 900;
+}
+.side__list--underline {
+  border-bottom: 1px solid var(--border-clr);
+  margin-bottom: 3rem;
+  margin-inline: var(--body-margin-inline);
+}
+.side__list--underline1 {
+  margin-inline: 0;
 }
 .side__list--navigation {
-  background-color: white;
   display: flex;
-  padding: 1.6rem;
 }
 .side__list--navigation button {
   width: 100%;
@@ -1048,7 +1054,6 @@ aside {
   padding: 1.8rem 1rem;
   font-weight: 400;
   letter-spacing: 0.6px;
-  background-color: white;
 }
 .side__list--navigation button:hover {
   background-color: var(--clr-primary);
@@ -1067,10 +1072,12 @@ aside {
   gap: 10px;
   margin-block: 1rem;
   padding: 0.8rem;
-  background-color: white;
 }
 .side__list--content:not(:last-child) {
   border-bottom: 1px solid var(--border-clr);
+}
+.side__list--num {
+  font-size: 3rem;
 }
 .side__list--img {
   width: 100%;
@@ -1080,7 +1087,6 @@ aside {
   aspect-ratio: 10/7;
   object-fit: cover;
   inline-size: 100px;
-  /* height: fit-content; */
   writing-mode: vertical-rl;
 }
 .side__list--text {
@@ -1088,7 +1094,6 @@ aside {
   display: grid;
   gap: 10px;
   justify-content: center;
-  background-color: white;
 }
 .side__list--heading {
   font-size: 1.6rem;
@@ -1322,7 +1327,6 @@ aside {
 .admin__card {
   padding: 2.5rem 1rem;
   text-align: center;
-  border: 1px solid var(--border-clr);
   background-color: var(--white-clr);
   border-radius: 25px;
 }

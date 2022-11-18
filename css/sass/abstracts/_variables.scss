@@ -1,20 +1,11 @@
 :root {
 	--border-clr: rgba(0, 0, 0, 0.123);
 	--bg-admin-nav: rgba(12, 14, 31, 0.582);
-	/* --bg-admin-nav: rgba(128, 128, 128, 0.07); */
-	// --bg-light-clr: rgba(128, 128, 128, 0.07);
-
-	// --bg-light-clr: #6588912e;
 
 	--white-clr: white;
 	--outline-clr: rgb(55, 194, 203);
 
-	/* --clr-primary: rgb(209, 81, 45); */
-	// --clr-primary: #3066bec5;
-	// --clr-primary: #0e5bad;
-	// --clr-primary: #4c6ef5;
-	// --clr-primary: #449dec;
-	--clr-primary: #0028ff;
+	--clr-primary: var(--blue-8);
 
 	--clr-secondary: #2c404e;
 	--clr-compilment-text: #aed4dc;
@@ -47,7 +38,7 @@
 
 	--image__1--gradient: linear-gradient(135deg, #ffd26f 10%, #3677ff 100%);
 
-	--shadow-1: 0 3px 3px 0 rgb(0 0 0 / 8%);
+	--shadow-1: var(--shadow-1);
 
 	--hover-bg: rgba(255, 255, 255, 0.654);
 
@@ -64,7 +55,8 @@
 	--clr-body: rgba(194, 210, 189, 0.979);
 	--clr-body: white;
 	--clr-body-bg: rgb(236, 236, 236);
+	--clr-body-bg: var(--green-0);
 
 	// errors
-	--clr-error: red;
+	--clr-error: var(--red-9);
 }

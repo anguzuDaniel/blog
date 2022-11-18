@@ -1,19 +1,20 @@
 .dropdown {
-    position: absolute;
-    top: 80px;
-    right: 20px;
-    width: 200px;
-    background-color: var(--white-clr);
-    text-align: center;
-    box-shadow: var(--shadow-1);
-    display: none;
-    
-    &__item {
-        padding: 1rem;
-        font-size: 1.4rem;
-    
-        &:not(:last-child) {
-            border-bottom: 1px solid var(--border-clr);
-        }
-    }
+	position: absolute;
+	top: 80px;
+	right: 20px;
+	width: 200px;
+	background-color: var(--white-clr);
+	text-align: center;
+	box-shadow: var(--shadow-1);
+	display: none;
+	z-index: 9999999999;
+
+	&__item {
+		padding: 1rem;
+		font-size: 1.4rem;
+
+		&:not(:last-child) {
+			border-bottom: 1px solid var(--border-clr);
+		}
+	}
 }

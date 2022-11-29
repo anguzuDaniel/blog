@@ -65,9 +65,9 @@ aside {
 			margin-block: 1rem;
 			padding: 0.8rem;
 
-			&:not(:last-child) {
-				border-bottom: 1px solid var(--border-clr);
-			}
+			// &:not(:last-child) {
+			// 	border-bottom: 1px solid var(--border-clr);
+			// }
 		}
 
 		&--num {

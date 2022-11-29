@@ -1,6 +1,14 @@
 <?php 
 
+/**
+ * [Description Url]
+ */
 class Url {
+    /**
+     * @param mixed $path
+     * 
+     * @return [type]
+     */
     public static function redirect($path)
     {
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {

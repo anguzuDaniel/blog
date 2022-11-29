@@ -161,11 +161,15 @@
 					box-shadow: var(--shadow-1);
 				}
 			}
+
+			// &--contents {
+			// 	width: 100%;
+			// }
 		}
 
-		&--content {
-			margin-inline: 2rem;
-		}
+		// &--content {
+		// 	margin-inline: 2rem;
+		// }
 	}
 
 	&__commentors {

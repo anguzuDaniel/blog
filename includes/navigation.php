@@ -1,7 +1,6 @@
 <?php require_once "classes/auth.php"; ?>
 <header class="header">
     <div class="header__primary">
-        <h1 class="header--logo">BlogIfy!</h1>
 
         <!-- <div class="search">
             <input type="search" name="search__articles" id="" class="search search__articles" placeholder="search">
@@ -17,17 +16,30 @@
 
         <?php if (Auth::isLoggedIn()) : ?>
             <div class="header__cta">
-                <div class="header__cta--btn">
-                    <a href="./admin/">New article</a>
-                </div>
+                <a href="logout.php" class="btn--logout">Log out</a>
 
-                <div class="header__cta--btn header__cta--signup">
-                    <p><a href="logout.php" class="btn--logout">Log out</a></p>
-                </div>
+                <a href="./admin/">New article</a>
             </div>
         <?php else : ?>
-            <p><a href="login.php" class="btn--login">Log In</a></p>
+            <a href="login.php" class="btn--login">Log In</a>
         <?php endif; ?>
+
+        <h1 class="header--logo">BlogIfy!</h1>
+
+        <div class="header__cta">
+            <div>
+                <em class="fa-brands fa-twitter"></em>
+            </div>
+            <div>
+                <em class="fa-brands fa-facebook"></em>
+            </div>
+            <div>
+                <em class="fa-brands fa-instagram"></em>
+            </div>
+            <div>
+                <em class="fa-brands fa-github"></em>
+            </div>
+        </div>
 
     </div>
 

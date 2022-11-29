@@ -2,6 +2,9 @@
 
 class Database
 {
+    /**
+     * @return [type]
+     */
     public function getConn()
     {
         $db_host = 'localhost';

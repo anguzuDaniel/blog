@@ -10,6 +10,14 @@ html {
 	font-size: 62.5%;
 	box-sizing: border-box;
 	font-family: "Roboto", sans-serif;
+
+	--text-1: var(--gray-9);
+	--text-2: var(--gray-7);
+	
+	@media (--OSdark) {
+	  --text-1: var(--gray-1);
+	  --text-2: var(--gray-2);
+	}
 }
 
 body {
@@ -17,6 +25,7 @@ body {
 	font-size: var(--font-size-fluid-1);
 	background-color: var(--clr-body-bg);
 	line-height: 1.3;
+	background-color: var(--clr-body-bg);
 }
 
 ul {

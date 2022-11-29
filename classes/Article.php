@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * [Description Article]
+ */
 class Article
 {
 
@@ -36,9 +39,15 @@ class Article
         return $conn->query("SELECT COUNT(*) FROM articles")->fetchColumn();
     }
 
-    public static function getAll($conn, $num)
+    /**
+     * @param mixed $conn
+     * @param mixed $num
+     * 
+     * @return [type]
+     */
+    public static function getAll($conn, $limit)
     {
-        $sql = "SELECT * FROM articles LIMIT $num";
+        $sql = "SELECT * FROM articles LIMIT $limit";
 
         $results = $conn->query($sql);
 
@@ -46,6 +55,14 @@ class Article
     }
 
     // get specified number of articles 
+    /**
+     * @param mixed $conn
+     * @param mixed $order
+     * @param mixed $num
+     * @param string $columns
+     * 
+     * @return [type]
+     */
     public static function getArticles($conn, $order, $num, $columns = '*')
     {
         $sql = "SELECT $columns FROM articles $order $num";
@@ -56,6 +73,13 @@ class Article
     }
 
 
+    /**
+     * @param mixed $conn
+     * @param mixed $id
+     * @param string $columns
+     * 
+     * @return [type]
+     */
     public static function getById($conn, $id, $columns = '*')
     {
         $sql = "SELECT $columns FROM articles WHERE id = :id";
@@ -71,6 +95,13 @@ class Article
         }
     }
 
+    /**
+     * @param mixed $conn
+     * @param mixed $limit
+     * @param mixed $offset
+     * 
+     * @return [type]
+     */
     public static function getPage($conn, $limit, $offset)
     {
         $sql = "SELECT *
@@ -88,6 +119,11 @@ class Article
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * @param mixed $conn
+     * 
+     * @return [type]
+     */
     public function update($conn)
     {
         $sql = "UPDATE `articles` 
@@ -121,6 +157,14 @@ class Article
         return $stmt->execute();
     }
 
+    /**
+     * @param mixed $conn
+     * @param mixed $image
+     * @param mixed $title
+     * @param mixed $content
+     * 
+     * @return [type]
+     */
     public function createArticle($conn, $image, $title, $content)
     {
         $sql = "INSERT INTO articles(article_image, article_title, article_content) VALUES (:img, :title, :content) ";
@@ -136,6 +180,12 @@ class Article
         $this->id = $conn->lastInsertId();
     }
 
+    /**
+     * @param mixed $conn
+     * @param mixed $id
+     * 
+     * @return [type]
+     */
     public static function deleteArticle($conn, $id)
     {
         $sql = "DELETE 
@@ -154,12 +204,11 @@ class Article
     }
 
     /**
-     * validateArticle
-     *
-     * @param  mixed $image 
-     * @param  mixed $title
-     * @param  mixed $content
-     * @return void
+     * @param mixed $image
+     * @param mixed $title
+     * @param mixed $content
+     * 
+     * @return [type]
      */
     public function validateArticle($image, $title, $content)
     {

@@ -12,6 +12,8 @@ if ($stmt->fetchAll()) {
 } else {
     $articles = Article::getAll($connection, 5);
 }
+
+$counter = 1;
 ?>
 
 <!-- side section | shows the ctegory list -->
@@ -28,31 +30,24 @@ if ($stmt->fetchAll()) {
             <?php else : ?>
                 <?php foreach ($articles as $article) : ?>
                     <div class="side__list--content">
+
                         <span>
                             <p class="side__list--num">
-                                <?=
-                                $i = 0;
-
-                                echo "0" . $i;
-
-
-                                ?>
+                                0<?= $counter++; ?>
                             </p>
                         </span>
-                        <!-- <div class="side__list--img">
-                            <img src="images/<?= $article['article_image']; ?>" alt="" srcset="">
-                        </div> -->
+
                         <div class="side__list--text">
                             <h1 class="side__list--heading"><?= substr($article['article_title'], 0, 100); ?></h1>
                             <p class="side__list--paragraph"><?= substr($article['article_content'], 0, 100); ?>...</p>
 
                             <div>
                                 <p>2022 01 12</p>
-
                             </div>
 
                             <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read">Read more</a>
                         </div>
+
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>

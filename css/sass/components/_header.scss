@@ -39,16 +39,17 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		gap: 20px;
+		gap: 5px;
 
 		&--btn {
 			border-radius: 5px;
 			cursor: pointer;
+		}
 
-			a {
-				color: var(--clr-primary);
-				text-decoration: none;
-			}
+		a {
+			color: var(--clr-primary);
+			text-decoration: none;
+			text-transform: uppercase;
 		}
 
 		&--signup {

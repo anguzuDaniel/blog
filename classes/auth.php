@@ -2,11 +2,17 @@
 
 class Auth
 {
+    /**
+     * @return [type]
+     */
     public static function isLoggedIn()
     {
         return isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'];
     }
 
+    /**
+     * @return [type]
+     */
     public static function requireLogin()
     {
         if (!static::isLoggedIn()) {
@@ -14,6 +20,9 @@ class Auth
         }
     }
 
+    /**
+     * @return [type]
+     */
     public static function login()
     {
         // helps to prevent session fixation attack | stops hackers from stealing session data
@@ -22,6 +31,9 @@ class Auth
         $_SESSION['is_logged_in'] = true;
     }
 
+    /**
+     * @return [type]
+     */
     public static function logout() {
         $_SESSION = array();
 

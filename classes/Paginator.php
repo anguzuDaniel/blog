@@ -1,12 +1,32 @@
 <?php
 
+/**
+ * [paginates output]
+ */
 class Paginator
 {
+    /**
+     * @var [type]
+     */
     public $limit;
+    /**
+     * @var [type]
+     */
     public $offset;
+    /**
+     * @var [type]
+     */
     public $previous;
+    /**
+     * @var [type]
+     */
     public $next;
 
+    /**
+     * @param mixed $page
+     * @param mixed $records_per_page
+     * @param mixed $total_records
+     */
     public function __construct($page, $records_per_page, $total_records)
     {
         $this->limit = $records_per_page;

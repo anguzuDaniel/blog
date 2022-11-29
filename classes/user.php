@@ -1,11 +1,30 @@
 <?php
 
+/**
+ * [creates a user in the database]
+ */
 class User
 {
+    /**
+     * @var [type]
+     */
     public $id;
+    /**
+     * @var [type]
+     */
     public $username;
+    /**
+     * @var [type]
+     */
     public $password;
 
+    /**
+     * @param mixed $conn
+     * @param mixed $username
+     * @param mixed $password
+     * 
+     * @return [type]
+     */
     public static function authenticate($conn, $username, $password)
     {
         $sql = 'SELECT * 
@@ -25,6 +44,12 @@ class User
         }
     }
 
+    /**
+     * @param mixed $conn
+     * @param string $columns
+     * 
+     * @return [type]
+     */
     public function getUserInfo($conn, $columns = '*')
     {
 

@@ -10,11 +10,14 @@
 
 <!-- form start -->
 <form method="post" enctype="multipart/form-data">
+    <?php if (isset($imageError)) : ?>
+        <?= $imageError; ?>
+    <?php endif; ?>
+
     <div class="form__row">
         <label for="image" class="form__row--label">Image</label>
         <input type="file" class="form__row--img" name="image" value="<?= $article->articleImage; ?>" />
     </div>
-
     <div class="form__row">
         <label for="article__title" class="form__row--label">Title</label>
         <input type="text" name="article__title" value="<?= htmlspecialchars($article->articleTitle); ?>" />

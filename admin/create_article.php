@@ -57,6 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $base = preg_replace('/[^a-zA-Z0-9_-]/', '_', $base);
 
+        $base = mb_strstr($base, 0, 200);
+
         $filename = $base . "." . $pathInfo['extension'];
 
         $destination = "../uploads/images/$filename";
@@ -90,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Unable to create article now, Please try again later";
         }
     } catch (Exception $e) {
-        echo $e->getMessage();
+        $imageError = $e->getMessage();
     }
 }
 

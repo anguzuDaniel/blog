@@ -21,12 +21,71 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $article->articleTitle = $_POST['article__title'];
     $article->articleContent = $_POST['article__content'];
 
-    $errors = $article->validateArticle($article->articleImage, $article->articleTitle, $article->articleContent);
+    try {
+        switch ($_FILES['image']['error']) {
+            case UPLOAD_ERR_OK:
+                break;
+            case UPLOAD_ERR_NO_FILE:
+                throw new Exception("No file uploaded");
+                break;
+            case UPLOAD_ERR_INI_SIZE:
+                throw new Exception("File is to large {From the server settings}");
+                break;
+            default:
+                throw new Exception("An error occured");
+                break;
+        }
 
-    move_uploaded_file($image_temp, "../uploads/images/$article->articleImage");
+        if ($_FILES['image']['size'] > 1000000) {
+            throw new Exception("File is to large");
+        }
 
-    if (empty($errors) && $article->update($connection)) {
-        Url::redirect("/blog/article.php?id=$article->id");
+        $mime_types = ['images/gif', 'image/png', 'image/jpeg'];
+
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mime_type = finfo_file($finfo, $_FILES['image']['tmp_name']);
+
+        if (!in_array($mime_type, $mime_types)) {
+            throw new Exception('Invalid file type');
+        }
+
+        $pathInfo = pathinfo($_FILES['image']['name']);
+
+        $base = $pathInfo['filename'];
+
+        $base = preg_replace('/[^a-zA-Z0-9_-]/', '_', $base);
+
+        $base = mb_strstr($base, 0, 200);
+
+        $filename = $base . "." . $pathInfo['extension'];
+
+        $destination = "../uploads/images/$filename";
+
+        $i = 1;
+
+        while (file_exists($destination)) {
+            $filename = $base . "-$i." . $pathInfo['extension'];
+            $destination = "../uploads/images/$filename";
+
+            $i++;
+        }
+
+        $errors = $article->validateArticle($article->articleImage, $article->articleTitle, $article->articleContent);
+
+        if (move_uploaded_file($image_temp, $destination)) {
+
+            $previous_image = $article->articleImage;
+
+            if ($previous_image) {
+                unlink("../uploads/images/$previous_image");
+            }
+
+            if (empty($errors) && $article->update($connection)) {
+                Url::redirect("/blog/article.php?id=$article->id");
+            }
+        }
+    } catch (Exception $e) {
+        $imageError = $e->getMessage();
     }
 }
 ?>

@@ -42,6 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception("File is to large");
         }
 
+        $mime_types = ['images/gif', 'image/png', 'image/jpeg'];
+
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $mime_type = finfo_file($finfo, $_FILES['image']['tmp_name']);
 
@@ -49,29 +51,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception('Invalid file type');
         }
 
+        $pathInfo = pathinfo($_FILES['image']['name']);
+
+        $base = $pathInfo['filename'];
+
+        $base = preg_replace('/[^a-zA-Z0-9_-]/', '_', $base);
+
+        $filename = $base . "." . $pathInfo['extension'];
+
+        $destination = "../uploads/images/$filename";
+
+        $i = 1;
+
+        while (file_exists($destination)) {
+            $filename = $base . "-$i." . $pathInfo['extension'];
+            $destination = "../uploads/images/$filename";
+
+            $i++;
+        }
+
+        $errors = $article->validateArticle($article_image, $article_title, $article_content);
+
+        // if errors arrays is empty
+        // we continue to submit the data
+        if (empty($errors)) {
+            $stmt = $article->createArticle($connection, $article_image, $article_title, $article_content);
+
+            move_uploaded_file($image_temp, $destination);
+
+            if ($stmt) {
+                $id = $article->id;
+
+                Url::redirect("/blog/article.php?id=$id");
+            } else {
+                $connection->errorInfo();
+            }
+        } else {
+            echo "Unable to create article now, Please try again later";
+        }
     } catch (Exception $e) {
         echo $e->getMessage();
-    }
-
-    
-    $errors = $article->validateArticle($article_image, $article_title, $article_content);
-
-    // if errors arrays is empty
-    // we continue to submit the data
-    if (empty($errors)) {
-        $stmt = $article->createArticle($connection, $article_image, $article_title, $article_content);
-
-        move_uploaded_file($image_temp, "../uploads/images/$article_image");
-
-        if ($stmt) {
-            $id = $article->id;
-
-            Url::redirect("/blog/article.php?id=$id");
-        } else {
-            $connection->errorInfo();
-        }
-    } else {
-        echo "Unable to create article now, Please try again later";
     }
 }
 

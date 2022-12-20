@@ -19,6 +19,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $article_title = $_POST['article__title'];
     $article_content = $_POST['article__content'];
 
+    if (empty($_FILES)) {
+        throw new Exception("invalid upload");
+    }
+
+    try {
+        switch ($_FILES['image']['error']) {
+            case UPLOAD_ERR_OK:
+                break;
+            case UPLOAD_ERR_NO_FILE:
+                throw new Exception("No file uploaded");
+                break;
+            case UPLOAD_ERR_INI_SIZE:
+                throw new Exception("File is to large {From the server settings}");
+                break;
+            default:
+                throw new Exception("An error occured");
+                break;
+        }
+
+        if ($_FILES['image']['size'] > 1000000) {
+            throw new Exception("File is to large");
+        }
+
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mime_type = finfo_file($finfo, $_FILES['image']['tmp_name']);
+
+        if (!in_array($mime_type, $mime_types)) {
+            throw new Exception('Invalid file type');
+        }
+
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+
+    
     $errors = $article->validateArticle($article_image, $article_title, $article_content);
 
     // if errors arrays is empty
@@ -26,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         $stmt = $article->createArticle($connection, $article_image, $article_title, $article_content);
 
-        move_uploaded_file($image_temp, "../images/$article_image");
+        move_uploaded_file($image_temp, "../uploads/images/$article_image");
 
         if ($stmt) {
             $id = $article->id;

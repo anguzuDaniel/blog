@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $errors = $article->validateArticle($article->articleImage, $article->articleTitle, $article->articleContent);
 
-    move_uploaded_file($image_temp, "../images/$article->articleImage");
+    move_uploaded_file($image_temp, "../uploads/images/$article->articleImage");
 
     if (empty($errors) && $article->update($connection)) {
         Url::redirect("/blog/article.php?id=$article->id");

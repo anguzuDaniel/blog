@@ -7,7 +7,7 @@ Auth::isLoggedIn();
 
 $connection = require_once "../includes/db.php";
 
-$paginator = new Paginator(isset($_GET['page']) ? $_GET['page'] : 1, 4, Article::getTotalArticles($connection));
+$paginator = new Paginator(isset($_GET['page']) ? $_GET['page'] : 1, 10, Article::getTotalArticles($connection));
 
 $articles = Article::getPage($connection, $paginator->limit, $paginator->offset);
 

@@ -14,12 +14,18 @@ if (isset($_GET['id'])) {
     echo "Article doesn't exit";
 }
 
+$category_ids = array_column($article->getCategories($connection), 'id');
+
+$categories = Category::getAll($connection);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $article->articleImage = $_FILES['image']['name'];
     $image_temp = $_FILES['image']['tmp_name'];
 
     $article->articleTitle = $_POST['article__title'];
     $article->articleContent = $_POST['article__content'];
+
+    $category_ids = $_POST['category'] ?? [];
 
     try {
         switch ($_FILES['image']['error']) {
@@ -81,7 +87,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             if (empty($errors) && $article->update($connection)) {
+                $article->setCategories($connection, $category_ids);
+
                 Url::redirect("/blog/article.php?id=$article->id");
+
             }
         }
     } catch (Exception $e) {

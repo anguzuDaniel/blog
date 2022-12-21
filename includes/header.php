@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./css/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/sass/venders/open-props/open-props.min.css">
-    <link rel="stylesheet" href="./css/sass/venders/open-props/normalize.min.css">
+    <!-- <link rel="stylesheet" href="./css/sass/venders/open-props/normalize.min.css"> -->
 </head>
 
 <body>

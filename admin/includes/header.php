@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/script.js" defer></script>
     <link rel="stylesheet" href="../css/sass/venders/open-props/open-props.min.css">
-    <link rel="stylesheet" href="../css/sass/venders/open-props/normalize.min.css">
+    <!-- <link rel="stylesheet" href="../css/sass/venders/open-props/normalize.min.css"> -->
 </head>
 
 <body>

@@ -18,10 +18,21 @@
         <label for="image" class="form__row--label">Image</label>
         <input type="file" class="form__row--img" name="image" value="<?= $article->articleImage; ?>" />
     </div>
+
     <div class="form__row">
         <label for="article__title" class="form__row--label">Title</label>
         <input type="text" name="article__title" value="<?= htmlspecialchars($article->articleTitle); ?>" />
     </div>
+
+    <fieldset>
+        <legend>Category</legend>
+        <?php foreach ($categories as $category) : ?>
+            <div>
+                <input type="checkbox" name="category[]" id="<?= $category['id'] ?>" value="<?= $category['id'] ?>" <?php if (in_array($category['id'], $category_ids)) : ?>checked<?php endif; ?>>
+                <label for="<?= $category['id'] ?>"><?= htmlspecialchars($category['name']) ?></label>
+            </div>
+        <?php endforeach; ?>
+    </fieldset>
 
     <div class="form__row">
         <label for="article__content" class="form__row--label">Content</label>

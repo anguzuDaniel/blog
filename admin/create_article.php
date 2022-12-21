@@ -11,6 +11,10 @@ $article_content = '';
 
 $article = new Article();
 
+$category_ids = array_column($article->getCategories($connection), 'id');
+
+$categories = Category::getAll($connection);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $article_image = $_FILES['image']['name'];
@@ -18,6 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $article_title = $_POST['article__title'];
     $article_content = $_POST['article__content'];
+
+    $category_ids = $_POST['category'] ?? [];
 
     if (empty($_FILES)) {
         throw new Exception("invalid upload");
@@ -83,6 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($stmt) {
                 $id = $article->id;
+
+                $article->setCategories($connection, $category_ids);
 
                 Url::redirect("/blog/article.php?id=$id");
             } else {

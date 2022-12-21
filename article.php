@@ -4,7 +4,8 @@ require_once "includes/header.php";
 $connection = require_once "includes/db.php";
 
 if (isset($_GET['id'])) {
-    $article = Article::getById($connection, $_GET['id']);
+    $article = Article::getWithCategories($connection, $_GET['id']);
+
 } else {
     $article = null;
 }
@@ -20,8 +21,18 @@ if (isset($_GET['id'])) {
     <div>
         <?php if ($article) : ?>
             <article>
+                <h1 class="article--title"><?= htmlspecialchars($article[0]['article_title']); ?></h1>
+
+                <div>
+                    <?php if ($article[0]['name']) : ?>
+                        <?php foreach ($article as $a) : ?>
+                            <p class="article--paragraph" id="comment"><?= htmlspecialchars($a[0]['name']); ?></p>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+
                 <div class="article--image">
-                    <img src="images/<?= $article->article_image; ?>" alt="article image" />
+                    <img src="images/<?= $article[0]['article_image']; ?>" alt="article image" />
                 </div>
                 <div class="article__cta">
                     <div>
@@ -57,8 +68,7 @@ if (isset($_GET['id'])) {
                 </div>
 
                 <div class="article--text">
-                    <h1 class="article--title"><?= htmlspecialchars($article->article_title); ?></h1>
-                    <p class="article--paragraph" id="comment"><?= htmlspecialchars($article->article_content); ?></p>
+                    <p class="article--paragraph" id="comment"><?= htmlspecialchars($article[0]['article_content']); ?></p>
                 </div>
 
                 <hr>

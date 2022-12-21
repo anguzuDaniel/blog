@@ -96,6 +96,83 @@ class Article
     }
 
     /**
+     * getWithCategories
+     *
+     * @param  mixed $conn
+     * @param  mixed $id
+     * @return array
+     */
+    public static function getWithCategories($conn, $id)
+    {
+        $sql = "SELECT a.*, c.name  
+                FROM articles AS a 
+                LEFT JOIN article_categories AS ac 
+                ON a.id = ac.article_id
+                LEFT JOIN category AS c
+                ON ac.category_id = c.id
+                WHERE a.id = :id";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * getCategories
+     *
+     * @param  mixed $conn
+     * @return array
+     */
+    public function getCategories($conn)
+    {
+        $sql = "SELECT c.* 
+                FROM category AS c 
+                LEFT JOIN article_categories AS ac 
+                ON c.id = ac.article_id
+                WHERE c.id = :id";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function setCategories($conn, $ids)
+    {
+        if ($ids) {
+            $sql = "INSERT INTO `article_categories`(`article_id`, `category_id`) 
+            VALUES ";
+
+
+            $values = [];
+
+            foreach ($ids as $id) {
+                $values[] = "({$this->id}, ?)";
+            }
+
+            $sql = implode("." . $values);
+
+            var_dump($sql);
+            exit;
+
+            $stmt = $conn->prepare($sql);
+
+            foreach ($ids as $i => $id) {
+                $stmt->bindValue($i + 1, $id, PDO::PARAM_INT);
+            }
+
+            return $stmt->execute();
+        }
+    }
+
+    /**
      * @param mixed $conn
      * @param mixed $limit
      * @param mixed $offset

@@ -144,11 +144,17 @@ class Article
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * setCategories
+     *
+     * @param  mixed $conn
+     * @param  mixed $ids
+     * @return void
+     */
     public function setCategories($conn, $ids)
     {
         if ($ids) {
-            $sql = "INSERT INTO `article_categories`(`article_id`, `category_id`) 
-            VALUES ";
+            $sql = "INSERT INTO `article_categories` (`article_id`, `category_id`) VALUES ";
 
 
             $values = [];
@@ -157,10 +163,7 @@ class Article
                 $values[] = "({$this->id}, ?)";
             }
 
-            $sql = implode("." . $values);
-
-            var_dump($sql);
-            exit;
+            $sql .= implode(", ", $values);
 
             $stmt = $conn->prepare($sql);
 
@@ -168,8 +171,25 @@ class Article
                 $stmt->bindValue($i + 1, $id, PDO::PARAM_INT);
             }
 
-            return $stmt->execute();
+            $stmt->execute();
         }
+
+        $sql = "DELETE FROM article_categories
+                WHERE article_id = {$this->id}";
+
+        if ($ids) {
+            $placeholders = array_fill(0, count($ids), '?');
+
+            $sql .= " AND category_id NOT IN (" . implode(", ", $placeholders) . ")";
+        }
+
+        foreach ($ids as $i => $id) {
+            $stmt->bindValue($i + 1, $id, PDO::PARAM_INT);
+        }
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->execute();
     }
 
     /**
@@ -203,11 +223,11 @@ class Article
      */
     public function update($conn)
     {
-        $sql = "UPDATE `articles` 
-        SET `article_image` = :img, 
-            `article_title` = :title, 
-            `article_content` = :content 
-            WHERE `id` = :id ";
+        $sql = "UPDATE articles 
+        SET article_image = :img, 
+            article_title = :title, 
+            article_content = :content 
+            WHERE id = :id ";
 
         $stmt = $conn->prepare($sql);
 
@@ -266,8 +286,8 @@ class Article
     public static function deleteArticle($conn, $id)
     {
         $sql = "DELETE 
-            FROM `articles` 
-            WHERE `id` = :id ";
+            FROM articles 
+            WHERE id = :id ";
 
         $stmt = $conn->prepare($sql);
 

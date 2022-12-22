@@ -11,7 +11,7 @@ $article_content = '';
 
 $article = new Article();
 
-$category_ids = array_column($article->getCategories($connection), 'id');
+$category_ids = [];
 
 $categories = Category::getAll($connection);
 

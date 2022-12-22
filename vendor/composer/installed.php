@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'type' => 'project',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => 'df42cb6c6d0e2ae8ccac6d04766e03a327884ca9',
+        'name' => 'blogify/a-blog-application',
+        'dev' => true,
+    ),
+    'versions' => array(
+        'blogify/a-blog-application' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => 'df42cb6c6d0e2ae8ccac6d04766e03a327884ca9',
+            'dev_requirement' => false,
+        ),
+        'scssphp/scssphp' => array(
+            'pretty_version' => 'v1.11.0',
+            'version' => '1.11.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../scssphp/scssphp',
+            'aliases' => array(),
+            'reference' => '33749d12c2569bb24071f94e9af828662dabb068',
+            'dev_requirement' => false,
+        ),
+        'vladkens/autoprefixer' => array(
+            'pretty_version' => 'v0.1',
+            'version' => '0.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../vladkens/autoprefixer',
+            'aliases' => array(),
+            'reference' => 'a89553d6b8df8374c78b3d2e80221d771bf14814',
+            'dev_requirement' => false,
+        ),
+    ),
+);

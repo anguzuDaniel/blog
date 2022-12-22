@@ -34,9 +34,11 @@ class Article
      */
     public $articleContent;
 
-    public static function getTotalArticles($conn)
+    public static function getTotalArticles($conn, $only_published = false)
     {
-        return $conn->query("SELECT COUNT(*) FROM articles")->fetchColumn();
+        $condition = $only_published ? 'WHERE published_at IS NOT NULL' : '';
+
+        return $conn->query("SELECT COUNT(*) FROM articles $condition")->fetchColumn();
     }
 
     /**
@@ -102,15 +104,20 @@ class Article
      * @param  mixed $id
      * @return array
      */
-    public static function getWithCategories($conn, $id)
+    public static function getWithCategories($conn, $id, $only_published = false)
     {
-        $sql = "SELECT a.*, c.name  
+        $sql = "SELECT a.*, c.name AS category_name
                 FROM articles AS a 
                 LEFT JOIN article_categories AS ac 
                 ON a.id = ac.article_id
                 LEFT JOIN category AS c
                 ON ac.category_id = c.id
                 WHERE a.id = :id";
+
+        // Show only published articles
+        if ($only_published) {
+            $sql .= "WHERE a.published_at IS NOT NULL";
+        }
 
         $stmt = $conn->prepare($sql);
 
@@ -199,13 +206,23 @@ class Article
      * 
      * @return [type]
      */
-    public static function getPage($conn, $limit, $offset)
+    public static function getPage($conn, $limit, $offset, $only_published = false)
     {
-        $sql = "SELECT *
-                FROM articles 
-                ORDER BY article_title
-                LIMIT :limit 
-                OFFSET :offset ";
+        $condition = $only_published ? 'WHERE published_at IS NOT NULL' : '';
+
+        $sql = "SELECT a.*, category.name AS category_name
+                FROM (
+                    SELECT *
+                    FROM articles 
+                    $condition
+                    ORDER BY article_title
+                    LIMIT :limit 
+                    OFFSET :offset
+                ) AS a
+                LEFT JOIN article_categories
+                ON a.id = article_categories.article_id
+                LEFT JOIN category 
+                ON article_categories.category_id = category.id";
 
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
@@ -213,7 +230,25 @@ class Article
 
         $stmt->execute();
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $previous_id = null;
+
+        foreach ($results as $row) {
+            $article_id = $row['id'];
+
+            if ($article_id != $previous_id) {
+                $row['category_names'] = [];
+
+                $articles[$article_id] = $row;
+            }
+
+            $articles[$article_id]['category_names'][] = $row['category_name'];
+
+            $previous_id = $article_id;
+        }
+
+        return $articles;
     }
 
     /**
@@ -323,5 +358,23 @@ class Article
         }
 
         return $errors;
+    }
+
+    public function publish($conn)
+    {
+        $sql = "UPDATE articles 
+                SET publish_at = :published_at
+                WHERE id = :id";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+        $published_at = date("Y-m-d H:i:s");
+        $stmt->bindValue(':published_at', $published_at, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return $published_at;
+        }
     }
 }

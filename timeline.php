@@ -35,11 +35,17 @@ $articles = Article::getAll($connection, 10);
 
                         <div class="timeline__creator--name">
                             <h1 class="featured__articles--title"><?= $article['article_title']; ?></h1>
-                            <p>3 hours ago</p>
                         </div>
+
                     </div>
 
                     <div class="timeline__content">
+                        <time datetime="<?= $article['published_at'] ?>">
+                            <?php
+                            $datetime = new DateTime($article['published_at']);
+                            echo $datetime->format("j F, Y");
+                            ?>
+                        </time>
                         <div class="timeline__image">
                             <img src="images/<?= $article['article_image']; ?>" alt="image" />
                         </div>

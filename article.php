@@ -5,7 +5,6 @@ $connection = require_once "includes/db.php";
 
 if (isset($_GET['id'])) {
     $article = Article::getWithCategories($connection, $_GET['id']);
-
 } else {
     $article = null;
 }
@@ -23,11 +22,21 @@ if (isset($_GET['id'])) {
             <article>
                 <h1 class="article--title"><?= htmlspecialchars($article[0]['article_title']); ?></h1>
 
-                <div>
-                    <?php if ($article[0]['name']) : ?>
-                        <?php foreach ($article as $a) : ?>
-                            <p class="article--paragraph" id="comment"><?= htmlspecialchars($a[0]['name']); ?></p>
-                        <?php endforeach; ?>
+                <time datetime="<?= $article[0]['published_at'] ?>">
+                    <?php
+                    $datetime = new DateTime($article[0]['published_at']);
+                    echo $datetime->format("j F, Y");
+                    ?>
+                </time>
+
+                <div class="article--tags">
+                    <h3>Tags/Category: </h3>
+                    <?php if ($article[0]['category_name']) : ?>
+                        <p class="article--paragraph" id="comment">
+                            <?php foreach ($article as $a) : ?>
+                                <?= htmlspecialchars($a['category_name']); ?>
+                            <?php endforeach; ?>
+                        </p>
                     <?php endif; ?>
                 </div>
 

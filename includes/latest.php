@@ -12,7 +12,14 @@
                             <div class="lastest__articles--text">
                                 <h1 class="lastest__articles--title"><?= $article['article_title']; ?></h1>
                                 <p class="lastest__articles--paragraph"><?= substr($article['article_content'], 0, 150); ?>...</p>
-                                <p class="lastest__articles--date">December 11, 2016</p>
+                                <p class="lastest__articles--date">
+                                    <time datetime="<?= $article['published_at'] ?>">
+                                        <?php
+                                        $datetime = new DateTime($article['published_at']);
+                                        echo $datetime->format("j F, Y");
+                                        ?>
+                                    </time>
+                                </p>
 
                                 <div class="lastest__articles--cta">
                                     <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read">Read more</a>

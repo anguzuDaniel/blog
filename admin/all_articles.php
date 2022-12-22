@@ -9,7 +9,7 @@ $connection = require_once "../includes/db.php";
 
 $paginator = new Paginator(isset($_GET['page']) ? $_GET['page'] : 1, 10, Article::getTotalArticles($connection));
 
-$articles = Article::getPage($connection, $paginator->limit, $paginator->offset);
+$articles = Article::getPage($connection, $paginator->limit, $paginator->offset, true);
 
 ?>
 
@@ -61,6 +61,7 @@ $articles = Article::getPage($connection, $paginator->limit, $paginator->offset)
                                 <td>Image</td>
                                 <td>Title</td>
                                 <td>Content</td>
+                                <td>Category</td>
                                 <td colspan="2">Operations</td>
                             </tr>
                         </thead>
@@ -84,6 +85,15 @@ $articles = Article::getPage($connection, $paginator->limit, $paginator->offset)
                                         </td>
                                         <td>
                                             <p><?= substr($article['article_content'], 0, 40); ?>..</p>
+                                        </td>
+                                        <td>
+                                            <?php if ($article['category_names']) : ?>
+                                                <p>
+                                                    <?php foreach ($article['category_names'] as $name) : ?>
+                                                        <?= $name; ?>
+                                                    <?php endforeach; ?>
+                                                </p>
+                                            <?php endif; ?>
                                         </td>
                                         <td>
                                             <a href="edit_article.php?id=<?= $article['id']; ?>" class="edit__icon">

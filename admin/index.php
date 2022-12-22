@@ -1,6 +1,5 @@
 <?php
-require_once "includes/header.php";
-
+require_once "./includes/header.php";
 Auth::isLoggedIn();
 
 $connection = require_once "../includes/db.php";
@@ -12,8 +11,6 @@ $connection = require_once "../includes/db.php";
 
     <div class="admin__container">
         <?php require_once "./includes/navigation.php"; ?>
-
-
         <section class="admin__content">
             <div class="admin__content--intro">
 

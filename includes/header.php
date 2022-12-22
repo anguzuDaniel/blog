@@ -16,8 +16,9 @@
     <script defer src="./css/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/js/all.min.js"></script>
     <link rel="stylesheet" href="./css/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/sass/venders/open-props/open-props.min.css">
-    <!-- <link rel="stylesheet" href="./css/sass/venders/open-props/normalize.min.css"> -->
+    <link rel="stylesheet" href="./css/sass/vendors/open-props/open-props.min.css">
+    <link rel="stylesheet" href="./css/sass/vendors/bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/css/bootstrap.min.css">
+    <script src="./css/sass/vendors/bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/js/bootstrap.min.js" defer></script>
 </head>
 
 <body>

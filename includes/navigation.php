@@ -18,7 +18,7 @@
             <div class="header__cta">
                 <a href="logout.php" class="btn--logout">Log out</a>
 
-                <a href="./admin/">New article</a>
+                <a href="./admin/" class="btn btn-primary mb-2 px-5 mt-3 text-light">New article</a>
             </div>
         <?php else : ?>
             <a href="login.php" class="btn--login">Log In</a>

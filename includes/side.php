@@ -1,8 +1,5 @@
 <?php
 
-$db = new Database();
-$connection = $db->getConn();
-
 $sql = "SELECT * FROM articles ORDER BY RAND() LIMIT 5";
 
 $stmt = $connection->prepare($sql);

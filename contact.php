@@ -44,19 +44,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
             //Server settings
             $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+            $mail->Host       = SMTP_HOST;                     //Set the SMTP server to send through
             $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
             $mail->Port = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
 
-            $mail->Username   = 'wadblogg@gmail.com';                     //SMTP username
-            $mail->Password   = 'chtzphflxujficdu';                               //SMTP password
+            $mail->Username   = SMTP_USER;                     //SMTP username
+            $mail->Password   = SMTP_PASSWORD;                               //SMTP password
 
             //Recipients
             $mail->setFrom($email);
             $mail->addReplyTo($email);
-            $mail->addAddress('wadblogg@gmail.com');             //Name is optional
+            $mail->addAddress(SMTP_USER);             //Name is optional
 
             //Content
             $mail->isHTML(true);                                //Set email format to HTML
@@ -94,24 +94,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
 
             <form method="post">
-                <h1>Contact US</h1>
+                <h1 class="h1">Contact US</h1>
 
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="" required value="<?= htmlspecialchars($email); ?>">
+                <div class="form-row">
+                    <label for="email" class="col-form-label">Email</label>
+                    <input type="email" name="email" id="" required value="<?= htmlspecialchars($email); ?>" class="form-control">
                 </div>
 
-                <div>
-                    <label for="name">Subject</label>
-                    <input type="text" name="subject" id="" required value="<?= htmlspecialchars($subject); ?>">
+                <div class="form-row">
+                    <label for="name" class="col-form-label">Subject</label>
+                    <input type="text" name="subject" id="" required value="<?= htmlspecialchars($subject); ?>" class="form-control">
                 </div>
 
-                <div>
-                    <label for="message">Message</label>
-                    <textarea name="message" id="" cols="30" rows="15" style="resize: none;" required><?= htmlspecialchars($message); ?></textarea>
+                <div class="form-row">
+                    <label for="message" class="col-form-label">Message</label>
+                    <textarea name="message" id="" cols="30" rows="10" style="resize: none;" required class="form-control"><?= htmlspecialchars($message); ?></textarea>
                 </div>
 
-                <button type="submit">Send</button>
+                <button type="submit" class="btn btn-primary mb-2 px-5 mt-3">Send</button>
             </form>
     </div>
 <?php endif; ?>

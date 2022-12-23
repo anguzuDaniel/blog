@@ -26,21 +26,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <span class="error-message"><?= $error; ?></span>
         <?php endif; ?>
 
-        <form action="" method="post" class="login__form">
-            <div class="login__row">
+        <form method="post" class="login__form">
+            <div class="form-row">
                 <label for="name">Name</label>
-                <input type="text" name="username" id="username" class="login__row--input">
+                <input type="text" name="username" id="username" class="form-control">
             </div>
             <!-- <div class="login__row">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="login__row--input">
+                <input type="email" name="email" id="email" class="form-control">
             </div> -->
-            <div class="login__row">
+
+            <div class="form-row">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="login__row--input">
+                <input type="password" name="password" id="password" class="form-control">
             </div>
 
-            <button class="btn--login">Login</button>
+            <a href="./resetPassword.php">Forgot password?</a>
+
+            <button class="btn btn-primary mb-2 px-5 mt-3 w-100">Login</button>
         </form>
+
+        <p>Create an account <a href="./signup.php">Signup</a> </p>
     </div>
 </main>

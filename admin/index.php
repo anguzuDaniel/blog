@@ -5,6 +5,13 @@ Auth::isLoggedIn();
 $connection = require_once "../includes/db.php";
 ?>
 
+<?php
+$user = new User();
+
+$currentUser = $user->getUserInfo($connection);
+
+?>
+
 <?php include_once "includes/sidebar.php" ?>
 
 <main class="admin__wrapper">
@@ -14,38 +21,49 @@ $connection = require_once "../includes/db.php";
         <section class="admin__content">
             <div class="admin__content--intro">
 
-                <div class="admin__cards">
 
-                    <div class="admin__card admin__card--articles">
-                        <div class="admin__card--icon">
-                            <em class="fa-regular fa-folder-open"></em>
+                <div class="row mb-5 mt-5 g-3">
+
+                    <div class="col-md-3">
+                        <div class="col-sm row-cols-2 card-counter text-center py-4 bg-danger admin-card">
+                            <div class="display-3 text-light">
+                                <em class="fa-regular fa-folder-open"></em>
+                            </div>
+                            <div class="col-sm">
+                                <p class="display-6 count-name text-light">356</p>
+                                <h3 class="display-6 count-numbers text-light">Arctiles</h1>
+                            </div>
                         </div>
-                        <p class="admin__card--num">356</p>
-                        <h3 class="admin__card--heading">Arctiles</h1>
                     </div>
 
-                    <div class="admin__card admin__card--categories">
-                        <div class="admin__card--icon">
-                            <em class="fa-solid fa-diagram-project"></em>
+                    <div class="col-md-3">
+                        <div class="col-sm card-counter text-center py-4 bg-success admin-card">
+                            <div class="display-3 text-light">
+                                <em class="fa-solid fa-diagram-project"></em>
+                            </div>
+                            <p class="display-6 count-name text-light">10</p>
+                            <h3 class="display-6 count-numbers text-light">Categories</h1>
                         </div>
-                        <p class="admin__card--num">10</p>
-                        <h3 class="admin__card--heading">Categories</h1>
                     </div>
 
-                    <div class="admin__card admin__card--writers">
-                        <div class="admin__card--icon">
-                            <em class="fa-solid fa-file-pen"></em>
+                    <div class="col-md-3">
+                        <div class="col-sm card-counter text-center py-4 bg-primary admin-card">
+                            <div class="display-3 text-light">
+                                <em class="fa-solid fa-file-pen"></em>
+                            </div>
+                            <p class="display-6 count-name text-light">6</p>
+                            <h3 class="display-6 count-numbers text-light">Writers</h1>
                         </div>
-                        <p class="admin__card--num">6</p>
-                        <h3 class="admin__card--heading">Writers</h1>
                     </div>
 
-                    <div class="admin__card admin__card--vistors">
-                        <div class="admin__card--icon">
-                            <em class="fa-solid fa-users-line"></em>
+                    <div class="col-md-3">
+                        <div class="col-sm card-counter text-center py-4 bg-warning admin-card">
+                            <div class="display-3 text-light">
+                                <em class="fa-solid fa-users-line"></em>
+                            </div>
+                            <p class="display-6 count-name text-light">39</p>
+                            <h3 class="display-6 count-numbers text-light">Vistors</h1>
                         </div>
-                        <p class="admin__card--num">39</p>
-                        <h3 class="admin__card--heading">Vistors</h1>
                     </div>
                 </div>
 

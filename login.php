@@ -4,14 +4,26 @@ require_once "includes/header.php";
 
 $connection = require_once "includes/db.php";
 
+$user = new User();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (User::authenticate($connection, $_POST['username'], $_POST['password'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-        Auth::login();
+    if ($user = $user->getUserByEmail($connection, $email)) {
 
-        Url::redirect('/blog/index.php');
-    } else {
-        $error = 'Incorrect username/password, Please enter correct details';
+        $verified = intval($user['verified']);
+        $username = $user['last_name'];
+
+        if (User::authenticate($connection, $email, $password) && $verified === 1) {
+            Auth::login();
+
+            $_SESSION['login_user'] = $username;
+
+            Url::redirect('/blog/index.php');
+        } else {
+            $error = 'Incorrect email/password, Please enter correct details';
+        }
     }
 }
 ?>
@@ -23,25 +35,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <!-- prints out error meassgae for wrong cridentials -->
         <?php if (!empty($error)) : ?>
-            <span class="error-message"><?= $error; ?></span>
+            <div class="alert alert-danger" role="alert"><?= $error; ?>.</div>
         <?php endif; ?>
 
         <form method="post" class="login__form">
             <div class="form-row">
-                <label for="name">Name</label>
-                <input type="text" name="username" id="username" class="form-control">
-            </div>
-            <!-- <div class="login__row">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" class="form-control">
-            </div> -->
+            </div>
 
             <div class="form-row">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" class="form-control">
             </div>
 
-            <a href="./resetPassword.php">Forgot password?</a>
+            <a href="./recoverAccount.php">Forgot password?</a>
 
             <button class="btn btn-primary mb-2 px-5 mt-3 w-100">Login</button>
         </form>

@@ -25,15 +25,15 @@ class User
      * 
      * @return [type]
      */
-    public static function authenticate($conn, $username, $password)
+    public static function authenticate($conn, $email, $password)
     {
         $sql = 'SELECT * 
-                FROM user
-                WHERE username = :username ';
+                FROM `user`
+                WHERE email = :email ';
 
         $stmt = $conn->prepare($sql);
 
-        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
 
@@ -55,6 +55,21 @@ class User
         return $stmt->execute();
     }
 
+    public static function checkVerification($conn, $email)
+    {
+        $sql = "SELECT * FROM user WHERE email = :email";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
     /**
      * @param mixed $conn
      * @param string $columns
@@ -68,7 +83,7 @@ class User
 
         $stmt = $conn->prepare($sql);
 
-        $stmt->bindValue(':id', 2, PDO::PARAM_INT);
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
 
@@ -147,7 +162,7 @@ class User
 
         return $stmt->execute();
     }
-    
+
     /**
      * updatePassword
      *

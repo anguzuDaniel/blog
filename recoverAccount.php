@@ -3,7 +3,6 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
 
 require_once 'vendor/PHPMailer-master/PHPMailer-master/src/Exception.php';
 require_once 'vendor/PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
@@ -19,53 +18,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $userExist = $user->getUserByEmail($connection, $email);
 
-    if (!$userExist) {
-        $user = $user->addUser($connection, $email, $username, $firstname, $lastname, $password);
+    if ($userExist) {
+        $mail = new PHPMailer(true);
 
-        if ($user) {
-            $mail = new PHPMailer(true);
+        try {
+            // generate token by binaryhexa 
+            $token = bin2hex(random_bytes(50));
 
-            var_dump($user);
+            $_SESSION['token'] = $token;
+            $_SESSION['email'] = $email;
 
-            try {
-                $otp = rand(100000, 999999);
-                $_SESSION['otp'] = $otp;
-                $_SESSION['mail'] = $email;
+            $subject = "Your verify code";
+            $body = "<p>Dear $email, </p> <h3>Your passowrd code reset is $token <br></h3>";
 
-                $subject = "Your verify code";
-                $body = "<p>Dear user, </p> <h3>Your verify OTP code is $otp <br></h3>";
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 587;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls';
 
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
-                $mail->Port = 587;
-                $mail->SMTPAuth = true;
-                $mail->SMTPSecure = 'tls';
+            $mail->Username   = SMTP_USER;                     //SMTP username
+            $mail->Password   = SMTP_PASSWORD;                               //SMTP password
 
-                $mail->Username   = SMTP_USER;                     //SMTP username
-                $mail->Password   = SMTP_PASSWORD;                               //SMTP password
+            //Recipients
+            $mail->setFrom($email, 'Password Reset');
+            $mail->addAddress($email);
 
-                //Recipients
-                $mail->setFrom($email, 'OTP Verification');
-                $mail->addAddress($email);
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body = $body;
 
-                $mail->isHTML(true);
-                $mail->Subject = $subject;
-                $mail->Body = $body;
-
-                if (!$mail->send()) {
-                    $errors[] = $mail->ErrorInfo;
-                } else {
-                    echo 'Message sent!';
-                    $sent = true;
-
-                    Url::redirect('/blog/verification.php');
-                }
-            } catch (Exception $e) {
+            if (!$mail->send()) {
                 $errors[] = $mail->ErrorInfo;
+            } else {
+                echo 'Message sent!';
+                $sent = true;
+
+                Url::redirect('/blog/changePassword.php');
             }
+        } catch (Exception $e) {
+            $errors[] = $mail->ErrorInfo;
         }
     }
 }
+
 
 
 ?>
@@ -73,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <main class="login__page ">
     <div class="login__page--container">
-        <h1>Login</h1>
+        <h1>Enter your email address</h1>
 
         <?php if ($sent) : ?>
             <div class="alert alert-success" role="alert">Verification code sent to your email.</div>
@@ -93,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="email" name="email" id="" class="form-control" required>
                 </div>
 
-                <button class="btn btn-primary mb-2 px-5 mt-3 w-100">Create Account</button>
+                <button class="btn btn-primary mb-2 px-5 mt-3 w-100">Get code</button>
             </form>
 
             <p>Back to <a href="./login.php">Login</a> </p>

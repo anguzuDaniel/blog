@@ -14,6 +14,8 @@
         </button> -->
 
 
+        <h1 class="header--logo">BlogIfy!</h1>
+
         <?php if (Auth::isLoggedIn()) : ?>
             <div class="header__cta">
                 <a href="logout.php" class="btn--logout">Log out</a>
@@ -21,25 +23,23 @@
                 <a href="./admin/" class="btn btn-primary mb-2 px-5 mt-3 text-light">New article</a>
             </div>
         <?php else : ?>
+            <div class="header__cta">
+                <div>
+                    <em class="fa-brands fa-twitter"></em>
+                </div>
+                <div>
+                    <em class="fa-brands fa-facebook"></em>
+                </div>
+                <div>
+                    <em class="fa-brands fa-instagram"></em>
+                </div>
+                <div>
+                    <em class="fa-brands fa-github"></em>
+                </div>
+            </div>
+            
             <a href="login.php" class="btn--login">Log In</a>
         <?php endif; ?>
-
-        <h1 class="header--logo">BlogIfy!</h1>
-
-        <div class="header__cta">
-            <div>
-                <em class="fa-brands fa-twitter"></em>
-            </div>
-            <div>
-                <em class="fa-brands fa-facebook"></em>
-            </div>
-            <div>
-                <em class="fa-brands fa-instagram"></em>
-            </div>
-            <div>
-                <em class="fa-brands fa-github"></em>
-            </div>
-        </div>
 
     </div>
 

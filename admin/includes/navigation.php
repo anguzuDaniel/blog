@@ -1,8 +1,7 @@
 <?php
-$user = new User();
-
-$currentUser = $user->getUserInfo($connection);
+$loggedInUser = $_SESSION['login_user'];
 ?>
+
 <header class="admin__header">
     <div class="admin__primary">
         <h1 class="admin--logo">BlogIfy!</h1>
@@ -14,6 +13,7 @@ $currentUser = $user->getUserInfo($connection);
 
 
                     <button class="admin__user--btn">
+                        <p><?php echo $loggedInUser; ?></p>
                         <div class="admin__content--user">
                             <img src="../images/image-avatar.png" alt="" srcset="">
                         </div>

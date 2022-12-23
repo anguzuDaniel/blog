@@ -1,6 +1,12 @@
 <?php require_once "classes/auth.php"; ?>
-<header class="header">
+
+<?php
+$loggedInUser = $_SESSION['login_user'];
+?>
+
+<header class="header px-5 py-3 bg-light">
     <div class="header__primary">
+        <h1 class="header--logo"><?php echo APP_NAME; ?>!</h1>
 
         <!-- <div class="search">
             <input type="search" name="search__articles" id="" class="search search__articles" placeholder="search">
@@ -9,18 +15,14 @@
             </button>
         </div> -->
 
-        <!-- <button class="admin__link btn">
-            <a href="./admin/index.php">Admin</a>
-        </button> -->
-
-
-        <h1 class="header--logo">BlogIfy!</h1>
-
         <?php if (Auth::isLoggedIn()) : ?>
             <div class="header__cta">
-                <a href="logout.php" class="btn--logout">Log out</a>
+                <a href="logout.php" class="btn--logout">
+                    <?php if (isset($_SESSION['login_user'])) : ?>
+                        <p><?php echo $loggedInUser; ?></p>
+                    <?php endif; ?>
+                </a>
 
-                <a href="./admin/" class="btn btn-primary mb-2 px-5 mt-3 text-light">New article</a>
             </div>
         <?php else : ?>
             <div class="header__cta">
@@ -37,15 +39,15 @@
                     <em class="fa-brands fa-github"></em>
                 </div>
             </div>
-            
+
             <a href="login.php" class="btn--login">Log In</a>
         <?php endif; ?>
 
     </div>
 
-    <div class="header__secondary">
-        <nav>
-            <!--   <ul class="nav__list">
+    <!-- <div class="header__secondary">
+        <nav> -->
+    <!--   <ul class="nav__list">
                 <li class="nav__list--item">
                     <select name="tech" id="tech">
                         <option value="">
@@ -89,13 +91,13 @@
                 </li>
             </ul> -->
 
-            <ul class="nav__list">
+    <!-- <ul class="nav__list">
                 <li class="nav__list--item"><a href="index.php">Home</a></li>
                 <li class="nav__list--item"><a href="#">Pages</a></li>
                 <li class="nav__list--item"><a href="#">Blog</a></li>
                 <li class="nav__list--item"><a href="#">Shop</a></li>
                 <li class="nav__list--item"><a href="timeline.php">Timeline</a></li>
             </ul>
-        </nav>
+        </nav> -->
     </div>
 </header>

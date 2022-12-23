@@ -1,14 +1,12 @@
-.container {
+.wrapper {
 	display: grid;
 	grid-auto-flow: column;
-	margin-inline: var(--body-margin-inline);
-	margin-top: var(--margin-container-top);
 
 	&__articles {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 		gap: 1px;
-		margin-top: 10rem;
+		// margin-top: 10rem;
 		height: 450px;
 
 		&--grid {

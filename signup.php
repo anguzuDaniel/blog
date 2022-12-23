@@ -95,38 +95,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="form-group col-sm mb-5">
                     <div class="form-row">
                         <label class="col-form-label" for="email">Email</label>
-                        <input type="email" name="email" id="" class="form-control" required>
+                        <input type="email" name="email" id="" class="form-control px-4 py-3" required>
                     </div>
 
                     <div class="form-row">
                         <label class="col-form-label" for="name">User Name</label>
-                        <input type="text" name="username" id="" class="form-control" required>
+                        <input type="text" name="username" id="" class="form-control px-4 py-3" required>
                     </div>
                 </div>
 
                 <div class="form-group col-sm mb-5">
                     <div class="form-row">
                         <label class="col-form-label" for="first_name">First Name</label>
-                        <input type="text" name="first_name" id="" class="form-control" required>
+                        <input type="text" name="first_name" id="" class="form-control px-4 py-3" required>
                     </div>
 
                     <div class="form-row">
                         <label class="col-form-label" for="last_name">Last Name</label>
-                        <input type="text" name="last_name" id="" class="form-control" required>
+                        <input type="text" name="last_name" id="" class="form-control px-4 py-3" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <label class="col-form-label" for="password">Password</label>
-                    <input type="password" name="password" id="" class="form-control" required>
+                    <input type="password" name="password" id="" class="form-control px-4 py-3" required>
                 </div>
 
                 <div class="form-row">
                     <label class="col-form-label" for="confirm_password">Confrim Password</label>
-                    <input type="password" name="confirm_password" id="" class="form-control" required>
+                    <input type="password" name="confirm_password" id="" class="form-control px-4 py-3" required>
                 </div>
 
-                <button class="btn btn-primary mb-2 px-5 mt-3 w-100">Create Account</button>
+                <button class="btn btn-primary mb-2 px-4 py-3 mt-3 w-100">Create Account</button>
             </form>
 
             <p>Back to <a href="./login.php">Login</a> </p>

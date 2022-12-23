@@ -14,13 +14,13 @@ $counter = 1;
 ?>
 
 <!-- side section | shows the ctegory list -->
-<div>
-    <aside class="side">
+<div class="mt-5">
+    <aside class="side p-4">
         <div class="side__list side__list--1">
-            <div class="side__list--underline side__list--underline1">
-                <h1 class="side__list--head">Trending</h1>
+            <!-- <div class="side__list--underline side__list--underline1">
+                <h5 class="side__list--head">Trending</h5>
                 <span></span>
-            </div>
+            </div> -->
 
             <?php if (empty($articles)) : ?>
                 <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
@@ -35,14 +35,17 @@ $counter = 1;
                         </span>
 
                         <div class="side__list--text">
-                            <h1 class="side__list--heading"><?= substr($article['article_title'], 0, 100); ?></h1>
+                            <h5 class="side__list--heading"><?= substr($article['article_title'], 0, 100); ?></h5>
                             <p class="side__list--paragraph"><?= substr($article['article_content'], 0, 100); ?>...</p>
 
                             <div>
-                                <p>2022 01 12</p>
+                                <p>
+                                    <?php
+                                    $datetime = new DateTime($article['published_at']);
+                                    echo $datetime->format("j F, Y");
+                                    ?>
+                                </p>
                             </div>
-
-                            <a href="article.php?id=<?= $article['id']; ?>" class="btn btn--read">Read more</a>
                         </div>
 
                     </div>

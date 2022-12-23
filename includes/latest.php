@@ -1,6 +1,5 @@
             <!-- lastest artciles section | start -->
-            <div class="lastest__articles">
-
+            <div class="latest_article">
                 <?php if (empty($articles)) : ?>
                     <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
                 <?php else : ?>

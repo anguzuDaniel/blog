@@ -1,7 +1,5 @@
 /* artcile page style | starts here */
 .article {
-	margin-inline: var(--body-margin-inline);
-	margin-block: var(--margin-top);
 	margin-top: 16rem;
 	display: flex;
 	gap: 20px;
@@ -251,8 +249,6 @@
 /* must read artcile | start */
 .read {
 	&__article {
-		margin-inline: var(--body-margin-inline);
-		margin-block: var(--margin-section-block-small);
 		display: grid;
 		grid-template-columns: 1fr min-content;
 		gap: 3rem;
@@ -260,7 +256,7 @@
 		&--heading {
 			color: var(--clr-secondary);
 			width: fit-content;
-			padding-block: 2rem;
+			// padding-block: 2rem;
 			border-top-right-radius: 15px;
 			border-bottom: 2px solid var(--clr-secondary);
 			font-weight: 900;
@@ -363,7 +359,6 @@
 .recommended {
 	&__articles {
 		margin-top: var(--margin-top);
-		margin-inline: var(--body-margin-inline);
 
 		article {
 			box-shadow: var(--shadow-1);
@@ -476,9 +471,6 @@
 /* featured article styles | starts here */
 .featured {
 	&__articles {
-		margin-inline: var(--body-margin-inline);
-		margin-block: var(--margin-section-block-large);
-
 		&--title {
 			font-size: 1.8rem;
 		}

@@ -9,8 +9,6 @@
 	&__cta {
 		font-weight: 700;
 		border-block: 1px solid var(--border-clr);
-		padding-block: 2rem;
-		padding-left: 2rem;
 		display: flex;
 		gap: 20px;
 
@@ -34,7 +32,6 @@
 	&__form {
 		border: 1px solid var(--border-clr);
 		margin-bottom: 1rem;
-		// padding: 2rem 1rem;
 		display: flex;
 		gap: 15px;
 		background-color: var(--white-clr);
@@ -87,16 +84,13 @@
 
 	&__creator {
 		display: flex;
-		justify-content: center;
-		align-items: center;
+		flex-direction: column;
 		align-self: flex-start;
-		gap: 20px;
-		padding-block: 2rem;
-		padding-inline: 1.5rem;
+		gap: 2px;
 
 		&--image {
 			width: 40px;
-			border-radius: 100%;
+			// border-radius: 100%;
 			align-self: baseline;
 			overflow: hidden;
 			cursor: pointer;
@@ -117,8 +111,6 @@
 			justify-content: flex-start;
 			align-self: center;
 			gap: 20px;
-			padding-block: 1.5rem;
-			padding-inline: 1.5rem;
 		}
 
 		&--image {
@@ -139,8 +131,6 @@
 
 		&--form {
 			margin-top: 2rem;
-			padding-block: 1rem;
-			padding: 2rem 1rem;
 			display: flex;
 			gap: 15px;
 			background-color: var(--bg-light-clr);

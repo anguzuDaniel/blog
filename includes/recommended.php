@@ -7,7 +7,7 @@ if ($connection) {
 }
 ?>
 
-<section class="recommended__articles">
+<section class="recommended__articles container">
 
     <div class="read__article--underline read__article--underline1">
         <h1 class="read__article--heading">Recommended</h1>

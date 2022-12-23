@@ -86,10 +86,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div class="form-row">
                     <label class="col-form-label" for="email">Email</label>
-                    <input type="email" name="email" id="" class="form-control" required>
+                    <input type="email" name="email" id="" class="form-control px-4 py-3" required>
                 </div>
 
-                <button class="btn btn-primary mb-2 px-5 mt-3 w-100">Get code</button>
+                <button class="btn btn-primary mb-2 mt-3 w-100 px-4 py-3">Get code</button>
             </form>
 
             <p>Back to <a href="./login.php">Login</a> </p>

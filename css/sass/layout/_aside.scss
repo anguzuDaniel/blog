@@ -1,20 +1,18 @@
 /* side navigation style start | home page */
 aside {
-	margin-left: 1rem;
 	width: 400px;
 	margin-top: calc(var(--margin-top) * 2);
-	font-size: 2rem;
 	box-shadow: var(--shadow-1);
 }
 
 .side {
 	margin-top: var(--margin-top);
+	background-color: var(--yellow-0);
 
 	&__list {
 		&--head {
 			color: var(--clr-secondary);
 			width: fit-content;
-			padding-block: 2rem;
 			border-top-right-radius: 15px;
 			border-bottom: 2px solid var(--clr-secondary);
 			font-weight: 900;
@@ -22,8 +20,6 @@ aside {
 
 		&--underline {
 			border-bottom: 1px solid var(--border-clr);
-			margin-bottom: 3rem;
-			margin-inline: var(--body-margin-inline);
 		}
 
 		&--underline1 {
@@ -38,7 +34,6 @@ aside {
 				border: none;
 				border: none;
 				cursor: pointer;
-				padding: 1.8rem 1rem;
 				font-weight: 400;
 				letter-spacing: 0.6px;
 
@@ -62,16 +57,10 @@ aside {
 			display: grid;
 			grid-auto-flow: column;
 			gap: 10px;
-			margin-block: 1rem;
-			padding: 0.8rem;
 
 			// &:not(:last-child) {
 			// 	border-bottom: 1px solid var(--border-clr);
 			// }
-		}
-
-		&--num {
-			font-size: 3rem;
 		}
 
 		&--img {
@@ -93,21 +82,8 @@ aside {
 			justify-content: center;
 		}
 
-		&--heading {
-			font-size: 1.6rem;
-		}
-
-		&--paragraph {
-			font-size: 1.4rem;
-		}
-
-		&__heading {
-			margin-block: 1rem;
-		}
-
 		&__list {
 			a {
-				font-size: 0.9rem;
 				text-decoration: underline;
 			}
 		}

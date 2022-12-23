@@ -7,7 +7,7 @@ if ($connection) {
 ?>
 
 <!-- featured articles | start here -->
-<section class="featured__articles">
+<section class="featured__articles container">
     <div class="read__article--underline read__article--underline1">
         <h1 class="read__article--heading">Featured Articles</h1>
         <span></span>

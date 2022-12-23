@@ -13,7 +13,10 @@ $loggedInUser = $_SESSION['login_user'];
 
 
                     <button class="admin__user--btn">
-                        <p><?php echo $loggedInUser; ?></p>
+                        <?php if (isset($_SESSION['login_user'])) : ?>
+                            <p><?php echo $loggedInUser; ?></p>
+                        <?php endif; ?>
+                        
                         <div class="admin__content--user">
                             <img src="../images/image-avatar.png" alt="" srcset="">
                         </div>

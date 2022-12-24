@@ -5,6 +5,7 @@ $connection = require_once "includes/db.php";
 $articles = Article::getAll($connection, 10);
 
 $art = new Article();
+$user = new User();
 
 ?>
 <?php include_once "includes/header.php"; ?>
@@ -34,6 +35,7 @@ $art = new Article();
                 <article class="card mb-3 d-flex">
                     <div class="my-4 mx-4 d-flex g-2 justify-content-between">
                         <div class="d-flex justify-content-between">
+                            <!-- checks of the image is null | else shows image -->
                             <?php if ($article['article_image'] !== null) : ?>
                                 <div class="timeline__creator--image">
                                     <img src="images/<?= $article['article_image']; ?>" alt="image" />
@@ -44,6 +46,7 @@ $art = new Article();
                                 </div>
                             <?php endif; ?>
 
+                            <!-- checks of the image is null | else shows image -->
                             <div class="timeline__creator ml-4">
                                 <?php if ($article['name'] !== null) : ?>
                                     <div class="timeline__creator--name">
@@ -56,6 +59,8 @@ $art = new Article();
                                         <h3><a href="#">Anonymous</a></h3>
                                     </div>
                                 <?php endif; ?>
+
+                                <!-- checks of the image is null | else shows image -->
                                 <time datetime="<?= $article['published_at'] ?>">
                                     <?php
                                     $datetime = new DateTime($article['published_at']);
@@ -66,9 +71,20 @@ $art = new Article();
                         </div>
 
                         <div>
+                            <?php if ($article['created_by'] !== $_SESSION['user_id']) : ?>
+                                <?php
+                                $follows = $user->getFollows($connection, $article['created_by']);
 
-                            <button class="btn btn-primary mb-2 w-100 px-4 py-2"><i class="fa-solid fa-plus"></i> Follow</button>
-                            <!-- <button class="btn btn-light mb-2 w-100 px-4 py-2 text-primary border-primary"><i class="fa fa-check" aria-hidden="true"></i> Following</button> -->
+                                if ($follows['followed_user'] !== $article['created_by']) : ?>
+                                    <a href="follow.php?type=user&id=<?= $article['created_by']; ?>" class="btn btn-primary mb-2 w-100 px-4 py-2">
+                                        <i class="fa-solid fa-plus"></i> Follow
+                                    </a>
+                                <?php else : ?>
+                                    <a href="follow.php?type=unfollow&id=<?= $follows['follow_id']; ?>" class="btn btn-light mb-2 w-100 px-4 py-2 text-primary border-primary">
+                                        <i class="fa fa-check" aria-hidden="true"></i> Following
+                                    </a>
+                                <?php endif; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
 
@@ -110,7 +126,7 @@ $art = new Article();
                                         <a href="like.php?type=article&id=<?= $article['id']; ?>"><em class="fa-regular fa-thumbs-up"></em></a>
                                         0 Likes
                                     <?php endif; ?>
-                                    </p>
+                                </p>
                             </div>
 
                             <div>
@@ -156,9 +172,20 @@ $art = new Article();
 
                         </div>
                     </div>
+
                 </article>
 
             <?php endforeach; ?>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
         </div>
         <!-- timeline articles | end here -->
     </section>

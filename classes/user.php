@@ -184,4 +184,76 @@ class User
 
         return $stmt->execute();
     }
+
+
+    public function getFollows($conn, $userFollowed)
+    {
+        $sql = "SELECT u.id, u.username AS follower
+                , f.user_followed AS followed_user, 
+                f.id AS follow_id
+                FROM user AS u 
+                LEFT JOIN `following` AS f 
+                ON :user_followed = f.user_followed
+                GROUP BY u.id";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->bindValue(':user_followed', $userFollowed, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
+    /**
+     * addLike
+     *
+     * @param  mixed $conn
+     * @param  mixed $articleId
+     * @param  mixed $userId
+     * @return void
+     */
+    public function addFollow($conn, $userFollowed)
+    {
+        $sql = "INSERT INTO `following`(user_id, user_followed) 
+                SELECT {$_SESSION['user_id']}, :user_followed
+                FROM articles
+                WHERE EXISTS
+                (
+                    SELECT id FROM articles 
+                    WHERE created_by = :user_followed
+                ) AND NOT EXISTS (
+                    SELECT id FROM `following` 
+                    WHERE user_id = {$_SESSION['user_id']}
+                    AND user_followed = :user_followed
+                ) LIMIT 1";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':user_followed', $userFollowed, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
+    /**
+     * addLike
+     *
+     * @param  mixed $conn
+     * @param  mixed $articleId
+     * @param  mixed $userId
+     * @return void
+     */
+    public function unFollow($conn, $id)
+    {
+        $sql = "DELETE FROM `following` 
+                WHERE id  = :id";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
 }

@@ -15,12 +15,12 @@ if (isset($_GET['id'])) {
 <?php require_once "includes/navigation.php"; ?>
 
 
-<div class="article">
+<div class="col-12 container d-lg-flex gap-4">
 
-    <div>
+    <section class="timeline col-lg-8">
         <?php if ($article) : ?>
             <article>
-                <h1 class="article--title"><?= htmlspecialchars($article[0]['article_title']); ?></h1>
+                <h1 class="fw-bold"><?= htmlspecialchars($article[0]['article_title']); ?></h1>
 
                 <time datetime="<?= $article[0]['published_at'] ?>">
                     <?php
@@ -87,7 +87,7 @@ if (isset($_GET['id'])) {
                 </div>
 
                 <form class="article--comments" action="" method="post">
-                    <h1 class="article--title">Please leave a comment</h1>
+                    <h3 class="fw-bold">Please leave a comment</h3>
                     <!-- <div class="form__row">
                     <label for="username" class="form__row--label">Username</label>
                     <input type="text" name="username" id="">
@@ -105,9 +105,10 @@ if (isset($_GET['id'])) {
         <?php else : ?>
             <p class="paragraph article--paragraph">No articles found..</p>
         <?php endif ?>
-    </div>
-
+    </section>
     <?php require_once "includes/side.php" ?>
+</div>
+
 </div>
 
 <?php require_once "includes/footer.php"; ?>

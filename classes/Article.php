@@ -49,11 +49,19 @@ class Article
      */
     public static function getAll($conn, $limit)
     {
-        $sql = "SELECT * FROM articles LIMIT $limit";
+        $sql = "SELECT a.*, u.username AS name
+                FROM articles AS a
+                LEFT JOIN `user` AS u
+                ON a.created_by = u.id
+                LIMIT $limit";
 
-        $results = $conn->query($sql);
+        $stmt = $conn->query($sql);
 
-        return $results->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 
     // get specified number of articles 
@@ -376,5 +384,60 @@ class Article
         if ($stmt->execute()) {
             return $published_at;
         }
+    }
+
+    public function getArticleLikes($conn, $articleId)
+    {
+        $sql = "SELECT a.id, a.article_title, 
+                u.username AS liked_by
+                , COUNT(al.id) AS likes
+                
+                FROM articles AS a 
+                LEFT JOIN article_likes AS al  
+                ON :id = al.article_id
+
+                INNER JOIN user AS u  
+                ON al.user_id = u.id
+                GROUP BY a.id";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $articleId, PDO::PARAM_INT);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
+    /**
+     * addLike
+     *
+     * @param  mixed $conn
+     * @param  mixed $articleId
+     * @param  mixed $userId
+     * @return void
+     */
+    public function addLike($conn, $articleId)
+    {
+        $sql = "INSERT INTO article_likes(article_id, user_id) 
+                SELECT :article_id, {$_SESSION['user_id']}  
+                FROM articles
+                WHERE EXISTS
+                (
+                    SELECT id FROM articles 
+                    WHERE id = :article_id
+                ) AND NOT EXISTS (
+                    SELECT id FROM article_likes 
+                    WHERE user_id = {$_SESSION['user_id']}
+                    AND article_id = :article_id
+                ) LIMIT 1";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':article_id', $articleId, PDO::PARAM_INT);
+
+        return $stmt->execute();
     }
 }

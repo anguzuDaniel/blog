@@ -15,24 +15,13 @@ $counter = 1;
 
 <!-- side section | shows the ctegory list -->
 <div class="mt-5">
-    <aside class="side p-4">
+    <aside class="side p-4 shadow-sm">
         <div class="side__list side__list--1">
-            <!-- <div class="side__list--underline side__list--underline1">
-                <h5 class="side__list--head">Trending</h5>
-                <span></span>
-            </div> -->
-
             <?php if (empty($articles)) : ?>
                 <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
             <?php else : ?>
                 <?php foreach ($articles as $article) : ?>
                     <div class="side__list--content">
-
-                        <span>
-                            <p class="side__list--num">
-                                0<?= $counter++; ?>
-                            </p>
-                        </span>
 
                         <div class="side__list--text">
                             <h5 class="side__list--heading"><?= substr($article['article_title'], 0, 100); ?></h5>

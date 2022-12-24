@@ -3,12 +3,15 @@ require_once "includes/header.php";
 
 $connection = require_once "includes/db.php";
 $articles = Article::getAll($connection, 10);
+
+$art = new Article();
+
 ?>
 <?php include_once "includes/header.php"; ?>
 
 <?php include_once "includes/navigation.php"; ?>
 
-<main class="col-12 container d-lg-flex">
+<main class="col-12 container d-lg-flex gap-4">
 
     <section class="timeline col-lg-8">
         <!-- timeline form | starts here -->
@@ -28,36 +31,59 @@ $articles = Article::getAll($connection, 10);
         <!-- timeline articles | start here -->
         <div>
             <?php foreach ($articles as $article) : ?>
-                <article class="card mb-3">
-                    <div class="my-4 mx-4 d-flex g-2">
-                        <?php if ($article['article_image'] !== null) : ?>
-                            <div class="timeline__creator--image">
-                                <img src="images/<?= $article['article_image']; ?>" alt="image" />
-                            </div>
-                        <?php else : ?>
-                            <div class="timeline__image rounded-circle">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-                        <?php endif; ?>
+                <article class="card mb-3 d-flex">
+                    <div class="my-4 mx-4 d-flex g-2 justify-content-between">
+                        <div class="d-flex justify-content-between">
+                            <?php if ($article['article_image'] !== null) : ?>
+                                <div class="timeline__creator--image">
+                                    <img src="images/<?= $article['article_image']; ?>" alt="image" />
+                                </div>
+                            <?php else : ?>
+                                <div class="timeline__image rounded-circle">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                            <?php endif; ?>
 
-                        <div class="timeline__creator">
-
-                            <div class="timeline__creator--name">
-                                <h1 class="featured__articles--title"><?= $article['article_title']; ?></h1>
+                            <div class="timeline__creator ml-4">
+                                <?php if ($article['name'] !== null) : ?>
+                                    <div class="timeline__creator--name">
+                                        <h3>
+                                            <a href="#" class="text-decoration-none"><?= $article['name']; ?></a>
+                                        </h3>
+                                    </div>
+                                <?php else : ?>
+                                    <div class="timeline__creator--name">
+                                        <h3><a href="#">Anonymous</a></h3>
+                                    </div>
+                                <?php endif; ?>
+                                <time datetime="<?= $article['published_at'] ?>">
+                                    <?php
+                                    $datetime = new DateTime($article['published_at']);
+                                    echo $datetime->format("j F, Y");
+                                    ?>
+                                </time>
                             </div>
-
-                            <time datetime="<?= $article['published_at'] ?>">
-                                <?php
-                                $datetime = new DateTime($article['published_at']);
-                                echo $datetime->format("j F, Y");
-                                ?>
-                            </time>
                         </div>
 
+                        <div>
+
+                            <button class="btn btn-primary mb-2 w-100 px-4 py-2"><i class="fa-solid fa-plus"></i> Follow</button>
+                            <!-- <button class="btn btn-light mb-2 w-100 px-4 py-2 text-primary border-primary"><i class="fa fa-check" aria-hidden="true"></i> Following</button> -->
+                        </div>
                     </div>
 
-                    <div class="mx-4">
-                        <p class="timeline__text--content"><?= substr($article['article_content'], 0, 150); ?>... <a href="">more</a></p>
+
+                    <div class=" mx-4">
+                        <div class="timeline__creator--name">
+                            <h1 class="h1"><?= $article['article_title']; ?></h1>
+                        </div>
+
+                        <div>
+                            <p class="cut-text"><?= $article['article_content']; ?> </p>
+                            <input class="expand-btn" type="checkbox">
+                        </div>
+
+                        check out the <a href="article.php?id=<?= $article['id']; ?>">full article</a>
                     </div>
 
                     <div class="timeline__content">
@@ -71,13 +97,20 @@ $articles = Article::getAll($connection, 10);
                         <div class="timeline__cta">
 
                             <div>
-                                <a href="#"><em class="fa-regular fa-thumbs-up"></em></a>
-                                <span>Like</span>
-                            </div>
+                                <p>
+                                    <?php
+                                    $likes = $art->getArticleLikes($connection, $article['id']);
 
-                            <div>
-                                <a href="#comment"><em class="fa-regular fa-comments"></em></a>
-                                <span>Comment</span>
+                                    if (!empty($likes)) : ?>
+
+                                        <a href="like.php?type=article&id=<?= $article['id']; ?>"><em class="fa fa-thumbs-up" aria-hidden="true"></em></em></a>
+                                        <?= $likes['likes'] > 1 ? $likes['likes'] . " people Liked this" : $likes['likes'] . " person Liked this" ?>
+
+                                    <?php else : ?>
+                                        <a href="like.php?type=article&id=<?= $article['id']; ?>"><em class="fa-regular fa-thumbs-up"></em></a>
+                                        0 Likes
+                                    <?php endif; ?>
+                                    </p>
                             </div>
 
                             <div>
@@ -86,13 +119,13 @@ $articles = Article::getAll($connection, 10);
                             </div>
                         </div>
 
-                        <form action="article.php" method="post" class="d-flex g-2" id="comment">
+                        <form action="article.php" method="post" class="d-flex g-2 p-2 bg-light" id="comment">
                             <div class="timeline__creator--image">
                                 <img src="images/user.jpeg" alt="" srcset="">
                             </div>
 
                             <div class="d-flex g-2 flex-column w-100">
-                                <textarea name="post" id="" placeholder="Add a comment" style="resize: none;"></textarea>
+                                <textarea name="post" id="" placeholder="Add a comment" style="resize: none;" class="form-input"></textarea>
                                 <!-- <button class="btn btn-primary mb-2 px-4 py-1">Comment</button> -->
                             </div>
                         </form>

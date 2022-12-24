@@ -79,8 +79,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php require_once "./includes/navigation.php"; ?>
 
-<main class="container">
-    <div class="container">
+<main class="container mt-5">
+    <div>
 
         <?php if ($sent) : ?>
             <p>Message is sent</p>
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </ul>
             <?php endif; ?>
 
-            <form method="post">
+            <form method="post" class="mt-5">
                 <h1 class="h1">Contact US</h1>
 
                 <div class="form-row">

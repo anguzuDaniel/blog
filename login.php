@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             Auth::login();
 
             $_SESSION['login_user'] = $username;
+            $_SESSION['user_id'] = $user['id'];
 
             Url::redirect('/blog/index.php');
         } else {

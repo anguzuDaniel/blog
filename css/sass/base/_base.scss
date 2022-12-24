@@ -39,7 +39,7 @@ ul a {
 }
 
 h1 {
-	font-family: "Fraunces", serif;
+	// font-family: "Fraunces", serif;
 	color: var(--gray-7);
 }
 
@@ -72,4 +72,49 @@ p {
 .more__articles {
 	text-align: center;
 	color: var(--btn-blue);
+}
+
+.cut-text {
+	--max-lines: 3;
+	--line-height: 1.4;
+	--max-height: calc(var(--max-lines) * 1em * var(--line-height));
+
+	max-height: var(--max-height);
+	line-height: var(--line-height);
+	text-overflow: ellipsis;
+
+	overflow: hidden;
+	position: relative;
+}
+
+.cut-text:has(+ .expand-btn:not(:checked))::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	pointer-events: none;
+	height: calc(1em * var(--line-height));
+	background: linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0),
+		rgba(255, 255, 255, 1) 50%
+	);
+}
+
+.expand-btn {
+	appearance: none;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.expand-btn::before {
+	content: "read more";
+}
+
+.expand-btn:checked::before {
+	content: "read less";
+}
+
+.cut-text:has(+ .expand-btn:checked) {
+	max-height: none;
 }

@@ -1,9 +1,9 @@
 /* footer style | starts here */
 .footer {
 	background-color: var(--clr-secondary);
-	padding-inline: var(--body-margin-inline);
-	padding-block: 5rem;
-	margin-top: calc(var(--margin-top) * 2);
+	// padding-inline: var(--body-margin-inline);
+	// padding-block: 5rem;
+	// margin-top: calc(var(--margin-top) * 2);
 	border-top: 1px solid var(--border-clr);
 
 	h1 {
@@ -16,7 +16,7 @@
 		justify-content: space-between;
 		align-items: center;
 		border-bottom: 1px solid var(--border-clr);
-		padding-block: 6rem;
+		// padding-block: 6rem;
 	}
 
 	&__navigation {

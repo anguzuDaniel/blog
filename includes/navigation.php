@@ -1,10 +1,11 @@
-<?php require_once "classes/auth.php"; ?>
-
+<?php require_once "includes/header.php"; ?>
 <?php
-$loggedInUser = $_SESSION['login_user'];
+if (Auth::isLoggedIn()) {
+    $loggedInUser = $_SESSION['login_user'];
+}
 ?>
 
-<header class="header px-5 py-3 bg-light">
+<header class="header px-5 py-3 bg-light border">
     <div class="header__primary">
         <h1 class="header--logo"><?php echo APP_NAME; ?>!</h1>
 
@@ -25,22 +26,12 @@ $loggedInUser = $_SESSION['login_user'];
 
             </div>
         <?php else : ?>
-            <div class="header__cta">
-                <div>
-                    <em class="fa-brands fa-twitter"></em>
-                </div>
-                <div>
-                    <em class="fa-brands fa-facebook"></em>
-                </div>
-                <div>
-                    <em class="fa-brands fa-instagram"></em>
-                </div>
-                <div>
-                    <em class="fa-brands fa-github"></em>
-                </div>
-            </div>
 
-            <a href="login.php" class="btn--login">Log In</a>
+            <div class="d-flex gap-3">
+                <a href="login.php" class="btn btn-light px-4 py-2 text-primary border-primary">Log In</a>
+
+                <a href="signup.php" class="btn btn-primary px-4 py-2">Signup</a>
+            </div>
         <?php endif; ?>
 
     </div>

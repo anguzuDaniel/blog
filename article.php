@@ -4,10 +4,15 @@ require_once "includes/header.php";
 $connection = require_once "includes/db.php";
 
 if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
     $article = Article::getWithCategories($connection, $_GET['id']);
 } else {
     $article = null;
 }
+
+$art = new Article();
+$user = new User();
 
 ?>
 
@@ -44,30 +49,18 @@ if (isset($_GET['id'])) {
                     <img src="images/<?= $article[0]['article_image']; ?>" alt="article image" />
                 </div>
                 <div class="article__cta">
-                    <div>
-                        <a href="#comment"><em class="fa-regular fa-comments"></em></a>
-                        <span>Comment</span>
-                    </div>
+                    <?php
+                    $likes = $art->getArticleLikes($connection, $id);
 
+                    if (!empty($likes)) : ?>
 
-                    <!-- <em class="fa-solid fa-heart"></em> -->
-                    <div>
-                        <a href="#"><em class="fa-regular fa-thumbs-up"></em></a>
-                        <span>Like</span>
-                    </div>
+                        <a href="like.php?type=article&id=<?= $id; ?>"><em class="fa fa-thumbs-up" aria-hidden="true"></em></em></a>
+                        <?= $likes['likes'] > 1 ? $likes['likes'] . " people Liked this" : $likes['likes'] . " person Liked this" ?>
 
-
-                    <!-- <em class="fa-solid fa-comments"></em>
-                    <div>
-                        <a href="#"><em class="fa-regular fa-heart"></em></a>
-                        <span>like</span>
-                    </div> -->
-
-                    <div>
-                        <a href="#"><em class="fa-regular fa-share-from-square"></em></a>
-                        <span>Share</span>
-                    </div>
-
+                    <?php else : ?>
+                        <a href="like.php?type=article&id=<?= $id; ?>"><em class="fa-regular fa-thumbs-up"></em></a>
+                        0 Likes
+                    <?php endif; ?>
                     <div>
                         <a href="#"><em class="fa-solid fa-paperclip"></em></a>
                         <span>Pin</span>
@@ -80,19 +73,16 @@ if (isset($_GET['id'])) {
                     <p class="article--paragraph" id="comment"><?= htmlspecialchars($article[0]['article_content']); ?></p>
                 </div>
 
-                <hr>
-
-                <div class="article__comments">
-                    <p class="article__comments--no">No comments yet..</p>
+                <div class="d-flex justify-content-between align-content-center">
+                    <p>0 comments</p>
+                    <p>Write a comment</p>
                 </div>
 
+                <hr>
+
+
                 <form class="article--comments" action="" method="post">
-                    <h3 class="fw-bold">Please leave a comment</h3>
-                    <!-- <div class="form__row">
-                    <label for="username" class="form__row--label">Username</label>
-                    <input type="text" name="username" id="">
-                </div> -->
-                    <div class="form__row">
+                    <div class="form__row d-flex">
                         <div class="form__row--image">
                             <img src="images/image-avatar.png" alt="" srcset="">
                         </div>

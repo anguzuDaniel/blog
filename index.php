@@ -8,7 +8,6 @@ $art = new Article();
 $user = new User();
 
 ?>
-<?php include_once "includes/header.php"; ?>
 
 <?php include_once "includes/navigation.php"; ?>
 
@@ -51,7 +50,7 @@ $user = new User();
                                 <?php if ($article['name'] !== null) : ?>
                                     <div class="timeline__creator--name">
                                         <h3>
-                                            <a href="#" class="text-decoration-none"><?= $article['name']; ?></a>
+                                            <a href="profile.php?id=<?= $article['created_by']; ?>" class="text-decoration-none"><?= $article['name']; ?></a>
                                         </h3>
                                     </div>
                                 <?php else : ?>
@@ -71,19 +70,30 @@ $user = new User();
                         </div>
 
                         <div>
-                            <?php if ($article['created_by'] !== $_SESSION['user_id']) : ?>
-                                <?php
-                                $follows = $user->getFollows($connection, $article['created_by']);
+                            <!-- user can only follow if they are login -->
+                            <?php if (Auth::isLoggedIn()) : ?>
 
-                                if ($follows['followed_user'] !== $article['created_by']) : ?>
-                                    <a href="follow.php?type=user&id=<?= $article['created_by']; ?>" class="btn btn-primary mb-2 w-100 px-4 py-2">
-                                        <i class="fa-solid fa-plus"></i> Follow
-                                    </a>
-                                <?php else : ?>
-                                    <a href="follow.php?type=unfollow&id=<?= $follows['follow_id']; ?>" class="btn btn-light mb-2 w-100 px-4 py-2 text-primary border-primary">
-                                        <i class="fa fa-check" aria-hidden="true"></i> Following
-                                    </a>
+                                <!-- gets the if of the article creator and the id of the current user in the session -->
+                                <?php if ($article['created_by'] !== $_SESSION['user_id']) : ?>
+                                    <?php
+                                    $follows = $user->getFollows($connection, $article['created_by']);
+
+
+                                    if ($follows['followed_user'] !== $article['created_by']) : ?>
+                                        <a href="follow.php?type=user&id=<?= $article['created_by']; ?>" class="btn btn-primary mb-2 w-100 px-4 py-2">
+                                            <i class="fa-solid fa-plus"></i> Follow
+                                        </a>
+                                    <?php else : ?>
+                                        <a href="follow.php?type=unfollow&id=<?= $follows['follow_id']; ?>" class="btn btn-light mb-2 w-100 px-4 py-2 text-primary border-primary">
+                                            <i class="fa fa-check" aria-hidden="true"></i> Following
+                                        </a>
+                                    <?php endif; ?>
                                 <?php endif; ?>
+
+                            <?php else : ?>
+                                <a href="login.php" class="btn btn-primary mb-2 w-100 px-4 py-2">
+                                    <i class="fa-solid fa-plus"></i> Follow
+                                </a>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -119,13 +129,28 @@ $user = new User();
 
                                     if (!empty($likes)) : ?>
 
-                                        <a href="like.php?type=article&id=<?= $article['id']; ?>"><em class="fa fa-thumbs-up" aria-hidden="true"></em></em></a>
-                                        <?= $likes['likes'] > 1 ? $likes['likes'] . " people Liked this" : $likes['likes'] . " person Liked this" ?>
+                                        <!-- lets a user like only if they are logged in -->
+                                        <?php if (Auth::isLoggedIn()) : ?>
+                                            <a href="like.php?type=article&action=unlike&likeId=<?= $likes['like_id']; ?>&id=<?= $article['id']; ?>"><em class="fa fa-thumbs-up" aria-hidden="true"></em></em></a>
+                                            <?= $likes['likes'] > 1 ? $likes['likes'] . " people Liked this" : $likes['likes'] . " person Liked this" ?>
+                                        <?php else : ?>
+                                            <a href="login.php"><em class="fa fa-thumbs-up" aria-hidden="true"></em></em></a>
+                                            <?= $likes['likes'] > 1 ? $likes['likes'] . " people Liked this" : $likes['likes'] . " person Liked this" ?>
+                                        <?php endif; ?>
 
                                     <?php else : ?>
-                                        <a href="like.php?type=article&id=<?= $article['id']; ?>"><em class="fa-regular fa-thumbs-up"></em></a>
-                                        0 Likes
+
+                                        <!-- lets a user like only if they are logged in -->
+                                        <?php if (Auth::isLoggedIn()) : ?>
+                                            <a href="like.php?type=article&action=like&likeId=<?= $likes['like_id'] = null ? $likes['like_id'] : ""; ?>&id=<?= $article['id']; ?>"><em class="fa-regular fa-thumbs-up"></em></a>
+                                            0 Likes
+                                        <?php else : ?>
+                                            <a href="login.php"><em class="fa-regular fa-thumbs-up"></em></a>
+                                            0 Likes
+                                        <?php endif; ?>
                                     <?php endif; ?>
+
+
                                 </p>
                             </div>
 

@@ -388,7 +388,7 @@ class Article
 
     public function getArticleLikes($conn, $articleId)
     {
-        $sql = "SELECT a.id, a.article_title, 
+        $sql = "SELECT a.id, a.article_title, al.id AS like_id, 
                 u.username AS liked_by
                 , COUNT(al.id) AS likes
                 
@@ -436,6 +436,27 @@ class Article
 
         $stmt = $conn->prepare($sql);
 
+        $stmt->bindValue(':article_id', $articleId, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
+    /**
+     * addLike
+     *
+     * @param  mixed $conn
+     * @param  mixed $articleId
+     * @param  mixed $userId
+     * @return void
+     */
+    public function unLike($conn, $id, $articleId)
+    {
+        $sql = "DELETE FROM article_likes 
+                WHERE id = :id AND article_id = :article_id";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->bindValue(':article_id', $articleId, PDO::PARAM_INT);
 
         return $stmt->execute();

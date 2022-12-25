@@ -83,6 +83,33 @@ class Article
     }
 
 
+    // get specified number of articles 
+    /**
+     * @param mixed $conn
+     * @param mixed $order
+     * @param mixed $num
+     * @param string $columns
+     * 
+     * @return [type]
+     */
+    public static function getUserArticles($conn, $id, $order)
+    {
+        $sql = "SELECT a.*, u.username AS name
+                FROM articles AS a
+                LEFT JOIN user AS u ON a.created_by = :id
+                INNER JOIN following AS f ON a.created_by = f.user_followed $order";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
     /**
      * @param mixed $conn
      * @param mixed $id

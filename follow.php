@@ -19,13 +19,15 @@ if (isset($_GET['type'], $_GET['id'])) {
 
 
             // var_dump($user->getFollows($connection, $loggedInUser));
-            Url::redirect('/blog/index.php');
+            // Url::redirect('/blog/index.php');
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
             break;
         case 'unfollow':
             $user->unFollow($connection, $userId);
 
             // var_dump($user->getFollows($connection, $loggedInUser));
-            Url::redirect('/blog/index.php');
+            // Url::redirect('/blog/index.php');
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
             break;
         default:
             echo "didn't work";

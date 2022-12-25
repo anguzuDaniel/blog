@@ -2,39 +2,46 @@
 <?php
 if (Auth::isLoggedIn()) {
     $loggedInUser = $_SESSION['login_user'];
+    $loggedInUserId = $_SESSION['user_id'];
+    $userLogin = User::getUserProfile($connection, $loggedInUserId);
 }
+
+
 ?>
 
-<header class="header px-5 py-3 bg-light border">
-    <div class="header__primary">
-        <h1 class="header--logo"><?php echo APP_NAME; ?>!</h1>
+<header class="header px-5 py-3 bg-light border d-flex justify-content-between w-100 align-items-center" style="z-index: 999999;">
+    <h1 class="header--logo  mr-auto"><?php echo APP_NAME; ?>!</h1>
 
-        <!-- <div class="search">
-            <input type="search" name="search__articles" id="" class="search search__articles" placeholder="search">
-            <button type="submit" name="search__button" class="search__button">
-                <em class="fa-solid fa-magnifying-glass"></em>
-            </button>
-        </div> -->
+    <?php if (Auth::isLoggedIn()) : ?>
+        <?php if (isset($_SESSION['login_user'])) : ?>
+            <div class="d-flex">
 
-        <?php if (Auth::isLoggedIn()) : ?>
-            <div class="header__cta">
-                <a href="logout.php" class="btn--logout">
-                    <?php if (isset($_SESSION['login_user'])) : ?>
-                        <p><?php echo $loggedInUser; ?></p>
-                    <?php endif; ?>
-                </a>
 
-            </div>
-        <?php else : ?>
+                <?php if (!empty($userLogin)) : ?>
+                    <a href="logout.php" class="px-4 py-2 text-primary text-decoration-none">Logout</a>
 
-            <div class="d-flex gap-3">
-                <a href="login.php" class="btn btn-light px-4 py-2 text-primary border-primary">Log In</a>
+                    <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
+                        <img src="./uploads/profile_imgs/<?php echo $userLogin['profile_picture'] ?>" alt="" class=" w-100 border-4" style="object-fit: cover;">
+                    </div>
+                <?php else : ?>
+                    <a href="logout.php" class="px-4 py-2 text-primary text-decoration-none">Logout</a>
 
-                <a href="signup.php" class="btn btn-primary px-4 py-2">Signup</a>
+                    <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
+                        <img src="./uploads/profile_imgs/user.png" alt="" class=" w-100 border-4" style="object-fit: cover;">
+                    </div>
+                <?php endif; ?>
+
             </div>
         <?php endif; ?>
+    <?php else : ?>
 
-    </div>
+        <div class="d-flex gap-3">
+            <a href="login.php" class="btn btn-light px-4 py-2 text-primary border-primary">Log In</a>
+
+            <a href="signup.php" class="btn btn-primary px-4 py-2">Signup</a>
+        </div>
+    <?php endif; ?>
+
 
     <!-- <div class="header__secondary">
         <nav> -->

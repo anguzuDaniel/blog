@@ -33,20 +33,26 @@ $user = new User();
             <?php foreach ($articles as $article) : ?>
                 <article class="card mb-3 d-flex">
                     <div class="my-4 mx-4 d-flex g-2 justify-content-between">
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between gap-4">
+                            <?php
+                            $profile = User::getUserProfile($connection, $article['created_by']);
+
+                            // var_dump($profile);
+
+                            ?>
                             <!-- checks of the image is null | else shows image -->
-                            <?php if ($article['article_image'] !== null) : ?>
-                                <div class="timeline__creator--image">
-                                    <img src="images/<?= $article['article_image']; ?>" alt="image" />
+                            <?php if (!empty($profile)) : ?>
+                                <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
+                                    <img src="./uploads/profile_imgs/<?= $profile['profile_picture']; ?>" alt="image" class=" w-100 border-4" style="object-fit: cover;" />
                                 </div>
                             <?php else : ?>
-                                <div class="timeline__image rounded-circle">
-                                    <i class="fa-solid fa-user"></i>
+                                <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
+                                    <img src="./uploads/profile_imgs/user.png" alt="image" class=" w-100 border-4" style="object-fit: cover;" />
                                 </div>
                             <?php endif; ?>
 
                             <!-- checks of the image is null | else shows image -->
-                            <div class="timeline__creator ml-4">
+                            <div class="">
                                 <?php if ($article['name'] !== null) : ?>
                                     <div class="timeline__creator--name">
                                         <h3>

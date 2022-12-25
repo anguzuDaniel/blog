@@ -70,20 +70,49 @@ class User
         return $stmt->fetch();
     }
 
+    public static function getAllUsers($conn, $order = "")
+    {
+        $sql = "SELECT * FROM user $order";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    public static function getUserProfile($conn, $id)
+    {
+        $sql = "SELECT * FROM user_profile WHERE user_id = :id ";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
+
     /**
      * @param mixed $conn
      * @param string $columns
      * 
      * @return [type]
      */
-    public function getUserInfo($conn, $columns = '*')
+    public function getUserInfo($conn, $id, $columns = '*')
     {
 
         $sql = "SELECT $columns FROM user WHERE id = :id ";
 
         $stmt = $conn->prepare($sql);
 
-        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
 
@@ -188,7 +217,7 @@ class User
 
     public function getFollows($conn, $userFollowed)
     {
-        $sql = "SELECT u.id, u.username AS follower
+        $sql = "SELECT u.id, u.username AS follower, f.user_id 
                 , f.user_followed AS followed_user, 
                 f.id AS follow_id
                 FROM user AS u 
@@ -205,6 +234,23 @@ class User
         $stmt->execute();
 
         return $stmt->fetch();
+    }
+
+    public function getUserFollowCount($conn, $userId)
+    {
+        $sql = "SELECT * FROM `following` WHERE id = :id";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->bindValue(':id', $userId, PDO::PARAM_INT);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 
     /**

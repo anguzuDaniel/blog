@@ -12,6 +12,19 @@ if (Auth::isLoggedIn()) {
 <header class="header px-5 py-3 bg-light border d-flex justify-content-between w-100 align-items-center" style="z-index: 999999;">
     <h1 class="header--logo  mr-auto"><?php echo APP_NAME; ?>!</h1>
 
+
+    <ul class="mb-lg-0 d-flex gap-4">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php">Pages</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php">Shop</a>
+        </li>
+    </ul>
+
     <?php if (Auth::isLoggedIn()) : ?>
         <?php if (isset($_SESSION['login_user'])) : ?>
             <div class="d-flex">
@@ -46,7 +59,7 @@ if (Auth::isLoggedIn()) {
     <!-- <div class="header__secondary">
         <nav> -->
     <!--   <ul class="nav__list">
-                <li class="nav__list--item">
+                <li>
                     <select name="tech" id="tech">
                         <option value="">
                             <a href="#">Technology</a>
@@ -60,7 +73,7 @@ if (Auth::isLoggedIn()) {
                     </select>
                 </li>
 
-                <li class="nav__list--item">
+                <li>
                     <select name="lifestyle" id="lifestyle">
                         <option value="">
                             <a href="#">LifeStyle</a>
@@ -74,7 +87,7 @@ if (Auth::isLoggedIn()) {
                     </select>
                 </li>
 
-                <li class="nav__list--item">
+                <li>
                     <select name="" id="">
                         <option value="">
                             <a href="#">Music</a>
@@ -89,13 +102,6 @@ if (Auth::isLoggedIn()) {
                 </li>
             </ul> -->
 
-    <!-- <ul class="nav__list">
-                <li class="nav__list--item"><a href="index.php">Home</a></li>
-                <li class="nav__list--item"><a href="#">Pages</a></li>
-                <li class="nav__list--item"><a href="#">Blog</a></li>
-                <li class="nav__list--item"><a href="#">Shop</a></li>
-                <li class="nav__list--item"><a href="timeline.php">Timeline</a></li>
-            </ul>
-        </nav> -->
+
     </div>
 </header>

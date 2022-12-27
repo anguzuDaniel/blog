@@ -92,7 +92,7 @@ class Article
      * 
      * @return [type]
      */
-    public static function getUserArticles($conn, $id, $order)
+    public static function getUserArticles($conn, $id, $order = "")
     {
         $sql = "SELECT a.*, u.username AS name
                 FROM articles AS a
@@ -415,9 +415,7 @@ class Article
 
     public function getArticleLikes($conn, $articleId)
     {
-        $sql = "SELECT a.id, a.article_title, al.id AS like_id, 
-                u.username AS liked_by
-                , COUNT(al.id) AS likes
+        $sql = "SELECT a.id, a.article_title, al.id AS like_id, al.user_id, u.username AS liked_by, COUNT(al.id) AS likes
                 
                 FROM articles AS a 
                 LEFT JOIN article_likes AS al  

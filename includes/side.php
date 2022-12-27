@@ -14,33 +14,44 @@ $counter = 1;
 ?>
 
 <!-- side section | shows the ctegory list -->
-<div class="mt-5">
-    <aside class="side p-4 shadow-sm">
-        <div class="side__list side__list--1">
+<section>
+    <!-- side navigtion start-->
+    <?php include_once "./includes/profile-side.php"; ?>
+    <!-- side navigtion end -->
+
+    <div class="shadow-sm bg-white">
+        <div class="p-4">
             <?php if (empty($articles)) : ?>
                 <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
             <?php else : ?>
                 <?php foreach ($articles as $article) : ?>
-                    <div class="side__list--content">
+                    <?php if ($article['article_image'] !== null && $article['article_image'] !== '') : ?>
+                        <div class="py-3 d-flex gap-3 border-bottom">
+                            <div style="width: 30%;">
+                                <div>
+                                    <img src="./uploads/profile_imgs/<?= $article['article_image']; ?>" alt="image" class="w-100" />
+                                </div>
+                            </div>
 
-                        <div class="side__list--text">
-                            <h5 class="side__list--heading"><?= substr($article['article_title'], 0, 100); ?></h5>
-                            <p class="side__list--paragraph"><?= substr($article['article_content'], 0, 100); ?>...</p>
+                            <div class="w-100">
+                                <a href="article.php?id=<?= $article['id']; ?>">
+                                    <h5 class="side__list--heading"><?= substr($article['article_title'], 0, 100); ?></h5>
+                                </a>
 
-                            <div>
                                 <p>
-                                    <?php
-                                    $datetime = new DateTime($article['published_at']);
-                                    echo $datetime->format("j F, Y");
-                                    ?>
+                                    <time datetime="<?= $article['published_at'] ?>">
+                                        <?php
+                                        $datetime = new DateTime($article['published_at']);
+                                        echo $datetime->format("j F, Y");
+                                        ?>
+                                    </time>
                                 </p>
                             </div>
                         </div>
-
-                    </div>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
-    </aside>
-</div>
+    </div>
+</section>
 <!-- side section | end-->

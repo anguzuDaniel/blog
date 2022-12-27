@@ -15,11 +15,63 @@
     <link rel="stylesheet" href="../../css/fontawesome-free-6.2.0-desktop/svg/">
     <script defer src="./css/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/js/all.min.js"></script>
     <link rel="stylesheet" href="./css/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css">
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/sass/vendors/open-props/open-props.min.css">
     <link rel="stylesheet" href="./css/sass/vendors/bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js" defer></script>
 </head>
+<!-- have to tranfer this to the corresponding css file -->
+<style>
+    .user-image {
+        object-fit: cover;
+        aspect-ratio: 10/ 10;
+    }
+
+    .comment-img-wrapper {
+        display: flex;
+        position: relative;
+        width: 35px;
+    }
+
+    .comment-input {
+        border: none;
+    }
+
+    .like-btn {
+        font-size: 1.35rem;
+        transition: all .2s ease-in-out;
+    }
+
+    .like-btn:hover {
+        transform: scale(1.2);
+    }
+
+    .comment-img-wrapper>img {
+        width: 100%;
+    }
+
+    .comment-img-wrapper>img:nth-child(2) {
+        position: absolute;
+        left: 200px;
+        width: 100%;
+        height: 100%;
+        border: 5px solid white;
+    }
+
+    .comment-img-wrapper>div:nth-child(2) {
+        border-radius: 50%;
+        position: absolute;
+        left: 10px;
+        width: 100%;
+        height: 100%;
+        border: 2px solid white;
+    }
+
+    .comment-img {
+        border-radius: 50%;
+    }
+</style>
 
 <body>
     <?php require_once "includes/init.php";

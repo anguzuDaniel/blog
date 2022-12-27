@@ -23,7 +23,6 @@ html {
 body {
 	// font-size: 1.8rem;
 	// font-size: var(--font-size-fluid-1);
-	background-color: var(--clr-body-bg);
 	line-height: 1.3;
 	background-color: var(--clr-body-bg);
 }
@@ -118,3 +117,4 @@ p {
 .cut-text:has(+ .expand-btn:checked) {
 	max-height: none;
 }
+

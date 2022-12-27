@@ -3,12 +3,15 @@
 if (Auth::isLoggedIn()) {
     $loggedInUser = $_SESSION['login_user'];
     $loggedInUserId = $_SESSION['user_id'];
-    $userLogin = User::getUserProfile($connection, $loggedInUserId);
+    $userLogin = User::getUserProfile($connection, $_SESSION['user_id']);
 }
 
 
 ?>
 
+
+
+<!-- main naviagation bar | start -->
 <header class="header px-5 py-3 bg-light border d-flex justify-content-between w-100 align-items-center" style="z-index: 999999;">
     <h1 class="header--logo  mr-auto"><?php echo APP_NAME; ?>!</h1>
 
@@ -27,81 +30,52 @@ if (Auth::isLoggedIn()) {
 
     <?php if (Auth::isLoggedIn()) : ?>
         <?php if (isset($_SESSION['login_user'])) : ?>
-            <div class="d-flex">
+            <div class="d-flex align-items-center position-relative" style="cursor: pointer;">
 
 
                 <?php if (!empty($userLogin)) : ?>
-                    <a href="logout.php" class="px-4 py-2 text-primary text-decoration-none">Logout</a>
+                    <div id="user-options" class="d-flex align-items-center gap-1">
+                        <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
+                            <img src="./uploads/profile_imgs/<?php echo $userLogin['profile_picture']; ?>" alt="" class=" w-100 border-4 | user-image">
+                        </div>
 
-                    <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
-                        <img src="./uploads/profile_imgs/<?php echo $userLogin['profile_picture'] ?>" alt="" class=" w-100 border-4" style="object-fit: cover;">
+                        <div class="text-primary">
+                            <i class="fa fa-angle-down"></i>
+                        </div>
                     </div>
                 <?php else : ?>
-                    <a href="logout.php" class="px-4 py-2 text-primary text-decoration-none">Logout</a>
+                    <div id="user-options" class="d-flex justify-content-center">
+                        <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
+                            <img src="./uploads/profile_imgs/user.png" alt="" class=" w-100 border-4 | user-image">
+                        </div>
 
-                    <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
-                        <img src="./uploads/profile_imgs/user.png" alt="" class=" w-100 border-4" style="object-fit: cover;">
+                        <div class="text-primary">
+                            <i class="fa fa-angle-down"></i>
+                        </div>
                     </div>
                 <?php endif; ?>
 
+                <div class="bg-white position-absolute shadow-sm user-option-list" style="top: 55px; right: 5px; width: 200px; display: none;">
+                    <div class="border-bottom py-2 px-4"><a href="/admin/index.php" class="text-decoration-none">Admin</a></div>
+
+                    <div class="border-bottom py-2 px-4">
+                        <div class="py-2"><a href="update-profile.php?id=<?php $_SESSION['user_id']; ?>" class="text-decoration-none">Update profile</a></div>
+                        <div class="py-2"><a href="profile.php?id=<?php $_SESSION['user_id']; ?>" class="text-decoration-none">Edit profile</a></div>
+                    </div>
+
+                    <div class="border-bottom py-2 px-4"><a href="logout.php" class="text-decoration-none">Log Out</a></div>
+                </div>
+
             </div>
+
         <?php endif; ?>
     <?php else : ?>
-
         <div class="d-flex gap-3">
             <a href="login.php" class="btn btn-light px-4 py-2 text-primary border-primary">Log In</a>
 
             <a href="signup.php" class="btn btn-primary px-4 py-2">Signup</a>
         </div>
     <?php endif; ?>
-
-
-    <!-- <div class="header__secondary">
-        <nav> -->
-    <!--   <ul class="nav__list">
-                <li>
-                    <select name="tech" id="tech">
-                        <option value="">
-                            <a href="#">Technology</a>
-                        </option>
-                        <option value="">
-                            <a href="#">Music</a>
-                        </option>
-                        <option value="">
-                            <a href="#">Music</a>
-                        </option>
-                    </select>
-                </li>
-
-                <li>
-                    <select name="lifestyle" id="lifestyle">
-                        <option value="">
-                            <a href="#">LifeStyle</a>
-                        </option>
-                        <option value="">
-                            <a href="#">Music</a>
-                        </option>
-                        <option value="">
-                            <a href="#">Music</a>
-                        </option>
-                    </select>
-                </li>
-
-                <li>
-                    <select name="" id="">
-                        <option value="">
-                            <a href="#">Music</a>
-                        </option>
-                        <option value="">
-                            <a href="#">Music</a>
-                        </option>
-                        <option value="">
-                            <a href="#">Music</a>
-                        </option>
-                    </select>
-                </li>
-            </ul> -->
-
 
     </div>
 </header>

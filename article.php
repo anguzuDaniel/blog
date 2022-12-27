@@ -28,8 +28,6 @@ $user = new User();
             <article>
                 <h1 class="fw-bold"><?= htmlspecialchars($article[0]['article_title']); ?></h1>
 
-                    ?>
-                </time>
                 <p class="mt-4">
                     <time datetime="<?= $article[0]['published_at'] ?>">
                         <?php

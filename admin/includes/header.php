@@ -21,6 +21,15 @@
     <link rel="stylesheet" href="../css/sass/vendors/bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/css/bootstrap.min.css">
     <script src="../css/sass/vendors/bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/js/bootstrap.min.js" defer></script>
 </head>
+<style>
+    .admin-nav {
+        position: fixed;
+        top: 13%;
+        width: 100%;
+        height: 40px;
+        z-index: 1;
+    }
+</style>
 
 <body>
     <?php require_once "../includes/init.php";

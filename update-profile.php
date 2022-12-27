@@ -142,24 +142,24 @@ $count = $user->getUserFollowCount($connection, $id);
             <h1 class="h1">Update profile</h1>
 
             <div class="row">
-                <div class="col">
+                <div class="col-lg">
                     <label for="profile-picture" class="col-form-label">Profile Picture</label>
                     <input type="file" name="profile-picture" id="" required value="" class="form-control">
                 </div>
 
-                <div class="col">
+                <div class="col-lg">
                     <label for="cover-image" class="col-form-label">Cover image</label>
                     <input type="file" name="cover-image" id="" required value="" class="form-control">
                 </div>
             </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col-lg">
                     <label for="email" class="col-form-label">Email</label>
                     <input type="email" name="email" id="" required value="" class="form-control">
                 </div>
 
-                <div class="col">
+                <div class="col-lg">
                     <label for="country" class="col-form-label">Country</label>
                     <input type="text" name="country" id="" required value="" class="form-control">
                 </div>

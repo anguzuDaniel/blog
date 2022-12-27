@@ -16,7 +16,7 @@ if (Auth::isLoggedIn()) {
     <h1 class="header--logo  mr-auto"><?php echo APP_NAME; ?>!</h1>
 
 
-    <ul class="mb-lg-0 d-flex gap-4">
+    <!-- <ul class="mb-lg-0 d-flex gap-4">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
@@ -26,7 +26,7 @@ if (Auth::isLoggedIn()) {
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php">Shop</a>
         </li>
-    </ul>
+    </ul> -->
 
     <?php if (Auth::isLoggedIn()) : ?>
         <?php if (isset($_SESSION['login_user'])) : ?>
@@ -55,15 +55,26 @@ if (Auth::isLoggedIn()) {
                     </div>
                 <?php endif; ?>
 
-                <div class="bg-white position-absolute shadow-sm user-option-list" style="top: 55px; right: 5px; width: 200px; display: none;">
-                    <div class="border-bottom py-2 px-4"><a href="/admin/index.php" class="text-decoration-none">Admin</a></div>
+                <div class="bg-white position-absolute shadow-sm user-option-list card" style="top: 55px; right: 5px; width: 200px; display: none;">
+                    <div class="border-bottom p-2 px-4"><a href="index.php" class="text-decoration-none">Homepage</a></div>
 
-                    <div class="border-bottom py-2 px-4">
-                        <div class="py-2"><a href="update-profile.php?id=<?php $_SESSION['user_id']; ?>" class="text-decoration-none">Update profile</a></div>
-                        <div class="py-2"><a href="profile.php?id=<?php $_SESSION['user_id']; ?>" class="text-decoration-none">Edit profile</a></div>
+                    <div class="border-bottom px-4">
+                        <div class="p-2"><a href="profile.php?id=<?= $_SESSION['user_id']; ?>" class="text-decoration-none">My profile</a></div>
+                        <div class="p-2"><a href="update-profile.php?id=<?= $_SESSION['user_id']; ?>" class="text-decoration-none">Update profile</a></div>
                     </div>
 
-                    <div class="border-bottom py-2 px-4"><a href="logout.php" class="text-decoration-none">Log Out</a></div>
+                    <div class="border-bottom px-4">
+                        <div class="p-2"><a href="index.php" class="text-decoration-none">Homepage</a></div>
+                        <div class="p-2"><a href="./admin/index.php" class="text-decoration-none">My Dashboard</a></div>
+                    </div>
+
+
+                    <div class="border-bottom px-4">
+                        <div class="p-2"><a href="./admin/create_article.php" class="text-decoration-none">Create article</a></div>
+                        <div class="p-2"><a href="./admin/all_articles.php" class="text-decoration-none">All articles</a></div>
+                    </div>
+
+                    <div class="border-bottom p-2 px-4"><a href="logout.php" class="text-decoration-none">Log Out</a></div>
                 </div>
 
             </div>

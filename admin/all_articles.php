@@ -13,22 +13,21 @@ $articles = Article::getPage($connection, $paginator->limit, $paginator->offset,
 
 ?>
 
-<?php include_once "includes/sidebar.php" ?>
-<main class="admin__wrapper">
+<main>
+    <?php require_once "./includes/navigation.php"; ?>
 
-    <div class="admin__container">
-        <?php require_once "./includes/navigation.php"; ?>
+    <section class="container my-5">
 
 
-        <section class="admin__content">
-            <div class="admin__content--intro">
+        <section>
+            <div>
 
-                <div class="admin__all--writters">
+                <div>
 
-                    <div class="admin__all--heading">
+                    <div>
                         <h1>All articles you published</h1>
 
-                        <div class="admin__search">
+                        <div >
                             <input type="search" name="admin__search--imput" id="" class="admin__search--input" placeholder="search by tags">
                             <button class="admin__search--btn">
                                 <em class="fa-solid fa-magnifying-glass"></em>
@@ -36,14 +35,11 @@ $articles = Article::getPage($connection, $paginator->limit, $paginator->offset,
                         </div>
                     </div>
 
-                    <div class="admin__actions">
-
-
-                        <div class="admin__sort--performed">
-                            <div class="admin__sort--filter">
-
+                    <div >
+                        <div >
+                            <div >
                                 <p>Active filters/tags:</p>
-                                <p class="admin__sort--tag"><span> none <a href="#">
+                                <p ><span> none <a href="#">
                                             <em class="fa-solid fa-circle-xmark"></em></span></a>
                                 </p>
                                 <!-- <a href="#" class="admin__sort--clear">clear all</a> -->
@@ -51,7 +47,7 @@ $articles = Article::getPage($connection, $paginator->limit, $paginator->offset,
                         </div>
                     </div>
 
-                    <table>
+                    <table class="table">
                         <thead>
                             <tr>
                                 <td>
@@ -112,7 +108,7 @@ $articles = Article::getPage($connection, $paginator->limit, $paginator->offset,
                         </tbody>
                     </table>
 
-                    <div>
+                    <div class="table-footer">
 
                         <?php require_once "../includes/pagination.php"; ?>
 
@@ -144,29 +140,29 @@ $articles = Article::getPage($connection, $paginator->limit, $paginator->offset,
 
 
         </section>
-    </div>
-    </div>
 
-    <div class="modal modal--show" id="modal-delete">
 
-        <form action="delete_article.php" method="post" class="modal__form">
-            <div class="modal__form--close">
-                <button>
-                    <em class="fa-solid fa-xmark"></em>
-                </button>
-            </div>
+        <div class="modal modal--show" id="modal-delete">
 
-            <h3>Are you sure you want to delete this article?</h3>
+            <form action="delete_article.php" method="post" class="modal__form">
+                <div class="modal__form--close">
+                    <button>
+                        <em class="fa-solid fa-xmark"></em>
+                    </button>
+                </div>
 
-            <div class="modal__form--row">
+                <h3>Are you sure you want to delete this article?</h3>
 
-                <button class="delete__icon modal__form--btn">
-                    Delete
-                </button>
+                <div class="modal__form--row">
 
-                <a href="all_articles.php" class="modal__form--btn">Cancel</a>
-            </div>
-        </form>
-    </div>
+                    <button class="delete__icon modal__form--btn">
+                        Delete
+                    </button>
+
+                    <a href="all_articles.php" class="modal__form--btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </section>
 </main>
 <?php require_once "./includes/footer.php"; ?>

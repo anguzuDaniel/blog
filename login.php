@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<main class="login__page">
-    <div class="login__page--container">
+<main class="container m-auto">
+    <div class="row w-lg-50">
         <h1>Login</h1>
 
         <!-- prints out error meassgae for wrong cridentials -->
@@ -38,20 +38,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="alert alert-danger" role="alert"><?= $error; ?>.</div>
         <?php endif; ?>
 
-        <form method="post" class="login__form">
+        <form method="post">
             <div class="form-row">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control px-4 py-3" required>
+                <label for="email" class="col-form-label">Email</label>
+                <input type="email" name="email" id="email" class="form-control" required>
             </div>
 
             <div class="form-row">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control px-4 py-3" required>
+                <label for="password" class="col-form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control" required>
             </div>
 
             <a href="./recoverAccount.php">Forgot password?</a>
 
-            <button class="btn btn-primary mb-2 w-100 px-4 py-3">Login</button>
+            <button class="btn btn-primary mb-2 w-100">Login</button>
         </form>
 
         <p>Create an account <a href="./signup.php">Signup</a> </p>

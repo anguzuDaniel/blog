@@ -490,6 +490,7 @@ class Article
     public static function getArticleComments($conn, $articleId)
     {
         $sql = "SELECT c.id AS com_id, c.user_id, 
+                c.comment_at,
                 c.article_id, c.comment, 
                 c.id AS comment_id, 
                 u.id, 
@@ -514,7 +515,7 @@ class Article
         return $stmt->fetchAll();
     }
 
-    public static function getArticleCommentReply($conn, $articleId, $commentId)
+    public static function getArticleCommentReply($conn, $articleId, $commentId, $userId)
     {
         $sql = "SELECT 
                 r.id, 
@@ -522,26 +523,28 @@ class Article
                 r.article_id AS article_replied, 
                 r.comment_id, 
                 r.reply,
+                concat(c.id) AS comments,
                 c.id AS comment_replied,
                 u.id, 
                 u.username
                 FROM comment_reply AS r
-
-                LEFT JOIN comment AS c
-                ON r.comment_id = :cid
-
-                LEFT JOIN user AS u  
-                ON r.user_id = u.id 
                 
                 LEFT JOIN articles AS a  
                 ON r.article_id = :aid
 
-                WHERE c.id = :cid";
+                INNER JOIN comment AS c
+                ON r.comment_id = :cid
+
+                LEFT JOIN user AS u  
+                ON r.user_id = :uid
+
+                GROUP BY r.id";
 
         $stmt = $conn->prepare($sql);
 
         $stmt->bindValue(':aid', $articleId, PDO::PARAM_INT);
         $stmt->bindValue(':cid', $commentId, PDO::PARAM_INT);
+        $stmt->bindValue(':uid', $userId, PDO::PARAM_INT);
 
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
 

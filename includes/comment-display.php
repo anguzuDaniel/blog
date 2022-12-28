@@ -1,5 +1,4 @@
-
-
+<?php include_once "includes/header.php"; ?>
 <?php if (!empty($comments)) : ?>
     <div class="d-flex flex-column p-3 border-bottom">
         <div>
@@ -24,13 +23,22 @@
                         <?php endif; ?>
 
                         <div class="w-100">
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex">
                                 <div>
                                     <h5><a href="profile.php?id=<?= $comment['user_id']; ?>" class="text-decoration-none"><?= $comment['username']; ?></a></h5>
                                     <p><?= $comment['comment'] ?>.</p>
                                 </div>
 
-                                <div class="edit-dots">
+                                <time datetime="<?= $comment['comment_at']; ?>">
+                                    <?php
+                                    // $datetime = new DateTime($comment['comment_at']);
+
+
+                                    echo DateFormat::timeElapsedString($comment['comment_at'], true);
+                                    ?>
+                                </time>
+
+                                <div class="edit-dots ms-auto">
                                     <span></span>
                                     <span></span>
                                     <span></span>
@@ -45,7 +53,7 @@
                         </div>
         </div>
 
-        <?php $replies = Article::getArticleCommentReply($connection, intval($comment['article_id']), intval($comment['com_id']));
+        <?php $replies = Article::getArticleCommentReply($connection, intval($comment['article_id']), intval($comment['com_id']), intval($comment['user_id']));
                     // var_dump($replies);
         ?>
 

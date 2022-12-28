@@ -68,7 +68,7 @@ $user = new User();
                 <!-- like functionality -->
 
                 <div class="d-flex justify-content-between align-content-center">
-                    <p>0 comments</p>
+                    <p><?= !empty($comments) ? count($comments) . " comments" : "0 comments"; ?></p>
                     <p>Write a comment</p>
                 </div>
 

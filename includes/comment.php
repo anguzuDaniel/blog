@@ -5,7 +5,7 @@
                                 <?php if (Auth::isLoggedIn() && isset($_SESSION['user_id'])) : ?>
                                     <div class="d-flex">
                                         <?php if (!empty($userLogin)) : ?>
-                                            <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
+                                            <div class="overflow-hidden top-20 ml-2 border-muted " style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
                                                 <img src="./uploads/profile_imgs/<?php echo $userLogin['profile_picture']; ?>" alt="" class=" w-100 border-4 | user-image">
                                             </div>
                                         <?php else : ?>
@@ -15,7 +15,7 @@
                                         <?php endif; ?>
                                     </div>
                                 <?php else : ?>
-                                    <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
+                                    <div class="overflow-hidden top-20 ml-2 border-muted">
                                         <img src="./uploads/profile_imgs/user.png" alt="" class=" w-100 border-4 | user-image">
                                     </div>
                                 <?php endif; ?>

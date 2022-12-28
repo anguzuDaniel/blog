@@ -6,8 +6,8 @@ $user = new User();
 ?>
 
 <!-- side section | shows the ctegory list -->
-<div class="mb-4 col-4">
-    <aside class=" ">
+<div class="mb-4 timeline">
+    <div class="w-100">
         <div class="d-flex gap-4 flex-column">
             <?php if (empty($users)) : ?>
                 <p class="lastest__articles--paragraph">No articles found, please add articles so as to be displayed!!</p>
@@ -84,6 +84,6 @@ $user = new User();
                     <?php endforeach; ?>
                 <?php endif; ?>
         </div>
-    </aside>
+    </div>
 </div>
 <!-- side section | end-->

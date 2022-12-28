@@ -3,51 +3,47 @@
 <!--  -->
 <?php foreach ($articles as $article) : ?>
     <article class="mb-3 bg-white shadow-sm">
-        <div class=" d-flex justify-content-between p-4">
+        <div class=" d-flex justify-content-between p-4 align-items-top">
 
             <div class="d-flex justify-content-between gap-4 ">
-
                 <!-- get the user profile of the currently logged in user -->
                 <?php $profile = User::getUserProfile($connection, $article['created_by']); ?>
-
                 <!-- checks of the image is null | else shows image -->
                 <?php if (!empty($profile)) : ?>
-                    <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
+                    <div class="overflow-hidden top-20 ml-2 border-muted | user-image-comment">
                         <img src="./uploads/profile_imgs/<?= $profile['profile_picture']; ?>" alt="image" class=" w-100 border-4 | user-image" />
                     </div>
                 <?php else : ?>
-                    <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
+                    <div class="overflow-hidden top-20 ml-2 border-muted | user-image-comment">
                         <img src="./uploads/profile_imgs/user.png" alt="image" class=" w-100 border-4 | user-image" />
                     </div>
                 <?php endif; ?>
 
 
                 <!-- checks of the image is null | else shows image -->
-                <div class="">
+                <div>
                     <?php if ($article['name'] !== null) : ?>
-                        <div >
-                            <h3>
+                        <div>
+                            <p>
                                 <a href="profile.php?id=<?= $article['created_by']; ?>" class="text-decoration-none"><?= $article['name']; ?></a>
-                            </h3>
+                            </p>
                         </div>
                     <?php else : ?>
                         <div>
-                            <h3><a href="#">Anonymous</a></h3>
+                            <p>
+                                <a href="#">Anonymous</a>
+                            </p>
                         </div>
                     <?php endif; ?>
 
-                    <p>
-                        <!-- checks of the image is null | else shows image -->
-                        <time datetime="<?= $article['published_at'] ?>">
-                            <?php
-                            $datetime = new DateTime($article['published_at']);
-                            echo $datetime->format("j F, Y");
-                            ?>
-                        </time>
-                    </p>
+                    <!-- checks of the image is null | else shows image -->
+                    <time datetime="<?= $article['published_at'] ?>">
+                        <?php
+                        $datetime = new DateTime($article['published_at']);
+                        echo $datetime->format("j F, Y");
+                        ?>
+                    </time>
                 </div>
-
-
             </div>
 
 
@@ -75,6 +71,22 @@
                                 <i class="fa fa-user-check" aria-hidden="true"></i> Following
                             </a>
                         <?php endif; ?>
+                    <?php else : ?>
+                        <div class="article-options">
+                            <div class="edit-dots article-options-btn">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="bg-white shadow-sm article-option-list card " p-2">
+                                <div class="p-2 border-bottom"><a href="./admin/edit_article.php?id=<?= $article['id'] ?>" class="text-decoration-none">Edit</a></div>
+                                <div class="p-2"><a href="profile.php?id=<?= $_SESSION['user_id']; ?>" class="text-decoration-none">delete</a></div>
+                            </div>
+                        </div>
+
+
+
                     <?php endif; ?>
 
                     <!-- if user is not logged in then they will be tranfered to the login page -->
@@ -84,8 +96,6 @@
                     </a>
                 <?php endif; ?>
             </div>
-
-
         </div>
 
 
@@ -97,7 +107,7 @@
 
             <div>
                 <p class="cut-text"><?= $article['article_content']; ?> </p>
-                <input class="expand-btn" type="checkbox">
+                <input class="excomment-pand" type="checkbox">
             </div>
 
             check out the <a href="article.php?id=<?= $article['id']; ?>">full article</a>
@@ -124,13 +134,14 @@
         <?php require_once "./includes/like.php"; ?>
         <!-- like functionality -->
 
-        <div class="p-4">
-
+        <div class="p-4 border-bottom">
             <!-- comment form -->
             <?php require_once "./includes/comment.php"; ?>
             <!-- comment form -->
-
         </div>
+
+        <?php require_once "./includes/comment-display.php"; ?>
+
 
     </article>
 

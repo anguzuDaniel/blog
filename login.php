@@ -49,6 +49,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="password" name="password" id="password" class="form-control" required>
             </div>
 
+            <div>
+                <input type="checkbox" name="remember-me" id="">
+                <label for="remember-me">Remember me</label>
+            </div>
+
             <a href="./recoverAccount.php">Forgot password?</a>
 
             <button class="btn btn-primary mb-2 w-100">Login</button>

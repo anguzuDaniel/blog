@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./css/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css">
     <link rel="stylesheet" href="./css/sass/vendors/open-props/open-props.min.css">
     <link rel="stylesheet" href="./css/sass/vendors/bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/script.js" defer></script>
 </head>
@@ -26,6 +26,7 @@
     .user-image {
         object-fit: cover;
         aspect-ratio: 10/ 10;
+        inset-block: 0;
     }
 
     .comment-img-wrapper {
@@ -47,6 +48,14 @@
         transform: scale(1.2);
     }
 
+    .user-image-comment {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+    }
+
+    .user-image-comment>img,
     .comment-img-wrapper>img {
         width: 100%;
     }
@@ -70,6 +79,42 @@
 
     .comment-img {
         border-radius: 50%;
+    }
+
+    .comment-like {
+        transition: all .2s ease-in;
+    }
+
+    .comment-like:hover {
+        transform: scale(1.2);
+    }
+
+    .edit-dots {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        cursor: pointer;
+    }
+
+    .edit-dots span {
+        display: block;
+        background-color: black;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+    }
+
+    .article-options {
+        position: relative;
+        border-color: aqua;
+    }
+
+    .article-option-list {
+        position: absolute;
+        display: none;
+        right: 8px;
+        z-index: 9999999;
+        width: 100px;
     }
 </style>
 

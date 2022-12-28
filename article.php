@@ -73,7 +73,9 @@ $user = new User();
 
                 <hr>
 
-                <?php include_once "includes/comment.php"; ?>
+                <?php include_once "./includes/comment.php"; ?>
+
+                <?php include_once "./includes/comment-display.php"; ?>
             </article>
         <?php else : ?>
             <p class="paragraph article--paragraph">No articles found..</p>

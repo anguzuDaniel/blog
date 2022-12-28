@@ -107,27 +107,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 <!-- main section start -->
-<main class="admin__wrapper">
-    <?php include_once "includes/sidebar.php" ?>
+<?php include_once "includes/navigation.php"; ?>
 
-    <div class="admin__container">
+<main class="col-12 container d-lg-flex gap-4">
 
+    <!-- admin section wrapper start -->
+    <section class="container">
+        <div>
+            <h1>Do want to create an article <h1></h1>
+            </h1>
+            <hr>
+        </div>
 
-        <?php require_once "./includes/navigation.php"; ?>
+        <?php require_once "./includes/form.php"; ?>
 
-        <!-- admin section wrapper start -->
-        <section class="admin__content">
-            <div class="heading | admin__content--heading">
-                <h1>Do want to create an article <h1></h1>
-                </h1>
-                <hr>
-            </div>
-
-            <?php require_once "./includes/form.php"; ?>
-
-        </section>
-        <!-- admin section wrapper end -->
-    </div>
+    </section>
+    <!-- admin section wrapper end -->
 </main>
 <!-- main section end -->
 

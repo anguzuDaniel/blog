@@ -90,7 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $article->setCategories($connection, $category_ids);
 
                 Url::redirect("/blog/article.php?id=$article->id");
-
             }
         }
     } catch (Exception $e) {
@@ -101,24 +100,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 <!-- main section start -->
-<main class="admin__wrapper">
-    <?php include_once "./includes/sidebar.php"; ?>
+<?php include_once "includes/navigation.php"; ?>
 
-    <div class="admin__container">
-        <?php require_once "./includes/navigation.php"; ?>
+<main class="col-12 container d-lg-flex gap-4">
 
-        <!-- admin section wrapper start -->
-        <section class="admin__content">
-            <div class="heading | admin__content--heading">
-                <h1>Edit Article</h1>
-                <hr>
-            </div>
+    <!-- admin section wrapper start -->
+    <section class="container">
+        <div>
+            <h1>Edit Article</h1>
+            <hr>
+        </div>
 
 
-            <?php require_once "includes/form.php"; ?>
-        </section>
-        <!-- admin section wrapper end -->
-    </div>
+        <?php require_once "includes/form.php"; ?>
+    </section>
+    <!-- admin section wrapper end -->
 </main>
 <!-- main section end -->
 

@@ -58,18 +58,18 @@ if (Auth::isLoggedIn()) {
                 <div class="bg-white position-absolute shadow-sm user-option-list card" style="top: 55px; right: 5px; width: 200px; display: none;">
                     <div class="border-bottom p-2 px-4"><a href="index.php" class="text-decoration-none">Homepage</a></div>
 
-                    <div class="border-bottom px-4">
+                    <div class="border-bottom px-3">
                         <div class="p-2"><a href="profile.php?id=<?= $_SESSION['user_id']; ?>" class="text-decoration-none">My profile</a></div>
                         <div class="p-2"><a href="update-profile.php?id=<?= $_SESSION['user_id']; ?>" class="text-decoration-none">Update profile</a></div>
                     </div>
 
-                    <div class="border-bottom px-4">
+                    <div class="border-bottom px-3">
                         <div class="p-2"><a href="index.php" class="text-decoration-none">Homepage</a></div>
                         <div class="p-2"><a href="./admin/index.php" class="text-decoration-none">My Dashboard</a></div>
                     </div>
 
 
-                    <div class="border-bottom px-4">
+                    <div class="border-bottom px-3">
                         <div class="p-2"><a href="./admin/create_article.php" class="text-decoration-none">Create article</a></div>
                         <div class="p-2"><a href="./admin/all_articles.php" class="text-decoration-none">All articles</a></div>
                     </div>

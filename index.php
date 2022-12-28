@@ -25,9 +25,7 @@ $user = new User();
                 <?php if (Auth::isLoggedIn()) : ?>
                     <?php if (isset($_SESSION['login_user'])) : ?>
                         <div class="d-flex">
-                            <?php
-                            // var_dump($userLogin);
-                            if (!empty($userLogin)) : ?>
+                            <?php if (!empty($userLogin)) : ?>
                                 <div class="overflow-hidden top-20 ml-2 border-muted" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent;">
                                     <img src="./uploads/profile_imgs/<?php echo $userLogin['profile_picture'] ?>" alt="" class=" w-100 border-4 | user-image">
                                 </div>
@@ -62,7 +60,7 @@ $user = new User();
 
         <!-- timeline articles | start here -->
         <div>
-            <?php require_once "includes/article.php"; ?>
+            <?php require_once "./includes/article.php"; ?>
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination">

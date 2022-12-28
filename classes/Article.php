@@ -486,4 +486,70 @@ class Article
 
         return $stmt->execute();
     }
+
+    public static function getArticleComments($conn, $articleId)
+    {
+        $sql = "SELECT c.id AS com_id, c.user_id, 
+                c.article_id, c.comment, 
+                c.id AS comment_id, 
+                u.id, 
+                u.username, 
+                a.id
+                FROM comment AS c
+
+                LEFT JOIN articles AS a
+                ON c.article_id = :id
+
+                INNER JOIN user AS u  
+                ON c.user_id = u.id 
+                
+                WHERE a.id = :id";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':id', $articleId, PDO::PARAM_INT);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    public static function getArticleCommentReply($conn, $articleId, $commentId)
+    {
+        $sql = "SELECT 
+                r.id, 
+                r.user_id AS user_replied, 
+                r.article_id AS article_replied, 
+                r.comment_id, 
+                r.reply,
+                c.id AS comment_replied,
+                u.id, 
+                u.username
+                FROM comment_reply AS r
+
+                LEFT JOIN comment AS c
+                ON r.comment_id = :cid
+
+                LEFT JOIN user AS u  
+                ON r.user_id = u.id 
+                
+                LEFT JOIN articles AS a  
+                ON r.article_id = :aid
+
+                WHERE c.id = :cid
+                LIMIT 1";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':aid', $articleId, PDO::PARAM_INT);
+        $stmt->bindValue(':cid', $commentId, PDO::PARAM_INT);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }

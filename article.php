@@ -7,6 +7,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     $article = Article::getWithCategories($connection, $_GET['id']);
+    $comments = Article::getArticleComments($connection, intval($_GET['id']));
 } else {
     $article = null;
 }
@@ -17,7 +18,7 @@ $user = new User();
 ?>
 
 
-<?php require_once "includes/navigation.php"; ?>
+<?php require_once "./includes/navigation.php"; ?>
 
 
 <main class="col-12 container d-lg-flex gap-4">

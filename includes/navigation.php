@@ -12,7 +12,7 @@ if (Auth::isLoggedIn()) {
 
 
 <!-- main naviagation bar | start -->
-<header class="header px-5 py-3 bg-light border d-flex justify-content-between w-100 align-items-center" style="z-index: 999999;">
+<header class="header px-5 py-3 bg-white border d-flex justify-content-between w-100 align-items-center" style="z-index: 999999;">
     <h1 class="header--logo  mr-auto"><?php echo APP_NAME; ?>!</h1>
 
 

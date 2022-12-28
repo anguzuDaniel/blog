@@ -72,7 +72,7 @@ $articles = Article::getPage($connection, $paginator->limit, $paginator->offset,
                 </div>
             </div>
 
-            <table class="table">
+            <table class="table table-bordered table-striped table-responsive table-primary table-active">
                 <thead>
                     <tr>
                         <td>

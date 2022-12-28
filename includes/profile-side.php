@@ -16,7 +16,7 @@ $user = new User();
 
                     <?php if (isset($_SESSION['user_id'])) : ?>
                         <?php if ($u['id'] !== $_SESSION['user_id']) : ?>
-                            <div class="d-flex justify-content-between bg-white p-4 shadow-sm">
+                            <div class="d-flex justify-content-between bg-white p-4 shadow-sm mb-3">
                                 <div class="w-25">
                                     <?php
                                     $profile = User::getUserProfile($connection, $u['id']);
@@ -54,16 +54,10 @@ $user = new User();
                                                     <a href="follow.php?type=unfollow&id=<?= $u['id']; ?>" class="btn btn-light mb-2 text-primary border-primary w-100">
                                                         <i class="fa fa-user-check" aria-hidden="true"></i> Following
                                                     </a>
-                                                    <a href="profile.php?id=<?= $u['id']; ?>" class="btn btn-primary mb-2 w-100">
-                                                        <i class="fa fa-eye" aria-hidden="true"></i> profile
-                                                    </a>
+
                                                 <?php else : ?>
                                                     <a href="follow.php?type=user&id=<?= $u['id']; ?>" class="btn btn-primary mb-2 w-100">
                                                         <i class="fa fa-user-plus"></i> Follow
-                                                    </a>
-
-                                                    <a href="profile.php?id=<?= $u['id']; ?>" class="btn btn-primary mb-2 w-100">
-                                                        <i class="fa fa-eye" aria-hidden="true"></i> profile
                                                     </a>
                                                 <?php endif; ?>
                                             <?php endif; ?>

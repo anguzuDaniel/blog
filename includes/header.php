@@ -23,6 +23,10 @@
 </head>
 <!-- have to tranfer this to the corresponding css file -->
 <style>
+    body {
+        background-color: rgb(225, 225, 225);
+    }
+
     .user-image {
         object-fit: cover;
         aspect-ratio: 10/ 10;

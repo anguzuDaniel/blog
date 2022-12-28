@@ -501,9 +501,7 @@ class Article
                 ON c.article_id = :id
 
                 INNER JOIN user AS u  
-                ON c.user_id = u.id 
-                
-                WHERE a.id = :id";
+                ON c.user_id = u.id ";
 
         $stmt = $conn->prepare($sql);
 
@@ -538,8 +536,7 @@ class Article
                 LEFT JOIN articles AS a  
                 ON r.article_id = :aid
 
-                WHERE c.id = :cid
-                LIMIT 1";
+                WHERE c.id = :cid";
 
         $stmt = $conn->prepare($sql);
 

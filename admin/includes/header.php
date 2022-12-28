@@ -22,6 +22,10 @@
     <script src="../css/sass/vendors/bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/js/bootstrap.min.js" defer></script>
 </head>
 <style>
+    body {
+        margin-top: 125px;
+    }
+
     .admin-nav {
         position: fixed;
         top: 13%;

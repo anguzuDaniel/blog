@@ -1,8 +1,3 @@
-<?php
-// var_dump($article);
-$comments = Article::getArticleComments($connection, intval($article['id']));
-// var_dump($comments);
-?>
 
 
 <?php if (!empty($comments)) : ?>
